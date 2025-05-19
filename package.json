@@ -1,0 +1,76 @@
+{
+	"name": "@rtorcato/browser-common",
+	"version": "1.0.1",
+	"description": "Browser common code",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"license": "UNLICENSED",
+	"keywords": [
+		"common",
+		"typescript",
+		"javascript"
+	],
+	"author": "Richard Torcato",
+	"sideEffects": false,
+	"scripts": {
+		"build-dev": "rimraf ./dist && cross-env NODE_ENV=development node build.mjs && tsc --emitDeclarationOnly --project tsconfig.build.json",
+		"build-prod": "rimraf ./dist && cross-env NODE_ENV=production node build.mjs && tsc --emitDeclarationOnly --project tsconfig.build.json",
+		"prepublishOnly1": "npm run build-prod",
+		"==================== Common ====================": "",
+		"lint": "pnpm exec biome lint .",
+		"format": "pnpm exec biome format .",
+		"check:fix": "pnpm exec biome check --fix",
+		"check": "pnpm exec biome check .",
+		"prepare": "husky",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest",
+		"test:watch": "vitest --watch",
+		"coverage": "vitest run --coverage",
+		"================================================": ""
+	},
+	"files": [
+		"CHANGELOG.md",
+		"dist",
+		"README.md"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./lib/*": {
+			"types": "./dist/lib/*.d.ts",
+			"import": "./dist/lib/*.js"
+		}
+	},
+	"lint-staged": {
+		"*.{js,ts,json,md}": [
+			"pnpm exec biome lint",
+			"pnpm exec biome format",
+			"git add"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@rtorcato/js-tooling": "1.0.1",
+		"@types/luxon": "^3.6.2",
+		"@types/node": "^22.14.1",
+		"cross-env": "^7.0.3",
+		"esbuild": "^0.23.1",
+		"esbuild-node-externals": "^1.14.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.0.0",
+		"rimraf": "6.0.1",
+		"semantic-release": "^24.2.3",
+		"tsup": "^8.5.0",
+		"typescript": "^5.7.3",
+		"vitest": "3.0.2"
+	}
+}

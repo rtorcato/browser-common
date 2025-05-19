@@ -1,0 +1,32 @@
+# npx --no-install commitlint --edit "$1"
+
+# version: 1.0.0
+
+if ! head -1 "$1" | grep -qE "^(feat|fix|perf)(\(.+?\))?( \(patch|minor|major\))?: .{1,}$|^(feat|fix|perf|ci|WIP|chore|docs|test|style|refactor|build|BREAKING CHANGE|revert)(\(.+?\))?: .{1,}$"; then
+    echo "❌ Aborting commit. Your commit message is invalid." >&2
+    echo "" >&2
+    echo "💡 Commit message must follow Conventional Commits format with 'patch', 'minor', or 'major' only for 'feat', 'fix', and 'perf':" >&2
+    echo "" >&2
+    echo "Examples:" >&2
+    echo "  feat(patch): add new feature" >&2
+    echo "  fix(minor): resolve issue" >&2
+    echo "  perf(major): improve performance" >&2
+    echo "  ci: update CI configuration" >&2
+    echo "  chore: update dependencies" >&2
+    echo "  docs: update documentation" >&2
+    echo "  test: add new tests" >&2
+    echo "  style: fix code formatting" >&2
+    echo "  refactor: refactor codebase" >&2
+    echo "  build: update build scripts" >&2
+    echo "  BREAKING CHANGE: refactor API" >&2
+    echo "  revert: revert previous commit" >&2
+    echo "" >&2
+    exit 1
+fi
+if ! head -1 "$1" | grep -qE "^.{1,88}$"; then
+    echo "❌ Aborting commit. Your commit message is too long (max 88 chars)." >&2
+    echo "" >&2
+    echo "💡 Keep your commit title concise." >&2
+    echo "" >&2
+    exit 1
+fi

@@ -1,0 +1,3 @@
+# MediaDevices API
+
+The MediaDevices API is a web API that allows web applications to access and interact with media input and output devices, such as cameras, microphones, and speakers, on the user's device. It provides methods to enumerate available media devices, request access to the user's camera and/or microphone, and manage media streams. This API is commonly used for features like video conferencing, audio recording, and real-time media streaming in web applications.
