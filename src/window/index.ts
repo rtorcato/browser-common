@@ -54,8 +54,7 @@ export function scrollToBottom(behavior: ScrollBehavior = 'auto'): void {
  * Reloads the current browser window.
  * @param forceReload If true, reloads from the server instead of cache.
  */
-export function reloadWindow(forceReload: boolean = false): void {
-	// The forceReload argument is ignored because TypeScript expects zero arguments.
+export function reloadWindow(): void {
 	window.location.reload()
 }
 

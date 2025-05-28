@@ -17,6 +17,7 @@ logs/
 dist/
 build/
 out/
+tsconfig*.tsbuildinfo
 
 # System files
 .DS_Store

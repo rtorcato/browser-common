@@ -6,9 +6,11 @@
 export function serializeForm(form: HTMLFormElement): Record<string, string> {
 	const data: Record<string, string> = {}
 	const formData = new FormData(form)
-	for (const [key, value] of formData.entries()) {
-		data[key] = String(value)
-	}
+	formData.forEach((value, key) => {
+		if (value !== null) {
+			data[key] = String(value)
+		}
+	})
 	return data
 }
 

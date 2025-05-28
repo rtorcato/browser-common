@@ -1,17 +1,3 @@
-import path from 'node:path';
-import { defineConfig } from 'vitest/config';
+import config from '@rtorcato/js-tooling/vitest/config'
 
-export default defineConfig({
-  test: {
-    globals: true,
-    environment: 'node',
-    coverage: {
-      reporter: ['text', 'json', 'html'],
-    },
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-});
+export default config

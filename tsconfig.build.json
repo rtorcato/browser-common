@@ -1,32 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "esModuleInterop": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "declaration": true,
-    "moduleResolution": "bundler",
-    "outDir": "dist",
-    "emitDeclarationOnly": false,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./src/*"]
-    },
-    "types": []
+    "noEmit": false, // Emit output files
+    "emitDeclarationOnly": true, // Emit JS and .d.ts files
+    "declaration": true, // Generate .d.ts files
+    "declarationMap": true, // (optional) Generate sourcemaps for d.ts files
+    "outDir": "dist" // Output directory for build
   },
-  "include": ["src/**/*"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src/test",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.spec.ts",
-    "**/*.spec.tsx"
-  ]
+  "exclude": ["dist", "node_modules", "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"]
 }

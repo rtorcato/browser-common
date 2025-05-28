@@ -1,76 +1,213 @@
 {
-	"name": "@rtorcato/browser-common",
-	"version": "1.0.1",
-	"description": "Browser common code",
-	"type": "module",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"license": "UNLICENSED",
-	"keywords": [
-		"common",
-		"typescript",
-		"javascript"
-	],
-	"author": "Richard Torcato",
-	"sideEffects": false,
-	"scripts": {
-		"build-dev": "rimraf ./dist && cross-env NODE_ENV=development node build.mjs && tsc --emitDeclarationOnly --project tsconfig.build.json",
-		"build-prod": "rimraf ./dist && cross-env NODE_ENV=production node build.mjs && tsc --emitDeclarationOnly --project tsconfig.build.json",
-		"prepublishOnly1": "npm run build-prod",
-		"==================== Common ====================": "",
-		"lint": "pnpm exec biome lint .",
-		"format": "pnpm exec biome format .",
-		"check:fix": "pnpm exec biome check --fix",
-		"check": "pnpm exec biome check .",
-		"prepare": "husky",
-		"typecheck": "tsc --noEmit",
-		"test": "vitest",
-		"test:watch": "vitest --watch",
-		"coverage": "vitest run --coverage",
-		"================================================": ""
-	},
-	"files": [
-		"CHANGELOG.md",
-		"dist",
-		"README.md"
-	],
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
-		},
-		"./lib/*": {
-			"types": "./dist/lib/*.d.ts",
-			"import": "./dist/lib/*.js"
-		}
-	},
-	"lint-staged": {
-		"*.{js,ts,json,md}": [
-			"pnpm exec biome lint",
-			"pnpm exec biome format",
-			"git add"
-		]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@rtorcato/js-tooling": "1.0.1",
-		"@types/luxon": "^3.6.2",
-		"@types/node": "^22.14.1",
-		"cross-env": "^7.0.3",
-		"esbuild": "^0.23.1",
-		"esbuild-node-externals": "^1.14.0",
-		"husky": "^9.1.7",
-		"lint-staged": "^16.0.0",
-		"rimraf": "6.0.1",
-		"semantic-release": "^24.2.3",
-		"tsup": "^8.5.0",
-		"typescript": "^5.7.3",
-		"vitest": "3.0.2"
-	}
+  "name": "@rtorcato/browser-common",
+  "version": "1.0.1",
+  "description": "Browser common code",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "UNLICENSED",
+  "keywords": [
+    "common",
+    "typescript",
+    "javascript"
+  ],
+  "author": "Richard Torcato",
+  "sideEffects": false,
+  "scripts": {
+    "build-dev": "rimraf ./dist && cross-env NODE_ENV=development node build.mjs && tsc --emitDeclarationOnly --project tsconfig.build.json",
+    "build-prod": "rimraf ./dist && cross-env NODE_ENV=production node build.mjs && tsc --emitDeclarationOnly --project tsconfig.build.json",
+    "==================== Common ====================": "",
+    "lint": "pnpm exec biome lint .",
+    "format": "pnpm exec biome format .",
+    "check:fix": "pnpm exec biome check --fix",
+    "check": "pnpm exec biome check .",
+    "prepare": "husky",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "coverage": "vitest run --coverage",
+    "commit": "cz",
+    "================================================": ""
+  },
+  "files": [
+    "CHANGELOG.md",
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./alert": {
+      "import": "./dist/alert/index.js",
+      "types": "./dist/alert/index.d.ts"
+    },
+    "./canvas": {
+      "import": "./dist/canvas/index.js",
+      "types": "./dist/canvas/index.d.ts"
+    },
+    "./clipboard": {
+      "import": "./dist/clipboard/index.js",
+      "types": "./dist/clipboard/index.d.ts"
+    },
+    "./common": {
+      "import": "./dist/common/index.js",
+      "types": "./dist/common/index.d.ts"
+    },
+    "./cookies": {
+      "import": "./dist/cookies/index.js",
+      "types": "./dist/cookies/index.d.ts"
+    },
+    "./dom": {
+      "import": "./dist/dom/index.js",
+      "types": "./dist/dom/index.d.ts"
+    },
+    "./draganddrop": {
+      "import": "./dist/draganddrop/index.js",
+      "types": "./dist/draganddrop/index.d.ts"
+    },
+    "./filesystem": {
+      "import": "./dist/filesystem/index.js",
+      "types": "./dist/filesystem/index.d.ts"
+    },
+    "./focus": {
+      "import": "./dist/focus/index.js",
+      "types": "./dist/focus/index.d.ts"
+    },
+    "./forms": {
+      "import": "./dist/forms/index.js",
+      "types": "./dist/forms/index.d.ts"
+    },
+    "./fullscreen": {
+      "import": "./dist/fullscreen/index.js",
+      "types": "./dist/fullscreen/index.d.ts"
+    },
+    "./geolocation": {
+      "import": "./dist/geolocation/index.js",
+      "types": "./dist/geolocation/index.d.ts"
+    },
+    "./history": {
+      "import": "./dist/history/index.js",
+      "types": "./dist/history/index.d.ts"
+    },
+    "./htmlmedia": {
+      "import": "./dist/htmlmedia/index.js",
+      "types": "./dist/htmlmedia/index.d.ts"
+    },
+    "./idle": {
+      "import": "./dist/idle/index.js",
+      "types": "./dist/idle/index.d.ts"
+    },
+    "./iframe": {
+      "import": "./dist/iframe/index.js",
+      "types": "./dist/iframe/index.d.ts"
+    },
+    "./intersection": {
+      "import": "./dist/intersection/index.js",
+      "types": "./dist/intersection/index.d.ts"
+    },
+    "./keyboard": {
+      "import": "./dist/keyboard/index.js",
+      "types": "./dist/keyboard/index.d.ts"
+    },
+    "./localstorage": {
+      "import": "./dist/localstorage/index.js",
+      "types": "./dist/localstorage/index.d.ts"
+    },
+    "./location": {
+      "import": "./dist/location/index.js",
+      "types": "./dist/location/index.d.ts"
+    },
+    "./mediadevices": {
+      "import": "./dist/mediadevices/index.js",
+      "types": "./dist/mediadevices/index.d.ts"
+    },
+    "./motion": {
+      "import": "./dist/motion/index.js",
+      "types": "./dist/motion/index.d.ts"
+    },
+    "./mutationobserver": {
+      "import": "./dist/mutationobserver/index.js",
+      "types": "./dist/mutationobserver/index.d.ts"
+    },
+    "./notifications": {
+      "import": "./dist/notifications/index.js",
+      "types": "./dist/notifications/index.d.ts"
+    },
+    "./orientation": {
+      "import": "./dist/orientation/index.js",
+      "types": "./dist/orientation/index.d.ts"
+    },
+    "./print": {
+      "import": "./dist/print/index.js",
+      "types": "./dist/print/index.d.ts"
+    },
+    "./resizeobserver": {
+      "import": "./dist/resizeobserver/index.js",
+      "types": "./dist/resizeobserver/index.d.ts"
+    },
+    "./screen": {
+      "import": "./dist/screen/index.js",
+      "types": "./dist/screen/index.d.ts"
+    },
+    "./serviceworkers": {
+      "import": "./dist/serviceworkers/index.js",
+      "types": "./dist/serviceworkers/index.d.ts"
+    },
+    "./sessionstorage": {
+      "import": "./dist/sessionstorage/index.js",
+      "types": "./dist/sessionstorage/index.d.ts"
+    },
+    "./vibrate": {
+      "import": "./dist/vibrate/index.js",
+      "types": "./dist/vibrate/index.d.ts"
+    },
+    "./websockets": {
+      "import": "./dist/websockets/index.js",
+      "types": "./dist/websockets/index.d.ts"
+    },
+    "./window": {
+      "import": "./dist/window/index.js",
+      "types": "./dist/window/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@commitlint/cli": "^19.8.1",
+    "@rtorcato/js-tooling": "^1.0.9",
+    "@semantic-release/changelog": "^6.0.3",
+    "@types/luxon": "^3.6.2",
+    "@types/node": "^22.14.1",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.23.1",
+    "esbuild-node-externals": "^1.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0",
+    "rimraf": "6.0.1",
+    "semantic-release": "^24.2.3",
+    "typescript": "^5.7.3",
+    "vitest": "3.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md}": [
+      "pnpm exec biome lint",
+      "pnpm exec biome format",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://gitlab.com/api/v4/projects/69977218/packages/npm/"
+  }
 }

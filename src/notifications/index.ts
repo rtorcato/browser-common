@@ -46,4 +46,5 @@ export const notifyIfPermitted = async (
 	if (Notification.permission === 'granted') {
 		return showNotification(title, options)
 	}
+	return undefined
 }

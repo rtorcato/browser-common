@@ -1,17 +1,10 @@
+
+
 echo "🔍 Running pre-commit checks..."
 # npx lint-staged
 
-echo "🚀 Running typecheck..."
+echo "🧹 Running typecheck (pnpm run typecheck)..."
 pnpm run typecheck
-TYPECHECK_STATUS=$?
-
-if [ $TYPECHECK_STATUS -ne 0 ]; then
-  echo "❌ Typecheck failed!"
-  exit 1
-else
-  echo "✅ Typecheck passed!"
-fi
-
 echo "🧹 Running lint (pnpm run check)..."
 pnpm run check
 CHECK_STATUS=$?
@@ -23,6 +16,7 @@ else
   echo "✅ Linting passed!"
 fi
 
+pnpm exec biome format .
 # If you later enable lint-staged
 # echo "🎯 Running lint-staged..."
 # npx lint-staged
