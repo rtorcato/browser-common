@@ -8,6 +8,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "tests/**/*"],
+  "include": ["src/**/*", "src/tests/**/*"],
   "exclude": ["build.mjs", "node_modules", "dist", "build", "coverage", "**/*.spec.ts", "**/*.test.ts", "release.config.ts"]
 }
