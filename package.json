@@ -55,6 +55,14 @@
       "import": "./dist/alert/index.js",
       "types": "./dist/alert/index.d.ts"
     },
+    "./backgroundtasks": {
+      "import": "./dist/backgroundtasks/index.js",
+      "types": "./dist/backgroundtasks/index.d.ts"
+    },
+    "./battery": {
+      "import": "./dist/battery/index.js",
+      "types": "./dist/battery/index.d.ts"
+    },
     "./canvas": {
       "import": "./dist/canvas/index.js",
       "types": "./dist/canvas/index.d.ts"
@@ -78,6 +86,10 @@
     "./draganddrop": {
       "import": "./dist/draganddrop/index.js",
       "types": "./dist/draganddrop/index.d.ts"
+    },
+    "./encodingapis": {
+      "import": "./dist/encodingapis/index.js",
+      "types": "./dist/encodingapis/index.d.ts"
     },
     "./filesystem": {
       "import": "./dist/filesystem/index.js",
@@ -151,6 +163,14 @@
       "import": "./dist/orientation/index.js",
       "types": "./dist/orientation/index.d.ts"
     },
+    "./performance": {
+      "import": "./dist/performance/index.js",
+      "types": "./dist/performance/index.d.ts"
+    },
+    "./permissions": {
+      "import": "./dist/permissions/index.js",
+      "types": "./dist/permissions/index.d.ts"
+    },
     "./print": {
       "import": "./dist/print/index.js",
       "types": "./dist/print/index.d.ts"
@@ -163,6 +183,10 @@
       "import": "./dist/screen/index.js",
       "types": "./dist/screen/index.d.ts"
     },
+    "./selectionapi": {
+      "import": "./dist/selectionapi/index.js",
+      "types": "./dist/selectionapi/index.d.ts"
+    },
     "./serviceworkers": {
       "import": "./dist/serviceworkers/index.js",
       "types": "./dist/serviceworkers/index.d.ts"
@@ -174,6 +198,18 @@
     "./vibrate": {
       "import": "./dist/vibrate/index.js",
       "types": "./dist/vibrate/index.d.ts"
+    },
+    "./visualviewport": {
+      "import": "./dist/visualviewport/index.js",
+      "types": "./dist/visualviewport/index.d.ts"
+    },
+    "./weblocks": {
+      "import": "./dist/weblocks/index.js",
+      "types": "./dist/weblocks/index.d.ts"
+    },
+    "./webshare": {
+      "import": "./dist/webshare/index.js",
+      "types": "./dist/webshare/index.d.ts"
     },
     "./websockets": {
       "import": "./dist/websockets/index.js",
