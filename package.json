@@ -6,7 +6,18 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtorcato/browser-common.git"
+  },
+  "homepage": "https://github.com/rtorcato/browser-common#readme",
+  "bugs": {
+    "url": "https://github.com/rtorcato/browser-common/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
   "keywords": [
     "common",
     "typescript",
@@ -175,8 +186,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@commitlint/cli": "^19.8.1",
-    "@rtorcato/js-tooling": "^1.0.9",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^21.0.2",
+    "@rtorcato/js-tooling": "^2.7.0",
     "@semantic-release/changelog": "^6.0.3",
     "@types/luxon": "^3.6.2",
     "@types/node": "^22.14.1",
@@ -198,8 +210,7 @@
   "lint-staged": {
     "*.{js,ts,json,md}": [
       "pnpm exec biome lint",
-      "pnpm exec biome format",
-      "git add"
+      "pnpm exec biome format"
     ]
   },
   "husky": {
@@ -208,6 +219,6 @@
     }
   },
   "publishConfig": {
-    "registry": "https://gitlab.com/api/v4/projects/69977218/packages/npm/"
+    "access": "public"
   }
 }

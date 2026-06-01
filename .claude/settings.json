@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath' | { read -r f; [ -f \"$f\" ] && case \"$f\" in *.js|*.jsx|*.ts|*.tsx|*.mjs|*.cjs|*.json|*.jsonc|*.md|*.css) ./node_modules/.bin/biome check --fix \"$f\" 2>/dev/null;; esac; } || true"
+          }
+        ]
+      }
+    ]
+  }
+}
