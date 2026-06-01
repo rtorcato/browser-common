@@ -13,15 +13,15 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 
 - [ ] **Test coverage.** Currently 2 of 42 modules have tests (`encodingapis`, `webshare`). Add at least smoke tests for the remaining 40 modules. Suggested pattern: per-module `<name>.test.ts` co-located in `src/<name>/`, verifying (a) the `is<Name>Available()` support check returns a boolean, and (b) every export is callable in the test environment.
 - [ ] **Add `@example` tags to JSDoc.** Functions have `@param`/`@returns` but no usage examples. Add one short `@example` block per public function — IDE hover docs surface them and they double as documentation tests.
-- [ ] **Add `.github/dependabot.yml`.** The auto-merge workflow at `.github/workflows/dependabot-automerge.yml` is in place but Dependabot itself isn't configured, so it never opens PRs. Add a config for `npm` and `github-actions` ecosystems (weekly, max 5 open PRs).
+- [x] ~~**Add `.github/dependabot.yml`.**~~ Done via `js-tooling fix dependabot` — weekly npm + github-actions ecosystems configured.
 - [ ] **Add `.github/ISSUE_TEMPLATE/`** (bug report + feature request) and `.github/PULL_REQUEST_TEMPLATE.md`.
 - [ ] **Add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`** before flipping the repo public.
 - [ ] **Add `SECURITY.md`.** `@rtorcato/js-tooling` has one; mirror it. Even a 5-line "report via private GitHub Security advisory" file is enough — required by GitHub's security tab to show as configured.
 - [ ] **Fix npm keywords + GitHub topics.** `package.json` keywords are `["common", "typescript", "javascript"]` — useless for discovery. Replace with: `browser-api`, `web-api`, `clipboard`, `geolocation`, `tree-shakeable`, `esm`, `web-platform`, `dom`. Mirror the same list as GitHub repo topics (`gh repo edit rtorcato/browser-common --add-topic browser-api ...`).
-- [ ] **Align Biome config with js-tooling shared preset.** `biome.jsonc` is hand-rolled; doctor flags drift. Run `npx @rtorcato/js-tooling copy biome` (or `fix biome`) so the config extends `@rtorcato/js-tooling/biome`. Keep any project-specific overrides locally; everything else comes from the shared preset.
-- [ ] **Add `.editorconfig`.** Doctor flagged this as missing. Run `npx @rtorcato/js-tooling fix editorconfig` for cross-editor consistency.
-- [ ] **Add `.nvmrc`.** Doctor flagged this as missing. `echo 22 > .nvmrc` (or `npx @rtorcato/js-tooling fix nvmrc`) so contributors and CI pin the same Node major.
-- [ ] **Add CodeQL workflow.** Doctor flagged this as missing. Run `npx @rtorcato/js-tooling fix codeql` to scaffold GitHub's security scanner. Free for public repos.
+- [ ] **Upgrade Biome v1 → v2 to align with shared preset.** The js-tooling shared config (`@rtorcato/js-tooling/biome`) targets Biome v2.3.0, but this repo is still on v1.9.4. Not a simple "extends" — v2 changes the schema (`organizeImports` moved to `assist.actions.source.organizeImports`, `files.ignore` → `files.includes` with negation patterns, several rules renamed). Steps: (1) bump `@biomejs/biome ^1.9.4` → `^2.3.0` in devDeps, (2) migrate `biome.jsonc` to v2 schema (use `biome migrate` CLI), (3) re-run `pnpm check` and fix any newly-flagged rules. Reserve a dedicated commit for this.
+- [x] ~~**Add `.editorconfig`.**~~ Done via `js-tooling fix editorconfig`.
+- [x] ~~**Add `.nvmrc`.**~~ Done via `js-tooling fix nvmrc` (pins Node 22).
+- [x] ~~**Add CodeQL workflow.**~~ Done via `js-tooling fix codeql` — runs on push/PR/weekly cron.
 - [x] ~~**Run `knip`.**~~ Resolved: `knip.json` configured with subpath-export entry pattern (`src/index.ts`, `src/*/index.ts`); `knip` script added; ran clean after removing unused `@types/luxon`, adding `@vitest/coverage-v8`, and dropping the unused commitizen script.
 - [ ] **Codecov badge in `README.md` will 404 until codecov is set up.** Either configure the codecov.io integration (the CI already uploads `./coverage/coverage-summary.json`) or remove the badge until it works.
 
