@@ -27,7 +27,7 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 
 ## Nice to have
 
-- [ ] **Bundle size monitoring.** Add [`size-limit`](https://github.com/ai/size-limit) so PRs surface size regressions per subpath export.
+- [ ] **Bundle size monitoring.** Tracked upstream in `@rtorcato/js-tooling` — it's listed in [js-tooling's TODO.md](https://github.com/rtorcato/js-tooling/blob/main/TODO.md) as a planned shared preset. Wait for it to land there, then bump the `@rtorcato/js-tooling` devDep here to inherit the size-limit config + CI step rather than configuring it locally.
 - [ ] **API docs site.** Generate TypeDoc → publish to GitHub Pages. Each subpath export becomes its own page.
 - [ ] **Expanded usage examples.** Beyond the one quick-start snippet, consider a `docs/examples.md` with one snippet per module group (storage, sensors, UI, etc.).
 - [ ] **Verify tree-shaking works end-to-end.** `pnpm build-prod` emits 3 `chunk-*.js` files; confirm a consumer doing `import { copyToClipboard } from '@rtorcato/browser-common/clipboard'` only pulls the clipboard chunk into their bundle (test in a downstream Vite/Webpack project).
