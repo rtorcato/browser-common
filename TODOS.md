@@ -22,7 +22,7 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 - [ ] **Add `.editorconfig`.** Doctor flagged this as missing. Run `npx @rtorcato/js-tooling fix editorconfig` for cross-editor consistency.
 - [ ] **Add `.nvmrc`.** Doctor flagged this as missing. `echo 22 > .nvmrc` (or `npx @rtorcato/js-tooling fix nvmrc`) so contributors and CI pin the same Node major.
 - [ ] **Add CodeQL workflow.** Doctor flagged this as missing. Run `npx @rtorcato/js-tooling fix codeql` to scaffold GitHub's security scanner. Free for public repos.
-- [ ] **Run `knip`.** `@rtorcato/js-tooling` already includes knip in its devDeps; configure it for this repo to catch unused exports and dead files. Doctor also flags this as not configured.
+- [x] ~~**Run `knip`.**~~ Resolved: `knip.json` configured with subpath-export entry pattern (`src/index.ts`, `src/*/index.ts`); `knip` script added; ran clean after removing unused `@types/luxon`, adding `@vitest/coverage-v8`, and dropping the unused commitizen script.
 - [ ] **Codecov badge in `README.md` will 404 until codecov is set up.** Either configure the codecov.io integration (the CI already uploads `./coverage/coverage-summary.json`) or remove the badge until it works.
 
 ## Followups from the GitLab → GitHub migration
