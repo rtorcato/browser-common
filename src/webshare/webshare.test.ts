@@ -1,6 +1,14 @@
 import { describe, expect, it, vi } from 'vitest'
 import { isFileShareSupported, isWebShareSupported, share } from '.'
 
+const setNavigator = (value: unknown) => {
+	Object.defineProperty(globalThis, 'navigator', {
+		value,
+		configurable: true,
+		writable: true,
+	})
+}
+
 describe('webshare', () => {
 	it('should detect support for Web Share API', () => {
 		expect(typeof isWebShareSupported()).toBe('boolean')
@@ -12,21 +20,19 @@ describe('webshare', () => {
 
 	it('should throw if Web Share API is not supported', async () => {
 		const originalNavigator = globalThis.navigator
-		// @ts-expect-error
-		globalThis.navigator = undefined
+		setNavigator(undefined)
 		await expect(share({ title: 'Test' })).rejects.toThrow('Web Share API is not supported')
-		globalThis.navigator = originalNavigator
+		setNavigator(originalNavigator)
 	})
 
 	it('should call navigator.share if supported', async () => {
 		const shareMock = vi.fn().mockResolvedValue(undefined)
 		const fakeNavigator = { share: shareMock }
 		const originalNavigator = globalThis.navigator
-		// @ts-expect-error
-		globalThis.navigator = fakeNavigator
+		setNavigator(fakeNavigator)
 		await share({ title: 'Test', text: 'Hello' })
 		expect(shareMock).toHaveBeenCalledWith({ title: 'Test', text: 'Hello' })
-		globalThis.navigator = originalNavigator
+		setNavigator(originalNavigator)
 	})
 
 	it('should detect file share support if canShare exists', () => {
@@ -35,9 +41,8 @@ describe('webshare', () => {
 			share: vi.fn(),
 		}
 		const originalNavigator = globalThis.navigator
-		// @ts-expect-error
-		globalThis.navigator = fakeNavigator
+		setNavigator(fakeNavigator)
 		expect(isFileShareSupported()).toBe(true)
-		globalThis.navigator = originalNavigator
+		setNavigator(originalNavigator)
 	})
 })
