@@ -1,0 +1,42 @@
+name: Bug report
+description: Something isn't working as documented.
+labels: [bug]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: Which subpath import is affected? (e.g. `@rtorcato/browser-common/clipboard`)
+      placeholder: "@rtorcato/browser-common/<name>"
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: A clear description of the bug, including the expected vs. actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Code snippet or link to a small repro. Even a few lines help a lot.
+      render: ts
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: Browser + version, OR Node.js version if you're using this in SSR/build context.
+      placeholder: "Chrome 122 on macOS / Node 22.5.0"
+    validations:
+      required: true

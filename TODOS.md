@@ -5,7 +5,7 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 ## Blockers — fix before npm publish goes public
 
 - [x] ~~**9 modules not importable via subpath exports.**~~ Resolved: added `./backgroundtasks`, `./battery`, `./encodingapis`, `./performance`, `./permissions`, `./selectionapi`, `./visualviewport`, `./weblocks`, `./webshare` to `package.json` `exports`. All 42 README modules now match the exports field.
-- [ ] **Reconcile `src/index.ts`.** It currently re-exports only 10 modules as namespaces (`Notifications`, `Common`, `Print`, `LocalStorage`, `SessionStorage`, `Clipboard`, `GeoLocation`, `Location`, `MediaDevices`, `Screen`). Decide: either re-export all 42 modules consistently, OR remove the root re-exports entirely and document that consumers must use subpath imports (recommended — better tree-shaking, simpler mental model).
+- [x] ~~**Reconcile `src/index.ts`.**~~ Resolved: dropped the partial root re-exports. The root is now an empty module with a comment pointing consumers at subpath imports. Better tree-shaking, simpler mental model.
 - [x] ~~**Fix webshare tests.**~~ Resolved: extracted a `setNavigator` helper using `Object.defineProperty` for the navigator stub. All 11 tests pass on Node 22 and 24.
 - [ ] **Versioning honesty.** Currently on `v1.0.0` and 2/42 modules tested. The exports gap is now fixed (above). Decide whether the next publish to npmjs should start at `v0.1.0` (more honest about test coverage) or continue from `v1.x` treating the exports fix as a `fix:` patch.
 
@@ -14,10 +14,10 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 - [ ] **Test coverage.** Currently 2 of 42 modules have tests (`encodingapis`, `webshare`). Add at least smoke tests for the remaining 40 modules. Suggested pattern: per-module `<name>.test.ts` co-located in `src/<name>/`, verifying (a) the `is<Name>Available()` support check returns a boolean, and (b) every export is callable in the test environment.
 - [ ] **Add `@example` tags to JSDoc.** Functions have `@param`/`@returns` but no usage examples. Add one short `@example` block per public function — IDE hover docs surface them and they double as documentation tests.
 - [x] ~~**Add `.github/dependabot.yml`.**~~ Done via `js-tooling fix dependabot` — weekly npm + github-actions ecosystems configured.
-- [ ] **Add `.github/ISSUE_TEMPLATE/`** (bug report + feature request) and `.github/PULL_REQUEST_TEMPLATE.md`.
-- [ ] **Add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`** before flipping the repo public.
-- [ ] **Add `SECURITY.md`.** `@rtorcato/js-tooling` has one; mirror it. Even a 5-line "report via private GitHub Security advisory" file is enough — required by GitHub's security tab to show as configured.
-- [ ] **Fix npm keywords + GitHub topics.** `package.json` keywords are `["common", "typescript", "javascript"]` — useless for discovery. Replace with: `browser-api`, `web-api`, `clipboard`, `geolocation`, `tree-shakeable`, `esm`, `web-platform`, `dom`. Mirror the same list as GitHub repo topics (`gh repo edit rtorcato/browser-common --add-topic browser-api ...`).
+- [x] ~~**Add `.github/ISSUE_TEMPLATE/`** and `.github/PULL_REQUEST_TEMPLATE.md`.~~ Done — `bug_report.yml`, `feature_request.yml`, `config.yml` (blank issues disabled + security link), `PULL_REQUEST_TEMPLATE.md` added.
+- [x] ~~**Add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.**~~ Done — CONTRIBUTING covers setup, branch naming, Conventional Commits, the new-module workflow, releases. CODE_OF_CONDUCT references Contributor Covenant v2.1 with contact email.
+- [x] ~~**Add `SECURITY.md`.**~~ Done — mirrors js-tooling's format; private advisory link + email.
+- [x] ~~**Fix npm keywords + GitHub topics.**~~ Done — replaced generic keywords with 16 specific ones (browser-api, web-api, clipboard, geolocation, etc.); same set applied as GitHub repo topics.
 - [ ] **Upgrade Biome v1 → v2 to align with shared preset.** The js-tooling shared config (`@rtorcato/js-tooling/biome`) targets Biome v2.3.0, but this repo is still on v1.9.4. Not a simple "extends" — v2 changes the schema (`organizeImports` moved to `assist.actions.source.organizeImports`, `files.ignore` → `files.includes` with negation patterns, several rules renamed). Steps: (1) bump `@biomejs/biome ^1.9.4` → `^2.3.0` in devDeps, (2) migrate `biome.jsonc` to v2 schema (use `biome migrate` CLI), (3) re-run `pnpm check` and fix any newly-flagged rules. Reserve a dedicated commit for this.
 - [x] ~~**Add `.editorconfig`.**~~ Done via `js-tooling fix editorconfig`.
 - [x] ~~**Add `.nvmrc`.**~~ Done via `js-tooling fix nvmrc` (pins Node 22).
