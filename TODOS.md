@@ -4,9 +4,10 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 
 ## Blockers — fix before npm publish goes public
 
-- [ ] **11 modules are not importable via subpath exports.** `src/<name>/index.ts` exists for: `backgroundtasks`, `battery`, `encodingapis`, `performance`, `permissions`, `selectionapi`, `visualviewport`, `weblocks`, `webshare`, plus any others added since this list was written. Add corresponding `./<name>` entries to the `exports` field in `package.json`. Verify by `node -e "import('@rtorcato/browser-common/<name>').then(m => console.log(Object.keys(m)))"` after a local `pnpm build-prod && pnpm pack && (cd /tmp && pnpm add ./browser-common-*.tgz)`.
+- [x] ~~**9 modules not importable via subpath exports.**~~ Resolved: added `./backgroundtasks`, `./battery`, `./encodingapis`, `./performance`, `./permissions`, `./selectionapi`, `./visualviewport`, `./weblocks`, `./webshare` to `package.json` `exports`. All 42 README modules now match the exports field.
 - [ ] **Reconcile `src/index.ts`.** It currently re-exports only 10 modules as namespaces (`Notifications`, `Common`, `Print`, `LocalStorage`, `SessionStorage`, `Clipboard`, `GeoLocation`, `Location`, `MediaDevices`, `Screen`). Decide: either re-export all 42 modules consistently, OR remove the root re-exports entirely and document that consumers must use subpath imports (recommended — better tree-shaking, simpler mental model).
-- [ ] **Fix webshare tests.** `src/webshare/webshare.test.ts:16,26,39` — replace `globalThis.navigator = X` with `Object.defineProperty(globalThis, 'navigator', { value: X, configurable: true })`. `navigator` is a getter-only property on Node 22+, so direct assignment throws and blocks the CI release job.
+- [x] ~~**Fix webshare tests.**~~ Resolved: extracted a `setNavigator` helper using `Object.defineProperty` for the navigator stub. All 11 tests pass on Node 22 and 24.
+- [ ] **Versioning honesty.** Currently on `v1.0.0` and 2/42 modules tested. The exports gap is now fixed (above). Decide whether the next publish to npmjs should start at `v0.1.0` (more honest about test coverage) or continue from `v1.x` treating the exports fix as a `fix:` patch.
 
 ## High value — quality
 
@@ -15,15 +16,22 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 - [ ] **Add `.github/dependabot.yml`.** The auto-merge workflow at `.github/workflows/dependabot-automerge.yml` is in place but Dependabot itself isn't configured, so it never opens PRs. Add a config for `npm` and `github-actions` ecosystems (weekly, max 5 open PRs).
 - [ ] **Add `.github/ISSUE_TEMPLATE/`** (bug report + feature request) and `.github/PULL_REQUEST_TEMPLATE.md`.
 - [ ] **Add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`** before flipping the repo public.
+- [ ] **Add `SECURITY.md`.** `@rtorcato/js-tooling` has one; mirror it. Even a 5-line "report via private GitHub Security advisory" file is enough — required by GitHub's security tab to show as configured.
+- [ ] **Fix npm keywords + GitHub topics.** `package.json` keywords are `["common", "typescript", "javascript"]` — useless for discovery. Replace with: `browser-api`, `web-api`, `clipboard`, `geolocation`, `tree-shakeable`, `esm`, `web-platform`, `dom`. Mirror the same list as GitHub repo topics (`gh repo edit rtorcato/browser-common --add-topic browser-api ...`).
+- [ ] **Align Biome config with js-tooling shared preset.** `biome.jsonc` is hand-rolled; doctor flags drift. Run `npx @rtorcato/js-tooling copy biome` (or `fix biome`) so the config extends `@rtorcato/js-tooling/biome`. Keep any project-specific overrides locally; everything else comes from the shared preset.
+- [ ] **Add `.editorconfig`.** Doctor flagged this as missing. Run `npx @rtorcato/js-tooling fix editorconfig` for cross-editor consistency.
+- [ ] **Add `.nvmrc`.** Doctor flagged this as missing. `echo 22 > .nvmrc` (or `npx @rtorcato/js-tooling fix nvmrc`) so contributors and CI pin the same Node major.
+- [ ] **Add CodeQL workflow.** Doctor flagged this as missing. Run `npx @rtorcato/js-tooling fix codeql` to scaffold GitHub's security scanner. Free for public repos.
+- [ ] **Run `knip`.** `@rtorcato/js-tooling` already includes knip in its devDeps; configure it for this repo to catch unused exports and dead files. Doctor also flags this as not configured.
 - [ ] **Codecov badge in `README.md` will 404 until codecov is set up.** Either configure the codecov.io integration (the CI already uploads `./coverage/coverage-summary.json`) or remove the badge until it works.
 
 ## Followups from the GitLab → GitHub migration
 
-- [ ] **Push current commit to GitHub.** Blocked on `gh auth refresh -s workflow` (the OAuth token needs the `workflow` scope to push files under `.github/workflows/`). Once granted, run `git push -u github main`.
-- [ ] **Flip repo to public.** Created as private during migration; run `gh repo edit rtorcato/browser-common --visibility public` once the first CI run is green.
+- [x] ~~Push current commit to GitHub.~~ Done — 3 commits pushed to `github/main`.
+- [ ] **Flip repo to public.** Currently private. Run `gh repo edit rtorcato/browser-common --visibility public` once the webshare test fix lands and CI goes fully green.
 - [ ] **Delete the GitLab repo** at `gitlab.com/rtorcato/browser-common` after GitHub is verified working (`glab repo delete rtorcato/browser-common`).
 - [ ] **Add `NPM_TOKEN` secret to GitHub repo** so the release job can publish: `gh secret set NPM_TOKEN --repo rtorcato/browser-common` (paste an Automation token from https://www.npmjs.com/settings/rtorcato/tokens).
-- [ ] **Update `origin` remote to point at GitHub.** Currently `origin` still points at GitLab. After the GitLab repo is deleted: `git remote remove github && git remote set-url origin https://github.com/rtorcato/browser-common.git`.
+- [ ] **Update `origin` remote to point at GitHub.** Currently `origin` still points at GitLab and `github` is a secondary remote. After the GitLab repo is deleted: `git remote remove origin && git remote rename github origin`.
 
 ## Nice to have
 
@@ -31,4 +39,6 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 - [ ] **API docs site.** Generate TypeDoc → publish to GitHub Pages. Each subpath export becomes its own page.
 - [ ] **Expanded usage examples.** Beyond the one quick-start snippet, consider a `docs/examples.md` with one snippet per module group (storage, sensors, UI, etc.).
 - [ ] **Verify tree-shaking works end-to-end.** `pnpm build-prod` emits 3 `chunk-*.js` files; confirm a consumer doing `import { copyToClipboard } from '@rtorcato/browser-common/clipboard'` only pulls the clipboard chunk into their bundle (test in a downstream Vite/Webpack project).
+- [ ] **Browser support matrix in README.** Some APIs are Chromium-only today (File System Access, Idle Detection, Web Locks, Background Fetch). Add a table mapping module → supported browsers so consumers know which modules they can't ship for Safari/Firefox.
+- [ ] **Type tests with `tsd` or `expectTypeOf`.** Add type-only tests on modules where the signature is the real product — e.g., `serializeForm` return shape, `getCurrentPosition` Promise type, `observeIntersection` callback signature. Prevents type regressions during refactors.
 - [ ] **Future modules.** The previous `pointerevents` and `touchevents` stub folders were deleted (they were empty). If you want to add them later, the original `pointerevents/README.md` API spec lives in git history at `4a649bd:src/pointerevents/README.md`.
