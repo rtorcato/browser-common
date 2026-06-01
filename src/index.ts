@@ -1,10 +1,7 @@
-export * as Notifications from './notifications'
-export * as Common from './common'
-export * as Print from './print'
-export * as LocalStorage from './localstorage'
-export * as SessionStorage from './sessionstorage'
-export * as Clipboard from './clipboard'
-export * as GeoLocation from './geolocation'
-export * as Location from './location'
-export * as MediaDevices from './mediadevices'
-export * as Screen from './screen'
+// @rtorcato/browser-common is consumed exclusively via subpath imports.
+// Example:
+//   import { copyToClipboard } from '@rtorcato/browser-common/clipboard'
+//
+// The root entry intentionally exports nothing — see README.md for the
+// full module index. Importing from the root would defeat tree-shaking.
+export {}
