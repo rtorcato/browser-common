@@ -39,10 +39,7 @@ export function createWebSocket(
  * @param data The data to send.
  * @returns {boolean} True if sent, false otherwise.
  */
-export function sendWebSocketMessage(
-	ws: WebSocket,
-	data: string | ArrayBufferLike | Blob | ArrayBufferView
-): boolean {
+export function sendWebSocketMessage(ws: WebSocket, data: string | Blob | BufferSource): boolean {
 	if (ws.readyState === WebSocket.OPEN) {
 		ws.send(data)
 		return true

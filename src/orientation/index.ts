@@ -33,15 +33,13 @@ export function getScreenOrientationType(): string | undefined {
  * @param type The orientation type (e.g., 'portrait-primary', 'landscape-primary').
  * @returns {Promise<void> | undefined} A promise that resolves when locked, or undefined if not supported.
  */
-export function lockScreenOrientation(type: string): Promise<void> | undefined {
+export function lockScreenOrientation(type: OrientationLockType): Promise<void> | undefined {
 	if (
 		typeof window !== 'undefined' &&
 		window.screen &&
 		'orientation' in window.screen &&
-		// @ts-expect-error
 		typeof window.screen.orientation.lock === 'function'
 	) {
-		// @ts-expect-error
 		return window.screen.orientation.lock(type)
 	}
 	return undefined
