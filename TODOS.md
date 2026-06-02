@@ -22,6 +22,7 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 - [x] ~~**Add `.editorconfig`.**~~ Done via `js-tooling fix editorconfig`.
 - [x] ~~**Add `.nvmrc`.**~~ Done via `js-tooling fix nvmrc` (pins Node 22).
 - [x] ~~**Add CodeQL workflow.**~~ Done via `js-tooling fix codeql` — runs on push/PR/weekly cron.
+- [ ] **Enable Code Scanning in repo Settings.** The CodeQL workflow runs successfully but can't upload SARIF results: "Code scanning is not enabled for this repository." For private repos this requires GitHub Advanced Security (paid). Easiest path: flip the repo public first (free GHAS), then go to Settings → Code security and analysis → enable Code scanning.
 - [x] ~~**Run `knip`.**~~ Resolved: `knip.json` configured with subpath-export entry pattern (`src/index.ts`, `src/*/index.ts`); `knip` script added; ran clean after removing unused `@types/luxon`, adding `@vitest/coverage-v8`, and dropping the unused commitizen script.
 - [ ] **Codecov badge in `README.md` will 404 until codecov is set up.** Either configure the codecov.io integration (the CI already uploads `./coverage/coverage-summary.json`) or remove the badge until it works.
 
