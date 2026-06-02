@@ -4,7 +4,6 @@
  * @returns {boolean}
  */
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function isIframe(el: any): el is HTMLIFrameElement {
 	return el instanceof HTMLIFrameElement
 }

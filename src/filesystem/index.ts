@@ -33,9 +33,8 @@ type SaveFilePickerOptions = {
 
 export async function pickFiles(options?: OpenFilePickerOptions): Promise<File[]> {
 	if (!isFileSystemApiAvailable()) throw new Error('File System Access API not available')
-	// @ts-ignore
+	// @ts-expect-error
 	const handles = await window.showOpenFilePicker(options)
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const files = await Promise.all(handles.map((handle: any) => handle.getFile()))
 	return files
 }
@@ -49,7 +48,7 @@ export async function saveFile(
 	options?: SaveFilePickerOptions
 ): Promise<FileSystemWritableFileStream> {
 	if (!isFileSystemApiAvailable()) throw new Error('File System Access API not available')
-	// @ts-ignore
+	// @ts-expect-error
 	const handle = await window.showSaveFilePicker(options)
 	return await handle.createWritable()
 }

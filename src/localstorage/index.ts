@@ -19,7 +19,6 @@ export const isLocalStorageAvailable = (): boolean => {
  * @param {any} value - The value to store.
  */
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const setLocalStorage = (key: string, value: any): void => {
 	if (!isLocalStorageAvailable()) return
 	window.localStorage.setItem(key, JSON.stringify(value))
@@ -31,7 +30,6 @@ export const setLocalStorage = (key: string, value: any): void => {
  * @returns {any | null} The parsed value, or null if not found or not available.
  */
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const getLocalStorage = (key: string): any | null => {
 	if (!isLocalStorageAvailable()) return null
 	const item = window.localStorage.getItem(key)

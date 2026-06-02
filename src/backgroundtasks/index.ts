@@ -13,7 +13,6 @@ type BackgroundFetchOptions = {
  * Extend as needed based on your requirements and browser support.
  */
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 type BackgroundFetchRegistration = any
 
 /**
@@ -35,7 +34,7 @@ export function isBackgroundFetchAvailable(): boolean {
 export async function registerBackgroundSync(tag: string): Promise<void> {
 	if (!isBackgroundSyncAvailable() || !('serviceWorker' in navigator)) return
 	const registration = await navigator.serviceWorker.ready
-	// @ts-ignore
+	// @ts-expect-error
 	await registration.sync.register(tag)
 }
 
@@ -53,6 +52,6 @@ export async function registerBackgroundFetch(
 ): Promise<BackgroundFetchRegistration | undefined> {
 	if (!isBackgroundFetchAvailable() || !('serviceWorker' in navigator)) return undefined
 	const registration = await navigator.serviceWorker.ready
-	// @ts-ignore
+	// @ts-expect-error
 	return registration.backgroundFetch.fetch(tag, urls, options)
 }

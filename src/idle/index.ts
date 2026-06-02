@@ -18,7 +18,6 @@ export function onIdle(
 	options?: IdleRequestOptions
 ): number {
 	if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-		// @ts-ignore
 		return (window as Window).requestIdleCallback(callback, options)
 	}
 	// Fallback: call after 200ms
@@ -31,7 +30,6 @@ export function onIdle(
  */
 export function cancelIdle(id: number): void {
 	if ('cancelIdleCallback' in window) {
-		// @ts-ignore
 		window.cancelIdleCallback(id)
 	} else {
 		clearTimeout(id)
@@ -59,10 +57,9 @@ export async function detectIdle(
 	onActive?: () => void
 ): Promise<IdleDetector | null> {
 	if (!isIdleDetectionApiAvailable()) return null
-	// @ts-ignore
+	// @ts-expect-error
 	const detector = new window.IdleDetector()
 	detector.addEventListener('change', () => {
-		// @ts-ignore
 		const { userState, screenState } = detector
 		if (userState === 'idle' && screenState === 'unlocked') {
 			onIdle()

@@ -13,7 +13,6 @@ export function isPermissionsApiAvailable(): boolean {
 export async function queryPermission(name: PermissionName): Promise<PermissionState | undefined> {
 	if (!isPermissionsApiAvailable()) return undefined
 	try {
-		// @ts-ignore
 		const status = await navigator.permissions.query({ name })
 		return status.state
 	} catch {

@@ -30,13 +30,12 @@ export function isGenericSensorApiAvailable(): boolean {
  * @returns {Promise<'granted' | 'denied' | 'default'>} The permission state.
  */
 export async function requestMotionPermission(): Promise<'granted' | 'denied' | 'default'> {
-	// @ts-ignore
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof (DeviceMotionEvent as unknown as { requestPermission?: () => Promise<string> })
 			.requestPermission === 'function'
 	) {
-		// @ts-ignore
+		// @ts-expect-error
 		return await DeviceMotionEvent.requestPermission()
 	}
 	return 'granted'

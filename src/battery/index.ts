@@ -16,20 +16,16 @@ interface BatteryManager extends EventTarget {
 	chargingTime: number
 	dischargingTime: number
 	level: number
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	onchargingchange: ((this: BatteryManager, ev: Event) => any) | null
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	onchargingtimechange: ((this: BatteryManager, ev: Event) => any) | null
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	ondischargingtimechange: ((this: BatteryManager, ev: Event) => any) | null
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	onlevelchange: ((this: BatteryManager, ev: Event) => any) | null
 }
 
 export async function getBatteryManager(): Promise<BatteryManager | undefined> {
 	if (!isBatteryApiAvailable()) return undefined
 	try {
-		// @ts-ignore
+		// @ts-expect-error
 		return await navigator.getBattery()
 	} catch {
 		return undefined

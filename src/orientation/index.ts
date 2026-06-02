@@ -23,7 +23,6 @@ export function onDeviceOrientation(callback: (event: DeviceOrientationEvent) =>
  */
 export function getScreenOrientationType(): string | undefined {
 	if (typeof window !== 'undefined' && window.screen && 'orientation' in window.screen) {
-		// @ts-ignore
 		return window.screen.orientation.type
 	}
 	return undefined
@@ -39,10 +38,10 @@ export function lockScreenOrientation(type: string): Promise<void> | undefined {
 		typeof window !== 'undefined' &&
 		window.screen &&
 		'orientation' in window.screen &&
-		// @ts-ignore
+		// @ts-expect-error
 		typeof window.screen.orientation.lock === 'function'
 	) {
-		// @ts-ignore
+		// @ts-expect-error
 		return window.screen.orientation.lock(type)
 	}
 	return undefined
@@ -57,10 +56,8 @@ export function unlockScreenOrientation(): void {
 		typeof window !== 'undefined' &&
 		window.screen &&
 		'orientation' in window.screen &&
-		// @ts-ignore
 		typeof window.screen.orientation.unlock === 'function'
 	) {
-		// @ts-ignore
 		window.screen.orientation.unlock()
 	}
 }

@@ -53,7 +53,6 @@ export async function getMediaPermissionStatus(
 ): Promise<PermissionStatus | undefined> {
 	if (!isPermissionsApiAvailable()) return undefined
 	try {
-		// @ts-ignore
 		return await navigator.permissions.query({ name })
 	} catch {
 		return undefined

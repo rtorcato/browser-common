@@ -19,7 +19,6 @@ export const isSessionStorageAvailable = (): boolean => {
  * @param {any} value - The value to store.
  */
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const setSessionStorage = (key: string, value: any): void => {
 	if (!isSessionStorageAvailable()) return
 	window.sessionStorage.setItem(key, JSON.stringify(value))
@@ -31,7 +30,6 @@ export const setSessionStorage = (key: string, value: any): void => {
  * @returns {any | null} The parsed value, or null if not found or not available.
  */
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const getSessionStorage = (key: string): any | null => {
 	if (!isSessionStorageAvailable()) return null
 	const item = window.sessionStorage.getItem(key)
