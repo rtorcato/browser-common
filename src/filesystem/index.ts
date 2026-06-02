@@ -35,7 +35,7 @@ export async function pickFiles(options?: OpenFilePickerOptions): Promise<File[]
 	if (!isFileSystemApiAvailable()) throw new Error('File System Access API not available')
 	// @ts-expect-error
 	const handles = await window.showOpenFilePicker(options)
-	const files = await Promise.all(handles.map((handle: any) => handle.getFile()))
+	const files = await Promise.all(handles.map((handle: FileSystemFileHandle) => handle.getFile()))
 	return files
 }
 

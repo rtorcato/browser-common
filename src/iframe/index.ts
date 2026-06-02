@@ -4,7 +4,7 @@
  * @returns {boolean}
  */
 
-export function isIframe(el: any): el is HTMLIFrameElement {
+export function isIframe(el: unknown): el is HTMLIFrameElement {
 	return el instanceof HTMLIFrameElement
 }
 

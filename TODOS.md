@@ -11,7 +11,7 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 
 ## High value — quality
 
-- [ ] **Test coverage.** Currently 2 of 42 modules have tests (`encodingapis`, `webshare`). Add at least smoke tests for the remaining 40 modules. Suggested pattern: per-module `<name>.test.ts` co-located in `src/<name>/`, verifying (a) the `is<Name>Available()` support check returns a boolean, and (b) every export is callable in the test environment.
+- [x] ~~**Test coverage.**~~ Resolved: smoke tests added for all 40 previously-untested modules. Each test (a) calls the module's `is<Name>Available()`/`is<Name>Supported()` if present and asserts boolean return, and (b) verifies every export is callable. 92 tests across 43 files all passing. Real behavior tests (not just smoke) for individual functions still welcome as follow-ups.
 - [ ] **Add `@example` tags to JSDoc.** Functions have `@param`/`@returns` but no usage examples. Add one short `@example` block per public function — IDE hover docs surface them and they double as documentation tests.
 - [x] ~~**Add `.github/dependabot.yml`.**~~ Done via `js-tooling fix dependabot` — weekly npm + github-actions ecosystems configured.
 - [x] ~~**Add `.github/ISSUE_TEMPLATE/`** and `.github/PULL_REQUEST_TEMPLATE.md`.~~ Done — `bug_report.yml`, `feature_request.yml`, `config.yml` (blank issues disabled + security link), `PULL_REQUEST_TEMPLATE.md` added.

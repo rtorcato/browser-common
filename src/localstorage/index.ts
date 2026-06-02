@@ -16,21 +16,22 @@ export const isLocalStorageAvailable = (): boolean => {
 /**
  * Sets a value in localStorage. Automatically stringifies objects.
  * @param {string} key - The key to set.
- * @param {any} value - The value to store.
+ * @param {unknown} value - The value to store.
  */
 
-export const setLocalStorage = (key: string, value: any): void => {
+export const setLocalStorage = (key: string, value: unknown): void => {
 	if (!isLocalStorageAvailable()) return
 	window.localStorage.setItem(key, JSON.stringify(value))
 }
 
 /**
  * Gets a value from localStorage and parses it as JSON.
+ * Returns `unknown` — callers must narrow before use.
  * @param {string} key - The key to retrieve.
- * @returns {any | null} The parsed value, or null if not found or not available.
+ * @returns {unknown | null} The parsed value, or null if not found or not available.
  */
 
-export const getLocalStorage = (key: string): any | null => {
+export const getLocalStorage = (key: string): unknown | null => {
 	if (!isLocalStorageAvailable()) return null
 	const item = window.localStorage.getItem(key)
 	try {
