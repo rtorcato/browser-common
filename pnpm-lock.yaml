@@ -18,8 +18,8 @@ importers:
         specifier: ^21.0.2
         version: 21.0.2
       '@rtorcato/js-tooling':
-        specifier: ^2.7.0
-        version: 2.7.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(typescript@6.0.3)(vitest@4.1.8)
+        specifier: ^2.8.0
+        version: 2.8.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@size-limit/preset-small-lib@12.1.0(size-limit@12.1.0(jiti@2.7.0)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(size-limit@12.1.0(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.8)
       '@semantic-release/changelog':
         specifier: ^6.0.3
         version: 6.0.3(semantic-release@25.0.3(typescript@6.0.3))
@@ -599,8 +599,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/editor@5.2.1':
-    resolution: {integrity: sha512-NFLxWmTPc2WORINoffcbVwB2+tujeNZ6Cu50HbXvTbk0fHSmhA5PgCckxXuyUniQvX7bhxkZi0nODfJIGsnCdA==}
+  '@inquirer/editor@5.2.2':
+    resolution: {integrity: sha512-ZRVd/oD+sYsUd5zVm0NflqEzlqfYCyHNsqkHl2oWXEUHs12tCbcSFi+wVFEvD8+LGRaMUsVrE7qeo6lSG/S1Vg==}
     engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
     peerDependencies:
       '@types/node': '>=18'
@@ -617,8 +617,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/external-editor@3.0.2':
-    resolution: {integrity: sha512-1X+KN2PinUcy/aS3f3OBSKJaWk+jBikMry4Qblj5ysqN4T+8BeA1rNJdTSOlQ2iOmvKg7ZsR4tDQvl1p0PLgKg==}
+  '@inquirer/external-editor@3.0.3':
+    resolution: {integrity: sha512-6thf5I8q7lZwzGLAxPaaGEREEkZ3nyePPDQ1oyobblxmEE8mqTLguScP7pDjUTAibiyb4hfXl+qjUEJ+di/aNA==}
     engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
     peerDependencies:
       '@types/node': '>=18'
@@ -630,8 +630,8 @@ packages:
     resolution: {integrity: sha512-aJ8TBPOGB6f/2qziPfElISTCEd5XOYTFckA2SGjhNmiKzfK/u4ot3v0DUzGVdUnKjN10EqnnEPck36BkyfLnJw==}
     engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
 
-  '@inquirer/input@5.1.1':
-    resolution: {integrity: sha512-3wuHoDBBtU+o0TB4uP2R+ACdNrn6SgdZBc1YUaiU9GcfXNaTNUgSM/Ft7eQ3gYWP2H1MiT6glycmfWYpmPzVKw==}
+  '@inquirer/input@5.1.2':
+    resolution: {integrity: sha512-9K/DDBSQpOyZSkt6sOVP9Vo0TR7atX2kuILsUu0x3wVcVbe97lJwIJKMLdMw25tDYuXl/qp6erT0Xs1rfmcfZg==}
     engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
     peerDependencies:
       '@types/node': '>=18'
@@ -657,8 +657,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/prompts@8.5.1':
-    resolution: {integrity: sha512-EwbBgs5e3a5MwQglQ736lx0UY/bbirddCbwe32AJMzQVSeAQK1jmwtDu8lwG9Izp+cdPhZ9NvuEt8aFmav6iLw==}
+  '@inquirer/prompts@8.5.2':
+    resolution: {integrity: sha512-IYR/3C/paEVVQYQvdDlFZVjRCJVYHHON0XXMH91KO9GSxs0TdKYWlUdvfQl2EfAHDxUaN3IBffkE/BDTh5nJ6g==}
     engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
     peerDependencies:
       '@types/node': '>=18'
@@ -1131,18 +1131,18 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@rtorcato/js-tooling@2.7.0':
-    resolution: {integrity: sha512-+QWj2Bvv4CtTvjvgA+pvY2YGyAfxjbf67XqU+PCWa2eZPRG0vD5ydaXM7IigQzTnwggfIcOYqpRD9FzdNIKoDw==}
+  '@rtorcato/js-tooling@2.8.0':
+    resolution: {integrity: sha512-1DpN/Twj79W7qSnt1XVxS/z/Vmmo+Vmsm/Z2cbFxqK8wnfvAcz5okRbZMe/efCDgSPSquv8upXlWCHTUdF5dgw==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
       '@biomejs/biome': ^2.0.0
       '@commitlint/cli': ^20.0.0
-      '@commitlint/config-conventional': ^21.0.1
+      '@commitlint/config-conventional': ^21.0.2
       '@commitlint/types': ^20.0.0
       '@eslint/js': ^9.0.0
       '@ianvs/prettier-plugin-sort-imports': ^4.0.0
-      '@next/eslint-plugin-next': ^16.0.0
+      '@next/eslint-plugin-next': ^16.2.7
       '@semantic-release/changelog': ^6.0.0
       '@semantic-release/commit-analyzer': ^13.0.0
       '@semantic-release/exec': ^7.0.0
@@ -1150,6 +1150,7 @@ packages:
       '@semantic-release/github': ^12.0.8
       '@semantic-release/npm': ^13.0.0
       '@semantic-release/release-notes-generator': ^14.0.0
+      '@size-limit/preset-small-lib': ^12.0.0
       '@total-typescript/ts-reset': ^0.6.0
       '@typescript-eslint/eslint-plugin': ^8.0.0
       '@typescript-eslint/parser': ^8.0.0
@@ -1162,6 +1163,7 @@ packages:
       jest: ^29.0.0
       prettier: ^3.0.0
       semantic-release: ^25.0.0
+      size-limit: ^12.0.0
       ts-jest: ^29.0.0
       tsup: ^8.0.0
       typescript: '>=5.0.0'
@@ -1196,6 +1198,8 @@ packages:
         optional: true
       '@semantic-release/release-notes-generator':
         optional: true
+      '@size-limit/preset-small-lib':
+        optional: true
       '@total-typescript/ts-reset':
         optional: true
       '@typescript-eslint/eslint-plugin':
@@ -1219,6 +1223,8 @@ packages:
       prettier:
         optional: true
       semantic-release:
+        optional: true
+      size-limit:
         optional: true
       ts-jest:
         optional: true
@@ -1936,8 +1942,8 @@ packages:
     resolution: {integrity: sha512-IBTdIkzZNOpqm7q3dRqJvMaldXjDHWkEDfrwGEQTs5eaQMWV+djAhR+wahyNNMAa+qpbDUhBMVt4ZKNwpPm7xQ==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
-  inquirer@14.0.1:
-    resolution: {integrity: sha512-qdxmZVXGSE8577LyoS4PVWpjj5OKDWPQ+xZhJkEH5FXDJUcoXmLG38oRPJ8RKOaYQSA9GZBJJTD9O4cJysVQBw==}
+  inquirer@14.0.2:
+    resolution: {integrity: sha512-VsSx1JneSNp3ld1veMTLe+UDcUD8Tw2/jjOthhkX3/IX2q+xHhVELifeb/hsb1fBw31pabEPNUf/xUOyb+KZjA==}
     engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
     peerDependencies:
       '@types/node': '>=18'
@@ -3358,10 +3364,10 @@ snapshots:
     optionalDependencies:
       '@types/node': 25.9.1
 
-  '@inquirer/editor@5.2.1(@types/node@25.9.1)':
+  '@inquirer/editor@5.2.2(@types/node@25.9.1)':
     dependencies:
       '@inquirer/core': 11.2.1(@types/node@25.9.1)
-      '@inquirer/external-editor': 3.0.2(@types/node@25.9.1)
+      '@inquirer/external-editor': 3.0.3(@types/node@25.9.1)
       '@inquirer/type': 4.0.7(@types/node@25.9.1)
     optionalDependencies:
       '@types/node': 25.9.1
@@ -3373,7 +3379,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 25.9.1
 
-  '@inquirer/external-editor@3.0.2(@types/node@25.9.1)':
+  '@inquirer/external-editor@3.0.3(@types/node@25.9.1)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.2
@@ -3382,7 +3388,7 @@ snapshots:
 
   '@inquirer/figures@2.0.7': {}
 
-  '@inquirer/input@5.1.1(@types/node@25.9.1)':
+  '@inquirer/input@5.1.2(@types/node@25.9.1)':
     dependencies:
       '@inquirer/core': 11.2.1(@types/node@25.9.1)
       '@inquirer/type': 4.0.7(@types/node@25.9.1)
@@ -3404,13 +3410,13 @@ snapshots:
     optionalDependencies:
       '@types/node': 25.9.1
 
-  '@inquirer/prompts@8.5.1(@types/node@25.9.1)':
+  '@inquirer/prompts@8.5.2(@types/node@25.9.1)':
     dependencies:
       '@inquirer/checkbox': 5.2.1(@types/node@25.9.1)
       '@inquirer/confirm': 6.1.1(@types/node@25.9.1)
-      '@inquirer/editor': 5.2.1(@types/node@25.9.1)
+      '@inquirer/editor': 5.2.2(@types/node@25.9.1)
       '@inquirer/expand': 5.1.1(@types/node@25.9.1)
-      '@inquirer/input': 5.1.1(@types/node@25.9.1)
+      '@inquirer/input': 5.1.2(@types/node@25.9.1)
       '@inquirer/number': 4.1.1(@types/node@25.9.1)
       '@inquirer/password': 5.1.1(@types/node@25.9.1)
       '@inquirer/rawlist': 5.3.1(@types/node@25.9.1)
@@ -3729,12 +3735,12 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.41.1':
     optional: true
 
-  '@rtorcato/js-tooling@2.7.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(typescript@6.0.3)(vitest@4.1.8)':
+  '@rtorcato/js-tooling@2.8.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@size-limit/preset-small-lib@12.1.0(size-limit@12.1.0(jiti@2.7.0)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(size-limit@12.1.0(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.8)':
     dependencies:
       chalk: 5.6.2
       commander: 14.0.3
       fs-extra: 11.3.5
-      inquirer: 14.0.1(@types/node@25.9.1)
+      inquirer: 14.0.2(@types/node@25.9.1)
     optionalDependencies:
       '@biomejs/biome': 2.4.16
       '@commitlint/cli': 21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3)
@@ -3745,10 +3751,12 @@ snapshots:
       '@semantic-release/github': 12.0.8(semantic-release@25.0.3(typescript@6.0.3))
       '@semantic-release/npm': 13.1.5(semantic-release@25.0.3(typescript@6.0.3))
       '@semantic-release/release-notes-generator': 14.1.1(semantic-release@25.0.3(typescript@6.0.3))
+      '@size-limit/preset-small-lib': 12.1.0(size-limit@12.1.0(jiti@2.7.0))
       conventional-changelog-conventionalcommits: 9.3.1
       esbuild: 0.28.0
       esbuild-node-externals: 1.22.0(esbuild@0.28.0)
       semantic-release: 25.0.3(typescript@6.0.3)
+      size-limit: 12.1.0(jiti@2.7.0)
       typescript: 6.0.3
       vitest: 4.1.8(@types/node@25.9.1)(@vitest/coverage-v8@4.1.8)(vite@6.3.5(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0))
     transitivePeerDependencies:
@@ -4536,11 +4544,11 @@ snapshots:
 
   ini@6.0.0: {}
 
-  inquirer@14.0.1(@types/node@25.9.1):
+  inquirer@14.0.2(@types/node@25.9.1):
     dependencies:
       '@inquirer/ansi': 2.0.7
       '@inquirer/core': 11.2.1(@types/node@25.9.1)
-      '@inquirer/prompts': 8.5.1(@types/node@25.9.1)
+      '@inquirer/prompts': 8.5.2(@types/node@25.9.1)
       '@inquirer/type': 4.0.7(@types/node@25.9.1)
       mute-stream: 3.0.0
       run-async: 4.0.6

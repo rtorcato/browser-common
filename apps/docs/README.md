@@ -1,0 +1,1 @@
+This is the astro site for browser common docs.

@@ -1,3 +1,5 @@
 allowBuilds:
   '@biomejs/biome': true
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@rtorcato/js-tooling@2.8.0'

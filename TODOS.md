@@ -10,8 +10,6 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 
 ## Nice to have
 
-- [ ] **Migrate size-limit to `@rtorcato/js-tooling` shared preset when upstream ships it.** Local config + CI step are in place (5 representative subpath imports, all well under budget). When js-tooling adds size-limit as a shared preset, bump the devDep and replace local config with the preset reference.
-- [ ] **Browser support matrix in README.** Some APIs are Chromium-only today (File System Access, Idle Detection, Web Locks, Background Fetch). Add a table mapping module → supported browsers.
 - [ ] **API docs site.** Add an `apps/docs/` Astro Starlight site (mirror what `@rtorcato/js-tooling` already does — `@astrojs/starlight ^0.39.2`, deployed to GitHub Pages via the `docs.yml` workflow). Optionally use the [`starlight-typedoc`](https://starlight-typedoc.vercel.app/) plugin to auto-generate API reference pages from each subpath module's JSDoc, so you don't hand-write 42 module pages.
 - [ ] **Expanded usage examples.** Beyond the one quick-start snippet, consider a `docs/examples.md` with one snippet per module group (storage, sensors, UI, etc.).
 - [ ] **Verify tree-shaking works end-to-end.** `pnpm build-prod` emits 3 `chunk-*.js` files; confirm a consumer doing `import { copyToClipboard } from '@rtorcato/browser-common/clipboard'` only pulls the clipboard chunk into their bundle (test in a downstream Vite/Webpack project).
