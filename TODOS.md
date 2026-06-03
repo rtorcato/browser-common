@@ -5,7 +5,7 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 ## Active
 
 - [ ] **Flip repo to public.** Run `gh repo edit rtorcato/browser-common --visibility public`. Unlocks free GHAS (so the CodeQL workflow can upload SARIF instead of failing on "code scanning not enabled"). Also lets the README's CI badge resolve for non-collaborators.
-- [ ] **Enable Code Scanning in repo Settings.** Depends on the public flip above (or paid GHAS for private). Then go to Settings → Code security and analysis → enable Code scanning.
+- [ ] **Re-enable CodeQL workflow + turn on Code Scanning.** After the public flip: (1) `git mv .github/workflows/codeql.yml.disabled .github/workflows/codeql.yml` to reactivate the workflow, (2) GitHub → Settings → Code security and analysis → enable Code scanning. Workflow is currently disabled (file renamed) because it failed every run on a private repo without GHAS.
 - [ ] **Versioning honesty.** Currently `v1.0.0` with 92 smoke tests but only `encodingapis` + `webshare` have *behavior* tests. Two paths: (1) keep going on `v1.x`, treat behavior-test additions as `fix:`/`feat:` patches, or (2) reset to `v0.x` to signal pre-stable. Pick a posture before the next breaking change.
 - [ ] **Codecov badge in `README.md` will 404 until codecov.io is set up.** Either configure the integration (CI already uploads `./coverage/coverage-summary.json`) or remove the badge.
 - [ ] **Add `@example` tags to JSDoc.** Functions have `@param`/`@returns` but no usage examples. One short `@example` block per public function — IDE hover docs surface them.
