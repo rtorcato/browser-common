@@ -5,7 +5,7 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 ## Active
 
 - [ ] **Turn on Code Scanning in repo Settings.** Now that the repo is public, GHAS is free. Go to Settings → Code security and analysis → enable Code scanning. (CodeQL workflow already re-enabled.)
-- [ ] **Versioning honesty.** Currently `v1.0.0` with 92 smoke tests but only `encodingapis` + `webshare` have *behavior* tests. Two paths: (1) keep going on `v1.x`, treat behavior-test additions as `fix:`/`feat:` patches, or (2) reset to `v0.x` to signal pre-stable. Pick a posture before the next breaking change.
+- [ ] **Bootstrap-publish v0.1.0 after the 24-hour npm lockout expires.** v1.0.0 and v1.1.0 were unpublished from npm (`npm unpublish --force`) and the git tags + GitHub Releases were deleted. The name `@rtorcato/browser-common` is locked from publishing for 24 hours from `2026-06-03T21:25Z`. After that, manually publish v0.1.0: `npm publish --access public --provenance=false` (token already set up). Then `git tag v0.1.0 && git push origin v0.1.0` so semantic-release picks v0.2.0/v0.1.1 from there on subsequent commits. README should also drop the codecov badge if it's still in there since codecov has no data for v0.x yet — or leave it, it'll backfill.
 - [ ] **Add `@example` tags to JSDoc.** Functions have `@param`/`@returns` but no usage examples. One short `@example` block per public function — IDE hover docs surface them.
 
 ## Nice to have
