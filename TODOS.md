@@ -31,7 +31,7 @@ Tracking work for `@rtorcato/browser-common`. Items are grouped by priority. Any
 - [x] ~~Push current commit to GitHub.~~ Done — 3 commits pushed to `github/main`.
 - [ ] **Flip repo to public.** Currently private. Run `gh repo edit rtorcato/browser-common --visibility public` once the webshare test fix lands and CI goes fully green.
 - [ ] **Delete the GitLab repo** at `gitlab.com/rtorcato/browser-common` after GitHub is verified working (`glab repo delete rtorcato/browser-common`).
-- [ ] **Add `NPM_TOKEN` secret to GitHub repo** so the release job can publish: `gh secret set NPM_TOKEN --repo rtorcato/browser-common` (paste an Automation token from https://www.npmjs.com/settings/rtorcato/tokens).
+- [x] ~~**Add `NPM_TOKEN` secret to GitHub repo.**~~ Done. Granular tokens 404 on first-publish of new scoped packages; switched to Classic Automation token, then `npm publish --access public --provenance=false` manually bootstrapped v1.0.0 on npmjs. Also ran `npm access set status=public` since `@rtorcato` scope defaulted new packages to private. CI release job now succeeds (no-op until next `feat:`/`fix:` commit).
 - [ ] **Update `origin` remote to point at GitHub.** Currently `origin` still points at GitLab and `github` is a secondary remote. After the GitLab repo is deleted: `git remote remove origin && git remote rename github origin`.
 
 ## Nice to have
