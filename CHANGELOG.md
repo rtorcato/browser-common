@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/rtorcato/browser-common/compare/v1.0.0...v1.1.0) (2026-06-03)
+
+
+### Features
+
+* add bundle size monitoring + re-enable CodeQL after public flip ([3032794](https://github.com/rtorcato/browser-common/commit/3032794ad96858d5c9bbc645291e6cd44f7864b3))
+
 # 1.0.0 (2026-06-02)
 
 
