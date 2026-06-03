@@ -53,6 +53,7 @@
     "test:watch": "vitest --watch",
     "coverage": "vitest run --coverage",
     "knip": "knip",
+    "size": "size-limit",
     "================================================": ""
   },
   "files": [
@@ -241,6 +242,7 @@
     "@rtorcato/js-tooling": "^2.7.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@size-limit/preset-small-lib": "^12.1.0",
     "@types/node": "^25.9.1",
     "@vitest/coverage-v8": "^4.1.8",
     "cross-env": "^10.1.0",
@@ -251,6 +253,7 @@
     "lint-staged": "^17.0.7",
     "rimraf": "6.1.3",
     "semantic-release": "^25.0.3",
+    "size-limit": "^12.1.0",
     "typescript": "^6.0.3",
     "vitest": "4.1.8"
   },
@@ -260,6 +263,33 @@
       "pnpm exec biome format"
     ]
   },
+  "size-limit": [
+    {
+      "name": "@rtorcato/browser-common/clipboard",
+      "path": "dist/clipboard/index.js",
+      "limit": "500 B"
+    },
+    {
+      "name": "@rtorcato/browser-common/dom",
+      "path": "dist/dom/index.js",
+      "limit": "1 kB"
+    },
+    {
+      "name": "@rtorcato/browser-common/forms",
+      "path": "dist/forms/index.js",
+      "limit": "1 kB"
+    },
+    {
+      "name": "@rtorcato/browser-common/geolocation",
+      "path": "dist/geolocation/index.js",
+      "limit": "500 B"
+    },
+    {
+      "name": "@rtorcato/browser-common/serviceworkers",
+      "path": "dist/serviceworkers/index.js",
+      "limit": "1 kB"
+    }
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
