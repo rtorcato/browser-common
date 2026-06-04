@@ -1,6 +1,6 @@
 {
   "name": "@rtorcato/browser-common",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Browser common code",
   "type": "module",
   "main": "dist/index.js",
