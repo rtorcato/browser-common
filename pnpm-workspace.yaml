@@ -1,5 +1,9 @@
+packages:
+  - 'apps/*'
+
 allowBuilds:
   '@biomejs/biome': true
   esbuild: true
+  sharp: true
 minimumReleaseAgeExclude:
   - '@rtorcato/js-tooling@2.8.0'

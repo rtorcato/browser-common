@@ -1,0 +1,48 @@
+---
+title: browser-common
+description: Small, tree-shakeable TypeScript wrappers around 40+ browser Web APIs.
+template: splash
+hero:
+  tagline: Small, tree-shakeable TypeScript wrappers around 40+ browser Web APIs — each one a separate subpath export.
+  actions:
+    - text: Get started
+      link: /browser-common/guides/installation/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/rtorcato/browser-common
+      icon: external
+    - text: npm
+      link: https://www.npmjs.com/package/@rtorcato/browser-common
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## At a glance
+
+<CardGrid stagger>
+	<Card title="Per-API subpath imports" icon="seti:json">
+		`import { copyToClipboard } from '@rtorcato/browser-common/clipboard'` — bundlers tree-shake to just the bytes you use (146-257 B brotlied per module).
+	</Card>
+	<Card title="Safe-by-default contract" icon="approve-check">
+		Every module exports `is<Name>Available()`. Operations return `null`/`false`/empty on unsupported environments — they never throw. Safe to import in SSR / Node.
+	</Card>
+	<Card title="No runtime dependencies" icon="seti:npm">
+		ESM-only, `sideEffects: false`, fully typed. Nothing to install but the package itself.
+	</Card>
+	<Card title="42 modules covered" icon="puzzle">
+		Clipboard, geolocation, media devices, observers, storage, fullscreen, notifications, service workers, and 35+ more. See the [module reference](/browser-common/reference/modules/).
+	</Card>
+</CardGrid>
+
+## Quick example
+
+```ts
+import { isClipboardApiAvailable, copyToClipboard } from '@rtorcato/browser-common/clipboard'
+
+if (isClipboardApiAvailable()) {
+	const ok = await copyToClipboard('hello world')
+	console.log(ok) // true on success, false otherwise
+}
+```

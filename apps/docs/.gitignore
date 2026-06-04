@@ -1,0 +1,13 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Env
+.env
+.env.production
