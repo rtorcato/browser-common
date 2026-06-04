@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/rtorcato/browser-common/compare/v0.1.0...v0.2.0) (2026-06-04)
+
+
+### Features
+
+* **docs:** add Astro Starlight site at apps/docs ([a453a4a](https://github.com/rtorcato/browser-common/commit/a453a4a855958ad5484f42f7d4fb0c9920855f3e))
+
 # 0.1.0 (2026-06-04)
 
 Initial pre-stable release.
