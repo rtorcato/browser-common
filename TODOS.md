@@ -15,7 +15,6 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 
 ## Nice to have
 
-- [ ] **Enable GitHub Pages in repo Settings.** After this commit's first deploy: Settings → Pages → Source: "GitHub Actions". Then re-trigger the docs workflow (`gh workflow run docs.yml --repo rtorcato/browser-common`). Docs land at https://rtorcato.github.io/browser-common/.
 - [ ] **Optionally add `starlight-typedoc`** to auto-generate per-module API pages from JSDoc. Currently the docs site uses a hand-maintained module table; the typedoc plugin would add full per-function pages with type signatures. Plugin: https://starlight-typedoc.vercel.app/
 - [ ] **Expanded usage examples.** Beyond the one quick-start snippet, consider a `docs/examples.md` with one snippet per module group (storage, sensors, UI, etc.).
 - [ ] **Verify tree-shaking works end-to-end.** `pnpm build-prod` emits 3 `chunk-*.js` files; confirm a consumer doing `import { copyToClipboard } from '@rtorcato/browser-common/clipboard'` only pulls the clipboard chunk into their bundle (test in a downstream Vite/Webpack project).
