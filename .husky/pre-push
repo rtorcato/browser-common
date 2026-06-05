@@ -1,7 +1,8 @@
-
-# pnpm run typecheck
-# pnpm run lint
-# pnpm run test
-
-# pnpm run typecheck
-# pnpm run lint
+echo "🔍 Running pre-push verify..."
+pnpm verify
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "❌ Verify failed — push aborted."
+  exit 1
+fi
+echo "✅ Verify passed — pushing."

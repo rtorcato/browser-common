@@ -49,6 +49,7 @@
     "check": "pnpm exec biome check .",
     "prepare": "husky",
     "typecheck": "tsc --noEmit",
+    "verify": "pnpm typecheck && pnpm check && pnpm exec vitest run",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "coverage": "vitest run --coverage",
