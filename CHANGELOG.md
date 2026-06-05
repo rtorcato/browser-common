@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/rtorcato/browser-common/compare/v0.2.0...v0.3.0) (2026-06-05)
+
+
+### Features
+
+* rename is*Supported guards to is*Available for consistency ([e21c24a](https://github.com/rtorcato/browser-common/commit/e21c24a457fc8d9d8641f9c27d8beebb0bb3ecd0))
+
 # [0.2.0](https://github.com/rtorcato/browser-common/compare/v0.1.0...v0.2.0) (2026-06-04)
 
 
