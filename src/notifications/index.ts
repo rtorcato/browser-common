@@ -1,6 +1,11 @@
 /**
  * Checks if the Notifications API is available in the current browser.
  * @returns {boolean} True if notifications are available, false otherwise.
+ * @example
+ * ```ts
+ * import { isNotificationAvailable } from '@rtorcato/browser-common/notifications'
+ * if (isNotificationAvailable()) askPermission()
+ * ```
  */
 export const isNotificationAvailable = (): boolean => {
 	return typeof window !== 'undefined' && 'Notification' in window
@@ -12,6 +17,15 @@ export const isNotificationSupported = isNotificationAvailable
 /**
  * Requests permission from the user to show notifications.
  * @returns {Promise<NotificationPermission>} The permission result ('granted', 'denied', or 'default').
+ * @remarks
+ * Requires HTTPS and must be triggered from a user gesture.
+ * @example
+ * ```ts
+ * import { requestNotificationPermission } from '@rtorcato/browser-common/notifications'
+ * button.addEventListener('click', async () => {
+ *   if ((await requestNotificationPermission()) === 'granted') notify()
+ * })
+ * ```
  */
 export const requestNotificationPermission = async (): Promise<NotificationPermission> => {
 	if (!isNotificationAvailable()) return 'denied'
@@ -23,6 +37,11 @@ export const requestNotificationPermission = async (): Promise<NotificationPermi
  * @param {string} title - The notification title.
  * @param {NotificationOptions} [options] - Optional notification options.
  * @returns {Notification | undefined} The Notification object, or undefined if not permitted.
+ * @example
+ * ```ts
+ * import { showNotification } from '@rtorcato/browser-common/notifications'
+ * showNotification('Done', { body: 'Upload complete' })
+ * ```
  */
 export const showNotification = (
 	title: string,
@@ -37,6 +56,11 @@ export const showNotification = (
  * @param {string} title - The notification title.
  * @param {NotificationOptions} [options] - Optional notification options.
  * @returns {Promise<Notification | undefined>} The Notification object, or undefined if not permitted.
+ * @example
+ * ```ts
+ * import { notifyIfPermitted } from '@rtorcato/browser-common/notifications'
+ * await notifyIfPermitted('Hello', { body: 'World' })
+ * ```
  */
 export const notifyIfPermitted = async (
 	title: string,

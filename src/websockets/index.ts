@@ -1,6 +1,11 @@
 /**
  * Checks if WebSockets are available in the current browser.
  * @returns {boolean} True if available, false otherwise.
+ * @example
+ * ```ts
+ * import { isWebSocketAvailable } from '@rtorcato/browser-common/websockets'
+ * if (isWebSocketAvailable()) connect()
+ * ```
  */
 export function isWebSocketAvailable(): boolean {
 	return typeof window !== 'undefined' && 'WebSocket' in window
@@ -15,6 +20,13 @@ export const isWebSocketSupported = isWebSocketAvailable
  * @param protocols Optional subprotocols.
  * @param handlers Optional event handlers (open, message, error, close).
  * @returns The created WebSocket instance.
+ * @example
+ * ```ts
+ * import { createWebSocket } from '@rtorcato/browser-common/websockets'
+ * const ws = createWebSocket('wss://example.com', undefined, {
+ *   onMessage: (e) => console.log(e.data),
+ * })
+ * ```
  */
 export function createWebSocket(
 	url: string,
@@ -41,6 +53,11 @@ export function createWebSocket(
  * @param ws The WebSocket instance.
  * @param data The data to send.
  * @returns {boolean} True if sent, false otherwise.
+ * @example
+ * ```ts
+ * import { sendWebSocketMessage } from '@rtorcato/browser-common/websockets'
+ * sendWebSocketMessage(ws, JSON.stringify({ ping: 1 }))
+ * ```
  */
 export function sendWebSocketMessage(ws: WebSocket, data: string | Blob | BufferSource): boolean {
 	if (ws.readyState === WebSocket.OPEN) {
@@ -55,6 +72,11 @@ export function sendWebSocketMessage(ws: WebSocket, data: string | Blob | Buffer
  * @param ws The WebSocket instance.
  * @param code Optional close code.
  * @param reason Optional close reason.
+ * @example
+ * ```ts
+ * import { closeWebSocket } from '@rtorcato/browser-common/websockets'
+ * closeWebSocket(ws, 1000, 'done')
+ * ```
  */
 export function closeWebSocket(ws: WebSocket, code?: number, reason?: string): void {
 	if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) {

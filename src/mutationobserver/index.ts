@@ -4,6 +4,12 @@
  * @param callback The callback to run when mutations occur.
  * @param options MutationObserver options.
  * @returns The created MutationObserver instance.
+ * @example
+ * ```ts
+ * import { observeMutations, disconnectMutationObserver } from '@rtorcato/browser-common/mutationobserver'
+ * const obs = observeMutations(document.body, (records) => console.log(records))
+ * disconnectMutationObserver(obs)
+ * ```
  */
 export function observeMutations(
 	element: Node,
@@ -18,6 +24,11 @@ export function observeMutations(
 /**
  * Disconnects a MutationObserver, stopping all observations.
  * @param observer The MutationObserver instance.
+ * @example
+ * ```ts
+ * import { disconnectMutationObserver } from '@rtorcato/browser-common/mutationobserver'
+ * disconnectMutationObserver(obs)
+ * ```
  */
 export function disconnectMutationObserver(observer: MutationObserver): void {
 	observer.disconnect()
@@ -29,6 +40,11 @@ export function disconnectMutationObserver(observer: MutationObserver): void {
  * @param callback The callback to run on first mutation.
  * @param options MutationObserver options.
  * @returns The created MutationObserver instance.
+ * @example
+ * ```ts
+ * import { observeMutationOnce } from '@rtorcato/browser-common/mutationobserver'
+ * observeMutationOnce(container, () => console.log('mutated once'))
+ * ```
  */
 export function observeMutationOnce(
 	element: Node,

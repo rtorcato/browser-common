@@ -2,6 +2,11 @@
  * Adds drag-and-drop event listeners to an element for basic file drop support.
  * @param element The element to attach listeners to.
  * @param onDrop Callback for when files are dropped.
+ * @example
+ * ```ts
+ * import { enableFileDrop } from '@rtorcato/browser-common/draganddrop'
+ * enableFileDrop(dropzone, (files) => upload(files))
+ * ```
  */
 export function enableFileDrop(element: HTMLElement, onDrop: (files: FileList) => void): void {
 	element.addEventListener('dragover', (e) => {
@@ -30,6 +35,11 @@ export function enableFileDrop(element: HTMLElement, onDrop: (files: FileList) =
  * @param element The element to make draggable.
  * @param data The data to set for the drag event.
  * @param effectAllowed The allowed drag effect (e.g., 'move', 'copy').
+ * @example
+ * ```ts
+ * import { makeDraggable } from '@rtorcato/browser-common/draganddrop'
+ * makeDraggable(card, 'card-42')
+ * ```
  */
 export function makeDraggable(
 	element: HTMLElement,
@@ -50,6 +60,11 @@ export function makeDraggable(
  * Adds a drop target for plain text data.
  * @param element The element to act as a drop target.
  * @param onDrop Callback for when text is dropped.
+ * @example
+ * ```ts
+ * import { enableTextDrop } from '@rtorcato/browser-common/draganddrop'
+ * enableTextDrop(zone, (text) => console.log(text))
+ * ```
  */
 export function enableTextDrop(element: HTMLElement, onDrop: (text: string) => void): void {
 	element.addEventListener('dragover', (e) => {
@@ -77,6 +92,11 @@ export function enableTextDrop(element: HTMLElement, onDrop: (text: string) => v
 /**
  * Removes drag-and-drop event listeners from an element.
  * @param element The element to remove listeners from.
+ * @example
+ * ```ts
+ * import { disableDragAndDrop } from '@rtorcato/browser-common/draganddrop'
+ * disableDragAndDrop(dropzone)
+ * ```
  */
 export function disableDragAndDrop(element: HTMLElement): void {
 	// This is a simple implementation; for more complex cases, store references to handlers.

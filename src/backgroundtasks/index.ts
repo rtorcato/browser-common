@@ -17,11 +17,24 @@ type BackgroundFetchRegistration = any
 
 /**
  * Checks if Background Tasks (Background Sync or Background Fetch) are available in the current environment.
+ * @example
+ * ```ts
+ * import { isBackgroundSyncAvailable } from '@rtorcato/browser-common/backgroundtasks'
+ * if (isBackgroundSyncAvailable()) registerSync()
+ * ```
  */
 export function isBackgroundSyncAvailable(): boolean {
 	return typeof self !== 'undefined' && 'SyncManager' in self
 }
 
+/**
+ * Checks if the Background Fetch API is available in the current environment.
+ * @example
+ * ```ts
+ * import { isBackgroundFetchAvailable } from '@rtorcato/browser-common/backgroundtasks'
+ * if (isBackgroundFetchAvailable()) queueDownload()
+ * ```
+ */
 export function isBackgroundFetchAvailable(): boolean {
 	return typeof self !== 'undefined' && 'BackgroundFetchManager' in self
 }
@@ -30,6 +43,11 @@ export function isBackgroundFetchAvailable(): boolean {
  * Registers a background sync task (if supported).
  * @param tag The sync event tag name.
  * @returns A promise that resolves when registered, or undefined if not supported.
+ * @example
+ * ```ts
+ * import { registerBackgroundSync } from '@rtorcato/browser-common/backgroundtasks'
+ * await registerBackgroundSync('sync-outbox')
+ * ```
  */
 export async function registerBackgroundSync(tag: string): Promise<void> {
 	if (!isBackgroundSyncAvailable() || !('serviceWorker' in navigator)) return
@@ -44,6 +62,11 @@ export async function registerBackgroundSync(tag: string): Promise<void> {
  * @param urls The URLs to fetch.
  * @param options Optional BackgroundFetchOptions.
  * @returns A promise that resolves to the BackgroundFetchRegistration, or undefined if not supported.
+ * @example
+ * ```ts
+ * import { registerBackgroundFetch } from '@rtorcato/browser-common/backgroundtasks'
+ * await registerBackgroundFetch('media', ['/video.mp4'], { title: 'Video' })
+ * ```
  */
 export async function registerBackgroundFetch(
 	tag: string,

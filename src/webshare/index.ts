@@ -1,5 +1,10 @@
 /**
  * Checks if the Web Share API is available in the current browser.
+ * @example
+ * ```ts
+ * import { isWebShareAvailable } from '@rtorcato/browser-common/webshare'
+ * if (isWebShareAvailable()) showShareButton()
+ * ```
  */
 export function isWebShareAvailable(): boolean {
 	return typeof navigator !== 'undefined' && !!navigator.share
@@ -14,6 +19,11 @@ export const isWebShareSupported = isWebShareAvailable
  * Shares data using the Web Share API.
  * @param data - The data to share (title, text, url, files).
  * @returns A promise that resolves if sharing was successful.
+ * @example
+ * ```ts
+ * import { share } from '@rtorcato/browser-common/webshare'
+ * await share({ title: 'Look', url: 'https://example.com' })
+ * ```
  */
 export async function share(data: ShareData): Promise<void> {
 	if (!isWebShareAvailable()) {
@@ -24,6 +34,11 @@ export async function share(data: ShareData): Promise<void> {
 
 /**
  * Checks if the Web Share API supports sharing files.
+ * @example
+ * ```ts
+ * import { isFileShareAvailable } from '@rtorcato/browser-common/webshare'
+ * if (isFileShareAvailable()) showShareFilesButton()
+ * ```
  */
 export function isFileShareAvailable(): boolean {
 	return (

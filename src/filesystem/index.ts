@@ -1,6 +1,11 @@
 /**
  * Checks if the File System Access API is available in the browser.
  * @returns {boolean} True if available, false otherwise.
+ * @example
+ * ```ts
+ * import { isFileSystemApiAvailable } from '@rtorcato/browser-common/filesystem'
+ * if (isFileSystemApiAvailable()) showPicker()
+ * ```
  */
 export function isFileSystemApiAvailable(): boolean {
 	return typeof window !== 'undefined' && 'showOpenFilePicker' in window
@@ -31,6 +36,16 @@ type SaveFilePickerOptions = {
 	suggestedName?: string
 }
 
+/**
+ * Prompts the user to select files and returns the selected File objects.
+ * @param options File picker options.
+ * @returns {Promise<File[]>} The selected files.
+ * @example
+ * ```ts
+ * import { pickFiles } from '@rtorcato/browser-common/filesystem'
+ * const files = await pickFiles({ multiple: true })
+ * ```
+ */
 export async function pickFiles(options?: OpenFilePickerOptions): Promise<File[]> {
 	if (!isFileSystemApiAvailable()) throw new Error('File System Access API not available')
 	// @ts-expect-error
@@ -43,6 +58,12 @@ export async function pickFiles(options?: OpenFilePickerOptions): Promise<File[]
  * Prompts the user to save a file and returns a writable file handle.
  * @param options Save file picker options.
  * @returns {Promise<FileSystemWritableFileStream>} The writable file stream.
+ * @example
+ * ```ts
+ * import { saveFile, writeTextToFile } from '@rtorcato/browser-common/filesystem'
+ * const stream = await saveFile({ suggestedName: 'notes.txt' })
+ * await writeTextToFile(stream, 'hello')
+ * ```
  */
 export async function saveFile(
 	options?: SaveFilePickerOptions
@@ -57,6 +78,11 @@ export async function saveFile(
  * Reads the contents of a File as text.
  * @param file The File object to read.
  * @returns {Promise<string>} The file contents as a string.
+ * @example
+ * ```ts
+ * import { readFileAsText } from '@rtorcato/browser-common/filesystem'
+ * const text = await readFileAsText(file)
+ * ```
  */
 export function readFileAsText(file: File): Promise<string> {
 	return file.text()
@@ -66,6 +92,11 @@ export function readFileAsText(file: File): Promise<string> {
  * Reads the contents of a File as an ArrayBuffer.
  * @param file The File object to read.
  * @returns {Promise<ArrayBuffer>} The file contents as an ArrayBuffer.
+ * @example
+ * ```ts
+ * import { readFileAsArrayBuffer } from '@rtorcato/browser-common/filesystem'
+ * const buf = await readFileAsArrayBuffer(file)
+ * ```
  */
 export function readFileAsArrayBuffer(file: File): Promise<ArrayBuffer> {
 	return file.arrayBuffer()
@@ -76,6 +107,11 @@ export function readFileAsArrayBuffer(file: File): Promise<ArrayBuffer> {
  * @param stream The writable file stream.
  * @param text The text to write.
  * @returns {Promise<void>}
+ * @example
+ * ```ts
+ * import { writeTextToFile } from '@rtorcato/browser-common/filesystem'
+ * await writeTextToFile(stream, 'hello world')
+ * ```
  */
 export async function writeTextToFile(
 	stream: FileSystemWritableFileStream,
@@ -90,6 +126,11 @@ export async function writeTextToFile(
  * @param stream The writable file stream.
  * @param data The Blob or ArrayBuffer to write.
  * @returns {Promise<void>}
+ * @example
+ * ```ts
+ * import { writeDataToFile } from '@rtorcato/browser-common/filesystem'
+ * await writeDataToFile(stream, new Blob(['hi']))
+ * ```
  */
 export async function writeDataToFile(
 	stream: FileSystemWritableFileStream,

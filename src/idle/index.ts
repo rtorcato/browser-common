@@ -1,6 +1,11 @@
 /**
  * Checks if the Idle Detection API is available in the browser.
  * @returns {boolean}
+ * @example
+ * ```ts
+ * import { isIdleDetectionApiAvailable } from '@rtorcato/browser-common/idle'
+ * if (isIdleDetectionApiAvailable()) startIdleTracking()
+ * ```
  */
 export function isIdleDetectionApiAvailable(): boolean {
 	return typeof window !== 'undefined' && 'IdleDetector' in window
@@ -12,6 +17,12 @@ export function isIdleDetectionApiAvailable(): boolean {
  * @param callback The function to call when idle.
  * @param options Optional options for requestIdleCallback.
  * @returns {number} The callback ID (for cancellation).
+ * @example
+ * ```ts
+ * import { onIdle, cancelIdle } from '@rtorcato/browser-common/idle'
+ * const id = onIdle((deadline) => doWork(deadline))
+ * cancelIdle(id)
+ * ```
  */
 export function onIdle(
 	callback: (deadline?: IdleDeadline) => void,
@@ -27,6 +38,11 @@ export function onIdle(
 /**
  * Cancels an idle callback registered with onIdle.
  * @param id The callback ID returned by onIdle.
+ * @example
+ * ```ts
+ * import { cancelIdle } from '@rtorcato/browser-common/idle'
+ * cancelIdle(id)
+ * ```
  */
 export function cancelIdle(id: number): void {
 	if ('cancelIdleCallback' in window) {
@@ -52,6 +68,18 @@ type IdleDetector = {
 	screenState: 'locked' | 'unlocked'
 }
 
+/**
+ * Uses the Idle Detection API to run a callback when the user/system is idle.
+ * Requires permissions and a secure context.
+ * @param onIdle Callback when idle.
+ * @param onActive Optional callback when user becomes active.
+ * @returns {Promise<IdleDetector | null>} The IdleDetector instance, or null if not available.
+ * @example
+ * ```ts
+ * import { detectIdle } from '@rtorcato/browser-common/idle'
+ * const detector = await detectIdle(() => lockUI(), () => unlockUI())
+ * ```
+ */
 export async function detectIdle(
 	onIdle: () => void,
 	onActive?: () => void

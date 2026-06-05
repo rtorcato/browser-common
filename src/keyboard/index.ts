@@ -3,6 +3,11 @@
  * @param event The KeyboardEvent.
  * @param key The key to check (e.g., 'Enter', 'a').
  * @returns {boolean}
+ * @example
+ * ```ts
+ * import { isKey } from '@rtorcato/browser-common/keyboard'
+ * input.addEventListener('keydown', (e) => { if (isKey(e, 'Enter')) submit() })
+ * ```
  */
 export function isKey(event: KeyboardEvent, key: string): boolean {
 	return event.key.toLowerCase() === key.toLowerCase()
@@ -12,6 +17,11 @@ export function isKey(event: KeyboardEvent, key: string): boolean {
  * Checks if a KeyboardEvent is a modifier key (Shift, Ctrl, Alt, Meta).
  * @param event The KeyboardEvent.
  * @returns {boolean}
+ * @example
+ * ```ts
+ * import { isModifierKey } from '@rtorcato/browser-common/keyboard'
+ * window.addEventListener('keydown', (e) => { if (!isModifierKey(e)) handle(e) })
+ * ```
  */
 export function isModifierKey(event: KeyboardEvent): boolean {
 	return (
@@ -23,6 +33,11 @@ export function isModifierKey(event: KeyboardEvent): boolean {
  * Returns true if the event is a printable character (not a control or modifier key).
  * @param event The KeyboardEvent.
  * @returns {boolean}
+ * @example
+ * ```ts
+ * import { isPrintableKey } from '@rtorcato/browser-common/keyboard'
+ * input.addEventListener('keydown', (e) => { if (isPrintableKey(e)) typeChar(e.key) })
+ * ```
  */
 export function isPrintableKey(event: KeyboardEvent): boolean {
 	return event.key.length === 1 && !event.ctrlKey && !event.metaKey
@@ -34,6 +49,12 @@ export function isPrintableKey(event: KeyboardEvent): boolean {
  * @param callback Function to call when shortcut is pressed.
  * @param target The event target (default: window).
  * @returns {() => void} Unsubscribe function.
+ * @example
+ * ```ts
+ * import { onShortcut } from '@rtorcato/browser-common/keyboard'
+ * const off = onShortcut(['Control', 's'], (e) => { e.preventDefault(); save() })
+ * off()
+ * ```
  */
 export function onShortcut(
 	keys: string[],
@@ -67,6 +88,12 @@ export function onShortcut(
  * @param key The key to prevent.
  * @param target The event target (default: window).
  * @returns {() => void} Unsubscribe function.
+ * @example
+ * ```ts
+ * import { preventKeyDefault } from '@rtorcato/browser-common/keyboard'
+ * const off = preventKeyDefault('Enter', input)
+ * off()
+ * ```
  */
 export function preventKeyDefault(key: string, target: Window | HTMLElement = window): () => void {
 	function handler(e: Event) {

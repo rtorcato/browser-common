@@ -1,6 +1,11 @@
 /**
  * Triggers the browser's print dialog.
  * @returns {void}
+ * @example
+ * ```ts
+ * import { printPage } from '@rtorcato/browser-common/print'
+ * printPage()
+ * ```
  */
 export const printPage = (): void => {
 	if (typeof window !== 'undefined' && typeof window.print === 'function') {
@@ -13,6 +18,11 @@ export const printPage = (): void => {
  * Opens a new window with the element's content and triggers print.
  * @param {string} elementId - The ID of the element to print.
  * @returns {void}
+ * @example
+ * ```ts
+ * import { printElementById } from '@rtorcato/browser-common/print'
+ * printElementById('receipt')
+ * ```
  */
 export const printElementById = (elementId: string): void => {
 	if (typeof window === 'undefined' || typeof document === 'undefined') return
@@ -33,6 +43,11 @@ export const printElementById = (elementId: string): void => {
 /**
  * Checks if the browser's print function is available.
  * @returns {boolean} True if print is available, false otherwise.
+ * @example
+ * ```ts
+ * import { isPrintAvailable } from '@rtorcato/browser-common/print'
+ * if (isPrintAvailable()) showPrintButton()
+ * ```
  */
 export const isPrintAvailable = (): boolean => {
 	return typeof window !== 'undefined' && typeof window.print === 'function'

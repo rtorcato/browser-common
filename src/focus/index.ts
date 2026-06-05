@@ -2,6 +2,11 @@
  * Focuses the first focusable element within a container.
  * @param container The container element to search within.
  * @returns {boolean} True if an element was focused, false otherwise.
+ * @example
+ * ```ts
+ * import { focusFirst } from '@rtorcato/browser-common/focus'
+ * focusFirst(dialog)
+ * ```
  */
 export function focusFirst(container: HTMLElement): boolean {
 	const focusable = container.querySelector<HTMLElement>(
@@ -18,6 +23,11 @@ export function focusFirst(container: HTMLElement): boolean {
  * Focuses the last focusable element within a container.
  * @param container The container element to search within.
  * @returns {boolean} True if an element was focused, false otherwise.
+ * @example
+ * ```ts
+ * import { focusLast } from '@rtorcato/browser-common/focus'
+ * focusLast(dialog)
+ * ```
  */
 export function focusLast(container: HTMLElement): boolean {
 	const focusables = container.querySelectorAll<HTMLElement>(
@@ -37,6 +47,11 @@ export function focusLast(container: HTMLElement): boolean {
  * Focuses the next focusable element after the currently focused element within a container.
  * @param container The container element to search within.
  * @returns {boolean} True if an element was focused, false otherwise.
+ * @example
+ * ```ts
+ * import { focusNext } from '@rtorcato/browser-common/focus'
+ * focusNext(form)
+ * ```
  */
 export function focusNext(container: HTMLElement): boolean {
 	const focusables = Array.from(
@@ -59,6 +74,11 @@ export function focusNext(container: HTMLElement): boolean {
  * Focuses the previous focusable element before the currently focused element within a container.
  * @param container The container element to search within.
  * @returns {boolean} True if an element was focused, false otherwise.
+ * @example
+ * ```ts
+ * import { focusPrev } from '@rtorcato/browser-common/focus'
+ * focusPrev(form)
+ * ```
  */
 export function focusPrev(container: HTMLElement): boolean {
 	const focusables = Array.from(
@@ -82,6 +102,11 @@ export function focusPrev(container: HTMLElement): boolean {
  * @param container The container element to search within.
  * @param selector The CSS selector for the element to focus.
  * @returns {boolean} True if an element was focused, false otherwise.
+ * @example
+ * ```ts
+ * import { focusBySelector } from '@rtorcato/browser-common/focus'
+ * focusBySelector(form, 'input[name="email"]')
+ * ```
  */
 export function focusBySelector(container: HTMLElement, selector: string): boolean {
 	const el = container.querySelector<HTMLElement>(selector)

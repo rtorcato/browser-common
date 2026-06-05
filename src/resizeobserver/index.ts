@@ -4,6 +4,12 @@
  * @param callback The callback to run when the element is resized.
  * @param options Optional ResizeObserver options.
  * @returns The created ResizeObserver instance.
+ * @example
+ * ```ts
+ * import { observeResize, disconnectResizeObserver } from '@rtorcato/browser-common/resizeobserver'
+ * const obs = observeResize(panel, (entries) => console.log(entries[0]?.contentRect))
+ * disconnectResizeObserver(obs)
+ * ```
  */
 export function observeResize(
 	element: Element,
@@ -18,6 +24,11 @@ export function observeResize(
 /**
  * Disconnects a ResizeObserver, stopping all observations.
  * @param observer The ResizeObserver instance.
+ * @example
+ * ```ts
+ * import { disconnectResizeObserver } from '@rtorcato/browser-common/resizeobserver'
+ * disconnectResizeObserver(obs)
+ * ```
  */
 export function disconnectResizeObserver(observer: ResizeObserver): void {
 	observer.disconnect()
@@ -29,6 +40,11 @@ export function disconnectResizeObserver(observer: ResizeObserver): void {
  * @param callback The callback to run on first resize.
  * @param options Optional ResizeObserver options.
  * @returns The created ResizeObserver instance.
+ * @example
+ * ```ts
+ * import { observeResizeOnce } from '@rtorcato/browser-common/resizeobserver'
+ * observeResizeOnce(panel, () => console.log('first resize'))
+ * ```
  */
 export function observeResizeOnce(
 	element: Element,

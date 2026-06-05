@@ -1,6 +1,11 @@
 /**
  * Checks if Service Workers are available in the current browser.
  * @returns {boolean} True if available, false otherwise.
+ * @example
+ * ```ts
+ * import { isServiceWorkerAvailable } from '@rtorcato/browser-common/serviceworkers'
+ * if (isServiceWorkerAvailable()) register()
+ * ```
  */
 export function isServiceWorkerAvailable(): boolean {
 	return typeof navigator !== 'undefined' && 'serviceWorker' in navigator
@@ -14,6 +19,11 @@ export const isServiceWorkerSupported = isServiceWorkerAvailable
  * @param scriptUrl The URL of the service worker script.
  * @param options Optional ServiceWorkerRegistration options.
  * @returns {Promise<ServiceWorkerRegistration | undefined>} The registration or undefined if not supported.
+ * @example
+ * ```ts
+ * import { registerServiceWorker } from '@rtorcato/browser-common/serviceworkers'
+ * const reg = await registerServiceWorker('/sw.js', { scope: '/' })
+ * ```
  */
 export async function registerServiceWorker(
 	scriptUrl: string,
@@ -30,6 +40,11 @@ export async function registerServiceWorker(
 /**
  * Unregisters all service workers for the current origin.
  * @returns {Promise<boolean>} True if all were unregistered, false otherwise.
+ * @example
+ * ```ts
+ * import { unregisterAllServiceWorkers } from '@rtorcato/browser-common/serviceworkers'
+ * await unregisterAllServiceWorkers()
+ * ```
  */
 export async function unregisterAllServiceWorkers(): Promise<boolean> {
 	if (!isServiceWorkerAvailable()) return false
@@ -41,6 +56,11 @@ export async function unregisterAllServiceWorkers(): Promise<boolean> {
 /**
  * Gets the current active service worker registration, if any.
  * @returns {Promise<ServiceWorkerRegistration | undefined>} The registration or undefined.
+ * @example
+ * ```ts
+ * import { getServiceWorkerRegistration } from '@rtorcato/browser-common/serviceworkers'
+ * const reg = await getServiceWorkerRegistration()
+ * ```
  */
 export async function getServiceWorkerRegistration(): Promise<
 	ServiceWorkerRegistration | undefined
@@ -53,6 +73,11 @@ export async function getServiceWorkerRegistration(): Promise<
  * Sends a message to the active service worker.
  * @param message The message to send.
  * @returns {void}
+ * @example
+ * ```ts
+ * import { postMessageToServiceWorker } from '@rtorcato/browser-common/serviceworkers'
+ * postMessageToServiceWorker({ type: 'skipWaiting' })
+ * ```
  */
 export function postMessageToServiceWorker(message: unknown): void {
 	if (isServiceWorkerAvailable() && navigator.serviceWorker.controller) {
