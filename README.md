@@ -11,6 +11,10 @@ Small, tree-shakeable TypeScript wrappers around 40+ browser Web APIs.
 
 Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 35+ other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
 
+## Why this over `vueuse/core` or `usehooks-ts`?
+
+Framework-agnostic. If you're in a Vue or React app, those libraries are excellent — use them. But if your code needs to work the same way from a Node script, a service worker, a vanilla-TS module, or alongside *any* framework, `browser-common` ships unopinionated functions with no React/Vue dependency and per-subpath imports that tree-shake to bytes (146-257 B brotlied per module). Smaller surface, broader reach.
+
 ## Installation
 
 ```bash
