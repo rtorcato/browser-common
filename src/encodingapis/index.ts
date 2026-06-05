@@ -1,25 +1,31 @@
 /**
- * Checks if the TextEncoder API is supported in the current browser.
+ * Checks if the TextEncoder API is available in the current environment.
  */
-export function isTextEncoderSupported(): boolean {
+export function isTextEncoderAvailable(): boolean {
 	return typeof TextEncoder !== 'undefined'
 }
 
+/** @deprecated Use {@link isTextEncoderAvailable} instead. Will be removed in the next major. */
+export const isTextEncoderSupported = isTextEncoderAvailable
+
 /**
- * Checks if the TextDecoder API is supported in the current browser.
+ * Checks if the TextDecoder API is available in the current environment.
  */
-export function isTextDecoderSupported(): boolean {
+export function isTextDecoderAvailable(): boolean {
 	return typeof TextDecoder !== 'undefined'
 }
+
+/** @deprecated Use {@link isTextDecoderAvailable} instead. Will be removed in the next major. */
+export const isTextDecoderSupported = isTextDecoderAvailable
 
 /**
  * Encodes a string into a Uint8Array using UTF-8 encoding.
  * @param input - The string to encode.
  * @returns The encoded Uint8Array.
- * @throws If TextEncoder is not supported.
+ * @throws If TextEncoder is not available.
  */
 export function encodeUTF8(input: string): Uint8Array {
-	if (!isTextEncoderSupported()) {
+	if (!isTextEncoderAvailable()) {
 		throw new Error('TextEncoder is not supported in this environment.')
 	}
 	return new TextEncoder().encode(input)
@@ -29,10 +35,10 @@ export function encodeUTF8(input: string): Uint8Array {
  * Decodes a Uint8Array into a string using UTF-8 encoding.
  * @param bytes - The Uint8Array to decode.
  * @returns The decoded string.
- * @throws If TextDecoder is not supported.
+ * @throws If TextDecoder is not available.
  */
 export function decodeUTF8(bytes: Uint8Array): string {
-	if (!isTextDecoderSupported()) {
+	if (!isTextDecoderAvailable()) {
 		throw new Error('TextDecoder is not supported in this environment.')
 	}
 	return new TextDecoder().decode(bytes)

@@ -1,10 +1,13 @@
 /**
- * Checks if Service Workers are supported in the current browser.
- * @returns {boolean} True if supported, false otherwise.
+ * Checks if Service Workers are available in the current browser.
+ * @returns {boolean} True if available, false otherwise.
  */
-export function isServiceWorkerSupported(): boolean {
+export function isServiceWorkerAvailable(): boolean {
 	return typeof navigator !== 'undefined' && 'serviceWorker' in navigator
 }
+
+/** @deprecated Use {@link isServiceWorkerAvailable} instead. Will be removed in the next major. */
+export const isServiceWorkerSupported = isServiceWorkerAvailable
 
 /**
  * Registers a service worker script.
@@ -16,7 +19,7 @@ export async function registerServiceWorker(
 	scriptUrl: string,
 	options?: RegistrationOptions
 ): Promise<ServiceWorkerRegistration | undefined> {
-	if (!isServiceWorkerSupported()) return undefined
+	if (!isServiceWorkerAvailable()) return undefined
 	try {
 		return await navigator.serviceWorker.register(scriptUrl, options)
 	} catch {
@@ -29,7 +32,7 @@ export async function registerServiceWorker(
  * @returns {Promise<boolean>} True if all were unregistered, false otherwise.
  */
 export async function unregisterAllServiceWorkers(): Promise<boolean> {
-	if (!isServiceWorkerSupported()) return false
+	if (!isServiceWorkerAvailable()) return false
 	const regs = await navigator.serviceWorker.getRegistrations()
 	await Promise.all(regs.map((reg) => reg.unregister()))
 	return true
@@ -42,7 +45,7 @@ export async function unregisterAllServiceWorkers(): Promise<boolean> {
 export async function getServiceWorkerRegistration(): Promise<
 	ServiceWorkerRegistration | undefined
 > {
-	if (!isServiceWorkerSupported()) return undefined
+	if (!isServiceWorkerAvailable()) return undefined
 	return await navigator.serviceWorker.getRegistration()
 }
 
@@ -52,7 +55,7 @@ export async function getServiceWorkerRegistration(): Promise<
  * @returns {void}
  */
 export function postMessageToServiceWorker(message: unknown): void {
-	if (isServiceWorkerSupported() && navigator.serviceWorker.controller) {
+	if (isServiceWorkerAvailable() && navigator.serviceWorker.controller) {
 		navigator.serviceWorker.controller.postMessage(message)
 	}
 }

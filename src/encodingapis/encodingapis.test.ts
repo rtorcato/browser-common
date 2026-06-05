@@ -1,17 +1,17 @@
 import { describe, expect, it } from 'vitest'
-import { decodeUTF8, encodeUTF8, isTextDecoderSupported, isTextEncoderSupported } from './'
+import { decodeUTF8, encodeUTF8, isTextDecoderAvailable, isTextEncoderAvailable } from './'
 
 describe('encodingapis', () => {
 	it('should detect TextEncoder support', () => {
-		expect(typeof isTextEncoderSupported()).toBe('boolean')
+		expect(typeof isTextEncoderAvailable()).toBe('boolean')
 	})
 
 	it('should detect TextDecoder support', () => {
-		expect(typeof isTextDecoderSupported()).toBe('boolean')
+		expect(typeof isTextDecoderAvailable()).toBe('boolean')
 	})
 
 	it('should encode and decode UTF-8 correctly', () => {
-		if (isTextEncoderSupported() && isTextDecoderSupported()) {
+		if (isTextEncoderAvailable() && isTextDecoderAvailable()) {
 			const str = 'hello world'
 			const bytes = encodeUTF8(str)
 			expect(bytes).toBeInstanceOf(Uint8Array)

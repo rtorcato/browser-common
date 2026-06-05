@@ -1,9 +1,12 @@
 /**
- * Checks if the Visual Viewport API is supported in the current browser.
+ * Checks if the Visual Viewport API is available in the current browser.
  */
-export function isVisualViewportSupported(): boolean {
+export function isVisualViewportAvailable(): boolean {
 	return typeof window !== 'undefined' && !!window.visualViewport
 }
+
+/** @deprecated Use {@link isVisualViewportAvailable} instead. Will be removed in the next major. */
+export const isVisualViewportSupported = isVisualViewportAvailable
 
 /**
  * Information about the current visual viewport.
@@ -20,7 +23,7 @@ export interface VisualViewportInfo {
  * Gets the current visual viewport's properties, or null if not supported.
  */
 export function getVisualViewportInfo(): VisualViewportInfo | null {
-	if (!isVisualViewportSupported() || !window.visualViewport) return null
+	if (!isVisualViewportAvailable() || !window.visualViewport) return null
 	const v = window.visualViewport
 	return {
 		offsetLeft: v.offsetLeft,
@@ -37,7 +40,7 @@ export function getVisualViewportInfo(): VisualViewportInfo | null {
  * @param callback - Function to call on resize or scroll.
  */
 export function onVisualViewportChange(callback: () => void): () => void {
-	if (!isVisualViewportSupported() || !window.visualViewport) return () => {}
+	if (!isVisualViewportAvailable() || !window.visualViewport) return () => {}
 	const v = window.visualViewport
 	v.addEventListener('resize', callback)
 	v.addEventListener('scroll', callback)

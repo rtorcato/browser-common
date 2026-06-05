@@ -31,12 +31,15 @@ export const printElementById = (elementId: string): void => {
 }
 
 /**
- * Checks if the browser supports the print function.
- * @returns {boolean} True if print is supported, false otherwise.
+ * Checks if the browser's print function is available.
+ * @returns {boolean} True if print is available, false otherwise.
  */
-export const isPrintSupported = (): boolean => {
+export const isPrintAvailable = (): boolean => {
 	return typeof window !== 'undefined' && typeof window.print === 'function'
 }
+
+/** @deprecated Use {@link isPrintAvailable} instead. Will be removed in the next major. */
+export const isPrintSupported = isPrintAvailable
 
 // import { sleep } from '../sleep/index.js'
 

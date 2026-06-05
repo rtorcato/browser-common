@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import * as mod from '.'
-import { isServiceWorkerSupported } from '.'
+import { isServiceWorkerAvailable } from '.'
 
 describe('serviceworkers', () => {
-	it('isServiceWorkerSupported returns boolean', () => {
-		expect(typeof isServiceWorkerSupported()).toBe('boolean')
+	it('isServiceWorkerAvailable returns boolean', () => {
+		expect(typeof isServiceWorkerAvailable()).toBe('boolean')
 	})
 
 	it('all exports are functions', () => {

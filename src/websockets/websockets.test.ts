@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import * as mod from '.'
-import { isWebSocketSupported } from '.'
+import { isWebSocketAvailable } from '.'
 
 describe('websockets', () => {
-	it('isWebSocketSupported returns boolean', () => {
-		expect(typeof isWebSocketSupported()).toBe('boolean')
+	it('isWebSocketAvailable returns boolean', () => {
+		expect(typeof isWebSocketAvailable()).toBe('boolean')
 	})
 
 	it('all exports are functions', () => {

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import * as mod from '.'
-import { isWebLocksSupported } from '.'
+import { isWebLocksAvailable } from '.'
 
 describe('weblocks', () => {
-	it('isWebLocksSupported returns boolean', () => {
-		expect(typeof isWebLocksSupported()).toBe('boolean')
+	it('isWebLocksAvailable returns boolean', () => {
+		expect(typeof isWebLocksAvailable()).toBe('boolean')
 	})
 
 	it('all exports are functions', () => {

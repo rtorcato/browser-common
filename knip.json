@@ -1,5 +1,8 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
+  "rules": {
+    "duplicates": "off"
+  },
   "workspaces": {
     ".": {
       "entry": ["src/index.ts", "src/*/index.ts"],

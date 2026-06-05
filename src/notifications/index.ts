@@ -1,17 +1,20 @@
 /**
- * Checks if the Notifications API is supported in the current browser.
- * @returns {boolean} True if notifications are supported, false otherwise.
+ * Checks if the Notifications API is available in the current browser.
+ * @returns {boolean} True if notifications are available, false otherwise.
  */
-export const isNotificationSupported = (): boolean => {
+export const isNotificationAvailable = (): boolean => {
 	return typeof window !== 'undefined' && 'Notification' in window
 }
+
+/** @deprecated Use {@link isNotificationAvailable} instead. Will be removed in the next major. */
+export const isNotificationSupported = isNotificationAvailable
 
 /**
  * Requests permission from the user to show notifications.
  * @returns {Promise<NotificationPermission>} The permission result ('granted', 'denied', or 'default').
  */
 export const requestNotificationPermission = async (): Promise<NotificationPermission> => {
-	if (!isNotificationSupported()) return 'denied'
+	if (!isNotificationAvailable()) return 'denied'
 	return await Notification.requestPermission()
 }
 
@@ -25,7 +28,7 @@ export const showNotification = (
 	title: string,
 	options?: NotificationOptions
 ): Notification | undefined => {
-	if (!isNotificationSupported() || Notification.permission !== 'granted') return
+	if (!isNotificationAvailable() || Notification.permission !== 'granted') return
 	return new Notification(title, options)
 }
 
@@ -39,7 +42,7 @@ export const notifyIfPermitted = async (
 	title: string,
 	options?: NotificationOptions
 ): Promise<Notification | undefined> => {
-	if (!isNotificationSupported()) return
+	if (!isNotificationAvailable()) return
 	if (Notification.permission === 'default') {
 		await requestNotificationPermission()
 	}

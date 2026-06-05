@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import * as mod from '.'
-import { isVisualViewportSupported } from '.'
+import { isVisualViewportAvailable } from '.'
 
 describe('visualviewport', () => {
-	it('isVisualViewportSupported returns boolean', () => {
-		expect(typeof isVisualViewportSupported()).toBe('boolean')
+	it('isVisualViewportAvailable returns boolean', () => {
+		expect(typeof isVisualViewportAvailable()).toBe('boolean')
 	})
 
 	it('all exports are functions', () => {

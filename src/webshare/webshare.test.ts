@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { isFileShareSupported, isWebShareSupported, share } from '.'
+import { isFileShareAvailable, isWebShareAvailable, share } from '.'
 
 const setNavigator = (value: unknown) => {
 	Object.defineProperty(globalThis, 'navigator', {
@@ -11,11 +11,11 @@ const setNavigator = (value: unknown) => {
 
 describe('webshare', () => {
 	it('should detect support for Web Share API', () => {
-		expect(typeof isWebShareSupported()).toBe('boolean')
+		expect(typeof isWebShareAvailable()).toBe('boolean')
 	})
 
 	it('should detect support for file sharing', () => {
-		expect(typeof isFileShareSupported()).toBe('boolean')
+		expect(typeof isFileShareAvailable()).toBe('boolean')
 	})
 
 	it('should throw if Web Share API is not supported', async () => {
@@ -42,7 +42,7 @@ describe('webshare', () => {
 		}
 		const originalNavigator = globalThis.navigator
 		setNavigator(fakeNavigator)
-		expect(isFileShareSupported()).toBe(true)
+		expect(isFileShareAvailable()).toBe(true)
 		setNavigator(originalNavigator)
 	})
 })

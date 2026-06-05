@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import * as mod from '.'
-import { isPrintSupported } from '.'
+import { isPrintAvailable } from '.'
 
 describe('print', () => {
-	it('isPrintSupported returns boolean', () => {
-		expect(typeof isPrintSupported()).toBe('boolean')
+	it('isPrintAvailable returns boolean', () => {
+		expect(typeof isPrintAvailable()).toBe('boolean')
 	})
 
 	it('all exports are functions', () => {

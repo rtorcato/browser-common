@@ -16,7 +16,7 @@ Every module is a separate subpath export — import only what you need.
 | cookies | `@rtorcato/browser-common/cookies` | `setCookie`, `getCookie`, `deleteCookie`, `hasCookie`, `getAllCookies` |
 | dom | `@rtorcato/browser-common/dom` | `$`, `$$`, `createElement`, `removeElement`, `setAttributes`, `addClass`, `removeClass`, `toggleClass`, `hasClass`, `getData`, `setData` |
 | draganddrop | `@rtorcato/browser-common/draganddrop` | `enableFileDrop`, `makeDraggable`, `enableTextDrop`, `disableDragAndDrop` |
-| encodingapis | `@rtorcato/browser-common/encodingapis` | `isTextEncoderSupported`, `isTextDecoderSupported`, `encodeUTF8`, `decodeUTF8` |
+| encodingapis | `@rtorcato/browser-common/encodingapis` | `isTextEncoderAvailable`, `isTextDecoderAvailable`, `encodeUTF8`, `decodeUTF8` |
 | filesystem | `@rtorcato/browser-common/filesystem` | `isFileSystemApiAvailable`, `pickFiles`, `saveFile`, `readFileAsText`, `readFileAsArrayBuffer`, `writeTextToFile`, `writeDataToFile` |
 | focus | `@rtorcato/browser-common/focus` | `focusFirst`, `focusLast`, `focusNext`, `focusPrev`, `focusBySelector` |
 | forms | `@rtorcato/browser-common/forms` | `serializeForm`, `resetForm`, `setFormValues`, `isFormValid`, `onFormSubmit` |
@@ -33,21 +33,21 @@ Every module is a separate subpath export — import only what you need.
 | mediadevices | `@rtorcato/browser-common/mediadevices` | `isMediaDevicesAvailable`, `getMediaDevices`, `getUserMedia`, `stopMediaStream`, `getMediaPermissionStatus` |
 | motion | `@rtorcato/browser-common/motion` | `isDeviceMotionAvailable`, `onDeviceMotion`, `isGenericSensorApiAvailable`, `requestMotionPermission` |
 | mutationobserver | `@rtorcato/browser-common/mutationobserver` | `observeMutations`, `disconnectMutationObserver`, `observeMutationOnce` |
-| notifications | `@rtorcato/browser-common/notifications` | `isNotificationSupported`, `requestNotificationPermission`, `showNotification`, `notifyIfPermitted` |
+| notifications | `@rtorcato/browser-common/notifications` | `isNotificationAvailable`, `requestNotificationPermission`, `showNotification`, `notifyIfPermitted` |
 | orientation | `@rtorcato/browser-common/orientation` | `isDeviceOrientationAvailable`, `onDeviceOrientation`, `getScreenOrientationType`, `lockScreenOrientation`, `unlockScreenOrientation` |
 | performance | `@rtorcato/browser-common/performance` | `isPerformanceApiAvailable`, `now`, `getPerformanceEntriesByType`, `mark`, `measure` |
 | permissions | `@rtorcato/browser-common/permissions` | `isPermissionsApiAvailable`, `queryPermission`, `onPermissionChange` |
-| print | `@rtorcato/browser-common/print` | `printPage`, `printElementById`, `isPrintSupported` |
+| print | `@rtorcato/browser-common/print` | `printPage`, `printElementById`, `isPrintAvailable` |
 | resizeobserver | `@rtorcato/browser-common/resizeobserver` | `observeResize`, `disconnectResizeObserver`, `observeResizeOnce` |
 | screen | `@rtorcato/browser-common/screen` | `getScreenWidth`, `getScreenHeight`, `getViewportWidth`, `getViewportHeight`, `isLandscape`, `isPortrait`, `enterFullscreen`, `exitFullscreen`, `isFullscreen` |
 | selectionapi | `@rtorcato/browser-common/selectionapi` | `isSelectionApiAvailable`, `getSelection`, `getSelectedText`, `clearSelection`, `selectElementText` |
-| serviceworkers | `@rtorcato/browser-common/serviceworkers` | `isServiceWorkerSupported`, `registerServiceWorker`, `unregisterAllServiceWorkers`, `getServiceWorkerRegistration`, `postMessageToServiceWorker` |
+| serviceworkers | `@rtorcato/browser-common/serviceworkers` | `isServiceWorkerAvailable`, `registerServiceWorker`, `unregisterAllServiceWorkers`, `getServiceWorkerRegistration`, `postMessageToServiceWorker` |
 | sessionstorage | `@rtorcato/browser-common/sessionstorage` | `isSessionStorageAvailable`, `setSessionStorage`, `getSessionStorage`, `removeSessionStorage`, `clearSessionStorage` |
 | vibrate | `@rtorcato/browser-common/vibrate` | `isVibrationApiAvailable`, `vibrate`, `stopVibration`, `vibratePulse`, `vibrateNotification` |
-| visualviewport | `@rtorcato/browser-common/visualviewport` | `isVisualViewportSupported`, `getVisualViewportInfo`, `onVisualViewportChange` |
-| weblocks | `@rtorcato/browser-common/weblocks` | `withLock`, `isWebLocksSupported` |
-| webshare | `@rtorcato/browser-common/webshare` | `isWebShareSupported`, `share`, `isFileShareSupported` |
-| websockets | `@rtorcato/browser-common/websockets` | `isWebSocketSupported`, `createWebSocket`, `sendWebSocketMessage`, `closeWebSocket` |
+| visualviewport | `@rtorcato/browser-common/visualviewport` | `isVisualViewportAvailable`, `getVisualViewportInfo`, `onVisualViewportChange` |
+| weblocks | `@rtorcato/browser-common/weblocks` | `withLock`, `isWebLocksAvailable` |
+| webshare | `@rtorcato/browser-common/webshare` | `isWebShareAvailable`, `share`, `isFileShareAvailable` |
+| websockets | `@rtorcato/browser-common/websockets` | `isWebSocketAvailable`, `createWebSocket`, `sendWebSocketMessage`, `closeWebSocket` |
 | window | `@rtorcato/browser-common/window` | `openWindow`, `closeWindow`, `focusWindow`, `blurWindow`, `scrollToTop`, `scrollToBottom`, `reloadWindow`, `getWindowSize`, `onWindowResize` |
 
 For detailed JSDoc with `@param`/`@returns` on every function, your IDE's hover docs are authoritative — the source lives at [github.com/rtorcato/browser-common/tree/main/src](https://github.com/rtorcato/browser-common/tree/main/src).

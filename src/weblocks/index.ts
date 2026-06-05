@@ -15,8 +15,11 @@ export async function withLock<T>(name: string, callback: () => Promise<T>): Pro
 }
 
 /**
- * Checks if the Web Locks API is supported in the current browser.
+ * Checks if the Web Locks API is available in the current browser.
  */
-export function isWebLocksSupported(): boolean {
+export function isWebLocksAvailable(): boolean {
 	return typeof navigator !== 'undefined' && !!navigator.locks
 }
+
+/** @deprecated Use {@link isWebLocksAvailable} instead. Will be removed in the next major. */
+export const isWebLocksSupported = isWebLocksAvailable

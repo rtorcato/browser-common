@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import * as mod from '.'
-import { isNotificationSupported } from '.'
+import { isNotificationAvailable } from '.'
 
 describe('notifications', () => {
-	it('isNotificationSupported returns boolean', () => {
-		expect(typeof isNotificationSupported()).toBe('boolean')
+	it('isNotificationAvailable returns boolean', () => {
+		expect(typeof isNotificationAvailable()).toBe('boolean')
 	})
 
 	it('all exports are functions', () => {

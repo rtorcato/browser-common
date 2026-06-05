@@ -1,10 +1,13 @@
 /**
- * Checks if WebSockets are supported in the current browser.
- * @returns {boolean} True if supported, false otherwise.
+ * Checks if WebSockets are available in the current browser.
+ * @returns {boolean} True if available, false otherwise.
  */
-export function isWebSocketSupported(): boolean {
+export function isWebSocketAvailable(): boolean {
 	return typeof window !== 'undefined' && 'WebSocket' in window
 }
+
+/** @deprecated Use {@link isWebSocketAvailable} instead. Will be removed in the next major. */
+export const isWebSocketSupported = isWebSocketAvailable
 
 /**
  * Creates a new WebSocket connection and attaches event listeners.
