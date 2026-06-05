@@ -12,10 +12,10 @@ export default mergeConfig(
 				// Floor matches current baseline minus ~1 pt — fail on regression,
 				// pass currently. Tighten as behavior tests cover more modules.
 				thresholds: {
-					statements: 10,
-					branches: 8,
-					functions: 12,
-					lines: 11,
+					statements: 18,
+					branches: 13,
+					functions: 18,
+					lines: 19,
 				},
 			},
 		},
