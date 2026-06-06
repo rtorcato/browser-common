@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/rtorcato/browser-common/compare/v1.1.0...v1.1.1) (2026-06-06)
+
+
+### Bug Fixes
+
+* **touchevents:** document TouchList source in get* helpers ([cad22ab](https://github.com/rtorcato/browser-common/commit/cad22ab21f3de915d8282ed53c10805954c3b34f))
+
 # [1.1.0](https://github.com/rtorcato/browser-common/compare/v1.0.1...v1.1.0) (2026-06-06)
 
 
