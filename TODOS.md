@@ -4,7 +4,8 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 
 ## Active
 
-- [ ] **Upstream: fix `@rtorcato/js-tooling/vitest/config` coverage `include` glob.** The shared preset hardcodes `coverage.include: ['src/cli/generators/**/*.ts']` (js-tooling's own structure). Any consumer using the preset gets `0/0` coverage reports. We worked around it locally by overriding in `vitest.config.ts`, but the fix belongs upstream — drop the hardcoded `include` or default to `src/**/*.ts`.
+- [ ] **Upstream: fix `@rtorcato/js-tooling/vitest/config` coverage glob + thresholds** — tracked in [rtorcato/js-tooling#39](https://github.com/rtorcato/js-tooling/issues/39). Once fixed and a new js-tooling version is published, drop the workaround in `vitest.config.ts` (lines 8-19).
+- [ ] **Upstream: other browser-common conventions to js-tooling.** Drift audit ([2026-06-06](#)) opened tracking issues for: [#40 exports-resolution helper](https://github.com/rtorcato/js-tooling/issues/40), [#41 ssr-safety helper](https://github.com/rtorcato/js-tooling/issues/41), [#42 verify script + pre-push hook](https://github.com/rtorcato/js-tooling/issues/42), [#43 tree-shake check template](https://github.com/rtorcato/js-tooling/issues/43), [#44 library style guide](https://github.com/rtorcato/js-tooling/issues/44).
 
 ## Nice to have
 
