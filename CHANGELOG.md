@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/rtorcato/browser-common/compare/v0.3.0...v1.0.0) (2026-06-06)
+
+
+* feat!: graduate to v1.0.0 by removing deprecated is*Supported aliases ([bb7f29e](https://github.com/rtorcato/browser-common/commit/bb7f29e2366c9be592acc9b72985dd53f0fa2685))
+
+
+### BREAKING CHANGES
+
+* isFileShareSupported, isNotificationSupported,
+isPrintSupported, isServiceWorkerSupported, isTextDecoderSupported,
+isTextEncoderSupported, isVisualViewportSupported, isWebLocksSupported,
+isWebShareSupported, and isWebSocketSupported have been removed. Use
+the is*Available counterparts (already exported since v0.3.0).
+
 # [0.3.0](https://github.com/rtorcato/browser-common/compare/v0.2.0...v0.3.0) (2026-06-05)
 
 
