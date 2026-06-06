@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/rtorcato/browser-common/compare/v1.0.1...v1.1.0) (2026-06-06)
+
+
+### Features
+
+* add pointerevents and touchevents modules ([3d93351](https://github.com/rtorcato/browser-common/commit/3d93351ca72f41fca3797296370f8ef6c13bcf64))
+
 ## [1.0.1](https://github.com/rtorcato/browser-common/compare/v1.0.0...v1.0.1) (2026-06-06)
 
 
