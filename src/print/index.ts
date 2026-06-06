@@ -52,15 +52,3 @@ export const printElementById = (elementId: string): void => {
 export const isPrintAvailable = (): boolean => {
 	return typeof window !== 'undefined' && typeof window.print === 'function'
 }
-
-// import { sleep } from '../sleep/index.js'
-
-// export const asyncPrint = async (): Promise<void> => {
-// 	await sleep(10000)
-// 	window.print()
-// }
-
-// export const handlePrint = async (e: Event): Promise<void> => {
-// 	e.preventDefault()
-// 	await asyncPrint()
-// }
