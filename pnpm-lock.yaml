@@ -81,6 +81,16 @@ importers:
         specifier: ^0.34.5
         version: 0.34.5
 
+  apps/treeshake-check:
+    dependencies:
+      '@rtorcato/browser-common':
+        specifier: workspace:*
+        version: link:../..
+    devDependencies:
+      esbuild:
+        specifier: ^0.28.0
+        version: 0.28.0
+
 packages:
 
   '@actions/core@3.0.1':
