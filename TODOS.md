@@ -4,13 +4,9 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 
 ## Active
 
-- [ ] **Upstream bug: js-tooling vitest preset hardcodes coverage glob + thresholds** — [rtorcato/js-tooling#39](https://github.com/rtorcato/js-tooling/issues/39). Once fixed and a new js-tooling version is published, drop the workaround in `vitest.config.ts` (lines 8-19).
-- [ ] **Upstream: js-tooling meta-test helpers** (drift audit 2026-06-06)
-  - [ ] [#40 exports-resolution helper](https://github.com/rtorcato/js-tooling/issues/40) — generic `package.json` exports ↔ `src/` folder sync test.
-  - [ ] [#41 ssr-safety helper](https://github.com/rtorcato/js-tooling/issues/41) — generic Node-import-without-DOM test.
+- [ ] **Bump `@rtorcato/js-tooling` to `^2.9.0` and migrate to upstream helpers.** v2.8.1 fixes the vitest coverage-glob bug ([#39](https://github.com/rtorcato/js-tooling/issues/39)) — drop the workaround in `vitest.config.ts` (lines 8-19). v2.9.0 ships [`@rtorcato/js-tooling/tests/exports-resolution`](https://github.com/rtorcato/js-tooling/issues/40) and [`/tests/ssr-safety`](https://github.com/rtorcato/js-tooling/issues/41) — replace the bespoke files in `src/tests/`.
 - [ ] **Upstream: js-tooling [#42 unified `verify` script + pre-push hook scaffold](https://github.com/rtorcato/js-tooling/issues/42).**
 - [ ] **Upstream: js-tooling [#43 tree-shake verification template](https://github.com/rtorcato/js-tooling/issues/43)** for subpath-export libraries.
-- [ ] **Upstream: js-tooling [#44 library style guide](https://github.com/rtorcato/js-tooling/issues/44)** (JSDoc shape + `expectTypeOf` patterns + `is<Name>Available()` naming).
 
 ## Nice to have
 
