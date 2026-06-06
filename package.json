@@ -189,6 +189,10 @@
       "import": "./dist/permissions/index.js",
       "types": "./dist/permissions/index.d.ts"
     },
+    "./pointerevents": {
+      "import": "./dist/pointerevents/index.js",
+      "types": "./dist/pointerevents/index.d.ts"
+    },
     "./print": {
       "import": "./dist/print/index.js",
       "types": "./dist/print/index.d.ts"
@@ -212,6 +216,10 @@
     "./sessionstorage": {
       "import": "./dist/sessionstorage/index.js",
       "types": "./dist/sessionstorage/index.d.ts"
+    },
+    "./touchevents": {
+      "import": "./dist/touchevents/index.js",
+      "types": "./dist/touchevents/index.d.ts"
     },
     "./vibrate": {
       "import": "./dist/vibrate/index.js",

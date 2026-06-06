@@ -1,6 +1,6 @@
 ---
 title: Module reference
-description: All 42 subpath imports with their exports.
+description: All 44 subpath imports with their exports.
 ---
 
 Every module is a separate subpath export — import only what you need.
@@ -37,12 +37,14 @@ Every module is a separate subpath export — import only what you need.
 | orientation | `@rtorcato/browser-common/orientation` | `isDeviceOrientationAvailable`, `onDeviceOrientation`, `getScreenOrientationType`, `lockScreenOrientation`, `unlockScreenOrientation` |
 | performance | `@rtorcato/browser-common/performance` | `isPerformanceApiAvailable`, `now`, `getPerformanceEntriesByType`, `mark`, `measure` |
 | permissions | `@rtorcato/browser-common/permissions` | `isPermissionsApiAvailable`, `queryPermission`, `onPermissionChange` |
+| pointerevents | `@rtorcato/browser-common/pointerevents` | `isPointerEventsAvailable`, `onPointer`, `getPointerType`, `isPrimaryPointer` |
 | print | `@rtorcato/browser-common/print` | `printPage`, `printElementById`, `isPrintAvailable` |
 | resizeobserver | `@rtorcato/browser-common/resizeobserver` | `observeResize`, `disconnectResizeObserver`, `observeResizeOnce` |
 | screen | `@rtorcato/browser-common/screen` | `getScreenWidth`, `getScreenHeight`, `getViewportWidth`, `getViewportHeight`, `isLandscape`, `isPortrait`, `enterFullscreen`, `exitFullscreen`, `isFullscreen` |
 | selectionapi | `@rtorcato/browser-common/selectionapi` | `isSelectionApiAvailable`, `getSelection`, `getSelectedText`, `clearSelection`, `selectElementText` |
 | serviceworkers | `@rtorcato/browser-common/serviceworkers` | `isServiceWorkerAvailable`, `registerServiceWorker`, `unregisterAllServiceWorkers`, `getServiceWorkerRegistration`, `postMessageToServiceWorker` |
 | sessionstorage | `@rtorcato/browser-common/sessionstorage` | `isSessionStorageAvailable`, `setSessionStorage`, `getSessionStorage`, `removeSessionStorage`, `clearSessionStorage` |
+| touchevents | `@rtorcato/browser-common/touchevents` | `isTouchEventsAvailable`, `onTouch`, `getTouchPoints`, `getTouchCount` |
 | vibrate | `@rtorcato/browser-common/vibrate` | `isVibrationApiAvailable`, `vibrate`, `stopVibration`, `vibratePulse`, `vibrateNotification` |
 | visualviewport | `@rtorcato/browser-common/visualviewport` | `isVisualViewportAvailable`, `getVisualViewportInfo`, `onVisualViewportChange` |
 | weblocks | `@rtorcato/browser-common/weblocks` | `withLock`, `isWebLocksAvailable` |

@@ -11,7 +11,7 @@ The browsers below are the latest stable releases. For an authoritative source o
 
 Available in all evergreen browsers (Chrome, Firefox, Safari, Edge):
 
-`alert`, `canvas`, `clipboard`, `common`, `cookies`, `dom`, `draganddrop`, `encodingapis`, `focus`, `forms`, `fullscreen`, `geolocation`, `history`, `htmlmedia`, `iframe`, `intersection`, `keyboard`, `localstorage`, `location`, `mediadevices`, `motion`, `mutationobserver`, `notifications`, `orientation`, `performance`, `permissions`, `print`, `resizeobserver`, `screen`, `selectionapi`, `serviceworkers`, `sessionstorage`, `visualviewport`, `weblocks`, `websockets`, `window`
+`alert`, `canvas`, `clipboard`, `common`, `cookies`, `dom`, `draganddrop`, `encodingapis`, `focus`, `forms`, `fullscreen`, `geolocation`, `history`, `htmlmedia`, `iframe`, `intersection`, `keyboard`, `localstorage`, `location`, `mediadevices`, `motion`, `mutationobserver`, `notifications`, `orientation`, `performance`, `permissions`, `pointerevents`, `print`, `resizeobserver`, `screen`, `selectionapi`, `serviceworkers`, `sessionstorage`, `touchevents`, `visualviewport`, `weblocks`, `websockets`, `window`
 
 A few of these require **HTTPS** at runtime (or `localhost` for dev): `clipboard`, `geolocation`, `mediadevices`, `serviceworkers`, `notifications`.
 
