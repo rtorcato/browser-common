@@ -49,7 +49,9 @@ export interface TouchPoint {
 }
 
 /**
- * Returns the client-coordinate points for every active touch on the event.
+ * Returns the client-coordinate points for every currently active touch on the event.
+ * Reads from `event.touches` — every contact still on the screen — not `targetTouches`
+ * or `changedTouches`.
  * @param event The TouchEvent.
  * @example
  * ```ts
@@ -70,7 +72,9 @@ export function getTouchPoints(event: TouchEvent): TouchPoint[] {
 }
 
 /**
- * Returns the number of active touches on the event.
+ * Returns the number of currently active touches on the event.
+ * Reads from `event.touches.length` — every contact still on the screen — not
+ * `targetTouches` or `changedTouches`.
  * @param event The TouchEvent.
  * @example
  * ```ts
