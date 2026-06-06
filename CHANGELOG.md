@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rtorcato/browser-common/compare/v1.0.0...v1.0.1) (2026-06-06)
+
+
+### Bug Fixes
+
+* **print:** remove dead commented code referencing missing module ([39ae5ea](https://github.com/rtorcato/browser-common/commit/39ae5ea15f11c027ea4244e9245b40f42b7f7cdf))
+
 # [1.0.0](https://github.com/rtorcato/browser-common/compare/v0.3.0...v1.0.0) (2026-06-06)
 
 
