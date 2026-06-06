@@ -10,9 +10,6 @@ export function isTextEncoderAvailable(): boolean {
 	return typeof TextEncoder !== 'undefined'
 }
 
-/** @deprecated Use {@link isTextEncoderAvailable} instead. Will be removed in the next major. */
-export const isTextEncoderSupported = isTextEncoderAvailable
-
 /**
  * Checks if the TextDecoder API is available in the current environment.
  * @example
@@ -24,9 +21,6 @@ export const isTextEncoderSupported = isTextEncoderAvailable
 export function isTextDecoderAvailable(): boolean {
 	return typeof TextDecoder !== 'undefined'
 }
-
-/** @deprecated Use {@link isTextDecoderAvailable} instead. Will be removed in the next major. */
-export const isTextDecoderSupported = isTextDecoderAvailable
 
 /**
  * Encodes a string into a Uint8Array using UTF-8 encoding.

@@ -11,9 +11,6 @@ export const isNotificationAvailable = (): boolean => {
 	return typeof window !== 'undefined' && 'Notification' in window
 }
 
-/** @deprecated Use {@link isNotificationAvailable} instead. Will be removed in the next major. */
-export const isNotificationSupported = isNotificationAvailable
-
 /**
  * Requests permission from the user to show notifications.
  * @returns {Promise<NotificationPermission>} The permission result ('granted', 'denied', or 'default').

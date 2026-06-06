@@ -30,6 +30,3 @@ export async function withLock<T>(name: string, callback: () => Promise<T>): Pro
 export function isWebLocksAvailable(): boolean {
 	return typeof navigator !== 'undefined' && !!navigator.locks
 }
-
-/** @deprecated Use {@link isWebLocksAvailable} instead. Will be removed in the next major. */
-export const isWebLocksSupported = isWebLocksAvailable

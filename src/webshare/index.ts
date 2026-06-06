@@ -11,11 +11,6 @@ export function isWebShareAvailable(): boolean {
 }
 
 /**
- * @deprecated Use {@link isWebShareAvailable} instead. Will be removed in the next major.
- */
-export const isWebShareSupported = isWebShareAvailable
-
-/**
  * Shares data using the Web Share API.
  * @param data - The data to share (title, text, url, files).
  * @returns A promise that resolves if sharing was successful.
@@ -47,8 +42,3 @@ export function isFileShareAvailable(): boolean {
 		navigator.canShare({ files: [new File([], '')] })
 	)
 }
-
-/**
- * @deprecated Use {@link isFileShareAvailable} instead. Will be removed in the next major.
- */
-export const isFileShareSupported = isFileShareAvailable

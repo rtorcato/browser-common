@@ -91,7 +91,7 @@ Every module is a separate subpath export — import only what you need.
 
 ## Browser support
 
-Every module guards its underlying API with `is<Name>Available()` / `is<Name>Supported()`. Operations return `null` / `false` / empty on unsupported environments — they never throw. This means it's safe to import any module in SSR / Node contexts; calls become no-ops.
+Every module guards its underlying API with `is<Name>Available()`. Operations return `null` / `false` / empty on unsupported environments — they never throw. This means it's safe to import any module in SSR / Node contexts; calls become no-ops.
 
 The browsers below are the latest stable releases. For an authoritative source on each underlying Web API, see [MDN: Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 

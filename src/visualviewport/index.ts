@@ -10,9 +10,6 @@ export function isVisualViewportAvailable(): boolean {
 	return typeof window !== 'undefined' && !!window.visualViewport
 }
 
-/** @deprecated Use {@link isVisualViewportAvailable} instead. Will be removed in the next major. */
-export const isVisualViewportSupported = isVisualViewportAvailable
-
 /**
  * Information about the current visual viewport.
  */

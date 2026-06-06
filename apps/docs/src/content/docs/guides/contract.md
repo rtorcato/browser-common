@@ -7,7 +7,7 @@ Every module in `@rtorcato/browser-common` follows the same three-part contract.
 
 ## 1. Support check returns boolean
 
-Every module exports an `is<Name>Available()` (or `is<Name>Supported()`) function that returns `boolean`. Call it before any operation.
+Every module exports an `is<Name>Available()` function that returns `boolean`. Call it before any operation.
 
 ```ts
 import { isClipboardApiAvailable } from '@rtorcato/browser-common/clipboard'

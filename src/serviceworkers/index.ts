@@ -11,9 +11,6 @@ export function isServiceWorkerAvailable(): boolean {
 	return typeof navigator !== 'undefined' && 'serviceWorker' in navigator
 }
 
-/** @deprecated Use {@link isServiceWorkerAvailable} instead. Will be removed in the next major. */
-export const isServiceWorkerSupported = isServiceWorkerAvailable
-
 /**
  * Registers a service worker script.
  * @param scriptUrl The URL of the service worker script.

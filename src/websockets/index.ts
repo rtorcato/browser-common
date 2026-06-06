@@ -11,9 +11,6 @@ export function isWebSocketAvailable(): boolean {
 	return typeof window !== 'undefined' && 'WebSocket' in window
 }
 
-/** @deprecated Use {@link isWebSocketAvailable} instead. Will be removed in the next major. */
-export const isWebSocketSupported = isWebSocketAvailable
-
 /**
  * Creates a new WebSocket connection and attaches event listeners.
  * @param url The WebSocket server URL.

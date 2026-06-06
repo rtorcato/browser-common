@@ -53,9 +53,6 @@ export const isPrintAvailable = (): boolean => {
 	return typeof window !== 'undefined' && typeof window.print === 'function'
 }
 
-/** @deprecated Use {@link isPrintAvailable} instead. Will be removed in the next major. */
-export const isPrintSupported = isPrintAvailable
-
 // import { sleep } from '../sleep/index.js'
 
 // export const asyncPrint = async (): Promise<void> => {

@@ -4,7 +4,6 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 
 ## Active
 
-- [ ] **Remove `is*Supported` deprecated aliases in next major (v1.0.0).** The 10 aliases (`isFileShareSupported`, `isNotificationSupported`, `isPrintSupported`, `isServiceWorkerSupported`, `isTextDecoderSupported`, `isTextEncoderSupported`, `isVisualViewportSupported`, `isWebLocksSupported`, `isWebShareSupported`, `isWebSocketSupported`) re-export the new `is*Available` names with `@deprecated` JSDoc. They cost ~10 lines but keep semver-minor consumers unbroken. Delete them when graduating to v1.0.0.
 - [ ] **Add `@example` tags to JSDoc.** Functions have `@param`/`@returns` but no usage examples. One short `@example` block per public function — IDE hover docs surface them. While doing this, also document HTTPS / user-gesture requirements where applicable (`copyToClipboard`, `getCurrentPosition`, `getUserMedia`, `requestNotificationPermission`, `enterFullscreen`, `requestMotionPermission`).
 - [ ] **Upstream: fix `@rtorcato/js-tooling/vitest/config` coverage `include` glob.** The shared preset hardcodes `coverage.include: ['src/cli/generators/**/*.ts']` (js-tooling's own structure). Any consumer using the preset gets `0/0` coverage reports. We worked around it locally by overriding in `vitest.config.ts`, but the fix belongs upstream — drop the hardcoded `include` or default to `src/**/*.ts`.
 

@@ -9,7 +9,7 @@ This module provides utility functions for working with the [Web Locks API](http
 
 ## API
 
-### `isWebLocksSupported(): boolean`
+### `isWebLocksAvailable(): boolean`
 
 Returns `true` if the Web Locks API is available in the current browser.
 
@@ -20,9 +20,9 @@ Acquires a lock with the given name, runs the provided async callback, and relea
 ## Example
 
 ```typescript
-import { withLock, isWebLocksSupported } from "./weblocks";
+import { withLock, isWebLocksAvailable } from "./weblocks";
 
-if (isWebLocksSupported()) {
+if (isWebLocksAvailable()) {
   await withLock("my-resource", async () => {
     // Critical section: safe to access shared resource here
   });

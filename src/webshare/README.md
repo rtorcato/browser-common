@@ -10,25 +10,25 @@ This module provides utility functions for working with the [Web Share API](http
 
 ## API
 
-### `isWebShareSupported(): boolean`
+### `isWebShareAvailable(): boolean`
 Returns `true` if the Web Share API is available in the current browser.
 
 ### `share(data: ShareData): Promise<void>`
 Shares the provided data using the Web Share API. Throws if not supported.
 
-### `isFileShareSupported(): boolean`
+### `isFileShareAvailable(): boolean`
 Returns `true` if the Web Share API supports sharing files in the current browser.
 
 ## Example
 
 ```typescript
-import { isWebShareSupported, share, isFileShareSupported } from "./webshare";
+import { isWebShareAvailable, share, isFileShareAvailable } from "./webshare";
 
-if (isWebShareSupported()) {
+if (isWebShareAvailable()) {
   await share({ title: "Hello", text: "Check this out!", url: "https://example.com" });
 }
 
-if (isFileShareSupported()) {
+if (isFileShareAvailable()) {
   await share({ files: [new File(["content"], "example.txt")] });
 }
 ```

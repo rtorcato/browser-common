@@ -10,10 +10,10 @@ This module provides utility functions for working with the [TextEncoder](https:
 
 ## API
 
-### `isTextEncoderSupported(): boolean`
+### `isTextEncoderAvailable(): boolean`
 Returns `true` if the TextEncoder API is available.
 
-### `isTextDecoderSupported(): boolean`
+### `isTextDecoderAvailable(): boolean`
 Returns `true` if the TextDecoder API is available.
 
 ### `encodeUTF8(input: string): Uint8Array`

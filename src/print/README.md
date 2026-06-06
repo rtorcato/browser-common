@@ -16,15 +16,15 @@ Triggers the browser's print dialog for the current page.
 ### `printElementById(elementId: string): void`
 Prints the content of a specific element by its ID. Opens a new window with the element's content and triggers print.
 
-### `isPrintSupported(): boolean`
+### `isPrintAvailable(): boolean`
 Returns `true` if the browser supports the print function.
 
 ## Example
 
 ```typescript
-import { printPage, printElementById, isPrintSupported } from './print';
+import { printPage, printElementById, isPrintAvailable } from './print';
 
-if (isPrintSupported()) {
+if (isPrintAvailable()) {
   printPage();
   printElementById('my-section');
 }

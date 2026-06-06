@@ -10,7 +10,7 @@ This module provides utility functions for working with the [Visual Viewport API
 
 ## API
 
-### `isVisualViewportSupported(): boolean`
+### `isVisualViewportAvailable(): boolean`
 Returns `true` if the Visual Viewport API is available in the current browser.
 
 ### `getVisualViewportInfo(): VisualViewportInfo | null`
@@ -23,12 +23,12 @@ Adds listeners for `resize` and `scroll` events on the visual viewport. Returns 
 
 ```typescript
 import {
-  isVisualViewportSupported,
+  isVisualViewportAvailable,
   getVisualViewportInfo,
   onVisualViewportChange
 } from "./visualviewport";
 
-if (isVisualViewportSupported()) {
+if (isVisualViewportAvailable()) {
   const info = getVisualViewportInfo();
   console.log(info);
 
