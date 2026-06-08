@@ -7,3 +7,4 @@ allowBuilds:
   sharp: true
 minimumReleaseAgeExclude:
   - '@rtorcato/js-tooling@2.8.0'
+  - '@rtorcato/js-tooling@2.9.0'

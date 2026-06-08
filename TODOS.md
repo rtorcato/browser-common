@@ -4,9 +4,7 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 
 ## Active
 
-- [ ] **Bump `@rtorcato/js-tooling` to `^2.9.0` and migrate to upstream helpers.** v2.8.1 fixes the vitest coverage-glob bug ([#39](https://github.com/rtorcato/js-tooling/issues/39)) — drop the workaround in `vitest.config.ts` (lines 8-19). v2.9.0 ships [`@rtorcato/js-tooling/tests/exports-resolution`](https://github.com/rtorcato/js-tooling/issues/40) and [`/tests/ssr-safety`](https://github.com/rtorcato/js-tooling/issues/41) — replace the bespoke files in `src/tests/`.
-- [ ] **Upstream: js-tooling [#42 unified `verify` script + pre-push hook scaffold](https://github.com/rtorcato/js-tooling/issues/42).**
-- [ ] **Upstream: js-tooling [#43 tree-shake verification template](https://github.com/rtorcato/js-tooling/issues/43)** for subpath-export libraries.
+
 
 ## Nice to have
 
