@@ -18,8 +18,8 @@ importers:
         specifier: ^21.0.2
         version: 21.0.2
       '@rtorcato/js-tooling':
-        specifier: ^2.9.0
-        version: 2.9.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@size-limit/preset-small-lib@12.1.0(size-limit@12.1.0(jiti@2.7.0)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(size-limit@12.1.0(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.8)
+        specifier: ^2.16.0
+        version: 2.16.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@size-limit/preset-small-lib@12.1.0(size-limit@12.1.0(jiti@2.7.0)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(size-limit@12.1.0(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.8)
       '@semantic-release/changelog':
         specifier: ^6.0.3
         version: 6.0.3(semantic-release@25.0.3(typescript@6.0.3))
@@ -1457,8 +1457,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@rtorcato/js-tooling@2.9.0':
-    resolution: {integrity: sha512-ksWRT9gnXUjC0JeeV2EhczYViwvpwrP3ceWrUuVyH6mYnQKrRe0jjZ2A8VPBly/8TgjF1Y+xtoBruKEsGAcm8g==}
+  '@rtorcato/js-tooling@2.16.0':
+    resolution: {integrity: sha512-b1vnoP0/1QC1dBcV7GgghyieJMmzCWjw65VZVcxcvtUDgC7C6hWuUJlAqesPx2YQPLb+xPcFINFdI73FybbJNw==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
@@ -1493,7 +1493,7 @@ packages:
       ts-jest: ^29.0.0
       tsup: ^8.0.0
       typescript: '>=5.0.0'
-      typescript-eslint: '*'
+      typescript-eslint: ^8.0.0
       vitest: '>=3.0.0'
     peerDependenciesMeta:
       '@biomejs/biome':
@@ -2810,6 +2810,9 @@ packages:
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+
+  jsonfile@6.2.1:
+    resolution: {integrity: sha512-zwOTdL3rFQ/lRdBnntKVOX6k5cKJwEc1HdilT71BWEu7J41gXIB2MRp+vxduPSwZJPWBxEzv4yH1wYLJGUHX4Q==}
 
   klona@2.0.6:
     resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
@@ -5427,7 +5430,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.61.0':
     optional: true
 
-  '@rtorcato/js-tooling@2.9.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@size-limit/preset-small-lib@12.1.0(size-limit@12.1.0(jiti@2.7.0)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(size-limit@12.1.0(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.8)':
+  '@rtorcato/js-tooling@2.16.0(@biomejs/biome@2.4.16)(@commitlint/cli@21.0.2(@types/node@25.9.1)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(typescript@6.0.3))(@commitlint/config-conventional@21.0.2)(@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/github@12.0.8(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/npm@13.1.5(semantic-release@25.0.3(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.3(typescript@6.0.3)))(@size-limit/preset-small-lib@12.1.0(size-limit@12.1.0(jiti@2.7.0)))(@types/node@25.9.1)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.22.0(esbuild@0.28.0))(esbuild@0.28.0)(semantic-release@25.0.3(typescript@6.0.3))(size-limit@12.1.0(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.8)':
     dependencies:
       chalk: 5.6.2
       commander: 14.0.3
@@ -6485,7 +6488,7 @@ snapshots:
   fs-extra@11.3.5:
     dependencies:
       graceful-fs: 4.2.11
-      jsonfile: 6.1.0
+      jsonfile: 6.2.1
       universalify: 2.0.1
 
   fsevents@2.3.3:
@@ -6955,6 +6958,12 @@ snapshots:
   jsonc-parser@3.3.1: {}
 
   jsonfile@6.1.0:
+    dependencies:
+      universalify: 2.0.1
+    optionalDependencies:
+      graceful-fs: 4.2.11
+
+  jsonfile@6.2.1:
     dependencies:
       universalify: 2.0.1
     optionalDependencies:
