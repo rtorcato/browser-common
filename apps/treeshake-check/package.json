@@ -6,6 +6,11 @@
 	"scripts": {
 		"check": "node check.mjs"
 	},
+	"treeshake": {
+		"target": "@rtorcato/browser-common",
+		"allowed": ["clipboard"],
+		"ignored": ["common"]
+	},
 	"dependencies": {
 		"@rtorcato/browser-common": "workspace:*"
 	},
