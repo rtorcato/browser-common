@@ -68,7 +68,8 @@ const config: Config = {
 				hidePageTitle: false,
 				hideBreadcrumbs: false,
 				sidebar: {
-					autoConfiguration: false,
+					autoConfiguration: true,
+					pretty: true,
 				},
 			},
 		],
