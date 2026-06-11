@@ -1,3 +1,12 @@
+## [1.1.2](https://github.com/rtorcato/browser-common/compare/v1.1.1...v1.1.2) (2026-06-11)
+
+
+### Bug Fixes
+
+* **build:** ship .d.ts declarations by disabling incremental in build ([1e1ef6b](https://github.com/rtorcato/browser-common/commit/1e1ef6b7678f2ac5af76dabe4a75f2170652cbf4)), closes [package.json#exports](https://github.com/package.json/issues/exports) [#24](https://github.com/rtorcato/browser-common/issues/24)
+* **deps:** remove duplicate picomatch key from broken lockfile ([eecafda](https://github.com/rtorcato/browser-common/commit/eecafda9a68c05dfcba7cc95d33e737a96515015))
+* **deps:** remove second duplicate picomatch key in snapshots ([a5c101f](https://github.com/rtorcato/browser-common/commit/a5c101f6d60bf5c4a849834bbcab42e43af4dfbb))
+
 ## [1.1.1](https://github.com/rtorcato/browser-common/compare/v1.1.0...v1.1.1) (2026-06-06)
 
 
