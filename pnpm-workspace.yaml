@@ -9,3 +9,4 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@rtorcato/js-tooling@2.8.0'
   - '@rtorcato/js-tooling@2.9.0'
+  - '@types/node@25.9.3'
