@@ -5,6 +5,7 @@
     "emitDeclarationOnly": true, // Emit JS and .d.ts files
     "declaration": true, // Generate .d.ts files
     "declarationMap": true, // (optional) Generate sourcemaps for d.ts files
+    "incremental": false, // One-shot production build: a stale tsbuildinfo makes tsc emit zero .d.ts files
     "outDir": "dist" // Output directory for build
   },
   "exclude": ["dist", "node_modules", "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"]
