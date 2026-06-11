@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/rtorcato/browser-common/compare/v1.1.2...v1.1.3) (2026-06-11)
+
+
+### Bug Fixes
+
+* **docs:** label API Reference sidebar by module name ([684478c](https://github.com/rtorcato/browser-common/commit/684478c75df210dd6985e02a9a6af3b7cf2a512e))
+
 ## [1.1.2](https://github.com/rtorcato/browser-common/compare/v1.1.1...v1.1.2) (2026-06-11)
 
 
