@@ -1,0 +1,27 @@
+/**
+ * Custom CSS for browser-common docs.
+ * Docusaurus uses Infima (https://infima.dev/) — override its CSS variables here.
+ */
+
+:root {
+	--ifm-color-primary: #1f6feb;
+	--ifm-color-primary-dark: #1862d4;
+	--ifm-color-primary-darker: #175dc8;
+	--ifm-color-primary-darkest: #134ca5;
+	--ifm-color-primary-light: #357dee;
+	--ifm-color-primary-lighter: #4186ef;
+	--ifm-color-primary-lightest: #69a1f2;
+	--ifm-code-font-size: 95%;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+	--ifm-color-primary: #58a6ff;
+	--ifm-color-primary-dark: #3994ff;
+	--ifm-color-primary-darker: #2a8aff;
+	--ifm-color-primary-darkest: #006fe6;
+	--ifm-color-primary-light: #77b8ff;
+	--ifm-color-primary-lighter: #86c1ff;
+	--ifm-color-primary-lightest: #b3d8ff;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}

@@ -17,7 +17,7 @@ The package is ESM-only. Your project's `tsconfig.json` should have `"module": "
 
 ## Requirements
 
-- **Browser**: any modern evergreen browser (Chrome, Firefox, Safari, Edge) for most modules. A few are Chromium-only — see the [browser support guide](/browser-common/guides/browser-support/).
+- **Browser**: any modern evergreen browser (Chrome, Firefox, Safari, Edge) for most modules. A few are Chromium-only — see the [browser support guide](./browser-support.md).
 - **Node.js**: ≥22 for local development. The published package targets ES2022 + DOM and runs in any modern browser.
 - **Bundler**: Vite, Webpack 5+, Rollup, esbuild — anything that respects `package.json` `"exports"` and `"sideEffects": false` will tree-shake correctly.
 
@@ -49,4 +49,5 @@ async function copy(text: string) {
 }
 ```
 
-See the [contract guide](/browser-common/guides/contract/) for the full safety guarantees, or jump to the [module reference](/browser-common/reference/modules/) for all 42 modules.
+See the [contract guide](./contract.md) for the full safety guarantees, or browse the
+[API Reference](../api/index.md) for all 44 modules.

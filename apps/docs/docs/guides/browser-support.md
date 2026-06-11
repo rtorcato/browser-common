@@ -3,7 +3,7 @@ title: Browser support
 description: Which modules work in which browsers.
 ---
 
-Every module guards its underlying API. Operations return `null`/`false` on unsupported browsers — they never throw. See [the contract](/browser-common/guides/contract/) for details.
+Every module guards its underlying API. Operations return `null`/`false` on unsupported browsers — they never throw. See [the contract](./contract.md) for details.
 
 The browsers below are the latest stable releases. For an authoritative source on each underlying Web API, see [MDN: Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 

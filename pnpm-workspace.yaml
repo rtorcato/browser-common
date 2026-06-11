@@ -3,6 +3,7 @@ packages:
 
 allowBuilds:
   '@biomejs/biome': true
+  core-js: false
   esbuild: true
   sharp: true
 minimumReleaseAgeExclude:
