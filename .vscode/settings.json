@@ -1,0 +1,32 @@
+{
+	// Use the workspace TypeScript (not VSCode's bundled one) so the IDE sees
+	// the same TS version that `pnpm typecheck` and CI use. Without this, an
+	// ahead-of-project VSCode TypeScript (e.g. 6.x) flags valid options like
+	// `baseUrl` as deprecated even though the project's pinned TS accepts them.
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+
+	// Several @ljharb/* packages and fast-uri ship a tsconfig.json to npm that
+	// references a dev-only @ljharb/tsconfig (or lists every .js file as input
+	// + output). VSCode's TS server opens them as separate projects and
+	// surfaces their errors in the Problems panel. Excluding node_modules from
+	// the file watcher and search keeps the explorer / problems panel quiet
+	// without affecting our own typecheck.
+	"files.watcherExclude": {
+		"**/node_modules/**": true,
+		"**/dist/**": true,
+		"**/build/**": true,
+		"**/.docusaurus/**": true,
+		"**/test-results/**": true
+	},
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/dist": true,
+		"**/build": true,
+		"**/.docusaurus": true,
+		"**/test-results": true
+	},
+	"files.exclude": {
+		"**/.DS_Store": true
+	}
+}

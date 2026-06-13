@@ -24,7 +24,14 @@ tsconfig*.tsbuildinfo
 Thumbs.db
 
 # IDE files
-.vscode/
+# Share .vscode/settings.json + extensions.json (workspace conventions for any
+# contributor) but ignore personal stuff (launch.json, debug history, etc.).
+# The first negation overrides ~/.gitignore_global's blanket .vscode/ rule
+# so git will descend into the directory and apply the per-file rules below.
+!.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 .idea/
 *.swp
 

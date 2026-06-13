@@ -1,0 +1,13 @@
+# .github/CODEOWNERS
+# Each line is a file pattern followed by one or more owners.
+# Owners can be GitHub usernames (@user) or team names (@org/team).
+# Order matters — the last matching pattern wins.
+# See https://docs.github.com/articles/about-code-owners/
+#
+# Examples:
+#   *              @your-username
+#   /src/api/      @backend-team
+#   /docs/         @docs-team @your-username
+#   *.md           @docs-team
+
+* @rtorcato
