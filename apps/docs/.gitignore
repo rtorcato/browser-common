@@ -22,5 +22,10 @@ pnpm-debug.log*
 .env
 .env.production
 
+# Playwright artifacts (regenerated on each `pnpm test:e2e` run)
+test-results/
+playwright-report/
+.playwright/
+
 # macOS-specific files
 .DS_Store

@@ -28,13 +28,30 @@ const config: Config = {
 		locales: ['en'],
 	},
 
+	headTags: [
+		{
+			tagName: 'link',
+			attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+		},
+		{
+			tagName: 'link',
+			attributes: {
+				rel: 'preconnect',
+				href: 'https://fonts.gstatic.com',
+				crossorigin: 'anonymous',
+			},
+		},
+	],
+
 	presets: [
 		[
 			'classic',
 			{
 				docs: {
 					sidebarPath: './sidebars.ts',
-					routeBasePath: '/',
+					// Moved from '/' to '/docs' so the marketing landing
+					// (src/pages/index.tsx) owns '/'.
+					routeBasePath: '/docs',
 					editUrl: 'https://github.com/rtorcato/browser-common/edit/main/apps/docs/',
 				},
 				blog: false,
@@ -67,6 +84,10 @@ const config: Config = {
 				sort: ['source-order'],
 				hidePageTitle: false,
 				hideBreadcrumbs: false,
+				// One file per module instead of <module>/index.md + <module>/functions/*.md.
+				// Flattens the sidebar from "API Reference → module → index → functions → fn"
+				// down to "API Reference → module".
+				outputFileStrategy: 'modules',
 				sidebar: {
 					autoConfiguration: true,
 					pretty: true,
@@ -79,7 +100,7 @@ const config: Config = {
 				hashed: true,
 				indexDocs: true,
 				indexBlog: false,
-				docsRouteBasePath: '/',
+				docsRouteBasePath: '/docs',
 				highlightSearchTermsOnTargetPage: true,
 				searchBarShortcutHint: false,
 			},
@@ -92,18 +113,20 @@ const config: Config = {
 			respectPrefersColorScheme: true,
 		},
 		navbar: {
-			title: 'browser-common',
+			// The "browser-common" wordmark with blue "common" is baked into the
+			// SVG logo (light + dark variants), so the title stays empty to avoid
+			// rendering it twice.
+			title: '',
 			logo: {
 				alt: 'browser-common',
 				src: 'img/logo.svg',
+				srcDark: 'img/logo-dark.svg',
+				width: 178,
+				height: 26,
 			},
 			items: [
-				{
-					type: 'docSidebar',
-					sidebarId: 'docs',
-					position: 'left',
-					label: 'Docs',
-				},
+				{ to: '/docs', position: 'left', label: 'Docs' },
+				{ to: '/docs/api', position: 'left', label: 'API' },
 				{
 					href: 'https://github.com/rtorcato/browser-common',
 					label: 'GitHub',
@@ -120,20 +143,40 @@ const config: Config = {
 			style: 'dark',
 			links: [
 				{
-					title: 'Docs',
+					title: 'Documentation',
 					items: [
-						{ label: 'Installation', to: '/guides/installation' },
-						{ label: 'The contract', to: '/guides/contract' },
-						{ label: 'Browser support', to: '/guides/browser-support' },
+						{ label: 'Installation', to: '/docs/guides/installation' },
+						{ label: 'The contract', to: '/docs/guides/contract' },
+						{ label: 'Browser support', to: '/docs/guides/browser-support' },
+						{ label: 'API reference', to: '/docs/api' },
 					],
 				},
 				{
-					title: 'More',
+					title: 'Resources',
 					items: [
 						{ label: 'GitHub', href: 'https://github.com/rtorcato/browser-common' },
+						{ label: 'npm', href: 'https://www.npmjs.com/package/@rtorcato/browser-common' },
+						{ label: 'Changelog', to: '/docs/changelog' },
+					],
+				},
+				{
+					title: 'Sibling projects',
+					items: [
+						// Link to each sibling's docs site when one exists; fall back to
+						// the GitHub repo otherwise. swift-common has no published site yet,
+						// so it goes to the repo until one is set up.
+						{ label: 'js-common', href: 'https://rtorcato.github.io/js-common/' },
+						{ label: 'js-tooling', href: 'https://rtorcato.github.io/js-tooling/' },
+						{ label: 'swift-common', href: 'https://github.com/rtorcato/swift-common' },
+					],
+				},
+				{
+					title: 'Community',
+					items: [
+						{ label: 'Issues', href: 'https://github.com/rtorcato/browser-common/issues' },
 						{
-							label: 'npm',
-							href: 'https://www.npmjs.com/package/@rtorcato/browser-common',
+							label: 'License (MIT)',
+							href: 'https://github.com/rtorcato/browser-common/blob/main/LICENSE',
 						},
 					],
 				},
@@ -141,8 +184,8 @@ const config: Config = {
 			copyright: `Copyright © ${new Date().getFullYear()} Richard Torcato. Built with Docusaurus.`,
 		},
 		prism: {
-			theme: prismThemes.github,
-			darkTheme: prismThemes.dracula,
+			theme: prismThemes.vsDark,
+			darkTheme: prismThemes.vsDark,
 			additionalLanguages: ['bash', 'json', 'typescript'],
 		},
 	} satisfies Preset.ThemeConfig,

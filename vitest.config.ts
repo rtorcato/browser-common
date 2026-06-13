@@ -5,6 +5,10 @@ export default mergeConfig(
 	base,
 	defineConfig({
 		test: {
+			// Playwright specs live under apps/docs/tests/ and use
+			// @playwright/test, not Vitest. Excluding them here prevents Vitest
+			// from picking them up and erroring on `test.describe()` calls.
+			exclude: ['**/node_modules/**', '**/dist/**', 'apps/docs/tests/**'],
 			coverage: {
 				// Floor matches current baseline minus ~1 pt — fail on regression,
 				// pass currently. Tighten as behavior tests cover more modules.

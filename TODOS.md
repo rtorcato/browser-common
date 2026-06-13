@@ -4,12 +4,18 @@ Tracking remaining work for `@rtorcato/browser-common`. Anything checked off her
 
 ## Active
 
+Each item below has a tracking issue. Close items here when the issue closes.
 
+- [ ] [#26](https://github.com/rtorcato/browser-common/issues/26) — Migrate docs to Docusaurus with js-tooling-aligned config
+- [ ] [#27](https://github.com/rtorcato/browser-common/issues/27) — Add `are-the-types-wrong` (attw) validation to release pipeline
+- [ ] [#28](https://github.com/rtorcato/browser-common/issues/28) — Wire `docusaurus-plugin-typedoc` into apps/docs
+- [ ] [#29](https://github.com/rtorcato/browser-common/issues/29) — Add `CODEOWNERS` file
+- [ ] [#30](https://github.com/rtorcato/browser-common/issues/30) — Expand `size-limit` coverage to all exported modules
+- [ ] [#31](https://github.com/rtorcato/browser-common/issues/31) — Add per-module usage examples to the docs site
+- [ ] [#32](https://github.com/rtorcato/browser-common/issues/32) — Add `.js-tooling.json` to record intentional opt-outs
+- [ ] [#33](https://github.com/rtorcato/browser-common/issues/33) — Document each `@ts-expect-error` suppression with the spec API
+- [ ] [#34](https://github.com/rtorcato/browser-common/issues/34) — Enable GitHub Discussions and link from README + docs
 
-## Nice to have
+## Deferred
 
-- [ ] **Optionally add `starlight-typedoc`** to auto-generate per-module API pages from JSDoc. Currently the docs site uses a hand-maintained module table; the typedoc plugin would add full per-function pages with type signatures. Plugin: https://starlight-typedoc.vercel.app/
-- [ ] **Expanded usage examples.** Beyond the one quick-start snippet, consider a `docs/examples.md` with one snippet per module group (storage, sensors, UI, etc.).
-- [ ] **CODEOWNERS file.** Auto-assigns reviewer on PRs. Mostly useful if/when external contributors arrive.
-- [ ] **Enable GitHub Discussions.** Better than Issues for "how do I use this?" questions. Free to enable in repo Settings.
-- [ ] **Pre-release dist-tag (`beta` / `next`) for breaking changes during v0.x.** Lets you test breaking changes without forcing the `latest` tag. Configure semantic-release branches accordingly.
+- [ ] **Pre-release dist-tag (`beta` / `next`) for breaking changes.** Lets you test breaking changes without forcing the `latest` tag. Revisit when a breaking change is on the roadmap.

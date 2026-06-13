@@ -1,7 +1,6 @@
 ---
 title: browser-common
 description: Small, tree-shakeable TypeScript wrappers around 40+ browser Web APIs.
-slug: /
 sidebar_position: 0
 ---
 
