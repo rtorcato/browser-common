@@ -254,7 +254,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@size-limit/preset-small-lib": "^12.1.0",
-    "@types/node": "^25.9.3",
+    "@types/node": "^26.0.0",
     "@vitest/coverage-v8": "^4.1.9",
     "cross-env": "^10.1.0",
     "esbuild": "^0.28.0",
