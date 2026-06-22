@@ -258,7 +258,7 @@
     "@vitest/coverage-v8": "^4.1.9",
     "cross-env": "^10.1.0",
     "esbuild": "^0.28.0",
-    "esbuild-node-externals": "^1.22.0",
+    "esbuild-node-externals": "^1.23.1",
     "husky": "^9.1.7",
     "knip": "^6.16.1",
     "lint-staged": "^17.0.8",
