@@ -36,7 +36,7 @@ jobs:
     outputs:
       cache-key: ${{ steps.cache-key.outputs.key }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v6
         with:
@@ -67,7 +67,7 @@ jobs:
     needs: [dependencies, check-skip]
     if: needs.check-skip.outputs.should-skip != 'true'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: "22"
@@ -88,7 +88,7 @@ jobs:
     needs: [dependencies, check-skip]
     if: needs.check-skip.outputs.should-skip != 'true' && github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v6
@@ -111,7 +111,7 @@ jobs:
     needs: [dependencies, check-skip]
     if: needs.check-skip.outputs.should-skip != 'true'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: "22"
@@ -152,7 +152,7 @@ jobs:
         node-version: ["22", "24"]
     name: test (node ${{ matrix.node-version }})
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
@@ -179,7 +179,7 @@ jobs:
     needs: [dependencies, check-skip]
     if: needs.check-skip.outputs.should-skip != 'true'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: "22"
@@ -225,7 +225,7 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
