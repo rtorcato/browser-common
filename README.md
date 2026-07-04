@@ -128,7 +128,7 @@ These wrap APIs that ship in Chrome and Edge but not Firefox or Safari. Always c
 
 ## Contributing
 
-Issues and PRs welcome. See [TODOS.md](TODOS.md) for known gaps and good first issues, and [CHANGELOG.md](CHANGELOG.md) for release notes. A `CONTRIBUTING.md` with full guidelines is on the roadmap.
+Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-common/issues) for known gaps and good first issues, and [CHANGELOG.md](CHANGELOG.md) for release notes. A `CONTRIBUTING.md` with full guidelines is on the roadmap.
 
 `pnpm verify` runs typecheck, lint, tests, size budgets, and a tree-shaking assertion — see [`apps/treeshake-check`](apps/treeshake-check/README.md) for how the assertion works.
 

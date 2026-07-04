@@ -24,6 +24,14 @@ Use **pnpm** — not npm or yarn. Non-obvious scripts:
 - Import organization on
 - Lint preset: `recommended`, with `noInferrableTypes` and `useLiteralKeys` disabled
 
+## Dependencies & DRY
+
+Prefer reusing the sibling package **`@rtorcato/js-common`** over re-implementing general-purpose logic. This repo owns **browser Web API wrappers only** (things that touch `window`/`navigator`/`document`); any universal JS/TS utility — string/number/array formatting, `Result`-style error handling (`@rtorcato/js-common/try`), validation, uuid, dates, etc. — should come from js-common instead of being hand-rolled here.
+
+- Import via subpath (e.g. `@rtorcato/js-common/try`) so tree-shaking keeps the bundle minimal — this library ships zero required runtime deps today, so only pull js-common in where a real need exists, never speculatively.
+- Browser-specific detection (`isBrowser`, `isMobile`, feature-detect `'X' in window`) stays here in `src/common/` — js-common is Node/universal and does **not** cover it.
+- js-tooling (`@rtorcato/js-common`'s tooling sibling) already supplies shared build/lint/release config — don't duplicate that either. See `pnpm exec js-tooling doctor` for drift.
+
 ## Adding a new module
 
 Three steps — all three are required, or the export won't resolve:
