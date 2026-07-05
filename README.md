@@ -51,6 +51,8 @@ Install the browser-common skill so [Claude Code](https://claude.com/claude-code
 /plugin install browser-common@browser-common
 ```
 
+For other AI tools (Cursor, Copilot, Codex), the package ships an [`AGENTS.md`](AGENTS.md) with the same rules — agents that read `AGENTS.md` pick it up from `node_modules`, or copy the rules into your project's agent config.
+
 ## Modules
 
 Every module is a separate subpath export — import only what you need.

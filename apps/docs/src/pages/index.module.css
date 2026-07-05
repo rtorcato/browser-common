@@ -88,6 +88,14 @@
 	color: var(--bc-heading);
 }
 
+/* Condensed AI-rules block — constrain width to match the command block above. */
+.aiRules {
+	max-width: 560px;
+}
+.aiRules > div {
+	margin: 0;
+}
+
 /* Sections */
 .section {
 	max-width: 1200px;

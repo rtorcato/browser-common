@@ -1,4 +1,5 @@
 import Link from '@docusaurus/Link'
+import CodeBlock from '@theme/CodeBlock'
 import Layout from '@theme/Layout'
 import clsx from 'clsx'
 import type { ReactElement } from 'react'
@@ -223,6 +224,39 @@ function UseWithClaudeCode(): ReactElement {
 	)
 }
 
+const OTHER_AI_RULES = `- Import from the subpath: @rtorcato/browser-common/<module> — never the package root.
+- Feature-guard before use: call is<Name>Available() first; wrappers no-op
+  (return null/false) on unsupported runtimes instead of throwing.
+- clipboard, geolocation, mediadevices, notifications, serviceworkers need
+  HTTPS (or localhost) plus a permission grant.
+- SSR / Node safe: imports are side-effect-free; calls no-op without window.`
+
+function UseWithOtherAI(): ReactElement {
+	return (
+		<section className={styles.section}>
+			<div className={styles.sectionHead}>
+				<div>
+					<h2 className={styles.h2}>Use with other AI tools</h2>
+					<p className={styles.sub}>
+						The package ships an <code>AGENTS.md</code> — Cursor, Copilot, Codex and other agents
+						that read it pick up the same rules straight from <code>node_modules</code>. Or paste
+						the essentials into your project's agent config.
+					</p>
+				</div>
+				<Link
+					className={styles.viewAll}
+					href="https://github.com/rtorcato/browser-common/blob/main/AGENTS.md"
+				>
+					View AGENTS.md →
+				</Link>
+			</div>
+			<div className={styles.aiRules}>
+				<CodeBlock language="md">{OTHER_AI_RULES}</CodeBlock>
+			</div>
+		</section>
+	)
+}
+
 function Pillars(): ReactElement {
 	return (
 		<section className={styles.section}>
@@ -343,6 +377,7 @@ export default function Home(): ReactElement {
 			<main>
 				<Hero />
 				<UseWithClaudeCode />
+				<UseWithOtherAI />
 				<Pillars />
 				<Categories />
 				<Siblings />
