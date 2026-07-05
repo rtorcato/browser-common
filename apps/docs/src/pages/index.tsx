@@ -202,28 +202,6 @@ function Hero(): ReactElement {
 	)
 }
 
-function UseWithClaudeCode(): ReactElement {
-	return (
-		<section className={styles.section}>
-			<div className={styles.sectionHead}>
-				<div>
-					<h2 className={styles.h2}>Use with Claude Code</h2>
-					<p className={styles.sub}>
-						Install the browser-common skill so Claude picks the right module and follows the
-						library's conventions.
-					</p>
-				</div>
-			</div>
-			<CommandBlock
-				commands={[
-					'/plugin marketplace add rtorcato/browser-common',
-					'/plugin install browser-common@browser-common',
-				]}
-			/>
-		</section>
-	)
-}
-
 const OTHER_AI_RULES = `- Import from the subpath: @rtorcato/browser-common/<module> — never the package root.
 - Feature-guard before use: call is<Name>Available() first; wrappers no-op
   (return null/false) on unsupported runtimes instead of throwing.
@@ -231,27 +209,47 @@ const OTHER_AI_RULES = `- Import from the subpath: @rtorcato/browser-common/<mod
   HTTPS (or localhost) plus a permission grant.
 - SSR / Node safe: imports are side-effect-free; calls no-op without window.`
 
-function UseWithOtherAI(): ReactElement {
+function UseWithAI(): ReactElement {
 	return (
 		<section className={styles.section}>
 			<div className={styles.sectionHead}>
 				<div>
-					<h2 className={styles.h2}>Use with other AI tools</h2>
+					<h2 className={styles.h2}>Use with AI</h2>
 					<p className={styles.sub}>
-						The package ships an <code>AGENTS.md</code> — Cursor, Copilot, Codex and other agents
-						that read it pick up the same rules straight from <code>node_modules</code>. Or paste
-						the essentials into your project's agent config.
+						A skill ships with the package so coding agents use browser-common correctly — whichever
+						tool you're in.
 					</p>
 				</div>
-				<Link
-					className={styles.viewAll}
-					href="https://github.com/rtorcato/browser-common/blob/main/AGENTS.md"
-				>
-					View AGENTS.md →
-				</Link>
 			</div>
-			<div className={styles.aiRules}>
-				<CodeBlock language="md">{OTHER_AI_RULES}</CodeBlock>
+			<div className={styles.aiGrid}>
+				<div className={styles.aiLane}>
+					<div className={styles.aiLaneHead}>Claude Code</div>
+					<p className={styles.aiLaneSub}>
+						Register the marketplace once, then install the plugin:
+					</p>
+					<CommandBlock
+						commands={[
+							'/plugin marketplace add rtorcato/browser-common',
+							'/plugin install browser-common@browser-common',
+						]}
+					/>
+				</div>
+				<div className={styles.aiLane}>
+					<div className={styles.aiLaneHead}>Cursor, Copilot, Codex &amp; others</div>
+					<p className={styles.aiLaneSub}>
+						They read the bundled <code>AGENTS.md</code> from <code>node_modules</code> — or paste
+						these rules into your agent config.
+					</p>
+					<div className={styles.aiRules}>
+						<CodeBlock language="md">{OTHER_AI_RULES}</CodeBlock>
+					</div>
+					<Link
+						className={styles.aiLaneLink}
+						href="https://github.com/rtorcato/browser-common/blob/main/AGENTS.md"
+					>
+						View AGENTS.md →
+					</Link>
+				</div>
 			</div>
 		</section>
 	)
@@ -376,8 +374,7 @@ export default function Home(): ReactElement {
 		>
 			<main>
 				<Hero />
-				<UseWithClaudeCode />
-				<UseWithOtherAI />
+				<UseWithAI />
 				<Pillars />
 				<Categories />
 				<Siblings />

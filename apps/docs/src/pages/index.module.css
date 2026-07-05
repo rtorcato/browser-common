@@ -88,12 +88,49 @@
 	color: var(--bc-heading);
 }
 
-/* Condensed AI-rules block — constrain width to match the command block above. */
-.aiRules {
-	max-width: 560px;
+/* Use-with-AI: two lanes (Claude Code / other tools) */
+.aiGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 28px;
+	align-items: start;
 }
+.aiLane {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-width: 0;
+}
+.aiLaneHead {
+	font-weight: 700;
+	font-size: 15px;
+	color: var(--bc-heading);
+}
+.aiLaneSub {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--bc-muted);
+}
+.aiLaneLink {
+	align-self: flex-start;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--bc-accent);
+}
+.aiLaneLink:hover {
+	color: var(--bc-accent);
+}
+/* Condensed AI-rules block — flush inside its lane. */
 .aiRules > div {
 	margin: 0;
+}
+
+@media (max-width: 860px) {
+	.aiGrid {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
 }
 
 /* Sections */
