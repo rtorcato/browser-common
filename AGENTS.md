@@ -1,5 +1,4 @@
-<!-- Mirrors skills/browser-common/SKILL.md — keep both in sync (update in the same PR that changes the public API). -->
-
+<!-- Generated from skills/browser-common/SKILL.md by scripts/sync-agents.mjs — do not edit by hand; run `pnpm sync:agents`. -->
 
 # Using @rtorcato/browser-common
 
