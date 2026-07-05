@@ -8,6 +8,9 @@
  * ```
  */
 export function showAlert(message: string): void {
+	if (typeof window === 'undefined') {
+		throw new Error('showAlert requires a browser environment')
+	}
 	window.alert(message)
 }
 
@@ -22,6 +25,9 @@ export function showAlert(message: string): void {
  * ```
  */
 export function showConfirm(message: string): boolean {
+	if (typeof window === 'undefined') {
+		throw new Error('showConfirm requires a browser environment')
+	}
 	return window.confirm(message)
 }
 
@@ -37,5 +43,8 @@ export function showConfirm(message: string): boolean {
  * ```
  */
 export function showPrompt(message: string, defaultValue?: string): string | null {
+	if (typeof window === 'undefined') {
+		throw new Error('showPrompt requires a browser environment')
+	}
 	return window.prompt(message, defaultValue)
 }
