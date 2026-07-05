@@ -69,6 +69,9 @@ const config: Config = {
 				entryPoints: ['../../src/*/index.ts'],
 				entryPointStrategy: 'expand',
 				exclude: ['../../src/tests/**'],
+				// typedoc-plugin-markdown is auto-loaded; append our local extension
+				// that moves each function's Example block up under its description.
+				plugin: ['typedoc-plugin-markdown', `${__dirname}/typedoc-plugin-reorder-example.mjs`],
 				tsconfig: '../../tsconfig.json',
 				// The library targets the newer DOM lib that ships with its own
 				// TypeScript; the docs workspace pins an older TS whose lib.dom.d.ts
