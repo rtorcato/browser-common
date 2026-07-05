@@ -51,7 +51,7 @@
     "typecheck": "tsc --noEmit",
     "sync:agents": "node scripts/sync-agents.mjs",
     "check:agents": "node scripts/sync-agents.mjs --check",
-    "verify": "pnpm check:agents && pnpm typecheck && pnpm check && pnpm exec vitest run && pnpm treeshake",
+    "verify": "pnpm check:agents && pnpm typecheck && pnpm check && pnpm exec vitest run && pnpm treeshake && pnpm attw",
     "pretreeshake": "pnpm build-prod",
     "treeshake": "pnpm --filter @rtorcato/browser-common-treeshake-check run check",
     "test": "vitest",
@@ -59,6 +59,7 @@
     "coverage": "vitest run --coverage",
     "knip": "knip",
     "size": "size-limit",
+    "attw": "attw --pack . --profile esm-only",
     "================================================": ""
   },
   "files": [
@@ -274,6 +275,7 @@
     }
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.4",
     "@biomejs/biome": "^2.5.2",
     "@commitlint/cli": "^21.2.0",
     "@commitlint/config-conventional": "^21.2.0",
@@ -301,33 +303,6 @@
       "pnpm exec biome format"
     ]
   },
-  "size-limit": [
-    {
-      "name": "@rtorcato/browser-common/clipboard",
-      "path": "dist/clipboard/index.js",
-      "limit": "500 B"
-    },
-    {
-      "name": "@rtorcato/browser-common/dom",
-      "path": "dist/dom/index.js",
-      "limit": "1 kB"
-    },
-    {
-      "name": "@rtorcato/browser-common/forms",
-      "path": "dist/forms/index.js",
-      "limit": "1 kB"
-    },
-    {
-      "name": "@rtorcato/browser-common/geolocation",
-      "path": "dist/geolocation/index.js",
-      "limit": "500 B"
-    },
-    {
-      "name": "@rtorcato/browser-common/serviceworkers",
-      "path": "dist/serviceworkers/index.js",
-      "limit": "1 kB"
-    }
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

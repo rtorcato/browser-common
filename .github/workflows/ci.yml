@@ -184,6 +184,8 @@ jobs:
         run: pnpm build-prod
       - name: Check bundle size budgets
         run: pnpm size
+      - name: Validate package types resolution (attw)
+        run: pnpm attw
       - uses: actions/upload-artifact@v7
         with:
           name: build-artifacts
