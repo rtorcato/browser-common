@@ -42,16 +42,18 @@ if (isClipboardApiAvailable()) {
 }
 ```
 
-## Use with Claude Code
+## Use with AI
 
-Install the browser-common skill so [Claude Code](https://claude.com/claude-code) uses this library correctly — right subpath import, `is<Name>Available()` guards, and permission/SSR handling:
+A skill ships with the package so AI coding tools use browser-common the way it's meant to be used.
+
+**[Claude Code](https://claude.com/claude-code)** — register the marketplace once, then install the plugin:
 
 ```bash
 /plugin marketplace add rtorcato/browser-common
 /plugin install browser-common@browser-common
 ```
 
-For other AI tools (Cursor, Copilot, Codex), the package ships an [`AGENTS.md`](AGENTS.md) with the same rules — agents that read `AGENTS.md` pick it up from `node_modules`, or copy the rules into your project's agent config.
+**Other tools (Cursor, Copilot, Codex)** — the package ships an [`AGENTS.md`](AGENTS.md) with the same rules; agents that read `AGENTS.md` pick it up from `node_modules`, or copy the rules into your project's agent config.
 
 ## Modules
 
