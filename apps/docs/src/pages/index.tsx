@@ -209,8 +209,8 @@ function UseWithClaudeCode(): ReactElement {
 				<div>
 					<h2 className={styles.h2}>Use with Claude Code</h2>
 					<p className={styles.sub}>
-						Install the browser-common skill so Claude picks the right module, guards every call
-						with <code>is&lt;Name&gt;Available()</code>, and handles permissions for you.
+						Install the browser-common skill so Claude picks the right module and follows the
+						library's conventions.
 					</p>
 				</div>
 			</div>
