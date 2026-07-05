@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/rtorcato/browser-common/compare/v1.1.3...v1.1.4) (2026-07-05)
+
+
+### Bug Fixes
+
+* **alert:** guard dialogs against non-browser env ([892afb2](https://github.com/rtorcato/browser-common/commit/892afb24e58f271f9d90d88657d2e40c9e73094f)), closes [#36](https://github.com/rtorcato/browser-common/issues/36)
+
 ## [1.1.3](https://github.com/rtorcato/browser-common/compare/v1.1.2...v1.1.3) (2026-06-11)
 
 
