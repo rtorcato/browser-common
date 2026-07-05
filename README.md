@@ -64,6 +64,7 @@ Every module is a separate subpath export — import only what you need.
 | alert | `@rtorcato/browser-common/alert` | `showAlert`, `showConfirm`, `showPrompt` |
 | backgroundtasks | `@rtorcato/browser-common/backgroundtasks` | `isBackgroundSyncAvailable`, `isBackgroundFetchAvailable`, `registerBackgroundSync`, `registerBackgroundFetch` |
 | battery | `@rtorcato/browser-common/battery` | `isBatteryApiAvailable`, `getBatteryManager`, `onBatteryLevelChange`, `onBatteryChargingChange` |
+| broadcastchannel | `@rtorcato/browser-common/broadcastchannel` | `isBroadcastChannelAvailable`, `createBroadcastChannel` |
 | canvas | `@rtorcato/browser-common/canvas` | `createCanvas`, `getCanvasContext2D`, `clearCanvas`, `drawImageOnCanvas`, `canvasToDataURL`, `fillCanvas` |
 | clipboard | `@rtorcato/browser-common/clipboard` | `isClipboardApiAvailable`, `readFromClipboard`, `copyElementTextToClipboard`, `copyToClipboard` |
 | common | `@rtorcato/browser-common/common` | `isBrowser`, `getUserAgent`, `isMobile`, `getBrowserLanguage` |
@@ -95,12 +96,17 @@ Every module is a separate subpath export — import only what you need.
 | print | `@rtorcato/browser-common/print` | `printPage`, `printElementById`, `isPrintAvailable` |
 | resizeobserver | `@rtorcato/browser-common/resizeobserver` | `observeResize`, `disconnectResizeObserver`, `observeResizeOnce` |
 | screen | `@rtorcato/browser-common/screen` | `getScreenWidth`, `getScreenHeight`, `getViewportWidth`, `getViewportHeight`, `isLandscape`, `isPortrait`, `enterFullscreen`, `exitFullscreen`, `isFullscreen` |
+| screencapture | `@rtorcato/browser-common/screencapture` | `isScreenCaptureAvailable`, `getDisplayMedia` |
 | selectionapi | `@rtorcato/browser-common/selectionapi` | `isSelectionApiAvailable`, `getSelection`, `getSelectedText`, `clearSelection`, `selectElementText` |
 | serviceworkers | `@rtorcato/browser-common/serviceworkers` | `isServiceWorkerAvailable`, `registerServiceWorker`, `unregisterAllServiceWorkers`, `getServiceWorkerRegistration`, `postMessageToServiceWorker` |
 | sessionstorage | `@rtorcato/browser-common/sessionstorage` | `isSessionStorageAvailable`, `setSessionStorage`, `getSessionStorage`, `removeSessionStorage`, `clearSessionStorage` |
 | touchevents | `@rtorcato/browser-common/touchevents` | `isTouchEventsAvailable`, `onTouch`, `getTouchPoints`, `getTouchCount` |
+| urlpattern | `@rtorcato/browser-common/urlpattern` | `isURLPatternAvailable`, `createURLPattern`, `matchURLPattern` |
 | vibrate | `@rtorcato/browser-common/vibrate` | `isVibrationApiAvailable`, `vibrate`, `stopVibration`, `vibratePulse`, `vibrateNotification` |
+| viewtransitions | `@rtorcato/browser-common/viewtransitions` | `isViewTransitionsSupported`, `startViewTransition` |
 | visualviewport | `@rtorcato/browser-common/visualviewport` | `isVisualViewportAvailable`, `getVisualViewportInfo`, `onVisualViewportChange` |
+| webanimations | `@rtorcato/browser-common/webanimations` | `isWebAnimationsAvailable`, `animateElement` |
+| webauthn | `@rtorcato/browser-common/webauthn` | `isWebAuthnAvailable`, `createCredential`, `getCredential` |
 | weblocks | `@rtorcato/browser-common/weblocks` | `withLock`, `isWebLocksAvailable` |
 | webshare | `@rtorcato/browser-common/webshare` | `isWebShareAvailable`, `share`, `isFileShareAvailable` |
 | websockets | `@rtorcato/browser-common/websockets` | `isWebSocketAvailable`, `createWebSocket`, `sendWebSocketMessage`, `closeWebSocket` |
@@ -108,7 +114,7 @@ Every module is a separate subpath export — import only what you need.
 
 ## Browser support
 
-Every module guards its underlying API with `is<Name>Available()`. Operations return `null` / `false` / empty on unsupported environments — they never throw. This means it's safe to import any module in SSR / Node contexts; calls become no-ops.
+Every module exposes an `is<Name>Available()` feature check. Most operations degrade gracefully on unsupported environments, returning `null` / `false` / empty. A few that must return a live object (`createBroadcastChannel`, `getDisplayMedia`, `createCredential`, `createURLPattern`) or a dialog result (`showAlert` / `showConfirm` / `showPrompt`) instead throw a clear "requires a browser environment" error — guard those with the feature check first. Importing any module is always SSR / Node-safe; nothing touches `window` at module load.
 
 The browsers below are the latest stable releases. For an authoritative source on each underlying Web API, see [MDN: Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 
@@ -116,7 +122,7 @@ The browsers below are the latest stable releases. For an authoritative source o
 
 Available in all evergreen browsers (Chrome, Firefox, Safari, Edge):
 
-`alert`, `canvas`, `clipboard`, `common`, `cookies`, `dom`, `draganddrop`, `encodingapis`, `focus`, `forms`, `fullscreen`, `geolocation`, `history`, `htmlmedia`, `iframe`, `intersection`, `keyboard`, `localstorage`, `location`, `mediadevices`, `motion`, `mutationobserver`, `notifications`, `orientation`, `performance`, `permissions`, `print`, `resizeobserver`, `screen`, `selectionapi`, `serviceworkers`, `sessionstorage`, `visualviewport`, `weblocks`, `websockets`, `window`
+`alert`, `broadcastchannel`, `canvas`, `clipboard`, `common`, `cookies`, `dom`, `draganddrop`, `encodingapis`, `focus`, `forms`, `fullscreen`, `geolocation`, `history`, `htmlmedia`, `iframe`, `intersection`, `keyboard`, `localstorage`, `location`, `mediadevices`, `motion`, `mutationobserver`, `notifications`, `orientation`, `performance`, `permissions`, `print`, `resizeobserver`, `screen`, `screencapture`, `selectionapi`, `serviceworkers`, `sessionstorage`, `visualviewport`, `webanimations`, `webauthn`, `weblocks`, `websockets`, `window`
 
 A few of these require **HTTPS** at runtime (or `localhost` for dev): `clipboard`, `geolocation`, `mediadevices`, `serviceworkers`, `notifications`.
 
@@ -138,6 +144,8 @@ These wrap APIs that ship in Chrome and Edge but not Firefox or Safari. Always c
 | `vibrate` | Safari (desktop + iOS) never shipped the Vibration API. Chrome, Firefox, Edge only. |
 | `webshare` | Wide support on **mobile** (iOS Safari, Android Chrome) and Safari desktop. Firefox desktop never shipped it. |
 | `motion` / `orientation` | iOS 13+ Safari requires an explicit user-gesture permission grant before events fire — use `requestMotionPermission()`. |
+| `viewtransitions` | Same-document view transitions ship in Chrome/Edge 111+ and Safari 18+; Firefox lags. `startViewTransition()` runs the callback synchronously as a fallback, so it's always safe to call. |
+| `urlpattern` | `URLPattern` ships in Chrome/Edge and Safari 18.4+; Firefox is behind a flag. Guard with `isURLPatternAvailable()` — `createURLPattern()` throws where unsupported. |
 
 ## Contributing
 

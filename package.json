@@ -84,6 +84,10 @@
       "import": "./dist/battery/index.js",
       "types": "./dist/battery/index.d.ts"
     },
+    "./broadcastchannel": {
+      "import": "./dist/broadcastchannel/index.js",
+      "types": "./dist/broadcastchannel/index.d.ts"
+    },
     "./canvas": {
       "import": "./dist/canvas/index.js",
       "types": "./dist/canvas/index.d.ts"
@@ -208,6 +212,10 @@
       "import": "./dist/screen/index.js",
       "types": "./dist/screen/index.d.ts"
     },
+    "./screencapture": {
+      "import": "./dist/screencapture/index.js",
+      "types": "./dist/screencapture/index.d.ts"
+    },
     "./selectionapi": {
       "import": "./dist/selectionapi/index.js",
       "types": "./dist/selectionapi/index.d.ts"
@@ -224,13 +232,29 @@
       "import": "./dist/touchevents/index.js",
       "types": "./dist/touchevents/index.d.ts"
     },
+    "./urlpattern": {
+      "import": "./dist/urlpattern/index.js",
+      "types": "./dist/urlpattern/index.d.ts"
+    },
     "./vibrate": {
       "import": "./dist/vibrate/index.js",
       "types": "./dist/vibrate/index.d.ts"
     },
+    "./viewtransitions": {
+      "import": "./dist/viewtransitions/index.js",
+      "types": "./dist/viewtransitions/index.d.ts"
+    },
     "./visualviewport": {
       "import": "./dist/visualviewport/index.js",
       "types": "./dist/visualviewport/index.d.ts"
+    },
+    "./webanimations": {
+      "import": "./dist/webanimations/index.js",
+      "types": "./dist/webanimations/index.d.ts"
+    },
+    "./webauthn": {
+      "import": "./dist/webauthn/index.js",
+      "types": "./dist/webauthn/index.d.ts"
     },
     "./weblocks": {
       "import": "./dist/weblocks/index.js",
