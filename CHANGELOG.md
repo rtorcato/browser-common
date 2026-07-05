@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/rtorcato/browser-common/compare/v1.1.4...v1.2.0) (2026-07-05)
+
+
+### Features
+
+* add 6 modern Web API wrappers ([d5ce87c](https://github.com/rtorcato/browser-common/commit/d5ce87c2c4821dbaab98f0719d1a5297fb064695)), closes [#39](https://github.com/rtorcato/browser-common/issues/39) [#40](https://github.com/rtorcato/browser-common/issues/40) [#41](https://github.com/rtorcato/browser-common/issues/41)
+
 ## [1.1.4](https://github.com/rtorcato/browser-common/compare/v1.1.3...v1.1.4) (2026-07-05)
 
 
