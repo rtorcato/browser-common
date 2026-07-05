@@ -13,7 +13,7 @@ const MANAGERS: Manager[] = [
 	{ id: 'bun', cmd: (p) => `bun add ${p}` },
 ]
 
-function CopyIcon({ done }: { done: boolean }): ReactElement {
+export function CopyIcon({ done }: { done: boolean }): ReactElement {
 	return (
 		<svg
 			width="16"

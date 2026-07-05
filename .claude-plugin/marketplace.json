@@ -1,0 +1,15 @@
+{
+  "name": "browser-common",
+  "owner": {
+    "name": "Richard Torcato",
+    "email": "rtorcato@me.com"
+  },
+  "description": "Claude Code skill for @rtorcato/browser-common — tree-shakeable TypeScript wrappers around 40+ browser Web APIs.",
+  "plugins": [
+    {
+      "name": "browser-common",
+      "source": "./",
+      "description": "Teaches Claude to use @rtorcato/browser-common correctly: subpath imports, is<Name>Available() guards, and permission/SSR caveats."
+    }
+  ]
+}

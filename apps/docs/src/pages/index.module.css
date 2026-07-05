@@ -88,43 +88,6 @@
 	color: var(--bc-heading);
 }
 
-/* Code window */
-.codeWindow {
-	width: 100%;
-	max-width: 560px;
-	border-radius: 14px;
-	overflow: hidden;
-	border: 1px solid var(--bc-border2);
-	background: var(--bc-code-bg);
-	box-shadow: var(--bc-shadow);
-	text-align: left;
-}
-.codeBar {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	padding: 11px 14px;
-	border-bottom: 1px solid var(--bc-border);
-}
-.dot {
-	width: 11px;
-	height: 11px;
-	border-radius: 50%;
-}
-.codeFile {
-	margin-left: 6px;
-	font: 500 12px var(--ifm-font-family-monospace);
-	color: var(--bc-faint);
-}
-.codePre {
-	margin: 0;
-	padding: 16px;
-	font: 500 12.5px / 1.8 var(--ifm-font-family-monospace);
-	color: var(--bc-text);
-	overflow: auto;
-	background: transparent;
-}
-
 /* Sections */
 .section {
 	max-width: 1200px;

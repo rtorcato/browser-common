@@ -2,6 +2,8 @@ import Link from '@docusaurus/Link'
 import Layout from '@theme/Layout'
 import clsx from 'clsx'
 import type { ReactElement } from 'react'
+import CommandBlock from '@site/src/components/CommandBlock'
+import HeroExamples from '@site/src/components/HeroExamples'
 import InstallTabs from '@site/src/components/InstallTabs'
 import styles from './index.module.css'
 
@@ -158,15 +160,6 @@ const CATEGORIES: Category[] = [
 	},
 ]
 
-const HERO_CODE = `import {
-  isClipboardApiAvailable,
-  copyToClipboard,
-} from '@rtorcato/browser-common/clipboard'
-
-if (isClipboardApiAvailable()) {
-  await copyToClipboard('hello world')
-}`
-
 /* ------------------------------------------------------------------ */
 /* Sections                                                            */
 /* ------------------------------------------------------------------ */
@@ -186,7 +179,7 @@ function Hero(): ReactElement {
 				</p>
 
 				<div className={styles.heroBody}>
-					<CodeWindow />
+					<HeroExamples />
 				</div>
 
 				<div className={styles.heroActions}>
@@ -208,17 +201,25 @@ function Hero(): ReactElement {
 	)
 }
 
-function CodeWindow(): ReactElement {
+function UseWithClaudeCode(): ReactElement {
 	return (
-		<div className={styles.codeWindow}>
-			<div className={styles.codeBar}>
-				<span className={styles.dot} style={{ background: '#ff5f57' }} />
-				<span className={styles.dot} style={{ background: '#febc2e' }} />
-				<span className={styles.dot} style={{ background: '#28c840' }} />
-				<span className={styles.codeFile}>app.ts</span>
+		<section className={styles.section}>
+			<div className={styles.sectionHead}>
+				<div>
+					<h2 className={styles.h2}>Use with Claude Code</h2>
+					<p className={styles.sub}>
+						Install the browser-common skill so Claude picks the right module, guards every call
+						with <code>is&lt;Name&gt;Available()</code>, and handles permissions for you.
+					</p>
+				</div>
 			</div>
-			<pre className={styles.codePre}>{HERO_CODE}</pre>
-		</div>
+			<CommandBlock
+				commands={[
+					'/plugin marketplace add rtorcato/browser-common',
+					'/plugin install browser-common@browser-common',
+				]}
+			/>
+		</section>
 	)
 }
 
@@ -341,6 +342,7 @@ export default function Home(): ReactElement {
 		>
 			<main>
 				<Hero />
+				<UseWithClaudeCode />
 				<Pillars />
 				<Categories />
 				<Siblings />

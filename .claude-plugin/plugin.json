@@ -1,0 +1,13 @@
+{
+  "name": "browser-common",
+  "description": "Teaches Claude to use @rtorcato/browser-common correctly: subpath imports, is<Name>Available() guards, and permission/SSR caveats.",
+  "author": {
+    "name": "Richard Torcato",
+    "email": "rtorcato@me.com",
+    "url": "https://github.com/rtorcato"
+  },
+  "homepage": "https://rtorcato.github.io/browser-common/",
+  "repository": "https://github.com/rtorcato/browser-common",
+  "license": "MIT",
+  "keywords": ["browser", "web-api", "typescript", "clipboard", "geolocation"]
+}

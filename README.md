@@ -42,6 +42,15 @@ if (isClipboardApiAvailable()) {
 }
 ```
 
+## Use with Claude Code
+
+Install the browser-common skill so [Claude Code](https://claude.com/claude-code) uses this library correctly — right subpath import, `is<Name>Available()` guards, and permission/SSR handling:
+
+```bash
+/plugin marketplace add rtorcato/browser-common
+/plugin install browser-common@browser-common
+```
+
 ## Modules
 
 Every module is a separate subpath export — import only what you need.
