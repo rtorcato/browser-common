@@ -10,5 +10,16 @@
       "!**/docs/api",
       "!**/docs/changelog.md"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["**/src/css/custom.css"],
+      "linter": {
+        "rules": {
+          "complexity": { "noImportantStyles": "off" },
+          "style": { "noDescendingSpecificity": "off" }
+        }
+      }
+    }
+  ]
 }

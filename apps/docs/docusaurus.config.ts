@@ -5,8 +5,8 @@ import { themes as prismThemes } from 'prism-react-renderer'
 const config: Config = {
 	title: 'browser-common',
 	tagline:
-		'Small, tree-shakeable TypeScript wrappers around 40+ browser Web APIs — each one a separate subpath export.',
-	favicon: 'img/logo.svg',
+		'Small, tree-shakeable TypeScript wrappers around 50+ browser Web APIs — each one a separate subpath export.',
+	favicon: 'img/favicon.svg',
 
 	url: 'https://rtorcato.github.io',
 	baseUrl: '/browser-common/',
@@ -92,8 +92,9 @@ const config: Config = {
 				// down to "API Reference → module".
 				outputFileStrategy: 'modules',
 				sidebar: {
-					autoConfiguration: true,
-					pretty: true,
+					// Let Docusaurus autogenerate the API sidebar from docs/api (see sidebars.ts)
+					// rather than TypeDoc emitting a typedoc-sidebar.cjs.
+					autoConfiguration: false,
 				},
 			},
 		],
@@ -129,6 +130,7 @@ const config: Config = {
 			},
 			items: [
 				{ to: '/docs', position: 'left', label: 'Docs' },
+				{ to: '/docs/modules/overview', position: 'left', label: 'Modules' },
 				{ to: '/docs/api', position: 'left', label: 'API' },
 				{
 					href: 'https://github.com/rtorcato/browser-common',
