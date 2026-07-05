@@ -48,7 +48,7 @@ jobs:
         id: cache-key
         run: echo "key=${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         with:
           path: |
             ~/.pnpm-store
@@ -70,7 +70,7 @@ jobs:
         with:
           node-version: "22"
       - uses: pnpm/action-setup@v6
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         with:
           path: |
             ~/.pnpm-store
@@ -91,7 +91,7 @@ jobs:
         with:
           node-version: "22"
       - uses: pnpm/action-setup@v6
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         with:
           path: |
             ~/.pnpm-store
@@ -110,7 +110,7 @@ jobs:
         with:
           node-version: "22"
       - uses: pnpm/action-setup@v6
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         with:
           path: |
             ~/.pnpm-store
@@ -174,7 +174,7 @@ jobs:
         with:
           node-version: "22"
       - uses: pnpm/action-setup@v6
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         with:
           path: |
             ~/.pnpm-store
@@ -224,7 +224,7 @@ jobs:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
       - uses: pnpm/action-setup@v6
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         with:
           path: |
             ~/.pnpm-store
