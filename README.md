@@ -1,6 +1,6 @@
 # Browser Common
 
-Small, tree-shakeable TypeScript wrappers around 40+ browser Web APIs.
+Small, tree-shakeable TypeScript wrappers around 50+ browser Web APIs.
 
 [![CI](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml/badge.svg)](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/@rtorcato%2Fbrowser-common.svg)](https://badge.fury.io/js/@rtorcato%2Fbrowser-common)
@@ -149,9 +149,14 @@ These wrap APIs that ship in Chrome and Edge but not Firefox or Safari. Always c
 
 ## Contributing
 
-Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-common/issues) for known gaps and good first issues, and [CHANGELOG.md](CHANGELOG.md) for release notes. A `CONTRIBUTING.md` with full guidelines is on the roadmap.
+Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-common/issues) for known gaps and good first issues, and [CHANGELOG.md](CHANGELOG.md) for release notes. For "how do I use this?" questions, use [Discussions](https://github.com/rtorcato/browser-common/discussions). A `CONTRIBUTING.md` with full guidelines is on the roadmap.
 
 `pnpm verify` runs typecheck, lint, tests, size budgets, and a tree-shaking assertion — see [`apps/treeshake-check`](apps/treeshake-check/README.md) for how the assertion works.
+
+## Related packages
+
+- [@rtorcato/js-common](https://github.com/rtorcato/js-common) — General TypeScript/JS utilities (strings, dates, numbers, async, errors)
+- [@rtorcato/js-tooling](https://github.com/rtorcato/js-tooling) — Project scaffolding for TypeScript libraries (Biome, Vitest, Husky, semantic-release)
 
 ## License
 

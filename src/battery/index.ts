@@ -40,7 +40,7 @@ interface BatteryManager extends EventTarget {
 export async function getBatteryManager(): Promise<BatteryManager | undefined> {
 	if (!isBatteryApiAvailable()) return undefined
 	try {
-		// @ts-expect-error
+		// @ts-expect-error — navigator.getBattery not in lib.dom (Chromium-only; spec dormant)
 		return await navigator.getBattery()
 	} catch {
 		return undefined

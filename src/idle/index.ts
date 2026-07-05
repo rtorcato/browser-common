@@ -85,7 +85,7 @@ export async function detectIdle(
 	onActive?: () => void
 ): Promise<IdleDetector | null> {
 	if (!isIdleDetectionApiAvailable()) return null
-	// @ts-expect-error
+	// @ts-expect-error — Idle Detection API (IdleDetector) not in lib.dom (Chromium-only)
 	const detector = new window.IdleDetector()
 	detector.addEventListener('change', () => {
 		const { userState, screenState } = detector

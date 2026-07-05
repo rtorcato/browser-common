@@ -165,18 +165,20 @@ const config: Config = {
 				{
 					title: 'Sibling projects',
 					items: [
-						// Link to each sibling's docs site when one exists; fall back to
-						// the GitHub repo otherwise. swift-common has no published site yet,
-						// so it goes to the repo until one is set up.
+						// Link to each sibling's published docs site.
 						{ label: 'js-common', href: 'https://rtorcato.github.io/js-common/' },
 						{ label: 'js-tooling', href: 'https://rtorcato.github.io/js-tooling/' },
-						{ label: 'swift-common', href: 'https://github.com/rtorcato/swift-common' },
+						{ label: 'swift-common', href: 'https://rtorcato.github.io/swift-common/' },
 					],
 				},
 				{
 					title: 'Community',
 					items: [
 						{ label: 'Issues', href: 'https://github.com/rtorcato/browser-common/issues' },
+						{
+							label: 'Discussions',
+							href: 'https://github.com/rtorcato/browser-common/discussions',
+						},
 						{
 							label: 'License (MIT)',
 							href: 'https://github.com/rtorcato/browser-common/blob/main/LICENSE',

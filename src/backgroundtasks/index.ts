@@ -52,7 +52,7 @@ export function isBackgroundFetchAvailable(): boolean {
 export async function registerBackgroundSync(tag: string): Promise<void> {
 	if (!isBackgroundSyncAvailable() || !('serviceWorker' in navigator)) return
 	const registration = await navigator.serviceWorker.ready
-	// @ts-expect-error
+	// @ts-expect-error — Background Sync (SyncManager) not in lib.dom (Chromium-only)
 	await registration.sync.register(tag)
 }
 
@@ -75,6 +75,6 @@ export async function registerBackgroundFetch(
 ): Promise<BackgroundFetchRegistration | undefined> {
 	if (!isBackgroundFetchAvailable() || !('serviceWorker' in navigator)) return undefined
 	const registration = await navigator.serviceWorker.ready
-	// @ts-expect-error
+	// @ts-expect-error — Background Fetch API not in lib.dom (Chromium-only)
 	return registration.backgroundFetch.fetch(tag, urls, options)
 }

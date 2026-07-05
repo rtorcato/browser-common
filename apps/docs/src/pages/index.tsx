@@ -335,8 +335,8 @@ const SIBLINGS: Sibling[] = [
 	{
 		name: 'rtorcato/swift-common',
 		tagline: 'Common Swift utilities — the Apple-platform sibling of js-common and browser-common.',
-		href: 'https://github.com/rtorcato/swift-common',
-		dest: 'GitHub',
+		href: 'https://rtorcato.github.io/swift-common/',
+		dest: 'Docs',
 	},
 ]
 

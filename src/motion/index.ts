@@ -60,7 +60,7 @@ export async function requestMotionPermission(): Promise<'granted' | 'denied' | 
 		typeof (DeviceMotionEvent as unknown as { requestPermission?: () => Promise<string> })
 			.requestPermission === 'function'
 	) {
-		// @ts-expect-error
+		// @ts-expect-error — DeviceMotionEvent.requestPermission not in lib.dom (iOS Safari only)
 		return await DeviceMotionEvent.requestPermission()
 	}
 	return 'granted'

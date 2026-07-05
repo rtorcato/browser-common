@@ -22,7 +22,7 @@ describe('encodingapis', () => {
 
 	it('should throw if TextEncoder is not supported', () => {
 		const original = globalThis.TextEncoder
-		// @ts-expect-error
+		// @ts-expect-error — deleting a required global to simulate an unsupported environment
 		globalThis.TextEncoder = undefined
 		expect(() => encodeUTF8('test')).toThrow()
 		globalThis.TextEncoder = original
@@ -30,7 +30,7 @@ describe('encodingapis', () => {
 
 	it('should throw if TextDecoder is not supported', () => {
 		const original = globalThis.TextDecoder
-		// @ts-expect-error
+		// @ts-expect-error — deleting a required global to simulate an unsupported environment
 		globalThis.TextDecoder = undefined
 		expect(() => decodeUTF8(new Uint8Array([116, 101, 115, 116]))).toThrow()
 		globalThis.TextDecoder = original
