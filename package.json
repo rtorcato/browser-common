@@ -284,7 +284,7 @@
     "@semantic-release/git": "^10.0.1",
     "@size-limit/preset-small-lib": "^12.1.0",
     "@types/node": "^26.1.0",
-    "@vitest/coverage-v8": "^4.1.9",
+    "@vitest/coverage-v8": "^4.1.10",
     "cross-env": "^10.1.0",
     "esbuild": "^0.28.0",
     "esbuild-node-externals": "^1.23.1",
