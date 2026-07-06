@@ -2,6 +2,21 @@ import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
 import { themes as prismThemes } from 'prism-react-renderer'
 
+// The @rtorcato open-source family. Surfaced as a navbar "Projects" dropdown
+// (Docusaurus renders navbar items in the mobile menu too) and in the footer,
+// so every sibling site cross-links to the rest. Keep in sync across repos.
+const GITHUB_PROFILE = 'https://github.com/rtorcato'
+const PROJECT_FAMILY = [
+	{ label: 'js-common', href: 'https://rtorcato.github.io/js-common/' },
+	{ label: 'api-common', href: 'https://rtorcato.github.io/api-common/' },
+	{ label: 'browser-common', href: 'https://rtorcato.github.io/browser-common/' },
+	{ label: 'db-common', href: 'https://rtorcato.github.io/db-common/' },
+	{ label: 'cf-common', href: 'https://rtorcato.github.io/cf-common/' },
+	{ label: 'react-common', href: 'https://github.com/rtorcato/react-common' },
+	{ label: 'swift-common', href: 'https://rtorcato.github.io/swift-common/' },
+	{ label: 'js-tooling', href: 'https://rtorcato.github.io/js-tooling/' },
+]
+
 const config: Config = {
 	title: 'browser-common',
 	tagline:
@@ -133,6 +148,12 @@ const config: Config = {
 				{ to: '/docs/modules/overview', position: 'left', label: 'Modules' },
 				{ to: '/docs/api', position: 'left', label: 'API' },
 				{
+					type: 'dropdown',
+					label: 'Projects',
+					position: 'left',
+					items: [{ label: 'All on GitHub →', href: GITHUB_PROFILE }, ...PROJECT_FAMILY],
+				},
+				{
 					href: 'https://github.com/rtorcato/browser-common',
 					label: 'GitHub',
 					position: 'right',
@@ -165,17 +186,13 @@ const config: Config = {
 					],
 				},
 				{
-					title: 'Sibling projects',
-					items: [
-						// Link to each sibling's published docs site.
-						{ label: 'js-common', href: 'https://rtorcato.github.io/js-common/' },
-						{ label: 'js-tooling', href: 'https://rtorcato.github.io/js-tooling/' },
-						{ label: 'swift-common', href: 'https://rtorcato.github.io/swift-common/' },
-					],
+					title: 'Projects',
+					items: PROJECT_FAMILY,
 				},
 				{
 					title: 'Community',
 					items: [
+						{ label: 'GitHub profile', href: GITHUB_PROFILE },
 						{ label: 'Issues', href: 'https://github.com/rtorcato/browser-common/issues' },
 						{
 							label: 'Discussions',
