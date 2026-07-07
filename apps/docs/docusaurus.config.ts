@@ -192,7 +192,7 @@ const config: Config = {
 				{
 					title: 'Community',
 					items: [
-						{ label: 'GitHub profile', href: GITHUB_PROFILE },
+						{ label: '@rtorcato', href: GITHUB_PROFILE },
 						{ label: 'Issues', href: 'https://github.com/rtorcato/browser-common/issues' },
 						{
 							label: 'Discussions',
