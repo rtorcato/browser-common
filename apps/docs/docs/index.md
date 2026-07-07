@@ -6,6 +6,12 @@ sidebar_position: 0
 
 # browser-common
 
+[![CI](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml/badge.svg)](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@rtorcato/browser-common.svg)](https://www.npmjs.com/package/@rtorcato/browser-common)
+[![npm downloads](https://img.shields.io/npm/dm/@rtorcato/browser-common.svg)](https://www.npmjs.com/package/@rtorcato/browser-common)
+[![Bundle size](https://img.shields.io/bundlephobia/minzip/@rtorcato/browser-common)](https://bundlephobia.com/package/@rtorcato/browser-common)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Small, tree-shakeable TypeScript wrappers around 40+ browser Web APIs — each one a
 separate subpath export.
 
