@@ -316,27 +316,60 @@ type Sibling = {
 	href: string
 	/** Short label rendered in the card's top-right indicating where the link goes. */
 	dest: 'Docs' | 'GitHub'
+	/** Each project's brand hue (brightened for the dark card), used to tint the card title. */
+	accent: string
 }
 
 const SIBLINGS: Sibling[] = [
+	{
+		name: '@rtorcato/api-common',
+		tagline:
+			'Framework-agnostic building blocks for Node.js APIs — errors, auth, rate limiting, OpenAPI, Express + Hono.',
+		href: 'https://rtorcato.github.io/api-common/',
+		dest: 'Docs',
+		accent: '#e879f9',
+	},
 	{
 		name: '@rtorcato/js-common',
 		tagline: 'Tree-shakeable TypeScript utilities — tiny bundles, full type safety, CLI included.',
 		href: 'https://rtorcato.github.io/js-common/',
 		dest: 'Docs',
+		accent: '#f2cc60',
 	},
 	{
 		name: '@rtorcato/js-tooling',
-		tagline:
-			'Shared Biome, TypeScript, Vitest and semantic-release presets that power the @rtorcato/* family.',
+		tagline: 'Shared Biome, TypeScript and Vitest presets that power the @rtorcato/* family.',
 		href: 'https://rtorcato.github.io/js-tooling/',
 		dest: 'Docs',
+		accent: '#34d399',
 	},
 	{
-		name: 'rtorcato/swift-common',
-		tagline: 'Common Swift utilities — the Apple-platform sibling of js-common and browser-common.',
+		name: '@rtorcato/db-common',
+		tagline: 'Shared, tree-shakeable TypeScript database utilities for Node projects.',
+		href: 'https://rtorcato.github.io/db-common/',
+		dest: 'Docs',
+		accent: '#a78bfa',
+	},
+	{
+		name: '@rtorcato/cf-common',
+		tagline: 'Common helpers for Cloudflare developers — Workers, Pages, and the edge runtime.',
+		href: 'https://rtorcato.github.io/cf-common/',
+		dest: 'Docs',
+		accent: '#f6821f',
+	},
+	{
+		name: '@rtorcato/react-common',
+		tagline: 'Published React 19 component library — shared UI primitives.',
+		href: 'https://github.com/rtorcato/react-common',
+		dest: 'GitHub',
+		accent: '#818cf8',
+	},
+	{
+		name: '@rtorcato/swift-common',
+		tagline: 'SwiftUI package of reusable views and helpers to build apps faster.',
 		href: 'https://rtorcato.github.io/swift-common/',
 		dest: 'Docs',
+		accent: '#ff6f4d',
 	},
 ]
 
@@ -355,7 +388,9 @@ function Siblings(): ReactElement {
 				{SIBLINGS.map((s) => (
 					<Link key={s.name} href={s.href} className={styles.card}>
 						<div className={styles.cardHead}>
-							<div className={styles.cardName}>{s.name}</div>
+							<div className={styles.cardName} style={{ color: s.accent }}>
+								{s.name}
+							</div>
 							<div className={styles.cardCount}>{s.dest} ↗</div>
 						</div>
 						<p className={styles.cardDesc}>{s.tagline}</p>
