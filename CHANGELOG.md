@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/rtorcato/browser-common/compare/v1.2.0...v1.2.1) (2026-07-09)
+
+
+### Bug Fixes
+
+* **docs:** silence TS6 baseUrl deprecation in docs tsconfig ([596d1ce](https://github.com/rtorcato/browser-common/commit/596d1cef653535949bedccc2a2a396ddeabf7ad8))
+
 # [1.2.0](https://github.com/rtorcato/browser-common/compare/v1.1.4...v1.2.0) (2026-07-05)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@rtorcato/browser-common",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Small, tree-shakeable TypeScript wrappers around 49 browser Web APIs — each one a separate subpath export.",
   "type": "module",
   "main": "dist/index.js",
