@@ -1,6 +1,6 @@
 # Browser Common
 
-Small, tree-shakeable TypeScript wrappers around 50+ browser Web APIs.
+Small, tree-shakeable TypeScript wrappers around 49 browser Web APIs.
 
 [![CI](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml/badge.svg)](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/@rtorcato%2Fbrowser-common.svg)](https://badge.fury.io/js/@rtorcato%2Fbrowser-common)
@@ -9,7 +9,7 @@ Small, tree-shakeable TypeScript wrappers around 50+ browser Web APIs.
 [![Coverage](https://codecov.io/gh/rtorcato/browser-common/branch/main/graph/badge.svg)](https://codecov.io/gh/rtorcato/browser-common)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 35+ other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
+Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 44 other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
 
 **Status:** Stable since v1.0 (2026-06). See [CHANGELOG.md](CHANGELOG.md) for release history.
 
