@@ -111,6 +111,9 @@ importers:
       '@playwright/test':
         specifier: ^1.61.1
         version: 1.61.1
+      '@rtorcato/shared-docs':
+        specifier: github:rtorcato/shared-docs
+        version: https://codeload.github.com/rtorcato/shared-docs/tar.gz/b499e9158674dd4de36f96d207edf2d219427618(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.17
@@ -2659,6 +2662,14 @@ packages:
         optional: true
       vitest:
         optional: true
+
+  '@rtorcato/shared-docs@https://codeload.github.com/rtorcato/shared-docs/tar.gz/b499e9158674dd4de36f96d207edf2d219427618':
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/rtorcato/shared-docs/tar.gz/b499e9158674dd4de36f96d207edf2d219427618}
+    version: 0.1.0
+    engines: {node: '>=22'}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   '@sec-ant/readable-stream@0.4.1':
     resolution: {integrity: sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg==}
@@ -11171,6 +11182,11 @@ snapshots:
       vitest: 4.1.10(@types/node@26.1.0)(@vitest/coverage-v8@4.1.10)(vite@8.0.16(@types/node@26.1.0)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)(yaml@2.9.0))
     transitivePeerDependencies:
       - '@types/node'
+
+  '@rtorcato/shared-docs@https://codeload.github.com/rtorcato/shared-docs/tar.gz/b499e9158674dd4de36f96d207edf2d219427618(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+    dependencies:
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   '@sec-ant/readable-stream@0.4.1': {}
 

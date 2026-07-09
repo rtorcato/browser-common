@@ -1,6 +1,7 @@
 import Link from '@docusaurus/Link'
 import CodeBlock from '@theme/CodeBlock'
 import Layout from '@theme/Layout'
+import { siblings } from '@rtorcato/shared-docs'
 import clsx from 'clsx'
 import type { ReactElement } from 'react'
 import CommandBlock from '@site/src/components/CommandBlock'
@@ -309,69 +310,9 @@ function Categories(): ReactElement {
 	)
 }
 
-type Sibling = {
-	name: string
-	tagline: string
-	/** Prefer the published docs site; fall back to the GitHub repo when there isn't one yet. */
-	href: string
-	/** Short label rendered in the card's top-right indicating where the link goes. */
-	dest: 'Docs' | 'GitHub'
-	/** Each project's brand hue (brightened for the dark card), used to tint the card title. */
-	accent: string
-}
-
-const SIBLINGS: Sibling[] = [
-	{
-		name: '@rtorcato/api-common',
-		tagline:
-			'Framework-agnostic building blocks for Node.js APIs — errors, auth, rate limiting, OpenAPI, Express + Hono.',
-		href: 'https://rtorcato.github.io/api-common/',
-		dest: 'Docs',
-		accent: '#e879f9',
-	},
-	{
-		name: '@rtorcato/js-common',
-		tagline: 'Tree-shakeable TypeScript utilities — tiny bundles, full type safety, CLI included.',
-		href: 'https://rtorcato.github.io/js-common/',
-		dest: 'Docs',
-		accent: '#f2cc60',
-	},
-	{
-		name: '@rtorcato/js-tooling',
-		tagline: 'Shared Biome, TypeScript and Vitest presets that power the @rtorcato/* family.',
-		href: 'https://rtorcato.github.io/js-tooling/',
-		dest: 'Docs',
-		accent: '#34d399',
-	},
-	{
-		name: '@rtorcato/db-common',
-		tagline: 'Shared, tree-shakeable TypeScript database utilities for Node projects.',
-		href: 'https://rtorcato.github.io/db-common/',
-		dest: 'Docs',
-		accent: '#a78bfa',
-	},
-	{
-		name: '@rtorcato/cf-common',
-		tagline: 'Common helpers for Cloudflare developers — Workers, Pages, and the edge runtime.',
-		href: 'https://rtorcato.github.io/cf-common/',
-		dest: 'Docs',
-		accent: '#f6821f',
-	},
-	{
-		name: '@rtorcato/react-common',
-		tagline: 'Published React 19 component library — shared UI primitives.',
-		href: 'https://github.com/rtorcato/react-common',
-		dest: 'GitHub',
-		accent: '#818cf8',
-	},
-	{
-		name: '@rtorcato/swift-common',
-		tagline: 'SwiftUI package of reusable views and helpers to build apps faster.',
-		href: 'https://rtorcato.github.io/swift-common/',
-		dest: 'Docs',
-		accent: '#ff6f4d',
-	},
-]
+// The family list lives in @rtorcato/shared-docs — the single source of truth
+// shared across every sibling docs site. `siblings()` excludes this package.
+const SIBLINGS = siblings('@rtorcato/browser-common')
 
 function Siblings(): ReactElement {
 	return (
