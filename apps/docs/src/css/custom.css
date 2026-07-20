@@ -1,13 +1,18 @@
 /**
  * browser-common — Docusaurus theme.
  *
- * Adapted from the rtorcato/js-common theme — same structural patterns
- * (Geist font, navy surfaces, custom design tokens) but with a blue accent
- * (#1f6feb light / #58a6ff dark) instead of gold.
+ * Consumes the shared @rtorcato design tokens (Geist font + navy surfaces)
+ * from js-tooling via `_jt-tokens.css` (refresh with
+ * `js-tooling copy docusaurus-theme-tokens`), then overrides the accent with
+ * browser-common's blue (#1f6feb light / #58a6ff dark).
+ *
+ * ponytail: the local --bc-* surface tokens below still mirror the shared
+ * --jt-* values by hand — consolidate onto --jt-* in a follow-up once the
+ * rendered site can be eyeballed; that's a visual change, not mechanical.
  */
 
-/* ---------- Fonts ---------- */
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap");
+/* ---------- Shared base (fonts + --jt-* + --ifm surface tokens) ---------- */
+@import "./_jt-tokens.css";
 
 /* ---------- Light (default) ---------- */
 :root {
