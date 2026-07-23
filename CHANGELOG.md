@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/rtorcato/browser-common/compare/v1.2.1...v1.2.2) (2026-07-23)
+
+
+### Bug Fixes
+
+* **weblocks:** pin absent-locks state for Node 24 ([#101](https://github.com/rtorcato/browser-common/issues/101)) ([6fdceb9](https://github.com/rtorcato/browser-common/commit/6fdceb961a84583d4a2ddefd115f51c5ad277d0a))
+
 ## [1.2.1](https://github.com/rtorcato/browser-common/compare/v1.2.0...v1.2.1) (2026-07-09)
 
 
