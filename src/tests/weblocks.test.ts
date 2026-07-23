@@ -9,6 +9,9 @@ afterEach(() => {
 
 describe('weblocks', () => {
 	it('isWebLocksAvailable reflects navigator.locks presence', () => {
+		// Node 24 ships navigator.locks natively, so pin the absent case instead of
+		// relying on the runtime lacking it.
+		vi.stubGlobal('navigator', {})
 		expect(isWebLocksAvailable()).toBe(false)
 		vi.stubGlobal('navigator', { locks: { request: () => {} } })
 		expect(isWebLocksAvailable()).toBe(true)
@@ -23,6 +26,7 @@ describe('weblocks', () => {
 	})
 
 	it('withLock throws when the API is unsupported', async () => {
+		vi.stubGlobal('navigator', {})
 		await expect(withLock('x', async () => 1)).rejects.toThrow('not supported')
 	})
 })
