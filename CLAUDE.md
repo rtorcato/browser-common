@@ -52,7 +52,8 @@ Three steps — all three are required, or the export won't resolve:
 
 - Direct commits to `main` trigger semantic-release via `.github/workflows/ci.yml`.
 - Publishes to **npmjs.org** as `@rtorcato/browser-common` (public, with provenance).
-- Commit messages drive the version bump — use Conventional Commits (`feat:`, `fix:`, `chore:`, etc.). `chore(release):` commits are made by the bot; don't author them by hand.
+- Commit messages drive the version bump — use Conventional Commits (`feat:`, `fix:`, `chore:`, etc.).
+- **No release commit lands on `main`.** The preset drops `@semantic-release/git` because the `code-scanning-main` ruleset rejects a freshly-created commit with `GH013`. So `package.json`'s `version` and `CHANGELOG.md` stay frozen on `main` — the tag, the npm publish and the GitHub Release are the source of truth. The docs changelog page is built from the Releases API by `scripts/sync-changelog.mjs`.
 - `[ci skip]` / `[skip ci]` in a commit message suppresses CI.
 - Required GitHub repo secrets: `NPM_TOKEN` (automation token from npmjs.org). `GITHUB_TOKEN` is provided automatically.
 - Release config (`release.config.mjs`) re-exports the shared preset from `@rtorcato/repo-tooling/semantic-release/github`.
