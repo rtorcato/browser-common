@@ -1,6 +1,6 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
-  "extends": ["@rtorcato/js-tooling/biome"],
+  "extends": ["@rtorcato/repo-tooling/biome"],
   "files": {
     "includes": [
       "!**/.pnpm-store",

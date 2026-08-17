@@ -9,6 +9,10 @@ on:
       - 'scripts/sync-changelog.mjs'
       - '.github/workflows/docs.yml'
       - 'pnpm-workspace.yaml'
+  # The changelog page is built from GitHub Releases, and no release commit
+  # lands on main any more — without this the page would never refresh.
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
@@ -44,6 +48,10 @@ jobs:
 
       - name: Build docs
         run: pnpm --filter @rtorcato/browser-common-docs build
+        env:
+          # sync-changelog reads the Releases API; the token lifts the 60/hr
+          # unauthenticated rate limit.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

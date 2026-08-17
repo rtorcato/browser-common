@@ -156,7 +156,7 @@ Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-co
 ## Related packages
 
 - [@rtorcato/js-common](https://github.com/rtorcato/js-common) — General TypeScript/JS utilities (strings, dates, numbers, async, errors)
-- [@rtorcato/js-tooling](https://github.com/rtorcato/js-tooling) — Project scaffolding for TypeScript libraries (Biome, Vitest, Husky, semantic-release)
+- [@rtorcato/repo-tooling](https://github.com/rtorcato/repo-tooling) — Project scaffolding for TypeScript libraries (Biome, Vitest, Husky, semantic-release)
 
 ## License
 

@@ -1,3 +1,3 @@
-import semanticRelease from '@rtorcato/js-tooling/semantic-release/github'
+import semanticRelease from '@rtorcato/repo-tooling/semantic-release/github'
 
 export default { ...semanticRelease }
