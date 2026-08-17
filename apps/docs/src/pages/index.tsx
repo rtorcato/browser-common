@@ -3,7 +3,7 @@ import CodeBlock from '@theme/CodeBlock'
 import Layout from '@theme/Layout'
 import { siblings } from '@rtorcato/shared-docs'
 import clsx from 'clsx'
-import type { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
 import CommandBlock from '@site/src/components/CommandBlock'
 import HeroExamples from '@site/src/components/HeroExamples'
 import InstallTabs from '@site/src/components/InstallTabs'
@@ -327,11 +327,14 @@ function Siblings(): ReactElement {
 			</div>
 			<div className={styles.siblingGrid}>
 				{SIBLINGS.map((s) => (
-					<Link key={s.name} href={s.href} className={styles.card}>
+					<Link
+						key={s.name}
+						href={s.href}
+						className={styles.card}
+						style={{ '--accent': s.accent } as CSSProperties}
+					>
 						<div className={styles.cardHead}>
-							<div className={styles.cardName} style={{ color: s.accent }}>
-								{s.name}
-							</div>
+							<div className={styles.cardName}>{s.name}</div>
 							<div className={styles.cardCount}>{s.dest} ↗</div>
 						</div>
 						<p className={styles.cardDesc}>{s.tagline}</p>
