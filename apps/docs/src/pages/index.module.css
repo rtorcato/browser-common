@@ -272,6 +272,20 @@
 	line-height: 1.5;
 	color: var(--bc-muted);
 }
+/* Sibling cards carry the package's accent colour on the rail, name and hover
+   border; --accent is set per-card inline from the shared-docs siblings data. */
+.siblingGrid .card {
+	border-left: 3px solid var(--accent);
+}
+.siblingGrid .card:hover {
+	border-color: var(--accent);
+}
+.siblingGrid .cardName {
+	color: var(--accent);
+}
+.siblingGrid .cardCount {
+	color: color-mix(in srgb, var(--accent) 75%, var(--bc-faint));
+}
 .chips {
 	display: flex;
 	flex-wrap: wrap;
