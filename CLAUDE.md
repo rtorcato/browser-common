@@ -30,7 +30,7 @@ Prefer reusing the sibling package **`@rtorcato/js-common`** over re-implementin
 
 - Import via subpath (e.g. `@rtorcato/js-common/try`) so tree-shaking keeps the bundle minimal — this library ships zero required runtime deps today, so only pull js-common in where a real need exists, never speculatively.
 - Browser-specific detection (`isBrowser`, `isMobile`, feature-detect `'X' in window`) stays here in `src/common/` — js-common is Node/universal and does **not** cover it.
-- js-tooling (`@rtorcato/js-common`'s tooling sibling) already supplies shared build/lint/release config — don't duplicate that either. See `pnpm exec js-tooling doctor` for drift.
+- repo-tooling (`@rtorcato/js-common`'s tooling sibling) already supplies shared build/lint/release config — don't duplicate that either. See `pnpm exec repo-tooling doctor` for drift.
 
 ## Adding a new module
 
@@ -55,7 +55,7 @@ Three steps — all three are required, or the export won't resolve:
 - Commit messages drive the version bump — use Conventional Commits (`feat:`, `fix:`, `chore:`, etc.). `chore(release):` commits are made by the bot; don't author them by hand.
 - `[ci skip]` / `[skip ci]` in a commit message suppresses CI.
 - Required GitHub repo secrets: `NPM_TOKEN` (automation token from npmjs.org). `GITHUB_TOKEN` is provided automatically.
-- Release config (`release.config.mjs`) re-exports the shared preset from `@rtorcato/js-tooling/semantic-release/github`.
+- Release config (`release.config.mjs`) re-exports the shared preset from `@rtorcato/repo-tooling/semantic-release/github`.
 
 ## Repo etiquette
 

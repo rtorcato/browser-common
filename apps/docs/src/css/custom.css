@@ -2,8 +2,8 @@
  * browser-common — Docusaurus theme.
  *
  * Consumes the shared @rtorcato design tokens (Geist font + navy surfaces)
- * from js-tooling via `_jt-tokens.css` (refresh with
- * `js-tooling copy docusaurus-theme-tokens`), then overrides the accent with
+ * from repo-tooling via `_jt-tokens.css` (refresh with
+ * `repo-tooling copy docusaurus-theme-tokens`), then overrides the accent with
  * browser-common's blue (#1f6feb light / #58a6ff dark).
  *
  * ponytail: the local --bc-* surface tokens below still mirror the shared
