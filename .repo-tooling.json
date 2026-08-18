@@ -25,6 +25,6 @@
     "securityAutomation": true,
     "bundler": "tsup"
   },
-  "writtenBy": "@rtorcato/js-tooling@2.17.1",
+  "writtenBy": "@rtorcato/repo-tooling@2.17.1",
   "writtenAt": "2026-06-13T19:56:17.943Z"
 }
