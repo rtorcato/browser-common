@@ -48,6 +48,7 @@
 	--bc-surface: #ffffff;
 	--bc-surface2: #f3f6f9;
 	--bc-code-bg: #f3f6f9;
+	--bc-code-title-bg: #e9eef4;
 	--bc-border: rgba(12, 18, 28, 0.1);
 	--bc-border2: rgba(12, 18, 28, 0.16);
 	--bc-heading: #0a0e16;
@@ -87,6 +88,7 @@
 	--bc-surface: #111824;
 	--bc-surface2: #0d131d;
 	--bc-code-bg: #0c111b;
+	--bc-code-title-bg: #0a0e16;
 	--bc-border: rgba(255, 255, 255, 0.08);
 	--bc-border2: rgba(255, 255, 255, 0.14);
 	--bc-heading: #ffffff;
@@ -287,25 +289,27 @@ body,
 }
 
 /* ---------- Code ----------
-   Prism is vsDark in both light & dark mode (to match the navy aesthetic),
-   so fenced code blocks must stay dark in BOTH themes — otherwise the pale
-   vsDark tokens wash out on a light background. Inline code (the `code` pills)
-   keeps the themed --ifm-code-background and stays readable. */
+   Prism is `github` in light mode and `vsDark` in dark, so the code surface
+   follows the theme via --bc-code-bg (pale grey light / navy dark). The
+   `!important` stays because prism-react-renderer writes its own `plain`
+   background as an inline style on the <pre>; without it the theme's own
+   surface (#fff / #1E1E1E) would win over the navy aesthetic. Inline code
+   (the `code` pills) keeps the themed --ifm-code-background. */
 .theme-code-block,
 div[class*="codeBlockContainer"],
 pre[class*="language-"] {
 	border: 1px solid var(--bc-border);
 	border-radius: 12px;
-	background: #0c111b !important;
+	background: var(--bc-code-bg) !important;
 }
 .theme-code-block code,
 pre[class*="language-"] code {
 	background: transparent !important;
-	color: #dfe5ee;
+	color: var(--bc-text);
 }
 div[class*="codeBlockTitle"] {
-	background: #0a0e16 !important;
-	color: #94a1b4 !important;
+	background: var(--bc-code-title-bg) !important;
+	color: var(--bc-muted) !important;
 	border-bottom: 1px solid var(--bc-border);
 }
 [data-theme="light"] .theme-code-block,
