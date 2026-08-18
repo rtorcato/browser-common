@@ -11,7 +11,7 @@ Small, tree-shakeable TypeScript wrappers around 49 browser Web APIs.
 
 Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 44 other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
 
-**Status:** Stable since v1.0 (2026-06). See [CHANGELOG.md](CHANGELOG.md) for release history.
+**Status:** Stable since v1.0 (2026-06). See [Releases](https://github.com/rtorcato/browser-common/releases) for release history.
 
 ## Why this over `vueuse/core` or `usehooks-ts`?
 
@@ -45,6 +45,12 @@ if (isClipboardApiAvailable()) {
 ## Use with AI
 
 A skill ships with the package so AI coding tools use browser-common the way it's meant to be used.
+
+**Any agent with the [`skills`](https://www.npmjs.com/package/skills) CLI** — install it straight from GitHub, no clone, no package install:
+
+```bash
+npx skills add https://github.com/rtorcato/browser-common --skill browser-common
+```
 
 **[Claude Code](https://claude.com/claude-code)** — register the marketplace once, then install the plugin:
 
@@ -149,7 +155,7 @@ These wrap APIs that ship in Chrome and Edge but not Firefox or Safari. Always c
 
 ## Contributing
 
-Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-common/issues) for known gaps and good first issues, and [CHANGELOG.md](CHANGELOG.md) for release notes. For "how do I use this?" questions, use [Discussions](https://github.com/rtorcato/browser-common/discussions). A `CONTRIBUTING.md` with full guidelines is on the roadmap.
+Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-common/issues) for known gaps and good first issues, and [Releases](https://github.com/rtorcato/browser-common/releases) for release notes. For "how do I use this?" questions, use [Discussions](https://github.com/rtorcato/browser-common/discussions). A `CONTRIBUTING.md` with full guidelines is on the roadmap.
 
 `pnpm verify` runs typecheck, lint, tests, size budgets, and a tree-shaking assertion — see [`apps/treeshake-check`](apps/treeshake-check/README.md) for how the assertion works.
 
