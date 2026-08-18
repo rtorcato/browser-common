@@ -14,6 +14,9 @@ Encodes and decodes strings to and from UTF-8 bytes using `TextEncoder`/`TextDec
 `encodeUTF8`/`decodeUTF8` **throw** where `TextEncoder`/`TextDecoder` are
 unsupported — guard with `isTextEncoderAvailable()`/`isTextDecoderAvailable()` first.
 
+Unlike most of this library, this module is environment-agnostic: `TextEncoder` and
+`TextDecoder` are Node.js globals too, so it works outside the browser.
+
 ## Example
 
 ```ts
