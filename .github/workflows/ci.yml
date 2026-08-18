@@ -122,18 +122,6 @@ jobs:
       - name: Type check
         run: pnpm typecheck
 
-  varcheck:
-    runs-on: ubuntu-latest
-    needs: [dependencies, check-skip]
-    if: needs.check-skip.outputs.should-skip != 'true'
-    steps:
-      - name: Check environment variables
-        run: |
-          if [ -z "${{ secrets.GITHUB_TOKEN }}" ]; then
-            echo "GITHUB_TOKEN is not set"
-            exit 1
-          fi
-
   test:
     runs-on: ubuntu-latest
     needs: [check-skip]
@@ -198,7 +186,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
-    needs: [dependencies, lint, typecheck, test, build, varcheck, check-skip]
+    needs: [dependencies, lint, typecheck, test, build, check-skip]
     if: |
       always() &&
       needs.check-skip.outputs.should-skip != 'true' &&
@@ -207,8 +195,7 @@ jobs:
       needs.lint.result == 'success' &&
       needs.typecheck.result == 'success' &&
       needs.test.result == 'success' &&
-      needs.build.result == 'success' &&
-      needs.varcheck.result == 'success'
+      needs.build.result == 'success'
     permissions:
       contents: write
       issues: write
