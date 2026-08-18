@@ -1,18 +1,50 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 10
-    versioning-strategy: "increase"
+      interval: monthly
+      time: "06:00"
+      timezone: Etc/UTC
+    # Let brand-new releases settle before opening a PR — keeps grouped bumps
+    # from tripping pnpm's minimumReleaseAge supply-chain check (a same-day
+    # release fails the frozen-lockfile install in CI).
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 5
+    versioning-strategy: increase
     commit-message:
-      prefix: "chore(deps)"
-      include: "scope"
+      prefix: chore
+      include: scope
+    groups:
+      # Safe tier: runtime + dev minor/patch auto-merge on green (see the
+      # dependabot-automerge workflow). Grouped so react/react-dom move together.
+      production-minor:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      dev-minor:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+      # Majors batch into one PR per ecosystem — breaking by definition, so
+      # never auto-merged; triaged on the monthly cadence.
+      major-updates:
+        update-types:
+          - major
+    ignore:
+      # apps/docs is deliberately pinned to TypeScript ~5.6.3 — TS 7 removed
+      # `baseUrl`, so a TS major is a migration to do by hand, not a dep bump.
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: monthly
     commit-message:
-      prefix: "chore(ci)"
+      prefix: ci
+      include: scope
