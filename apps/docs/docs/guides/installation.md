@@ -49,5 +49,16 @@ async function copy(text: string) {
 }
 ```
 
+## Install the skill for your AI agent
+
+The repo ships a skill at `skills/browser-common/SKILL.md` that teaches AI coding agents the
+import, feature-guard and SSR rules below. Any agent that supports the
+[`skills`](https://www.npmjs.com/package/skills) CLI can install it straight from GitHub — no clone,
+no package install:
+
+```bash
+npx skills add https://github.com/rtorcato/browser-common --skill browser-common
+```
+
 See the [contract guide](./contract.md) for the full safety guarantees, or browse the
 [API Reference](../api/index.md) for all 44 modules.
