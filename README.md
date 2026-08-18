@@ -46,6 +46,12 @@ if (isClipboardApiAvailable()) {
 
 A skill ships with the package so AI coding tools use browser-common the way it's meant to be used.
 
+**Any agent with the [`skills`](https://www.npmjs.com/package/skills) CLI** — install it straight from GitHub, no clone, no package install:
+
+```bash
+npx skills add https://github.com/rtorcato/browser-common --skill browser-common
+```
+
 **[Claude Code](https://claude.com/claude-code)** — register the marketplace once, then install the plugin:
 
 ```bash
