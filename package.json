@@ -292,7 +292,7 @@
     "semantic-release": "^25.0.8",
     "size-limit": "^12.1.0",
     "typescript": "^7.0.2",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "lint-staged": {
     "*.{js,ts,json,md}": [
