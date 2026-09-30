@@ -102,12 +102,17 @@ export function baselineFor(key) {
 	return baselineByKey.has(key) ? BASELINE[String(baselineByKey.get(key))] : '—'
 }
 
-const stripMarkup = (text) =>
-	text
-		.replace(/<[^>]+>/g, '')
-		.replace(/[<>]/g, '')
-		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-		.trim()
+// ponytail: a char scan, not a tag regex, so no `<` or `>` can survive (CodeQL js/incomplete-multi-character-sanitization).
+const stripMarkup = (text) => {
+	let out = ''
+	let inTag = false
+	for (const c of text) {
+		if (c === '<') inTag = true
+		else if (c === '>') inTag = false
+		else if (!inTag) out += c
+	}
+	return out.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim()
+}
 
 /** One browser's support as `{ text, notes }`, from BCD's current (first unflagged) statement. */
 export function supportCell(compat, browser) {
