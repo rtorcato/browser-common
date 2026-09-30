@@ -1,30 +1,46 @@
 {
-  "$schema": "https://rtorcato.github.io/repo-tooling/schemas/lockfile.json",
-  "version": 1,
-  "config": {
-    "projectName": "@rtorcato/browser-common",
-    "projectType": "library",
-    "typescript": {
-      "enabled": true,
-      "config": "base"
+  "$schema": "https://docs.torcato.dev/repo-tooling/schemas/lockfile.json",
+  "version": 4,
+  "record": {
+    "config": {
+      "language": "js",
+      "projectName": "@rtorcato/browser-common",
+      "projectType": "library",
+      "typescript": {
+        "enabled": true,
+        "config": "base"
+      },
+      "linting": {
+        "tool": "biome",
+        "eslintConfig": "base"
+      },
+      "formatting": {
+        "tool": "biome"
+      },
+      "testing": {
+        "framework": "vitest",
+        "environment": "node"
+      },
+      "gitHooks": true,
+      "commitLint": true,
+      "semanticRelease": true,
+      "securityAutomation": true,
+      "bundler": "tsup",
+      "docs": {
+        "url": "https://docs.torcato.dev/browser-common/",
+        "deploy": "cloudflare"
+      }
     },
-    "linting": {
-      "tool": "biome",
-      "eslintConfig": "base"
+    "assets": {
+      "claude-sync-agents": "68c8184cd66d11a2de7546eb36668f248ef4ef6ccaad28344bb106d03929f29a"
     },
-    "formatting": {
-      "tool": "biome"
-    },
-    "testing": {
-      "framework": "vitest",
-      "environment": "node"
-    },
-    "gitHooks": true,
-    "commitLint": true,
-    "semanticRelease": true,
-    "securityAutomation": true,
-    "bundler": "tsup"
+    "writtenBy": "@rtorcato/repo-tooling@5.1.4",
+    "writtenAt": "2026-09-30T17:39:53.365Z"
   },
-  "writtenBy": "@rtorcato/repo-tooling@2.17.1",
-  "writtenAt": "2026-06-13T19:56:17.943Z"
+  "rules": {
+    "mcp": {
+      "recommended": []
+    },
+    "exceptions": {}
+  }
 }
