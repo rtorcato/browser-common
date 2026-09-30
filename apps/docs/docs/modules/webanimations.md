@@ -11,6 +11,8 @@ Animate elements imperatively via the Web Animations API (`Element.animate`).
 
 📖 [MDN: Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) · 📊 [caniuse: web-animation](https://caniuse.com/web-animation)
 
+::browser-support[webanimations]
+
 ## Example
 
 ```ts

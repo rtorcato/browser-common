@@ -11,6 +11,8 @@ Read and write JSON-serialized values via the sessionStorage API.
 
 📖 [MDN: Window: sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) · 📊 [caniuse: namevalue-storage](https://caniuse.com/namevalue-storage)
 
+::browser-support[sessionstorage]
+
 ## Example
 
 ```ts

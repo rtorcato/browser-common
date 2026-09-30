@@ -17,6 +17,8 @@ unsupported — guard with `isTextEncoderAvailable()`/`isTextDecoderAvailable()`
 Unlike most of this library, this module is environment-agnostic: `TextEncoder` and
 `TextDecoder` are Node.js globals too, so it works outside the browser.
 
+::browser-support[encodingapis]
+
 ## Example
 
 ```ts

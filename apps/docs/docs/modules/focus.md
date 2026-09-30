@@ -13,6 +13,8 @@ selector.
 
 📖 [MDN: HTMLElement.focus()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus)
 
+::browser-support[focus]
+
 ## Example
 
 ```ts

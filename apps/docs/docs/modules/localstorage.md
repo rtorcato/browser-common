@@ -12,6 +12,8 @@ safe no-ops when storage is unavailable (private browsing, quota, etc.).
 
 📖 [MDN: Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) · 📊 [caniuse: namevalue-storage](https://caniuse.com/namevalue-storage)
 
+::browser-support[localstorage]
+
 ## Example
 
 ```ts

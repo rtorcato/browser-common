@@ -12,6 +12,8 @@ multi-key shortcuts, and preventing default for a specific key.
 
 📖 [MDN: KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
 
+::browser-support[keyboard]
+
 ## Example
 
 ```ts

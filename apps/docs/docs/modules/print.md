@@ -11,6 +11,8 @@ Trigger the browser print dialog for the whole page or a single element.
 
 📖 [MDN: Window.print()](https://developer.mozilla.org/en-US/docs/Web/API/Window/print)
 
+::browser-support[print]
+
 ## Example
 
 ```ts

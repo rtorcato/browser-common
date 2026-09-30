@@ -14,6 +14,8 @@ Locks API.
 
 Web Locks API needs a **secure context**. `withLock` **throws** where unsupported — guard with `isWebLocksAvailable()` first.
 
+::browser-support[weblocks]
+
 ## Example
 
 ```ts

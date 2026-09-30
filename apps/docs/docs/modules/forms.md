@@ -12,6 +12,8 @@ validation and submit handling.
 
 📖 [MDN: HTMLFormElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement)
 
+::browser-support[forms]
+
 ## Example
 
 ```ts

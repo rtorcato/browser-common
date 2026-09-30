@@ -12,6 +12,8 @@ navigating back/forward, and listening for `popstate`.
 
 📖 [MDN: History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) · 📊 [caniuse: history](https://caniuse.com/history)
 
+::browser-support[history]
+
 ## Example
 
 ```ts

@@ -11,6 +11,8 @@ Small helpers for creating a canvas element and drawing to its 2D context.
 
 📖 [MDN: Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 
+::browser-support[canvas]
+
 ## Example
 
 ```ts

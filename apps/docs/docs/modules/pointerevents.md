@@ -11,6 +11,8 @@ Unified mouse/pen/touch input handling via the Pointer Events API.
 
 📖 [MDN: Pointer Events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events) · 📊 [caniuse: pointer](https://caniuse.com/pointer)
 
+::browser-support[pointerevents]
+
 ## Example
 
 ```ts

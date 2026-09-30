@@ -17,6 +17,8 @@ be called from a user gesture (e.g. a click handler) — both **throw** a
 `File System Access API not available` error where unsupported, so guard
 with `isFileSystemApiAvailable()` first.
 
+::browser-support[filesystem]
+
 ## Example
 
 ```ts

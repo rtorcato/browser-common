@@ -12,6 +12,8 @@ windows, scrolling, reloading, and reading or watching viewport size.
 
 📖 [MDN: Window](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
+::browser-support[window]
+
 ## Example
 
 ```ts

@@ -11,6 +11,8 @@ Subscribe to touch events and read active touch points via the Touch Events API.
 
 📖 [MDN: Touch Events](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events) · 📊 [caniuse: touch](https://caniuse.com/touch)
 
+::browser-support[touchevents]
+
 ## Example
 
 ```ts

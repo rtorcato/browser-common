@@ -11,6 +11,8 @@ Read, clear, and set text selection via the Selection API.
 
 📖 [MDN: Selection](https://developer.mozilla.org/en-US/docs/Web/API/Selection)
 
+::browser-support[selectionapi]
+
 ## Example
 
 ```ts

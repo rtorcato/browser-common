@@ -11,6 +11,8 @@ Observe DOM changes via the MutationObserver API.
 
 📖 [MDN: MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) · 📊 [caniuse: mutationobserver](https://caniuse.com/mutationobserver)
 
+::browser-support[mutationobserver]
+
 ## Example
 
 ```ts

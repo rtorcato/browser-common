@@ -13,6 +13,8 @@ Match and parse URLs against a pattern via the URLPattern API.
 
 `createURLPattern` **throws** where URLPattern is unsupported (Chrome/Edge + Safari 18.4+; Firefox behind a flag) — guard with `isURLPatternAvailable()` first.
 
+::browser-support[urlpattern]
+
 ## Example
 
 ```ts

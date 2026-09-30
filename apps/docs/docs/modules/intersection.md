@@ -12,6 +12,8 @@ visibility, including a one-shot `observeOnce` helper.
 
 📖 [MDN: Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) · 📊 [caniuse: intersectionobserver](https://caniuse.com/intersectionobserver)
 
+::browser-support[intersection]
+
 ## Example
 
 ```ts

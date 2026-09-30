@@ -12,6 +12,8 @@ resize/scroll events, via the Visual Viewport API.
 
 📖 [MDN: VisualViewport](https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport) · 📊 [caniuse: visualviewport](https://caniuse.com/mdn-api_visualviewport)
 
+::browser-support[visualviewport]
+
 ## Example
 
 ```ts

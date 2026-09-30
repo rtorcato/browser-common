@@ -13,6 +13,8 @@ Enumerate media devices and request camera/microphone access via the MediaDevice
 
 `getUserMedia` needs a **secure context** (HTTPS/localhost) and prompts for permission.
 
+::browser-support[mediadevices]
+
 ## Example
 
 ```ts

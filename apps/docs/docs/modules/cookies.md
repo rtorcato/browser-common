@@ -12,6 +12,8 @@ parsing and encoding.
 
 📖 [MDN: Document.cookie](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie) · 📊 [caniuse: cookies](https://caniuse.com/cookies)
 
+::browser-support[cookies]
+
 ## Example
 
 ```ts
