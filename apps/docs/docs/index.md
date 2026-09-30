@@ -20,6 +20,13 @@ separate subpath export.
 - **No runtime dependencies** — ESM-only, `sideEffects: false`, fully typed. Nothing to install but the package itself.
 - **49 modules covered** — clipboard, geolocation, media devices, observers, storage, fullscreen, notifications, service workers, and 41 more.
 
+## Browser floor
+
+The bundle itself needs **Chrome 80, Edge 80, Firefox 74, Safari 13.1 and iOS
+Safari 13.4** or newer: it ships untranspiled ES2020 ESM. That is separate from
+what each Web API needs; see [Browser support](./guides/browser-support.md) and
+the table on each module page.
+
 ## Quick example
 
 ```ts

@@ -12,6 +12,8 @@ running in a browser, on mobile, and what language/agent the browser reports.
 
 📖 [MDN: Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)
 
+::browser-support[common]
+
 ## Example
 
 ```ts

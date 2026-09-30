@@ -12,6 +12,8 @@ Playback controls and event helpers for `<audio>`/`<video>` elements via
 
 📖 [MDN: HTMLMediaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement)
 
+::browser-support[htmlmedia]
+
 ## Example
 
 ```ts

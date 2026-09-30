@@ -18,6 +18,8 @@ permission grant and a secure context, and returns `null` when unavailable —
 check with `isIdleDetectionApiAvailable()` first. `onIdle`/`cancelIdle` use
 `requestIdleCallback` and work everywhere via the `setTimeout` fallback.
 
+::browser-support[idle]
+
 ## Example
 
 ```ts

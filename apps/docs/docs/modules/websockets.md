@@ -12,6 +12,8 @@ up in one call.
 
 📖 [MDN: WebSockets API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) · 📊 [caniuse: websockets](https://caniuse.com/websockets)
 
+::browser-support[websockets]
+
 ## Example
 
 ```ts

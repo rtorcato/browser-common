@@ -16,6 +16,8 @@ Thin wrappers around the browser's `alert`, `confirm`, and `prompt` dialogs.
 `window`) — there is no feature-check function, so guard with your own
 environment check if you might run this code server-side.
 
+::browser-support[alert]
+
 ## Example
 
 ```ts

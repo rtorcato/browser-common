@@ -12,6 +12,8 @@ access, `postMessage`, `src` changes, reloading, and load detection.
 
 📖 [MDN: HTMLIFrameElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement)
 
+::browser-support[iframe]
+
 ## Example
 
 ```ts

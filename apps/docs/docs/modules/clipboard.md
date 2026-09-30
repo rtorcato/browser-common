@@ -14,6 +14,8 @@ Read from and write to the system clipboard via the async Clipboard API.
 Requires a **secure context** (HTTPS, or `localhost` in dev). Writing is
 generally allowed from a user gesture; reading may prompt for permission.
 
+::browser-support[clipboard]
+
 ## Example
 
 ```ts

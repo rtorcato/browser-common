@@ -14,6 +14,8 @@ Reads device battery level and charging state via the Battery Status API.
 The Battery Status API is Chromium-only and the spec is dormant — `getBatteryManager()`
 resolves to `undefined` where unsupported, so guard with `isBatteryApiAvailable()` first.
 
+::browser-support[battery]
+
 ## Example
 
 ```ts

@@ -13,6 +13,8 @@ Query and watch permission status via the Permissions API.
 
 Query only; support varies by permission name.
 
+::browser-support[permissions]
+
 ## Example
 
 ```ts

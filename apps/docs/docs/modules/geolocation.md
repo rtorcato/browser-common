@@ -15,6 +15,8 @@ Geolocation API.
 Requires a **secure context** (HTTPS, or `localhost` in dev) and prompts the
 user for permission on first use.
 
+::browser-support[geolocation]
+
 ## Example
 
 ```ts

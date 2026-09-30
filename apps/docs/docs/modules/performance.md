@@ -11,6 +11,8 @@ Timestamps, marks, and measures via the Performance API, with a `Date.now()` fal
 
 📖 [MDN: Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API) · 📊 [caniuse: user-timing](https://caniuse.com/user-timing)
 
+::browser-support[performance]
+
 ## Example
 
 ```ts

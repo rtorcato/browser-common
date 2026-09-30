@@ -13,6 +13,8 @@ Prompt the user to share a screen, window, or tab via the Screen Capture API.
 
 `getDisplayMedia` needs a **secure context** and **throws** where unsupported — guard with `isScreenCaptureAvailable()` first.
 
+::browser-support[screencapture]
+
 ## Example
 
 ```ts

@@ -14,6 +14,8 @@ Enter, exit, and observe fullscreen mode via the Fullscreen API.
 `enterFullscreen` must be called from a user gesture handler (e.g. a click
 listener) — browsers reject fullscreen requests made outside one.
 
+::browser-support[fullscreen]
+
 ## Example
 
 ```ts

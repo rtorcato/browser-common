@@ -16,6 +16,8 @@ BroadcastChannel API.
 `requires a browser environment` error where BroadcastChannel is unsupported —
 guard with `isBroadcastChannelAvailable()` first.
 
+::browser-support[broadcastchannel]
+
 ## Example
 
 ```ts

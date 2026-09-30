@@ -13,6 +13,8 @@ Read device orientation events and lock/unlock the screen orientation via the De
 
 iOS 13+ Safari requires an explicit user-gesture permission grant (see [motion](/docs/modules/motion)'s `requestMotionPermission`, which covers orientation too).
 
+::browser-support[orientation]
+
 ## Example
 
 ```ts

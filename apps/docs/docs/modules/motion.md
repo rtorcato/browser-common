@@ -13,6 +13,8 @@ Listen for device motion (acceleration) events via the DeviceMotionEvent and Gen
 
 iOS 13+ Safari requires an explicit user-gesture permission grant (`requestMotionPermission`).
 
+::browser-support[motion]
+
 ## Example
 
 ```ts

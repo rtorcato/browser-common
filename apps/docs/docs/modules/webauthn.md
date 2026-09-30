@@ -14,6 +14,8 @@ API (`navigator.credentials`).
 
 `createCredential`/`getCredential` need a **secure context** and **throw** where Credential Management is unsupported — guard with `isWebAuthnAvailable()`.
 
+::browser-support[webauthn]
+
 ## Example
 
 ```ts

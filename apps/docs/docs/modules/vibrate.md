@@ -13,6 +13,8 @@ Trigger and stop device vibration via the Vibration API.
 
 Not supported on Safari (desktop or iOS).
 
+::browser-support[vibrate]
+
 ## Example
 
 ```ts

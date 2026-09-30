@@ -11,6 +11,8 @@ Observe element size changes via the ResizeObserver API.
 
 📖 [MDN: ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) · 📊 [caniuse: resizeobserver](https://caniuse.com/resizeobserver)
 
+::browser-support[resizeobserver]
+
 ## Example
 
 ```ts

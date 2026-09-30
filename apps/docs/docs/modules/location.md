@@ -11,6 +11,8 @@ Read and manipulate the browser's `window.location` — current URL, pathname, q
 
 📖 [MDN: Location](https://developer.mozilla.org/en-US/docs/Web/API/Location)
 
+::browser-support[location]
+
 ## Example
 
 ```ts

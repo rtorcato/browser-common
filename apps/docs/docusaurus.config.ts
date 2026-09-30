@@ -2,6 +2,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
 import { GITHUB_PROFILE, projectFamilyItems } from '@rtorcato/shared-docs'
 import { themes as prismThemes } from 'prism-react-renderer'
+import remarkBrowserSupport from './plugins/remark-browser-support.mjs'
 
 // The @rtorcato open-source family, from the shared single source of truth
 // (@rtorcato/shared-docs). Surfaced as a navbar "Projects" dropdown (Docusaurus
@@ -60,6 +61,9 @@ const config: Config = {
 					// (src/pages/index.tsx) owns '/'.
 					routeBasePath: '/docs',
 					editUrl: 'https://github.com/rtorcato/browser-common/edit/main/apps/docs/',
+					// Expands ::browser-support[…] markers into tables built from BCD. Runs
+					// before the defaults so the injected heading gets an anchor and a TOC entry.
+					beforeDefaultRemarkPlugins: [remarkBrowserSupport],
 				},
 				blog: false,
 				theme: {

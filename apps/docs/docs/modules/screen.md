@@ -11,6 +11,8 @@ Screen and viewport dimensions, orientation, and Fullscreen API helpers.
 
 📖 [MDN: Screen](https://developer.mozilla.org/en-US/docs/Web/API/Screen) · 📊 [caniuse: fullscreen](https://caniuse.com/fullscreen)
 
+::browser-support[screen]
+
 ## Example
 
 ```ts

@@ -12,6 +12,8 @@ elements, classes, attributes, and `data-*` attributes.
 
 📖 [MDN: Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
+::browser-support[dom]
+
 ## Example
 
 ```ts

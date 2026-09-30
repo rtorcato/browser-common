@@ -14,6 +14,8 @@ Web Share API.
 
 `navigator.share` needs a user gesture; wide support on mobile, but Firefox desktop never shipped it.
 
+::browser-support[webshare]
+
 ## Example
 
 ```ts

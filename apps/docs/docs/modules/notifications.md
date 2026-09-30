@@ -13,6 +13,8 @@ Request permission and show desktop notifications via the Notifications API.
 
 Needs a **secure context** and user permission (`requestNotificationPermission`).
 
+::browser-support[notifications]
+
 ## Example
 
 ```ts

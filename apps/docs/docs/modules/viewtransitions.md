@@ -13,6 +13,8 @@ Animate DOM updates via the View Transitions API.
 
 `startViewTransition` runs the callback synchronously as a fallback when unsupported, so it's always safe to call.
 
+::browser-support[viewtransitions]
+
 ## Example
 
 ```ts

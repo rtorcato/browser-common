@@ -17,6 +17,8 @@ service worker — `registerBackgroundSync`/`registerBackgroundFetch` resolve
 to `undefined` silently when unsupported or no service worker is registered,
 they don't throw.
 
+::browser-support[backgroundtasks]
+
 ## Example
 
 ```ts

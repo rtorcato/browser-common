@@ -25,6 +25,16 @@ check first.
 Importing any module is always SSR / Node-safe; nothing touches `window` at
 module load, so calls simply no-op or throw at call time, never at import.
 
+## Support at a glance
+
+One row per module, for the main Web API it wraps. **Baseline** is the
+[web-features](https://web-platform-dx.github.io/web-features/) status:
+*Widely available* (in every major browser for 30+ months), *Newly available*
+(in every major browser, recently), or *Limited* (missing from at least one).
+Each module page breaks this down per API, with notes on partial support.
+
+::browser-support[matrix]
+
 ## Reference links
 
 Each module page links two external references:

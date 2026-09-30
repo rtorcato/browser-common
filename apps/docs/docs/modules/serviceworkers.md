@@ -13,6 +13,8 @@ Register, unregister, and message service workers via the Service Worker API.
 
 Registering a service worker needs a **secure context** (HTTPS/localhost).
 
+::browser-support[serviceworkers]
+
 ## Example
 
 ```ts
