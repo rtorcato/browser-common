@@ -6,7 +6,7 @@
     "email": "rtorcato@me.com",
     "url": "https://github.com/rtorcato"
   },
-  "homepage": "https://rtorcato.github.io/browser-common/",
+  "homepage": "https://docs.torcato.dev/browser-common/",
   "repository": "https://github.com/rtorcato/browser-common",
   "license": "MIT",
   "keywords": ["browser", "web-api", "typescript", "clipboard", "geolocation"]
