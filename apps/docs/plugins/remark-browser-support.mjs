@@ -105,6 +105,7 @@ export function baselineFor(key) {
 const stripMarkup = (text) =>
 	text
 		.replace(/<[^>]+>/g, '')
+		.replace(/[<>]/g, '')
 		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
 		.trim()
 
