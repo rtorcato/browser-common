@@ -9,3 +9,4 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@rtorcato/repo-tooling'
   - '@types/node@25.9.3'
+  - '@rtorcato/repo-ai@3.1.2'
