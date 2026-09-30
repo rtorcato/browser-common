@@ -88,6 +88,12 @@
 	color: var(--bc-heading);
 }
 
+/* Sections */
+.section {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 54px 24px 8px;
+}
 .sectionHead {
 	display: flex;
 	align-items: flex-end;
