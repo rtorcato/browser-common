@@ -1,6 +1,6 @@
 # browser-common docs
 
-[Docusaurus](https://docusaurus.io/) site for [@rtorcato/browser-common](https://www.npmjs.com/package/@rtorcato/browser-common). Deployed to GitHub Pages at https://rtorcato.github.io/browser-common via `.github/workflows/docs.yml`.
+[Docusaurus](https://docusaurus.io/) site for [@rtorcato/browser-common](https://www.npmjs.com/package/@rtorcato/browser-common). Deployed to Cloudflare Workers at https://docs.torcato.dev/browser-common via `.github/workflows/docs.yml`.
 
 ## Develop
 

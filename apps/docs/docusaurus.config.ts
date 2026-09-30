@@ -15,7 +15,7 @@ const config: Config = {
 		'Small, tree-shakeable TypeScript wrappers around 50+ browser Web APIs — each one a separate subpath export.',
 	favicon: 'img/favicon.svg',
 
-	url: 'https://rtorcato.github.io',
+	url: 'https://docs.torcato.dev',
 	baseUrl: '/browser-common/',
 
 	organizationName: 'rtorcato',

@@ -17,54 +17,18 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6.0.10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: pnpm
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build docs
-        run: pnpm --filter @rtorcato/browser-common-docs build
-        env:
-          # sync-changelog reads the Releases API; the token lifts the 60/hr
-          # unauthenticated rate limit.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: apps/docs/build
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+  # https://docs.torcato.dev/browser-common/
+  cloudflare:
+    permissions:
+      contents: read
+    uses: rtorcato/repo-tooling/.github/workflows/docs-deploy-cloudflare.yml@75b34fe7d8898772cd748d1b48c698bd89cfd956 # main as of 2026-09-30
+    with:
+      build-filter: '@rtorcato/browser-common-docs'
+      worker-name: browser-common-docs
+      base-path: /browser-common/
+      route: docs.torcato.dev/browser-common/*
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
