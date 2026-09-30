@@ -1,3 +1,10 @@
+<!-- js-tooling:banner:start -->
+<picture>
+  <source media="(max-width: 640px)" srcset="./brand/banner-mobile.png">
+  <img src="./brand/banner.png" alt="browser-common banner" width="1600">
+</picture>
+<!-- js-tooling:banner:end -->
+
 # Browser Common
 
 Small, tree-shakeable TypeScript wrappers around 49 browser Web APIs.
