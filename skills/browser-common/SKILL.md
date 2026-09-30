@@ -82,4 +82,4 @@ Import from `@rtorcato/browser-common/<module>`.
 | websockets | isWebSocketAvailable, createWebSocket, sendWebSocketMessage, closeWebSocket |
 | window | openWindow, closeWindow, focusWindow, blurWindow, scrollToTop, scrollToBottom, reloadWindow, getWindowSize, onWindowResize |
 
-For browser-support details and the full API, see <https://rtorcato.github.io/browser-common/> or the package README.
+For browser-support details and the full API, see <https://docs.torcato.dev/browser-common/> or the package README.
