@@ -1,10 +1,9 @@
 import Link from '@docusaurus/Link'
-import CodeBlock from '@theme/CodeBlock'
 import Layout from '@theme/Layout'
 import { siblings } from '@rtorcato/shared-docs'
+import UseWithAI from '@rtorcato/shared-docs/components/UseWithAI'
 import clsx from 'clsx'
 import type { CSSProperties, ReactElement } from 'react'
-import CommandBlock from '@site/src/components/CommandBlock'
 import HeroExamples from '@site/src/components/HeroExamples'
 import InstallTabs from '@site/src/components/InstallTabs'
 import styles from './index.module.css'
@@ -203,59 +202,6 @@ function Hero(): ReactElement {
 	)
 }
 
-const OTHER_AI_RULES = `- Import from the subpath: @rtorcato/browser-common/<module> — never the package root.
-- Feature-guard before use: call is<Name>Available() first; wrappers no-op
-  (return null/false) on unsupported runtimes instead of throwing.
-- clipboard, geolocation, mediadevices, notifications, serviceworkers need
-  HTTPS (or localhost) plus a permission grant.
-- SSR / Node safe: imports are side-effect-free; calls no-op without window.`
-
-function UseWithAI(): ReactElement {
-	return (
-		<section className={styles.section}>
-			<div className={styles.sectionHead}>
-				<div>
-					<h2 className={styles.h2}>Use with AI</h2>
-					<p className={styles.sub}>
-						A skill ships with the package so coding agents use browser-common correctly — whichever
-						tool you're in.
-					</p>
-				</div>
-			</div>
-			<div className={styles.aiGrid}>
-				<div className={styles.aiLane}>
-					<div className={styles.aiLaneHead}>Claude Code</div>
-					<p className={styles.aiLaneSub}>
-						Register the marketplace once, then install the plugin:
-					</p>
-					<CommandBlock
-						commands={[
-							'/plugin marketplace add rtorcato/browser-common',
-							'/plugin install browser-common@browser-common',
-						]}
-					/>
-				</div>
-				<div className={styles.aiLane}>
-					<div className={styles.aiLaneHead}>Cursor, Copilot, Codex &amp; others</div>
-					<p className={styles.aiLaneSub}>
-						They read the bundled <code>AGENTS.md</code> from <code>node_modules</code> — or paste
-						these rules into your agent config.
-					</p>
-					<div className={styles.aiRules}>
-						<CodeBlock language="md">{OTHER_AI_RULES}</CodeBlock>
-					</div>
-					<Link
-						className={styles.aiLaneLink}
-						href="https://github.com/rtorcato/browser-common/blob/main/AGENTS.md"
-					>
-						View AGENTS.md →
-					</Link>
-				</div>
-			</div>
-		</section>
-	)
-}
-
 function Pillars(): ReactElement {
 	return (
 		<section className={styles.section}>
@@ -353,7 +299,12 @@ export default function Home(): ReactElement {
 		>
 			<main>
 				<Hero />
-				<UseWithAI />
+				<UseWithAI
+					repo="rtorcato/browser-common"
+					plugin="browser-common"
+					skill="browser-common"
+					pkg="@rtorcato/browser-common"
+				/>
 				<Pillars />
 				<Categories />
 				<Siblings />
