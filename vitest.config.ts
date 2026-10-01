@@ -11,12 +11,13 @@ export default mergeConfig(
 			exclude: ['**/node_modules/**', '**/dist/**', 'apps/docs/tests/**'],
 			coverage: {
 				// Floor matches current baseline minus ~1 pt — fail on regression,
-				// pass currently. Tighten as behavior tests cover more modules.
+				// pass currently. Baseline 2026-10-01: 84.11 / 76.6 / 87.45 / 85.19.
+				// Raise again when coverage climbs.
 				thresholds: {
-					statements: 18,
-					branches: 13,
-					functions: 18,
-					lines: 19,
+					statements: 83,
+					branches: 75,
+					functions: 86,
+					lines: 84,
 				},
 			},
 		},
