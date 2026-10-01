@@ -83,7 +83,7 @@ type Pillar = {
 const PILLARS: Pillar[] = [
 	{
 		title: 'Tiny per-module imports',
-		desc: '146–257 B brotlied per subpath. Tree-shake to just the bytes you use.',
+		desc: 'Under 1 kB brotlied per subpath. Tree-shake to just the bytes you use.',
 		icon: 'gauge',
 	},
 	{
