@@ -45,6 +45,23 @@ export function getScreenOrientationType(): string | undefined {
 }
 
 /**
+ * Orientation values accepted by `screen.orientation.lock()`. Declared locally because
+ * `OrientationLockType` is missing from some TypeScript `lib.dom` versions.
+ */
+export type OrientationLockType =
+	| 'any'
+	| 'natural'
+	| 'landscape'
+	| 'portrait'
+	| 'portrait-primary'
+	| 'portrait-secondary'
+	| 'landscape-primary'
+	| 'landscape-secondary'
+
+/** `ScreenOrientation` narrowed to `lock`, which some `lib.dom` versions omit. */
+type LockableOrientation = { lock?: (type: OrientationLockType) => Promise<void> }
+
+/**
  * Locks the screen orientation to a specific type (if supported).
  * @param type The orientation type (e.g., 'portrait-primary', 'landscape-primary').
  * @returns {Promise<void> | undefined} A promise that resolves when locked, or undefined if not supported.
@@ -55,15 +72,11 @@ export function getScreenOrientationType(): string | undefined {
  * ```
  */
 export function lockScreenOrientation(type: OrientationLockType): Promise<void> | undefined {
-	if (
-		typeof window !== 'undefined' &&
-		window.screen &&
-		'orientation' in window.screen &&
-		typeof window.screen.orientation.lock === 'function'
-	) {
-		return window.screen.orientation.lock(type)
+	if (typeof window === 'undefined' || !window.screen || !('orientation' in window.screen)) {
+		return undefined
 	}
-	return undefined
+	const orientation = window.screen.orientation as unknown as LockableOrientation
+	return typeof orientation.lock === 'function' ? orientation.lock(type) : undefined
 }
 
 /**
