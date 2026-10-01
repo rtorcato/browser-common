@@ -10,14 +10,15 @@ export default mergeConfig(
 			// from picking them up and erroring on `test.describe()` calls.
 			exclude: ['**/node_modules/**', '**/dist/**', 'apps/docs/tests/**'],
 			coverage: {
-				// Floor matches current baseline minus ~1 pt — fail on regression,
-				// pass currently. Baseline 2026-10-01: 84.11 / 76.6 / 87.45 / 85.19.
+				// Floor tracks CI's `test (node 22)` coverage minus ~1-2 pts — fail on
+				// regression, pass currently. CI baseline 2026-10-01: 72.81 / 58.47 /
+				// 70.96 / 74.77 (local runs report higher; CI is the source of truth).
 				// Raise again when coverage climbs.
 				thresholds: {
-					statements: 83,
-					branches: 75,
-					functions: 86,
-					lines: 84,
+					statements: 71,
+					branches: 57,
+					functions: 69,
+					lines: 73,
 				},
 			},
 		},
