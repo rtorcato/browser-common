@@ -39,7 +39,7 @@ Import from `@rtorcato/browser-common/<module>`.
 | battery | isBatteryApiAvailable, getBatteryManager, onBatteryLevelChange, onBatteryChargingChange |
 | canvas | createCanvas, getCanvasContext2D, clearCanvas, drawImageOnCanvas, canvasToDataURL, fillCanvas |
 | clipboard | isClipboardApiAvailable, readFromClipboard, copyElementTextToClipboard, copyToClipboard |
-| common | isBrowser, getUserAgent, isMobile, getBrowserLanguage |
+| common | isBrowser, getUserAgent, isMobile, getBrowserLanguage, getPlatform, isIOS, isAndroid |
 | cookies | setCookie, getCookie, deleteCookie, hasCookie, getAllCookies |
 | dom | $, $$, createElement, removeElement, setAttributes, addClass, removeClass, toggleClass, hasClass, getData, setData |
 | draganddrop | enableFileDrop, makeDraggable, enableTextDrop, disableDragAndDrop |
