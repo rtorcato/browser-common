@@ -24,7 +24,7 @@ export function isURLPatternAvailable(): boolean {
  * const match = pattern.exec('https://example.com/users/42')
  * ```
  */
-export function createURLPattern(input: URLPatternInput, baseURL?: string): URLPattern {
+export function createURLPattern(input: string | URLPatternInit, baseURL?: string): URLPattern {
 	if (!isURLPatternAvailable()) {
 		throw new Error('createURLPattern requires an environment with URLPattern support')
 	}
@@ -44,6 +44,9 @@ export function createURLPattern(input: URLPatternInput, baseURL?: string): URLP
  * result?.pathname.groups.id // '42'
  * ```
  */
-export function matchURLPattern(pattern: URLPatternInput, input: string): URLPatternResult | null {
+export function matchURLPattern(
+	pattern: string | URLPatternInit,
+	input: string
+): URLPatternResult | null {
 	return createURLPattern(pattern).exec(input)
 }
