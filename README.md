@@ -22,7 +22,7 @@ Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, obs
 
 ## Why this over `vueuse/core` or `usehooks-ts`?
 
-Framework-agnostic. If you're in a Vue or React app, those libraries are excellent — use them. But if your code needs to work the same way from a Node script, a service worker, a vanilla-TS module, or alongside *any* framework, `browser-common` ships unopinionated functions with no React/Vue dependency and per-subpath imports that tree-shake to bytes (146-257 B brotlied per module). Smaller surface, broader reach.
+Framework-agnostic. If you're in a Vue or React app, those libraries are excellent — use them. But if your code needs to work the same way from a Node script, a service worker, a vanilla-TS module, or alongside *any* framework, `browser-common` ships unopinionated functions with no React/Vue dependency and per-subpath imports that tree-shake to bytes (under 1 kB brotlied per module, enforced by size-limit). Smaller surface, broader reach.
 
 ## Installation
 
@@ -80,7 +80,7 @@ Every module is a separate subpath export — import only what you need.
 | broadcastchannel | `@rtorcato/browser-common/broadcastchannel` | `isBroadcastChannelAvailable`, `createBroadcastChannel` |
 | canvas | `@rtorcato/browser-common/canvas` | `createCanvas`, `getCanvasContext2D`, `clearCanvas`, `drawImageOnCanvas`, `canvasToDataURL`, `fillCanvas` |
 | clipboard | `@rtorcato/browser-common/clipboard` | `isClipboardApiAvailable`, `readFromClipboard`, `copyElementTextToClipboard`, `copyToClipboard` |
-| common | `@rtorcato/browser-common/common` | `isBrowser`, `getUserAgent`, `isMobile`, `getBrowserLanguage` |
+| common | `@rtorcato/browser-common/common` | `isBrowser`, `getUserAgent`, `isMobile`, `getBrowserLanguage`, `getPlatform`, `isIOS`, `isAndroid` |
 | cookies | `@rtorcato/browser-common/cookies` | `setCookie`, `getCookie`, `deleteCookie`, `hasCookie`, `getAllCookies` |
 | dom | `@rtorcato/browser-common/dom` | `$`, `$$`, `createElement`, `removeElement`, `setAttributes`, `addClass`, `removeClass`, `toggleClass`, `hasClass`, `getData`, `setData` |
 | draganddrop | `@rtorcato/browser-common/draganddrop` | `enableFileDrop`, `makeDraggable`, `enableTextDrop`, `disableDragAndDrop` |
