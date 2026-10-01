@@ -278,7 +278,7 @@
     "@biomejs/biome": "^2.5.14",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
-    "@rtorcato/repo-ai": "^3.1.2",
+    "@rtorcato/repo-ai": "^3.3.0",
     "@rtorcato/repo-tooling": "^5.1.4",
     "@size-limit/preset-small-lib": "^14.1.0",
     "@types/node": "^26.6.2",
