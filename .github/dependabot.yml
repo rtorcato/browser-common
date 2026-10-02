@@ -35,11 +35,10 @@ updates:
         update-types:
           - major
     ignore:
-      # apps/docs is deliberately pinned to TypeScript ~5.6.3 — TS 7 removed
-      # `baseUrl`, so a TS major is a migration to do by hand, not a dep bump.
+      # Both TypeScript pins are managed by hand: root on 7, apps/docs held on
+      # 5.x (TS 7 removed `baseUrl`). Ignore it entirely — a grouped docs minor
+      # bump otherwise rewrites the root `^7` specifier down to `^5.9` (#167).
       - dependency-name: typescript
-        update-types:
-          - version-update:semver-major
 
   - package-ecosystem: github-actions
     directory: /
