@@ -32,7 +32,7 @@ if (isPermissionsApiAvailable()) {
 ## Exports
 
 - `isPermissionsApiAvailable()` — feature check
-- `queryPermission(name)` — resolves a permission's state (`'granted' | 'denied' | 'prompt'`), or `undefined` if unsupported
+- `queryPermission(name)` — resolves a permission's state (`'granted' | 'denied' | 'prompt'`), or `null` if unsupported
 - `onPermissionChange(status, callback)` — subscribes to a `PermissionStatus` change event, returns an unsubscribe function
 
 See the [API reference](/docs/api/permissions) for full signatures.

@@ -43,10 +43,10 @@ describe('location (browser present)', () => {
 
 describe('location (SSR / no window)', () => {
 	it('getters return undefined and mutators no-op', () => {
-		expect(getCurrentLocation()).toBeUndefined()
-		expect(getPathname()).toBeUndefined()
-		expect(getSearch()).toBeUndefined()
-		expect(getHash()).toBeUndefined()
+		expect(getCurrentLocation()).toBeNull()
+		expect(getPathname()).toBeNull()
+		expect(getSearch()).toBeNull()
+		expect(getHash()).toBeNull()
 		expect(() => {
 			redirectTo('/x')
 			reloadPage()

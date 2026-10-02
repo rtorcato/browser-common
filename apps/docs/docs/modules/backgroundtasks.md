@@ -13,8 +13,8 @@ worker registration.
 📖 [MDN: Background Synchronization API](https://developer.mozilla.org/en-US/docs/Web/API/Background_Synchronization_API)
 
 Background Sync and Background Fetch are Chromium-only and require an active
-service worker — `registerBackgroundSync`/`registerBackgroundFetch` resolve
-to `undefined` silently when unsupported or no service worker is registered,
+service worker — `registerBackgroundSync` no-ops and `registerBackgroundFetch`
+resolves to `null` silently when unsupported or no service worker is registered,
 they don't throw.
 
 ::browser-support[backgroundtasks]

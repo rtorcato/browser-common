@@ -39,7 +39,7 @@ off()
 
 - `enterFullscreen(element?)` — requests fullscreen for `element` (default: `document.documentElement`)
 - `exitFullscreen()` — exits fullscreen if active
-- `isFullscreen()` — true if currently in fullscreen
+- `isFullscreen()` — true if currently in fullscreen; false outside a browser
 - `onFullscreenChange(callback)` — listens for fullscreen change; returns an unsubscribe function
 
 See the [API reference](/docs/api/fullscreen) for full signatures.

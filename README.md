@@ -108,7 +108,7 @@ Every module is a separate subpath export — import only what you need.
 | pointerevents | `@rtorcato/browser-common/pointerevents` | `isPointerEventsAvailable`, `onPointer`, `getPointerType`, `isPrimaryPointer` |
 | print | `@rtorcato/browser-common/print` | `printPage`, `printElementById`, `isPrintAvailable` |
 | resizeobserver | `@rtorcato/browser-common/resizeobserver` | `observeResize`, `disconnectResizeObserver`, `observeResizeOnce` |
-| screen | `@rtorcato/browser-common/screen` | `getScreenWidth`, `getScreenHeight`, `getViewportWidth`, `getViewportHeight`, `isLandscape`, `isPortrait`, `enterFullscreen`, `exitFullscreen`, `isFullscreen` |
+| screen | `@rtorcato/browser-common/screen` | `getScreenWidth`, `getScreenHeight`, `getViewportWidth`, `getViewportHeight`, `isLandscape`, `isPortrait` |
 | screencapture | `@rtorcato/browser-common/screencapture` | `isScreenCaptureAvailable`, `getDisplayMedia` |
 | selectionapi | `@rtorcato/browser-common/selectionapi` | `isSelectionApiAvailable`, `getSelection`, `getSelectedText`, `clearSelection`, `selectElementText` |
 | serviceworkers | `@rtorcato/browser-common/serviceworkers` | `isServiceWorkerAvailable`, `registerServiceWorker`, `unregisterAllServiceWorkers`, `getServiceWorkerRegistration`, `postMessageToServiceWorker` |

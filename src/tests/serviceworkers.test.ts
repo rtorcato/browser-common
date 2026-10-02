@@ -32,11 +32,11 @@ describe('serviceworkers', () => {
 		vi.stubGlobal('navigator', {
 			serviceWorker: { register: () => Promise.reject(new Error('boom')) },
 		})
-		expect(await registerServiceWorker('/sw.js')).toBeUndefined()
+		expect(await registerServiceWorker('/sw.js')).toBeNull()
 	})
 
 	it('registerServiceWorker returns undefined when unsupported', async () => {
-		expect(await registerServiceWorker('/sw.js')).toBeUndefined()
+		expect(await registerServiceWorker('/sw.js')).toBeNull()
 	})
 
 	it('unregisterAllServiceWorkers unregisters every registration', async () => {

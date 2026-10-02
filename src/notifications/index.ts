@@ -33,7 +33,7 @@ export const requestNotificationPermission = async (): Promise<NotificationPermi
  * Displays a browser notification if permission is granted.
  * @param {string} title - The notification title.
  * @param {NotificationOptions} [options] - Optional notification options.
- * @returns {Notification | undefined} The Notification object, or undefined if not permitted.
+ * @returns {Notification | null} The Notification object, or null if not permitted.
  * @example
  * ```ts
  * import { showNotification } from '@rtorcato/browser-common/notifications'
@@ -43,8 +43,8 @@ export const requestNotificationPermission = async (): Promise<NotificationPermi
 export const showNotification = (
 	title: string,
 	options?: NotificationOptions
-): Notification | undefined => {
-	if (!isNotificationAvailable() || Notification.permission !== 'granted') return
+): Notification | null => {
+	if (!isNotificationAvailable() || Notification.permission !== 'granted') return null
 	return new Notification(title, options)
 }
 
@@ -52,7 +52,7 @@ export const showNotification = (
  * Requests permission if needed, then shows a notification if possible.
  * @param {string} title - The notification title.
  * @param {NotificationOptions} [options] - Optional notification options.
- * @returns {Promise<Notification | undefined>} The Notification object, or undefined if not permitted.
+ * @returns {Promise<Notification | null>} The Notification object, or null if not permitted.
  * @example
  * ```ts
  * import { notifyIfPermitted } from '@rtorcato/browser-common/notifications'
@@ -62,13 +62,13 @@ export const showNotification = (
 export const notifyIfPermitted = async (
 	title: string,
 	options?: NotificationOptions
-): Promise<Notification | undefined> => {
-	if (!isNotificationAvailable()) return
+): Promise<Notification | null> => {
+	if (!isNotificationAvailable()) return null
 	if (Notification.permission === 'default') {
 		await requestNotificationPermission()
 	}
 	if (Notification.permission === 'granted') {
 		return showNotification(title, options)
 	}
-	return undefined
+	return null
 }

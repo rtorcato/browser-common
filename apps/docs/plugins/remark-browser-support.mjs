@@ -52,7 +52,7 @@ export const MODULE_APIS = {
 	pointerevents: ['api.PointerEvent'],
 	print: ['api.Window.print'],
 	resizeobserver: ['api.ResizeObserver'],
-	screen: ['api.Screen', 'api.Element.requestFullscreen'],
+	screen: ['api.Screen'],
 	screencapture: ['api.MediaDevices.getDisplayMedia'],
 	selectionapi: ['api.Selection', 'api.Window.getSelection'],
 	serviceworkers: ['api.ServiceWorkerContainer.register'],
