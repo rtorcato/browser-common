@@ -26,14 +26,14 @@ describe('permissions', () => {
 	})
 
 	it('queryPermission returns undefined when unsupported', async () => {
-		expect(await queryPermission('geolocation')).toBeUndefined()
+		expect(await queryPermission('geolocation')).toBeNull()
 	})
 
 	it('queryPermission swallows a rejecting query', async () => {
 		vi.stubGlobal('navigator', {
 			permissions: { query: () => Promise.reject(new Error('bad name')) },
 		})
-		expect(await queryPermission('geolocation')).toBeUndefined()
+		expect(await queryPermission('geolocation')).toBeNull()
 	})
 
 	it('onPermissionChange wires and unwires the change event', () => {

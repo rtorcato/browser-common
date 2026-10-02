@@ -116,13 +116,13 @@ describe('getMediaPermissionStatus', () => {
 
 	it('returns undefined when permissions API is unavailable', async () => {
 		setNavigator({})
-		expect(await getMediaPermissionStatus('microphone')).toBeUndefined()
+		expect(await getMediaPermissionStatus('microphone')).toBeNull()
 	})
 
 	it('returns undefined when query rejects (unsupported name)', async () => {
 		const query = vi.fn().mockRejectedValue(new TypeError('camera not supported'))
 		setNavigator({ permissions: { query } })
 
-		expect(await getMediaPermissionStatus('camera')).toBeUndefined()
+		expect(await getMediaPermissionStatus('camera')).toBeNull()
 	})
 })

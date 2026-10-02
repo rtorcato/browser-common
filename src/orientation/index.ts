@@ -30,18 +30,18 @@ export function onDeviceOrientation(callback: (event: DeviceOrientationEvent) =>
 
 /**
  * Gets the current screen orientation type (e.g., 'portrait-primary', 'landscape-primary').
- * @returns {string | undefined} The orientation type, or undefined if not available.
+ * @returns {string | null} The orientation type, or null if not available.
  * @example
  * ```ts
  * import { getScreenOrientationType } from '@rtorcato/browser-common/orientation'
  * const type = getScreenOrientationType()
  * ```
  */
-export function getScreenOrientationType(): string | undefined {
+export function getScreenOrientationType(): string | null {
 	if (typeof window !== 'undefined' && window.screen && 'orientation' in window.screen) {
 		return window.screen.orientation.type
 	}
-	return undefined
+	return null
 }
 
 /**
@@ -64,19 +64,19 @@ type LockableOrientation = { lock?: (type: OrientationLockType) => Promise<void>
 /**
  * Locks the screen orientation to a specific type (if supported).
  * @param type The orientation type (e.g., 'portrait-primary', 'landscape-primary').
- * @returns {Promise<void> | undefined} A promise that resolves when locked, or undefined if not supported.
+ * @returns {Promise<void> | null} A promise that resolves when locked, or null if not supported.
  * @example
  * ```ts
  * import { lockScreenOrientation } from '@rtorcato/browser-common/orientation'
  * await lockScreenOrientation('landscape-primary')
  * ```
  */
-export function lockScreenOrientation(type: OrientationLockType): Promise<void> | undefined {
+export function lockScreenOrientation(type: OrientationLockType): Promise<void> | null {
 	if (typeof window === 'undefined' || !window.screen || !('orientation' in window.screen)) {
-		return undefined
+		return null
 	}
 	const orientation = window.screen.orientation as unknown as LockableOrientation
-	return typeof orientation.lock === 'function' ? orientation.lock(type) : undefined
+	return typeof orientation.lock === 'function' ? orientation.lock(type) : null
 }
 
 /**

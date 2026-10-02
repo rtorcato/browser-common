@@ -89,7 +89,7 @@ describe('watchPosition', () => {
 
 	it('returns undefined when geolocation API is unavailable', () => {
 		setNavigator({})
-		expect(watchPosition(() => {})).toBeUndefined()
+		expect(watchPosition(() => {})).toBeNull()
 	})
 })
 

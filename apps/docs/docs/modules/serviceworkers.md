@@ -33,9 +33,9 @@ if (isServiceWorkerAvailable()) {
 ## Exports
 
 - `isServiceWorkerAvailable()` — feature check
-- `registerServiceWorker(scriptUrl, options?)` — registers a service worker, resolves to the `ServiceWorkerRegistration` or `undefined`
+- `registerServiceWorker(scriptUrl, options?)` — registers a service worker, resolves to the `ServiceWorkerRegistration` or `null`
 - `unregisterAllServiceWorkers()` — unregisters every service worker for the current origin
-- `getServiceWorkerRegistration()` — resolves to the active `ServiceWorkerRegistration`, or `undefined`
+- `getServiceWorkerRegistration()` — resolves to the active `ServiceWorkerRegistration`, or `null`
 - `postMessageToServiceWorker(message)` — sends a message to the active service worker
 
 See the [API reference](/docs/api/serviceworkers) for full signatures.

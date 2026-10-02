@@ -12,7 +12,7 @@ export function isBatteryApiAvailable(): boolean {
 
 /**
  * Gets the BatteryManager object if available.
- * @returns A promise resolving to the BatteryManager, or undefined if not supported.
+ * @returns A promise resolving to the BatteryManager, or null if not supported.
  */
 
 // Type definition for BatteryManager if not present in the environment
@@ -29,7 +29,7 @@ interface BatteryManager extends EventTarget {
 
 /**
  * Gets the BatteryManager object if available.
- * @returns A promise resolving to the BatteryManager, or undefined if not supported.
+ * @returns A promise resolving to the BatteryManager, or null if not supported.
  * @example
  * ```ts
  * import { getBatteryManager } from '@rtorcato/browser-common/battery'
@@ -37,13 +37,13 @@ interface BatteryManager extends EventTarget {
  * console.log(battery?.level)
  * ```
  */
-export async function getBatteryManager(): Promise<BatteryManager | undefined> {
-	if (!isBatteryApiAvailable()) return undefined
+export async function getBatteryManager(): Promise<BatteryManager | null> {
+	if (!isBatteryApiAvailable()) return null
 	try {
 		// @ts-expect-error — navigator.getBattery not in lib.dom (Chromium-only; spec dormant)
 		return await navigator.getBattery()
 	} catch {
-		return undefined
+		return null
 	}
 }
 
