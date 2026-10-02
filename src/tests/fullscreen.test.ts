@@ -66,9 +66,9 @@ describe('fullscreen (browser present)', () => {
 
 describe('fullscreen (SSR / no document)', () => {
 	it('returns undefined and a safe remover without throwing', () => {
-		expect(enterFullscreen()).toBeUndefined()
-		expect(exitFullscreen()).toBeUndefined()
-		expect(isFullscreen()).toBeUndefined()
+		expect(enterFullscreen()).toBeNull()
+		expect(exitFullscreen()).toBeNull()
+		expect(isFullscreen()).toBe(false)
 		expect(() => onFullscreenChange(() => {})()).not.toThrow()
 	})
 })

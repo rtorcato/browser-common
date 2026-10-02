@@ -54,8 +54,8 @@ describe('orientation', () => {
 	})
 
 	it('orientation helpers no-op / return undefined without window', () => {
-		expect(getScreenOrientationType()).toBeUndefined()
-		expect(lockScreenOrientation('any')).toBeUndefined()
+		expect(getScreenOrientationType()).toBeNull()
+		expect(lockScreenOrientation('any')).toBeNull()
 		expect(() => unlockScreenOrientation()).not.toThrow()
 	})
 })

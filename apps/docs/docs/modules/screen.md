@@ -5,48 +5,30 @@ sidebar_label: screen
 
 # screen
 
-Screen and viewport dimensions, orientation, and Fullscreen API helpers.
+Screen and viewport dimensions and orientation. For the Fullscreen API, use [`fullscreen`](./fullscreen.md).
 
 **Import:** `@rtorcato/browser-common/screen`
 
-📖 [MDN: Screen](https://developer.mozilla.org/en-US/docs/Web/API/Screen) · 📊 [caniuse: fullscreen](https://caniuse.com/fullscreen)
+📖 [MDN: Screen](https://developer.mozilla.org/en-US/docs/Web/API/Screen)
 
 ::browser-support[screen]
 
 ## Example
 
 ```ts
-import {
-  getScreenWidth,
-  getViewportWidth,
-  isLandscape,
-  enterFullscreen,
-  exitFullscreen,
-  isFullscreen,
-} from '@rtorcato/browser-common/screen'
+import { getScreenWidth, isLandscape } from '@rtorcato/browser-common/screen'
 
 const w = getScreenWidth()
 if (isLandscape()) renderWide()
-
-button.addEventListener('click', () => {
-  if (isFullscreen()) {
-    exitFullscreen()
-  } else {
-    enterFullscreen()
-  }
-})
 ```
 
 ## Exports
 
-- `getScreenWidth()` — screen width in pixels, or `undefined` outside a browser
-- `getScreenHeight()` — screen height in pixels, or `undefined` outside a browser
-- `getViewportWidth()` — viewport width (`window.innerWidth`), or `undefined` outside a browser
-- `getViewportHeight()` — viewport height (`window.innerHeight`), or `undefined` outside a browser
-- `isLandscape()` — true if viewport is wider than tall
-- `isPortrait()` — true if viewport is taller than or equal to wide
-- `enterFullscreen(element?)` — requests fullscreen for an element (defaults to `document.documentElement`)
-- `exitFullscreen()` — exits fullscreen if active
-- `isFullscreen()` — true if the document currently has a fullscreen element
+- `getScreenWidth()` — screen width in pixels, or `null` outside a browser
+- `getScreenHeight()` — screen height in pixels, or `null` outside a browser
+- `getViewportWidth()` — viewport width (`window.innerWidth`), or `null` outside a browser
+- `getViewportHeight()` — viewport height (`window.innerHeight`), or `null` outside a browser
+- `isLandscape()` — true if viewport is wider than tall; false outside a browser
+- `isPortrait()` — true if viewport is taller than or equal to wide; false outside a browser
 
 See the [API reference](/docs/api/screen) for full signatures.

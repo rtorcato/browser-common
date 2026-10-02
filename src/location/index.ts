@@ -1,17 +1,17 @@
 /**
  * Gets the current browser location (window.location.href).
- * @returns {string | undefined} The current URL, or undefined if not in a browser.
+ * @returns {string | null} The current URL, or null if not in a browser.
  * @example
  * ```ts
  * import { getCurrentLocation } from '@rtorcato/browser-common/location'
  * const url = getCurrentLocation()
  * ```
  */
-export function getCurrentLocation(): string | undefined {
+export function getCurrentLocation(): string | null {
 	if (typeof window !== 'undefined' && window.location) {
 		return window.location.href
 	}
-	return undefined
+	return null
 }
 
 /**
@@ -45,48 +45,48 @@ export function reloadPage(): void {
 
 /**
  * Gets the current pathname from the browser location.
- * @returns {string | undefined} The pathname, or undefined if not in a browser.
+ * @returns {string | null} The pathname, or null if not in a browser.
  * @example
  * ```ts
  * import { getPathname } from '@rtorcato/browser-common/location'
  * if (getPathname() === '/home') showHome()
  * ```
  */
-export function getPathname(): string | undefined {
+export function getPathname(): string | null {
 	if (typeof window !== 'undefined' && window.location) {
 		return window.location.pathname
 	}
-	return undefined
+	return null
 }
 
 /**
  * Gets the current search (query string) from the browser location.
- * @returns {string | undefined} The search string, or undefined if not in a browser.
+ * @returns {string | null} The search string, or null if not in a browser.
  * @example
  * ```ts
  * import { getSearch } from '@rtorcato/browser-common/location'
  * const qs = getSearch()
  * ```
  */
-export function getSearch(): string | undefined {
+export function getSearch(): string | null {
 	if (typeof window !== 'undefined' && window.location) {
 		return window.location.search
 	}
-	return undefined
+	return null
 }
 
 /**
  * Gets the current hash from the browser location.
- * @returns {string | undefined} The hash string, or undefined if not in a browser.
+ * @returns {string | null} The hash string, or null if not in a browser.
  * @example
  * ```ts
  * import { getHash } from '@rtorcato/browser-common/location'
  * const hash = getHash()
  * ```
  */
-export function getHash(): string | undefined {
+export function getHash(): string | null {
 	if (typeof window !== 'undefined' && window.location) {
 		return window.location.hash
 	}
-	return undefined
+	return null
 }

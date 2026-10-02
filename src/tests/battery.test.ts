@@ -26,12 +26,12 @@ describe('battery', () => {
 	})
 
 	it('getBatteryManager returns undefined when unsupported', async () => {
-		expect(await getBatteryManager()).toBeUndefined()
+		expect(await getBatteryManager()).toBeNull()
 	})
 
 	it('getBatteryManager swallows a rejecting getBattery', async () => {
 		vi.stubGlobal('navigator', { getBattery: () => Promise.reject(new Error('nope')) })
-		expect(await getBatteryManager()).toBeUndefined()
+		expect(await getBatteryManager()).toBeNull()
 	})
 
 	it('level/charging listeners wire and unwire the right events', () => {

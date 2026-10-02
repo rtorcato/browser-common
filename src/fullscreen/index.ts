@@ -1,7 +1,7 @@
 /**
  * Requests the browser to enter fullscreen mode for a given element.
  * @param element The element to make fullscreen (defaults to document.documentElement).
- * @returns {Promise<void> | undefined} A promise that resolves when fullscreen is entered, or undefined if not supported.
+ * @returns {Promise<void> | null} A promise that resolves when fullscreen is entered, or null if not supported.
  * @remarks
  * Must be called from a user gesture handler.
  * @example
@@ -10,46 +10,46 @@
  * button.addEventListener('click', () => enterFullscreen(video))
  * ```
  */
-export function enterFullscreen(element?: HTMLElement): Promise<void> | undefined {
+export function enterFullscreen(element?: HTMLElement): Promise<void> | null {
 	if (typeof document !== 'undefined') {
 		const el = element || document.documentElement
 		if (el.requestFullscreen) {
 			return el.requestFullscreen()
 		}
 	}
-	return undefined
+	return null
 }
 
 /**
  * Exits fullscreen mode if currently active.
- * @returns {Promise<void> | undefined} A promise that resolves when fullscreen is exited, or undefined if not supported.
+ * @returns {Promise<void> | null} A promise that resolves when fullscreen is exited, or null if not supported.
  * @example
  * ```ts
  * import { exitFullscreen } from '@rtorcato/browser-common/fullscreen'
  * await exitFullscreen()
  * ```
  */
-export function exitFullscreen(): Promise<void> | undefined {
+export function exitFullscreen(): Promise<void> | null {
 	if (typeof document !== 'undefined' && document.exitFullscreen) {
 		return document.exitFullscreen()
 	}
-	return undefined
+	return null
 }
 
 /**
  * Checks if the browser is currently in fullscreen mode.
- * @returns {boolean | undefined} True if in fullscreen, false otherwise, or undefined if not in a browser.
+ * @returns {boolean} True if in fullscreen, false otherwise (including outside a browser).
  * @example
  * ```ts
  * import { isFullscreen } from '@rtorcato/browser-common/fullscreen'
  * if (isFullscreen()) showExitButton()
  * ```
  */
-export function isFullscreen(): boolean | undefined {
+export function isFullscreen(): boolean {
 	if (typeof document !== 'undefined') {
 		return !!document.fullscreenElement
 	}
-	return undefined
+	return false
 }
 
 /**

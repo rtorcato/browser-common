@@ -12,7 +12,7 @@ Reads device battery level and charging state via the Battery Status API.
 📖 [MDN: Battery Status API](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API)
 
 The Battery Status API is Chromium-only and the spec is dormant — `getBatteryManager()`
-resolves to `undefined` where unsupported, so guard with `isBatteryApiAvailable()` first.
+resolves to `null` where unsupported, so guard with `isBatteryApiAvailable()` first.
 
 ::browser-support[battery]
 
@@ -35,7 +35,7 @@ if (isBatteryApiAvailable()) {
 ## Exports
 
 - `isBatteryApiAvailable()` — feature check
-- `getBatteryManager()` — resolves to the `BatteryManager`, or `undefined`
+- `getBatteryManager()` — resolves to the `BatteryManager`, or `null`
 - `onBatteryLevelChange(battery, callback)` — subscribes to level changes, returns an unsubscribe function
 - `onBatteryChargingChange(battery, callback)` — subscribes to charging state changes, returns an unsubscribe function
 
