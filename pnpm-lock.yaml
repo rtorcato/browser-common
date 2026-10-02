@@ -37,7 +37,7 @@ importers:
         version: 3.1.2(@types/node@26.6.2)
       '@rtorcato/repo-tooling':
         specifier: ^5.1.4
-        version: 5.1.4(@biomejs/biome@2.5.14)(@commitlint/cli@21.2.3(@types/node@26.6.2)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.2)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.23.1(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)
+        version: 5.1.4(@biomejs/biome@2.5.14)(@commitlint/cli@21.2.3(@types/node@26.6.2)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.2)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@2.0.0(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)
       '@size-limit/preset-small-lib':
         specifier: ^14.1.0
         version: 14.1.0(size-limit@14.1.0)
@@ -54,8 +54,8 @@ importers:
         specifier: ^0.28.2
         version: 0.28.2
       esbuild-node-externals:
-        specifier: ^1.23.1
-        version: 1.23.1(esbuild@0.28.2)
+        specifier: ^2.0.0
+        version: 2.0.0(esbuild@0.28.2)
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -4344,8 +4344,8 @@ packages:
   emoticon@4.1.0:
     resolution: {integrity: sha512-VWZfnxqwNcc51hIy/sbOdEem6D+cVtpPzEEtVAFdaas30+1dgkyaOQ4sQ6Bp0tOMqWO1v+HQfYaoodOkdhK6SQ==}
 
-  empathic@2.0.1:
-    resolution: {integrity: sha512-YGRs8knHhKHVShLkFET/rWAU8kmHbOV5LwN938RHI0pljAJ1Gf6SzXsSmRaEzcXTtOOmVqJ5+WtQPL5uigY50Q==}
+  empathic@2.1.0:
+    resolution: {integrity: sha512-AnfC1ATldl49/cvZdLPDjBfrRNwbDO05aibiOtzQu3qtlbJtomNLhF30HEtn/7iBz50dlMECqATo3fG0LrdEgw==}
     engines: {node: '>=14'}
 
   encodeurl@2.0.0:
@@ -4417,9 +4417,9 @@ packages:
   esast-util-from-js@2.0.1:
     resolution: {integrity: sha512-8Ja+rNJ0Lt56Pcf3TAmpBZjmx8ZcK5Ts4cAzIOjsjevg9oSXJnl6SUQ2EevU8tv3h6ZLWmoKL5H4fgWvdvfETw==}
 
-  esbuild-node-externals@1.23.1:
-    resolution: {integrity: sha512-aU/Bxaq9KU5SUnsCVP0a2Kj74qZz0QpRH2qvcQ4tRQ7yGYcmzUPOdXXA2hd7o55OjChduOwsFYP5EPJH01gn2Q==}
-    engines: {node: '>=12'}
+  esbuild-node-externals@2.0.0:
+    resolution: {integrity: sha512-AzLWGYBC2MGvo37iAPv17yVe/r2iOfEZnCEBACR+5HkSrOOnRnVf8+33pJU5VCg7brzGtiSsBLqIp5hxYfItsw==}
+    engines: {node: '>=22'}
     peerDependencies:
       esbuild: 0.12 - 0.28
 
@@ -11764,7 +11764,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@rtorcato/repo-tooling@5.1.4(@biomejs/biome@2.5.14)(@commitlint/cli@21.2.3(@types/node@26.6.2)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.2)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.23.1(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)':
+  '@rtorcato/repo-tooling@5.1.4(@biomejs/biome@2.5.14)(@commitlint/cli@21.2.3(@types/node@26.6.2)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.2)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@2.0.0(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)':
     dependencies:
       chalk: 6.0.1
       commander: 15.0.0
@@ -11785,7 +11785,7 @@ snapshots:
       '@size-limit/preset-small-lib': 14.1.0(size-limit@14.1.0)
       conventional-changelog-conventionalcommits: 9.3.1
       esbuild: 0.28.2
-      esbuild-node-externals: 1.23.1(esbuild@0.28.2)
+      esbuild-node-externals: 2.0.0(esbuild@0.28.2)
       semantic-release: 25.0.9(typescript@7.0.2)
       size-limit: 14.1.0
       tslib: 2.8.1
@@ -13425,7 +13425,7 @@ snapshots:
 
   emoticon@4.1.0: {}
 
-  empathic@2.0.1: {}
+  empathic@2.1.0: {}
 
   encodeurl@2.0.0: {}
 
@@ -13491,9 +13491,9 @@ snapshots:
       esast-util-from-estree: 2.0.0
       vfile-message: 4.0.3
 
-  esbuild-node-externals@1.23.1(esbuild@0.28.2):
+  esbuild-node-externals@2.0.0(esbuild@0.28.2):
     dependencies:
-      empathic: 2.0.1
+      empathic: 2.1.0
       esbuild: 0.28.2
 
   esbuild@0.28.2:
