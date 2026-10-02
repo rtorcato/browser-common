@@ -70,7 +70,7 @@ Import from `@rtorcato/browser-common/<module>`.
 | pointerevents | isPointerEventsAvailable, onPointer, getPointerType, isPrimaryPointer |
 | print | printPage, printElementById, isPrintAvailable |
 | resizeobserver | observeResize, disconnectResizeObserver, observeResizeOnce |
-| screen | getScreenWidth, getScreenHeight, getViewportWidth, getViewportHeight, isLandscape, isPortrait, enterFullscreen, exitFullscreen, isFullscreen |
+| screen | getScreenWidth, getScreenHeight, getViewportWidth, getViewportHeight, isLandscape, isPortrait |
 | selectionapi | isSelectionApiAvailable, getSelection, getSelectedText, clearSelection, selectElementText |
 | serviceworkers | isServiceWorkerAvailable, registerServiceWorker, unregisterAllServiceWorkers, getServiceWorkerRegistration, postMessageToServiceWorker |
 | sessionstorage | isSessionStorageAvailable, setSessionStorage, getSessionStorage, removeSessionStorage, clearSessionStorage |

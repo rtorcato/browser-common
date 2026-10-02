@@ -27,11 +27,11 @@ if (getPathname() === '/login') {
 
 ## Exports
 
-- `getCurrentLocation()` — current URL (`window.location.href`), or `undefined` outside a browser
+- `getCurrentLocation()` — current URL (`window.location.href`), or `null` outside a browser
 - `redirectTo(url)` — navigates to a new URL
 - `reloadPage()` — reloads the current page
-- `getPathname()` — current pathname, or `undefined` outside a browser
-- `getSearch()` — current query string, or `undefined` outside a browser
-- `getHash()` — current hash, or `undefined` outside a browser
+- `getPathname()` — current pathname, or `null` outside a browser
+- `getSearch()` — current query string, or `null` outside a browser
+- `getHash()` — current hash, or `null` outside a browser
 
 See the [API reference](/docs/api/location) for full signatures.

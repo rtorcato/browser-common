@@ -33,7 +33,7 @@ if (isGeolocationAvailable()) {
 
   const watchId = watchPosition((p) => updateMap(p.coords))
   // later:
-  if (watchId !== undefined) clearWatch(watchId)
+  if (watchId !== null) clearWatch(watchId)
 }
 ```
 

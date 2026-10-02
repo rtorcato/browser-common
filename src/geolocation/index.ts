@@ -39,22 +39,22 @@ export function getCurrentPosition(options?: PositionOptions): Promise<Geolocati
  * @param success Callback for successful position update.
  * @param error Optional callback for errors.
  * @param options Optional PositionOptions for geolocation.
- * @returns {number | undefined} The watch ID, or undefined if not available.
+ * @returns {number | null} The watch ID, or null if not available.
  * @remarks
  * Requires HTTPS and an explicit permission grant.
  * @example
  * ```ts
  * import { watchPosition, clearWatch } from '@rtorcato/browser-common/geolocation'
  * const id = watchPosition((pos) => console.log(pos.coords))
- * if (id !== undefined) clearWatch(id)
+ * if (id !== null) clearWatch(id)
  * ```
  */
 export function watchPosition(
 	success: PositionCallback,
 	error?: PositionErrorCallback,
 	options?: PositionOptions
-): number | undefined {
-	if (!isGeolocationAvailable()) return undefined
+): number | null {
+	if (!isGeolocationAvailable()) return null
 	return navigator.geolocation.watchPosition(success, error, options)
 }
 

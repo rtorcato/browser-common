@@ -15,7 +15,7 @@ export function isServiceWorkerAvailable(): boolean {
  * Registers a service worker script.
  * @param scriptUrl The URL of the service worker script.
  * @param options Optional ServiceWorkerRegistration options.
- * @returns {Promise<ServiceWorkerRegistration | undefined>} The registration or undefined if not supported.
+ * @returns {Promise<ServiceWorkerRegistration | null>} The registration or null if not supported.
  * @example
  * ```ts
  * import { registerServiceWorker } from '@rtorcato/browser-common/serviceworkers'
@@ -25,12 +25,12 @@ export function isServiceWorkerAvailable(): boolean {
 export async function registerServiceWorker(
 	scriptUrl: string,
 	options?: RegistrationOptions
-): Promise<ServiceWorkerRegistration | undefined> {
-	if (!isServiceWorkerAvailable()) return undefined
+): Promise<ServiceWorkerRegistration | null> {
+	if (!isServiceWorkerAvailable()) return null
 	try {
 		return await navigator.serviceWorker.register(scriptUrl, options)
 	} catch {
-		return undefined
+		return null
 	}
 }
 
@@ -52,18 +52,16 @@ export async function unregisterAllServiceWorkers(): Promise<boolean> {
 
 /**
  * Gets the current active service worker registration, if any.
- * @returns {Promise<ServiceWorkerRegistration | undefined>} The registration or undefined.
+ * @returns {Promise<ServiceWorkerRegistration | null>} The registration or null.
  * @example
  * ```ts
  * import { getServiceWorkerRegistration } from '@rtorcato/browser-common/serviceworkers'
  * const reg = await getServiceWorkerRegistration()
  * ```
  */
-export async function getServiceWorkerRegistration(): Promise<
-	ServiceWorkerRegistration | undefined
-> {
-	if (!isServiceWorkerAvailable()) return undefined
-	return await navigator.serviceWorker.getRegistration()
+export async function getServiceWorkerRegistration(): Promise<ServiceWorkerRegistration | null> {
+	if (!isServiceWorkerAvailable()) return null
+	return (await navigator.serviceWorker.getRegistration()) ?? null
 }
 
 /**

@@ -13,20 +13,20 @@ export function isPermissionsApiAvailable(): boolean {
 /**
  * Queries the status of a given permission name (e.g., 'geolocation', 'notifications').
  * @param name The name of the permission to query.
- * @returns A promise resolving to the permission status ('granted', 'denied', or 'prompt'), or undefined if not supported.
+ * @returns A promise resolving to the permission status ('granted', 'denied', or 'prompt'), or null if not supported.
  * @example
  * ```ts
  * import { queryPermission } from '@rtorcato/browser-common/permissions'
  * const state = await queryPermission('geolocation')
  * ```
  */
-export async function queryPermission(name: PermissionName): Promise<PermissionState | undefined> {
-	if (!isPermissionsApiAvailable()) return undefined
+export async function queryPermission(name: PermissionName): Promise<PermissionState | null> {
+	if (!isPermissionsApiAvailable()) return null
 	try {
 		const status = await navigator.permissions.query({ name })
 		return status.state
 	} catch {
-		return undefined
+		return null
 	}
 }
 

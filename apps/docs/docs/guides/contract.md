@@ -21,9 +21,15 @@ if (isClipboardApiAvailable()) {
 
 If the underlying Web API is missing, operations return:
 
-- `null` (for "get" operations that return a value)
-- `false` (for "set" / "do" operations that report success)
-- An empty/rejected result (for promise-returning operations)
+- `null` (for "get" operations that return a value, including promises that resolve to one)
+- `false` (for boolean predicates and "set" / "do" operations that report success)
+- Nothing (for `void` operations, which simply no-op)
+
+No function returns `undefined` to signal "unsupported" — check for `null`.
+
+:::note Migrating from v1
+v2 replaced every `undefined` "unsupported" return with `null` (values) or `false` (predicates such as `isLandscape`, `isPortrait`, `isFullscreen`). Replace `x === undefined` checks with `x === null`; `?.` and `??` keep working unchanged. The duplicate `enterFullscreen` / `exitFullscreen` / `isFullscreen` exports were also removed from `screen` — import them from `@rtorcato/browser-common/fullscreen`.
+:::
 
 Never a thrown exception from a missing API. Your `try`/`catch` is only needed for the API's *own* errors (network failures, permission denials), not for "this browser doesn't support it".
 

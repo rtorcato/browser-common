@@ -75,7 +75,7 @@ export function isPermissionsApiAvailable(): boolean {
 /**
  * Checks the permission status for a given media device (e.g., 'camera', 'microphone').
  * @param name The permission name ('camera' | 'microphone').
- * @returns {Promise<PermissionStatus | undefined>} The permission status, or undefined if not available.
+ * @returns {Promise<PermissionStatus | null>} The permission status, or null if not available.
  * @example
  * ```ts
  * import { getMediaPermissionStatus } from '@rtorcato/browser-common/mediadevices'
@@ -85,11 +85,11 @@ export function isPermissionsApiAvailable(): boolean {
  */
 export async function getMediaPermissionStatus(
 	name: 'camera' | 'microphone'
-): Promise<PermissionStatus | undefined> {
-	if (!isPermissionsApiAvailable()) return undefined
+): Promise<PermissionStatus | null> {
+	if (!isPermissionsApiAvailable()) return null
 	try {
 		return await navigator.permissions.query({ name })
 	} catch {
-		return undefined
+		return null
 	}
 }

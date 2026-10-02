@@ -48,10 +48,10 @@ describe('screen (browser present)', () => {
 })
 
 describe('screen (SSR / no window)', () => {
-	it('every reader returns undefined', () => {
-		expect(getScreenWidth()).toBeUndefined()
-		expect(getViewportWidth()).toBeUndefined()
-		expect(isLandscape()).toBeUndefined()
-		expect(isPortrait()).toBeUndefined()
+	it('readers return null, predicates return false', () => {
+		expect(getScreenWidth()).toBeNull()
+		expect(getViewportWidth()).toBeNull()
+		expect(isLandscape()).toBe(false)
+		expect(isPortrait()).toBe(false)
 	})
 })

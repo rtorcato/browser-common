@@ -18,9 +18,9 @@ describe('common', () => {
 		expect(typeof isMobile()).toBe('boolean')
 	})
 
-	it('getUserAgent and getBrowserLanguage return strings or undefined', () => {
-		expect(['string', 'undefined']).toContain(typeof getUserAgent())
-		expect(['string', 'undefined']).toContain(typeof getBrowserLanguage())
+	it('getUserAgent and getBrowserLanguage return strings or null', () => {
+		expect(getUserAgent() === null || typeof getUserAgent() === 'string').toBe(true)
+		expect(getBrowserLanguage() === null || typeof getBrowserLanguage() === 'string').toBe(true)
 	})
 })
 

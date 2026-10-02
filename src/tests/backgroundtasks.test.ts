@@ -54,6 +54,6 @@ describe('registerBackgroundFetch', () => {
 
 	it('returns undefined when the API is unavailable', async () => {
 		vi.stubGlobal('navigator', {})
-		await expect(registerBackgroundFetch('x', ['/a'])).resolves.toBeUndefined()
+		await expect(registerBackgroundFetch('x', ['/a'])).resolves.toBeNull()
 	})
 })

@@ -42,7 +42,7 @@ export function isBackgroundFetchAvailable(): boolean {
 /**
  * Registers a background sync task (if supported).
  * @param tag The sync event tag name.
- * @returns A promise that resolves when registered, or undefined if not supported.
+ * @returns A promise that resolves when registered, or null if not supported.
  * @example
  * ```ts
  * import { registerBackgroundSync } from '@rtorcato/browser-common/backgroundtasks'
@@ -61,7 +61,7 @@ export async function registerBackgroundSync(tag: string): Promise<void> {
  * @param tag The fetch event tag name.
  * @param urls The URLs to fetch.
  * @param options Optional BackgroundFetchOptions.
- * @returns A promise that resolves to the BackgroundFetchRegistration, or undefined if not supported.
+ * @returns A promise that resolves to the BackgroundFetchRegistration, or null if not supported.
  * @example
  * ```ts
  * import { registerBackgroundFetch } from '@rtorcato/browser-common/backgroundtasks'
@@ -72,8 +72,8 @@ export async function registerBackgroundFetch(
 	tag: string,
 	urls: string[],
 	options?: BackgroundFetchOptions
-): Promise<BackgroundFetchRegistration | undefined> {
-	if (!isBackgroundFetchAvailable() || !('serviceWorker' in navigator)) return undefined
+): Promise<BackgroundFetchRegistration | null> {
+	if (!isBackgroundFetchAvailable() || !('serviceWorker' in navigator)) return null
 	const registration = await navigator.serviceWorker.ready
 	// @ts-expect-error — Background Fetch API not in lib.dom (Chromium-only)
 	return registration.backgroundFetch.fetch(tag, urls, options)
