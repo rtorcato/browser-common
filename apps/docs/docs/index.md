@@ -1,6 +1,6 @@
 ---
 title: browser-common
-description: Small, tree-shakeable TypeScript wrappers around 49 browser Web APIs.
+description: Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs.
 sidebar_position: 0
 ---
 
@@ -12,7 +12,7 @@ sidebar_position: 0
 [![Bundle size](https://img.shields.io/bundlephobia/minzip/@rtorcato/browser-common)](https://bundlephobia.com/package/@rtorcato/browser-common)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Small, tree-shakeable TypeScript wrappers around 49 browser Web APIs — each one a
+Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs — each one a
 separate subpath export.
 
 - **Per-API subpath imports** — `import { copyToClipboard } from '@rtorcato/browser-common/clipboard'`. Bundlers tree-shake to just the bytes you use (under 1 kB brotlied per module, enforced by size-limit).
