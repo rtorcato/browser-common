@@ -50,16 +50,16 @@ Three steps — all three are required, or the export won't resolve:
 
 ## Release process
 
-- Direct commits to `main` trigger semantic-release via `.github/workflows/ci.yml`.
+- Releases are **on demand**, never per merge: `.github/workflows/release.yml` runs semantic-release on a manual dispatch (`gh workflow run release.yml`) or when a milestone is closed. It runs in the `release` GitHub environment because npm's trusted publisher is pinned to `release.yml` + `release` — rename either and publishing fails with `404 package not found`.
 - Publishes to **npmjs.org** as `@rtorcato/browser-common` (public, with provenance).
 - Commit messages drive the version bump — use Conventional Commits (`feat:`, `fix:`, `chore:`, etc.).
 - **No release commit lands on `main`.** The preset drops `@semantic-release/git` because the `code-scanning-main` ruleset rejects a freshly-created commit with `GH013`. So `package.json`'s `version` and `CHANGELOG.md` stay frozen on `main` — the tag, the npm publish and the GitHub Release are the source of truth. The docs changelog page is built from the Releases API by `scripts/sync-changelog.mjs`.
 - `[ci skip]` / `[skip ci]` in a commit message suppresses CI.
-- Required GitHub repo secrets: `NPM_TOKEN` (automation token from npmjs.org). `GITHUB_TOKEN` is provided automatically.
+- Publishing uses npm OIDC trusted publishing — no `NPM_TOKEN` needed. `GITHUB_TOKEN` is provided automatically.
 - Release config (`release.config.mjs`) re-exports the shared preset from `@rtorcato/repo-tooling/semantic-release/github`.
 
 ## Repo etiquette
 
 - Husky + lint-staged runs `biome lint` + `biome format` on `*.{js,ts,json,md}` pre-commit. Don't bypass with `--no-verify`.
-- Branch flow: work lands directly on `main`. There is no PR review gate — run `pnpm check:fix && pnpm typecheck && pnpm test` (or `/verify`) before pushing, since the next push releases a version.
+- Branch flow: work lands directly on `main`. There is no PR review gate — run `pnpm check:fix && pnpm typecheck && pnpm test` (or `/verify`) before pushing. A push no longer releases; that waits for a dispatch or a closed milestone.
 - Remote is GitHub (`rtorcato/browser-common`); use `gh` for issues, PRs, and CI status.
