@@ -8,7 +8,8 @@ export default mergeConfig(
 			// Playwright specs live under apps/docs/tests/ and use
 			// @playwright/test, not Vitest. Excluding them here prevents Vitest
 			// from picking them up and erroring on `test.describe()` calls.
-			exclude: ['**/node_modules/**', '**/dist/**', 'apps/docs/tests/**'],
+			// src/tests/browser/ needs real Chromium — see vitest.browser.config.ts.
+			exclude: ['**/node_modules/**', '**/dist/**', 'apps/docs/tests/**', 'src/tests/browser/**'],
 			coverage: {
 				// Floor tracks CI's `test (node 22)` coverage minus ~1-2 pts — fail on
 				// regression, pass currently. CI baseline 2026-10-01: 72.81 / 58.47 /
