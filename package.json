@@ -278,8 +278,9 @@
     "@biomejs/biome": "^2.5.15",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
-    "@rtorcato/repo-ai": "^3.3.0",
-    "@rtorcato/repo-tooling": "^5.1.4",
+    "@rtorcato/brand-kit": "^1.1.0",
+    "@rtorcato/repo-ai": "^3.5.0",
+    "@rtorcato/repo-tooling": "^5.5.2",
     "@size-limit/preset-small-lib": "^14.1.0",
     "@types/node": "^26.6.3",
     "@vitest/coverage-v8": "^5.0.3",
@@ -297,8 +298,8 @@
   },
   "lint-staged": {
     "*.{js,ts,json,md}": [
-      "pnpm exec biome lint",
-      "pnpm exec biome format"
+      "pnpm exec biome lint --no-errors-on-unmatched",
+      "pnpm exec biome format --no-errors-on-unmatched"
     ]
   },
   "husky": {
