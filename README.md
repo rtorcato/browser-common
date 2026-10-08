@@ -13,7 +13,6 @@ Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs.
 [![npm version](https://badge.fury.io/js/@rtorcato%2Fbrowser-common.svg)](https://badge.fury.io/js/@rtorcato%2Fbrowser-common)
 [![npm downloads](https://img.shields.io/npm/dm/@rtorcato%2Fbrowser-common)](https://www.npmjs.com/package/@rtorcato/browser-common)
 [![Bundle size](https://img.shields.io/bundlephobia/minzip/@rtorcato/browser-common)](https://bundlephobia.com/package/@rtorcato/browser-common)
-[![Coverage](https://codecov.io/gh/rtorcato/browser-common/branch/main/graph/badge.svg)](https://codecov.io/gh/rtorcato/browser-common)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 45 other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
