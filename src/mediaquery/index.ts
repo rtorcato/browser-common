@@ -44,6 +44,11 @@ export function onMediaQueryChange(
 	if (!isMediaQueryAvailable()) return () => {}
 	const mql = window.matchMedia(query)
 	const handler = (e: MediaQueryListEvent) => callback(e.matches)
+	// Safari < 14 only has the deprecated addListener/removeListener.
+	if (typeof mql.addEventListener !== 'function') {
+		mql.addListener(handler)
+		return () => mql.removeListener(handler)
+	}
 	mql.addEventListener('change', handler)
 	return () => mql.removeEventListener('change', handler)
 }

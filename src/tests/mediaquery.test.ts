@@ -65,6 +65,20 @@ describe('mediaquery', () => {
 		expect(mql.removeEventListener).toHaveBeenCalledWith('change', handler)
 	})
 
+	it('onMediaQueryChange falls back to addListener on Safari < 14', () => {
+		const mql = { addListener: vi.fn(), removeListener: vi.fn() }
+		vi.stubGlobal('window', { matchMedia: vi.fn(() => mql) })
+		const cb = vi.fn()
+		const off = onMediaQueryChange('(min-width: 768px)', cb)
+
+		const handler = mql.addListener.mock.calls[0][0]
+		handler({ matches: false })
+		expect(cb).toHaveBeenCalledWith(false)
+
+		off()
+		expect(mql.removeListener).toHaveBeenCalledWith(handler)
+	})
+
 	it('onMediaQueryChange returns a safe no-op remover when unavailable', () => {
 		expect(() => onMediaQueryChange('(min-width: 768px)', () => {})()).not.toThrow()
 	})
