@@ -10,6 +10,7 @@ import { isGeolocationAvailable } from '../../geolocation/index'
 import { isIdleDetectionApiAvailable } from '../../idle/index'
 import { isLocalStorageAvailable } from '../../localstorage/index'
 import { isMediaDevicesAvailable } from '../../mediadevices/index'
+import { isMediaQueryAvailable } from '../../mediaquery/index'
 import { isDeviceMotionAvailable, isGenericSensorApiAvailable } from '../../motion/index'
 import { isNotificationAvailable } from '../../notifications/index'
 import { isDeviceOrientationAvailable } from '../../orientation/index'
@@ -45,6 +46,7 @@ const supported = {
 	isGeolocationAvailable,
 	isLocalStorageAvailable,
 	isMediaDevicesAvailable,
+	isMediaQueryAvailable,
 	isNotificationAvailable,
 	isPerformanceApiAvailable,
 	isPermissionsApiAvailable,
