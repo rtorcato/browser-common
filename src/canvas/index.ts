@@ -3,6 +3,7 @@
  * @param width The width of the canvas.
  * @param height The height of the canvas.
  * @returns The created HTMLCanvasElement.
+ * @throws If there is no `document` (SSR / Node).
  * @example
  * ```ts
  * import { createCanvas } from '@rtorcato/browser-common/canvas'
@@ -11,6 +12,9 @@
  * ```
  */
 export function createCanvas(width: number, height: number): HTMLCanvasElement {
+	if (typeof document === 'undefined') {
+		throw new Error('createCanvas requires a browser environment')
+	}
 	const canvas = document.createElement('canvas')
 	canvas.width = width
 	canvas.height = height

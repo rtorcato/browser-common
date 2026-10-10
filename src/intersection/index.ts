@@ -4,6 +4,7 @@
  * @param callback The callback to run when intersection changes.
  * @param options IntersectionObserver options.
  * @returns The created IntersectionObserver instance.
+ * @throws If IntersectionObserver is unavailable (SSR / Node).
  * @example
  * ```ts
  * import { observeIntersection, disconnectIntersectionObserver } from '@rtorcato/browser-common/intersection'
@@ -16,6 +17,9 @@ export function observeIntersection(
 	callback: IntersectionObserverCallback,
 	options?: IntersectionObserverInit
 ): IntersectionObserver {
+	if (typeof IntersectionObserver === 'undefined') {
+		throw new Error('observeIntersection requires a browser environment with IntersectionObserver')
+	}
 	const observer = new IntersectionObserver(callback, options)
 	observer.observe(element)
 	return observer
@@ -54,6 +58,7 @@ export function disconnectIntersectionObserver(observer: IntersectionObserver): 
  * @param callback The callback to run on first intersection.
  * @param options IntersectionObserver options.
  * @returns The created IntersectionObserver instance.
+ * @throws If IntersectionObserver is unavailable (SSR / Node).
  * @example
  * ```ts
  * import { observeOnce } from '@rtorcato/browser-common/intersection'
@@ -65,6 +70,9 @@ export function observeOnce(
 	callback: IntersectionObserverCallback,
 	options?: IntersectionObserverInit
 ): IntersectionObserver {
+	if (typeof IntersectionObserver === 'undefined') {
+		throw new Error('observeOnce requires a browser environment with IntersectionObserver')
+	}
 	const observer = new IntersectionObserver((entries, obs) => {
 		callback(entries, obs)
 		obs.disconnect()
