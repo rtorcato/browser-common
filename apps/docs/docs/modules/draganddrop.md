@@ -17,20 +17,21 @@ draggable elements using the native HTML Drag and Drop API.
 ## Example
 
 ```ts
-import { enableFileDrop, makeDraggable, disableDragAndDrop } from '@rtorcato/browser-common/draganddrop'
+import { enableFileDrop, makeDraggable } from '@rtorcato/browser-common/draganddrop'
 
-enableFileDrop(dropzone, (files) => upload(files))
-makeDraggable(card, 'card-42')
+const offDrop = enableFileDrop(dropzone, (files) => upload(files))
+const offDrag = makeDraggable(card, 'card-42')
 
 // later:
-disableDragAndDrop(dropzone)
+offDrop()
+offDrag()
 ```
 
 ## Exports
 
-- `enableFileDrop(element, onDrop)` — makes an element a drop target for files
-- `makeDraggable(element, data, effectAllowed?)` — makes an element draggable with a data payload
-- `enableTextDrop(element, onDrop)` — makes an element a drop target for plain text
-- `disableDragAndDrop(element)` — removes drag-and-drop listeners by cloning and replacing the element
+- `enableFileDrop(element, onDrop)` — makes an element a drop target for files; returns a cleanup function
+- `makeDraggable(element, data, effectAllowed?)` — makes an element draggable with a data payload; returns a cleanup function
+- `enableTextDrop(element, onDrop)` — makes an element a drop target for plain text; returns a cleanup function
+- `disableDragAndDrop(element)` — **deprecated**: replaces the element with a clone, stripping every listener on it. Call the returned cleanup functions instead
 
 See the [API reference](/docs/api/draganddrop) for full signatures.

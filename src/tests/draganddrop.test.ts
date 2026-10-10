@@ -13,7 +13,11 @@ function fakeElement() {
 			addEventListener: (t: string, h: (e: unknown) => void) => {
 				handlers[t] = h
 			},
+			removeEventListener: (t: string, h: (e: unknown) => void) => {
+				if (handlers[t] === h) delete handlers[t]
+			},
 			setAttribute: vi.fn(),
+			removeAttribute: vi.fn(),
 			classList: { add: (c: string) => classes.add(c), remove: (c: string) => classes.delete(c) },
 		} as unknown as HTMLElement,
 	}
@@ -66,5 +70,26 @@ describe('draganddrop', () => {
 		enableTextDrop(el, onDrop)
 		handlers.drop(dragEvent({ getData: () => 'hello' }))
 		expect(onDrop).toHaveBeenCalledWith('hello')
+	})
+
+	it('enableFileDrop / enableTextDrop return a cleanup that removes only their listeners', () => {
+		for (const enable of [enableFileDrop, enableTextDrop]) {
+			const { el, handlers, classes } = fakeElement()
+			const other = vi.fn()
+			handlers.click = other
+			const off = enable(el, vi.fn())
+			handlers.dragover(dragEvent(null))
+			off()
+			expect(Object.keys(handlers)).toEqual(['click'])
+			expect(classes.has('dragover')).toBe(false)
+		}
+	})
+
+	it('makeDraggable returns a cleanup that removes the listener and attribute', () => {
+		const { el, handlers } = fakeElement()
+		const off = makeDraggable(el, 'card-42')
+		off()
+		expect(handlers.dragstart).toBeUndefined()
+		expect(el.removeAttribute).toHaveBeenCalledWith('draggable')
 	})
 })
