@@ -9,7 +9,7 @@ export const isBrowser = typeof window !== 'undefined' && typeof window.document
  * @returns {string | null} The user agent string or null if not in a browser.
  */
 export const getUserAgent = (): string | null => {
-	return typeof navigator !== 'undefined' ? navigator.userAgent : null
+	return isBrowser ? navigator.userAgent : null
 }
 
 /**
@@ -27,7 +27,7 @@ export const isMobile = (): boolean => {
  * @returns {string | null} The preferred language or null if not in a browser.
  */
 export const getBrowserLanguage = (): string | null => {
-	return typeof navigator !== 'undefined' ? navigator.language : null
+	return isBrowser ? navigator.language : null
 }
 
 export type Platform = 'ios' | 'android' | 'macos' | 'windows' | 'linux' | 'unknown'
