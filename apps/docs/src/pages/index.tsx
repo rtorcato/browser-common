@@ -98,7 +98,7 @@ const PILLARS: Pillar[] = [
 	},
 	{
 		title: '52 Web APIs covered',
-		desc: 'One subpath per spec — clipboard, geolocation, storage, observers, and 40 more.',
+		desc: 'One subpath per spec — clipboard, geolocation, storage, observers, and 48 more.',
 		icon: 'globe',
 	},
 ]
