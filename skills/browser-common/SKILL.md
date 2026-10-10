@@ -5,7 +5,7 @@ description: Use when writing TypeScript/JavaScript that calls a browser Web API
 
 # Using @rtorcato/browser-common
 
-`@rtorcato/browser-common` is a tree-shakeable, ESM-only, zero-runtime-dependency library of typed wrappers around 40+ browser Web APIs. One subpath export per API.
+`@rtorcato/browser-common` is a tree-shakeable, ESM-only, zero-runtime-dependency library of typed wrappers around 50 browser Web APIs. One subpath export per API.
 
 ## Rules
 
@@ -40,6 +40,7 @@ Import from `@rtorcato/browser-common/<module>`.
 | alert | showAlert, showConfirm, showPrompt |
 | backgroundtasks | isBackgroundSyncAvailable, isBackgroundFetchAvailable, registerBackgroundSync, registerBackgroundFetch |
 | battery | isBatteryApiAvailable, getBatteryManager, onBatteryLevelChange, onBatteryChargingChange |
+| broadcastchannel | isBroadcastChannelAvailable, createBroadcastChannel |
 | canvas | createCanvas, getCanvasContext2D, clearCanvas, drawImageOnCanvas, canvasToDataURL, fillCanvas |
 | clipboard | isClipboardApiAvailable, readFromClipboard, copyElementTextToClipboard, copyToClipboard |
 | common | isBrowser, getUserAgent, isMobile, getBrowserLanguage, getPlatform, isIOS, isAndroid |
@@ -72,14 +73,19 @@ Import from `@rtorcato/browser-common/<module>`.
 | print | printPage, printElementById, isPrintAvailable |
 | resizeobserver | observeResize, disconnectResizeObserver, observeResizeOnce |
 | screen | getScreenWidth, getScreenHeight, getViewportWidth, getViewportHeight, isLandscape, isPortrait |
+| screencapture | isScreenCaptureAvailable, getDisplayMedia |
 | selectionapi | isSelectionApiAvailable, getSelection, getSelectedText, clearSelection, selectElementText |
 | serviceworkers | isServiceWorkerAvailable, registerServiceWorker, unregisterAllServiceWorkers, getServiceWorkerRegistration, postMessageToServiceWorker |
 | sessionstorage | isSessionStorageAvailable, setSessionStorage, getSessionStorage, removeSessionStorage, clearSessionStorage |
 | touchevents | isTouchEventsAvailable, onTouch, getTouchPoints, getTouchCount |
+| urlpattern | isURLPatternAvailable, createURLPattern, matchURLPattern |
 | vibrate | isVibrationApiAvailable, vibrate, stopVibration, vibratePulse, vibrateNotification |
+| viewtransitions | isViewTransitionsSupported, startViewTransition |
 | visibility | isVisibilityAvailable, getVisibilityState, isPageVisible, onVisibilityChange |
+| webanimations | isWebAnimationsAvailable, animateElement |
 | visualviewport | isVisualViewportAvailable, getVisualViewportInfo, onVisualViewportChange |
 | weblocks | withLock, isWebLocksAvailable |
+| webauthn | isWebAuthnAvailable, createCredential, getCredential |
 | webshare | isWebShareAvailable, share, isFileShareAvailable |
 | websockets | isWebSocketAvailable, createWebSocket, sendWebSocketMessage, closeWebSocket |
 | window | openWindow, closeWindow, focusWindow, blurWindow, scrollToTop, scrollToBottom, reloadWindow, getWindowSize, onWindowResize |
