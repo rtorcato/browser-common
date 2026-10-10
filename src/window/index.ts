@@ -30,6 +30,7 @@ export function openWindow(
 	target: string = '_blank',
 	features?: string | OpenWindowOptions
 ): Window | null {
+	if (typeof window === 'undefined') return null
 	const featureString =
 		features && typeof features === 'object'
 			? [features.features, features.noopener && 'noopener,noreferrer'].filter(Boolean).join(',') ||
@@ -47,6 +48,7 @@ export function openWindow(
  * ```
  */
 export function closeWindow(): void {
+	if (typeof window === 'undefined') return
 	window.close()
 }
 
@@ -59,6 +61,7 @@ export function closeWindow(): void {
  * ```
  */
 export function focusWindow(): void {
+	if (typeof window === 'undefined') return
 	window.focus()
 }
 
@@ -71,6 +74,7 @@ export function focusWindow(): void {
  * ```
  */
 export function blurWindow(): void {
+	if (typeof window === 'undefined') return
 	window.blur()
 }
 
@@ -84,6 +88,7 @@ export function blurWindow(): void {
  * ```
  */
 export function scrollToTop(behavior: ScrollBehavior = 'auto'): void {
+	if (typeof window === 'undefined') return
 	window.scrollTo({ top: 0, behavior })
 }
 
@@ -97,6 +102,7 @@ export function scrollToTop(behavior: ScrollBehavior = 'auto'): void {
  * ```
  */
 export function scrollToBottom(behavior: ScrollBehavior = 'auto'): void {
+	if (typeof window === 'undefined') return
 	window.scrollTo({ top: document.body.scrollHeight, behavior })
 }
 
@@ -110,19 +116,21 @@ export function scrollToBottom(behavior: ScrollBehavior = 'auto'): void {
  * ```
  */
 export function reloadWindow(): void {
+	if (typeof window === 'undefined') return
 	window.location.reload()
 }
 
 /**
  * Gets the current window size.
- * @returns {{ width: number; height: number }} The window's width and height.
+ * @returns {{ width: number; height: number }} The window's width and height, or `{ width: 0, height: 0 }` outside a browser.
  * @example
  * ```ts
  * import { getWindowSize } from '@rtorcato/browser-common/window'
- * const { width, height } = getWindowSize()
+ * const size = getWindowSize()
  * ```
  */
 export function getWindowSize(): { width: number; height: number } {
+	if (typeof window === 'undefined') return { width: 0, height: 0 }
 	return { width: window.innerWidth, height: window.innerHeight }
 }
 
@@ -138,6 +146,7 @@ export function getWindowSize(): { width: number; height: number } {
  * ```
  */
 export function onWindowResize(callback: () => void): () => void {
+	if (typeof window === 'undefined') return () => {}
 	window.addEventListener('resize', callback)
 	return () => window.removeEventListener('resize', callback)
 }

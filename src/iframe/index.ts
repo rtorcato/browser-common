@@ -10,7 +10,7 @@
  */
 
 export function isIframe(el: unknown): el is HTMLIFrameElement {
-	return el instanceof HTMLIFrameElement
+	return typeof HTMLIFrameElement !== 'undefined' && el instanceof HTMLIFrameElement
 }
 
 /**

@@ -128,7 +128,7 @@ Every module is a separate subpath export — import only what you need.
 
 ## Browser support
 
-Every module exposes an `is<Name>Available()` feature check. Most operations degrade gracefully on unsupported environments, returning `null` / `false` / empty. A few that must return a live object (`createBroadcastChannel`, `getDisplayMedia`, `createCredential`, `createURLPattern`) or a dialog result (`showAlert` / `showConfirm` / `showPrompt`) instead throw a clear "requires a browser environment" error — guard those with the feature check first. Importing any module is always SSR / Node-safe; nothing touches `window` at module load.
+Every module exposes an `is<Name>Available()` feature check. Most operations degrade gracefully on unsupported environments, returning `null` / `false` / empty. A few that must return a live object (`createBroadcastChannel`, `createCanvas`, `getDisplayMedia`, `createCredential`, `createURLPattern`, and the `observe*` helpers in `intersection`, `mutationobserver` and `resizeobserver`) or a dialog result (`showAlert` / `showConfirm` / `showPrompt`) instead throw a clear "requires a browser environment" error — guard those with the feature check first. Importing any module is always SSR / Node-safe; nothing touches `window` at module load.
 
 The browsers below are the latest stable releases. For an authoritative source on each underlying Web API, see [MDN: Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 

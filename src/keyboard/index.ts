@@ -59,8 +59,9 @@ export function isPrintableKey(event: KeyboardEvent): boolean {
 export function onShortcut(
 	keys: string[],
 	callback: (event: KeyboardEvent) => void,
-	target: Window | HTMLElement = window
+	target: Window | HTMLElement = globalThis.window
 ): () => void {
+	if (!target) return () => {}
 	const pressed = new Set<string>()
 	function down(e: Event) {
 		if (e instanceof KeyboardEvent) {
@@ -95,7 +96,11 @@ export function onShortcut(
  * off()
  * ```
  */
-export function preventKeyDefault(key: string, target: Window | HTMLElement = window): () => void {
+export function preventKeyDefault(
+	key: string,
+	target: Window | HTMLElement = globalThis.window
+): () => void {
+	if (!target) return () => {}
 	function handler(e: Event) {
 		if (e instanceof KeyboardEvent && isKey(e, key)) {
 			e.preventDefault()
