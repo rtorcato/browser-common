@@ -41,7 +41,7 @@ Tabs for indentation, single quotes, no semicolons, 100-character lines. Enforce
 
 ## Releases
 
-Releases are cut automatically by semantic-release on push to `main`. Commit message types drive the version bump (`fix:` → patch, `feat:` → minor, `BREAKING CHANGE:` → major). Don't tag manually.
+Releases batch up commits after they merge. Semantic-release publishes a new version when a milestone is closed or when `.github/workflows/release.yml` is dispatched manually. Commit message types drive the version bump (`fix:` → patch, `feat:` → minor, `BREAKING CHANGE:` → major). Don't tag manually or dispatch the workflow yourself — only project maintainers publish.
 
 ## License
 

@@ -7,7 +7,7 @@ Every module in `@rtorcato/browser-common` follows the same three-part contract.
 
 ## 1. Support check returns boolean
 
-Every module exports an `is<Name>Available()` function that returns `boolean`. Call it before any operation.
+Most modules export an `is<Name>Available()` function that returns `boolean`. Call it before any operation. A few modules (alert, canvas, cookies, dom, draganddrop, focus, forms, history, htmlmedia, iframe, intersection, keyboard, location, mutationobserver, resizeobserver, screen, window) have no availability check because they always work or degrade safely.
 
 ```ts
 import { isClipboardApiAvailable } from '@rtorcato/browser-common/clipboard'
@@ -17,7 +17,7 @@ if (isClipboardApiAvailable()) {
 }
 ```
 
-## 2. Operations never throw on unsupported environments
+## 2. Graceful degrade when API is missing
 
 If the underlying Web API is missing, operations return:
 
@@ -31,7 +31,7 @@ No function returns `undefined` to signal "unsupported" — check for `null`.
 v2 replaced every `undefined` "unsupported" return with `null` (values) or `false` (predicates such as `isLandscape`, `isPortrait`, `isFullscreen`). Replace `x === undefined` checks with `x === null`; `?.` and `??` keep working unchanged. The duplicate `enterFullscreen` / `exitFullscreen` / `isFullscreen` exports were also removed from `screen` — import them from `@rtorcato/browser-common/fullscreen`.
 :::
 
-Never a thrown exception from a missing API. Your `try`/`catch` is only needed for the API's *own* errors (network failures, permission denials), not for "this browser doesn't support it".
+No thrown exception from a missing API. Your `try`/`catch` is only needed for the API's *own* errors (network failures, permission denials, invalid arguments, browser restrictions), not for "this browser doesn't support it".
 
 ```ts
 // In Node.js or an old browser:
@@ -58,6 +58,6 @@ The contract above is about *imports* — operations still have the usual Web AP
 |---|---|
 | `clipboard` (write), `mediadevices.getUserMedia`, `serviceworkers.register`, `notifications.requestPermission` | Secure context (HTTPS or `localhost`) |
 | `clipboard.copyToClipboard`, `fullscreen.enterFullscreen`, `htmlmedia.playMedia`, `vibrate.vibrate` | User-gesture initiated (click handler, keydown, etc.) |
-| `motion.requestMotionPermission`, `orientation.requestPermission` | iOS 13+ Safari needs explicit permission grant |
+| `motion.requestMotionPermission` | iOS 13+ Safari needs explicit permission grant |
 
 These are documented per-function in JSDoc — your IDE will show them on hover.
