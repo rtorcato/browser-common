@@ -42,6 +42,32 @@ describe('window', () => {
 		expect(win.open).toHaveBeenCalledWith('https://e.com', '_blank', 'width=600')
 	})
 
+	it('openWindow keeps the default target and no features when called with just a url', () => {
+		const win = stubWindow()
+		openWindow('https://e.com')
+		expect(win.open).toHaveBeenCalledWith('https://e.com', '_blank', undefined)
+	})
+
+	it('openWindow { noopener: true } adds noopener,noreferrer', () => {
+		const win = stubWindow()
+		openWindow('https://e.com', '_blank', { noopener: true })
+		expect(win.open).toHaveBeenCalledWith('https://e.com', '_blank', 'noopener,noreferrer')
+	})
+
+	it('openWindow combines options.features with noopener', () => {
+		const win = stubWindow()
+		openWindow('https://e.com', '_blank', { features: 'width=600', noopener: true })
+		expect(win.open).toHaveBeenCalledWith(
+			'https://e.com',
+			'_blank',
+			'width=600,noopener,noreferrer'
+		)
+		openWindow('https://e.com', '_blank', { features: 'width=600' })
+		expect(win.open).toHaveBeenLastCalledWith('https://e.com', '_blank', 'width=600')
+		openWindow('https://e.com', '_blank', {})
+		expect(win.open).toHaveBeenLastCalledWith('https://e.com', '_blank', undefined)
+	})
+
 	it('close / focus / blur / reload delegate to the window', () => {
 		const win = stubWindow()
 		closeWindow()
