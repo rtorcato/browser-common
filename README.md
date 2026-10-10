@@ -7,7 +7,7 @@
 
 # Browser Common
 
-Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs.
+Small, tree-shakeable TypeScript wrappers around 51 browser Web APIs.
 
 [![CI](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml/badge.svg)](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/@rtorcato%2Fbrowser-common.svg)](https://badge.fury.io/js/@rtorcato%2Fbrowser-common)
@@ -15,7 +15,7 @@ Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs.
 [![Bundle size](https://img.shields.io/bundlephobia/minzip/@rtorcato/browser-common)](https://bundlephobia.com/package/@rtorcato/browser-common)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 45 other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
+Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 46 other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
 
 **Status:** Stable since v1.0 (2026-06). See [Releases](https://github.com/rtorcato/browser-common/releases) for release history.
 
@@ -98,6 +98,7 @@ Every module is a separate subpath export — import only what you need.
 | localstorage | `@rtorcato/browser-common/localstorage` | `isLocalStorageAvailable`, `setLocalStorage`, `getLocalStorage`, `removeLocalStorage`, `clearLocalStorage` |
 | location | `@rtorcato/browser-common/location` | `getCurrentLocation`, `redirectTo`, `reloadPage`, `getPathname`, `getSearch`, `getHash` |
 | mediadevices | `@rtorcato/browser-common/mediadevices` | `isMediaDevicesAvailable`, `getMediaDevices`, `getUserMedia`, `stopMediaStream`, `getMediaPermissionStatus` |
+| mediaquery | `@rtorcato/browser-common/mediaquery` | `isMediaQueryAvailable`, `matchesMedia`, `onMediaQueryChange`, `prefersDarkMode`, `prefersReducedMotion` |
 | motion | `@rtorcato/browser-common/motion` | `isDeviceMotionAvailable`, `onDeviceMotion`, `isGenericSensorApiAvailable`, `requestMotionPermission` |
 | mutationobserver | `@rtorcato/browser-common/mutationobserver` | `observeMutations`, `disconnectMutationObserver`, `observeMutationOnce` |
 | notifications | `@rtorcato/browser-common/notifications` | `isNotificationAvailable`, `requestNotificationPermission`, `showNotification`, `notifyIfPermitted` |
@@ -134,7 +135,7 @@ The browsers below are the latest stable releases. For an authoritative source o
 
 Available in all evergreen browsers (Chrome, Firefox, Safari, Edge):
 
-`alert`, `broadcastchannel`, `canvas`, `clipboard`, `common`, `cookies`, `dom`, `draganddrop`, `encodingapis`, `focus`, `forms`, `fullscreen`, `geolocation`, `history`, `htmlmedia`, `iframe`, `intersection`, `keyboard`, `localstorage`, `location`, `mediadevices`, `motion`, `mutationobserver`, `notifications`, `orientation`, `performance`, `permissions`, `print`, `resizeobserver`, `screen`, `screencapture`, `selectionapi`, `serviceworkers`, `sessionstorage`, `visualviewport`, `webanimations`, `webauthn`, `weblocks`, `websockets`, `window`
+`alert`, `broadcastchannel`, `canvas`, `clipboard`, `common`, `cookies`, `dom`, `draganddrop`, `encodingapis`, `focus`, `forms`, `fullscreen`, `geolocation`, `history`, `htmlmedia`, `iframe`, `intersection`, `keyboard`, `localstorage`, `location`, `mediadevices`, `mediaquery`, `motion`, `mutationobserver`, `notifications`, `orientation`, `performance`, `permissions`, `print`, `resizeobserver`, `screen`, `screencapture`, `selectionapi`, `serviceworkers`, `sessionstorage`, `visualviewport`, `webanimations`, `webauthn`, `weblocks`, `websockets`, `window`
 
 A few of these require **HTTPS** at runtime (or `localhost` for dev): `clipboard`, `geolocation`, `mediadevices`, `serviceworkers`, `notifications`.
 

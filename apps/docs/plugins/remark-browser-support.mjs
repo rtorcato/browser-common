@@ -43,6 +43,7 @@ export const MODULE_APIS = {
 	localstorage: ['api.Window.localStorage'],
 	location: ['api.Location'],
 	mediadevices: ['api.MediaDevices.getUserMedia', 'api.MediaDevices.enumerateDevices'],
+	mediaquery: ['api.Window.matchMedia'],
 	motion: ['api.DeviceMotionEvent', 'api.DeviceMotionEvent.requestPermission_static'],
 	mutationobserver: ['api.MutationObserver'],
 	notifications: ['api.Notification', 'api.Notification.requestPermission_static'],
