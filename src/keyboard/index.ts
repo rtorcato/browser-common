@@ -75,11 +75,16 @@ export function onShortcut(
 			pressed.delete(e.key.toLowerCase())
 		}
 	}
+	function blur() {
+		pressed.clear()
+	}
 	target.addEventListener('keydown', down)
 	target.addEventListener('keyup', up)
+	window.addEventListener('blur', blur)
 	return () => {
 		target.removeEventListener('keydown', down)
 		target.removeEventListener('keyup', up)
+		window.removeEventListener('blur', blur)
 	}
 }
 
