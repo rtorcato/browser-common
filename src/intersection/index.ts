@@ -66,8 +66,10 @@ export function observeOnce(
 	options?: IntersectionObserverInit
 ): IntersectionObserver {
 	const observer = new IntersectionObserver((entries, obs) => {
-		callback(entries, obs)
-		obs.disconnect()
+		if (entries.some((e) => e.isIntersecting)) {
+			callback(entries, obs)
+			obs.disconnect()
+		}
 	}, options)
 	observer.observe(element)
 	return observer

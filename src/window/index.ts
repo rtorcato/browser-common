@@ -1,21 +1,41 @@
+/** Options for {@link openWindow}. */
+export interface OpenWindowOptions {
+	/** Extra `window.open` features, e.g. `'width=600,height=400'`. */
+	features?: string
+	/**
+	 * Adds `noopener,noreferrer` so the opened page gets no `window.opener` handle back to
+	 * this page (prevents reverse tabnabbing). `window.open` then returns `null`.
+	 */
+	noopener?: boolean
+}
+
 /**
  * Opens a new browser window or tab with the given URL.
  * @param url The URL to open.
  * @param target The target window name (e.g., '_blank', '_self').
- * @param features Optional features string (e.g., 'width=600,height=400').
- * @returns {Window | null} The window object or null if blocked.
+ * @param features Optional features string (e.g., 'width=600,height=400'), or an
+ * {@link OpenWindowOptions} object.
+ * @returns {Window | null} The window object, or null if blocked or opened with `noopener`.
+ * @remarks Unlike `<a target="_blank">`, `window.open` does not imply `noopener`: by default the
+ * opened page can reach this one through `window.opener`. For untrusted URLs pass
+ * `{ noopener: true }`; the call then returns `null` even when the window opens.
  * @example
  * ```ts
  * import { openWindow } from '@rtorcato/browser-common/window'
- * openWindow('https://example.com', '_blank')
+ * openWindow('https://example.com', '_blank', { noopener: true })
  * ```
  */
 export function openWindow(
 	url: string,
 	target: string = '_blank',
-	features?: string
+	features?: string | OpenWindowOptions
 ): Window | null {
-	return window.open(url, target, features)
+	const featureString =
+		features && typeof features === 'object'
+			? [features.features, features.noopener && 'noopener,noreferrer'].filter(Boolean).join(',') ||
+				undefined
+			: features
+	return window.open(url, target, featureString)
 }
 
 /**
