@@ -1,7 +1,7 @@
 {
   "name": "@rtorcato/browser-common",
   "version": "1.2.2",
-  "description": "Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs — each one a separate subpath export.",
+  "description": "Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs — each one a separate subpath export.",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -173,6 +173,10 @@
       "import": "./dist/mediadevices/index.js",
       "types": "./dist/mediadevices/index.d.ts"
     },
+    "./mediaquery": {
+      "import": "./dist/mediaquery/index.js",
+      "types": "./dist/mediaquery/index.d.ts"
+    },
     "./motion": {
       "import": "./dist/motion/index.js",
       "types": "./dist/motion/index.d.ts"
@@ -244,6 +248,10 @@
     "./viewtransitions": {
       "import": "./dist/viewtransitions/index.js",
       "types": "./dist/viewtransitions/index.d.ts"
+    },
+    "./visibility": {
+      "import": "./dist/visibility/index.js",
+      "types": "./dist/visibility/index.d.ts"
     },
     "./visualviewport": {
       "import": "./dist/visualviewport/index.js",

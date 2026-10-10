@@ -19,14 +19,14 @@ export function isScreenCaptureAvailable(): boolean {
  * Prompts the user to share a screen, window, or tab and returns the stream.
  * @param options Optional display-media constraints.
  * @returns A promise resolving to the captured MediaStream.
- * @throws If called where Screen Capture is unsupported.
+ * Rejects (never throws synchronously) if called where Screen Capture is unsupported.
  * @example
  * ```ts
  * import { getDisplayMedia } from '@rtorcato/browser-common/screencapture'
  * const stream = await getDisplayMedia({ video: true })
  * ```
  */
-export function getDisplayMedia(options?: DisplayMediaStreamOptions): Promise<MediaStream> {
+export async function getDisplayMedia(options?: DisplayMediaStreamOptions): Promise<MediaStream> {
 	if (!isScreenCaptureAvailable()) {
 		throw new Error('getDisplayMedia requires a browser environment with Screen Capture support')
 	}
