@@ -61,4 +61,4 @@ npx skills add https://github.com/rtorcato/browser-common --skill browser-common
 ```
 
 See the [contract guide](./contract.md) for the full safety guarantees, or browse the
-[API Reference](../api/index.md) for all 44 modules.
+[API Reference](../api/index.md) for all 52 modules.
