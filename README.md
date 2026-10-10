@@ -7,7 +7,7 @@
 
 # Browser Common
 
-Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs.
+Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs.
 
 [![CI](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml/badge.svg)](https://github.com/rtorcato/browser-common/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/@rtorcato%2Fbrowser-common.svg)](https://badge.fury.io/js/@rtorcato%2Fbrowser-common)
@@ -15,7 +15,7 @@ Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs.
 [![Bundle size](https://img.shields.io/bundlephobia/minzip/@rtorcato/browser-common)](https://bundlephobia.com/package/@rtorcato/browser-common)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 46 other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
+Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 45 other Web APIs — each one a separate subpath export so consumers only ship what they use. Every wrapper guards its underlying API, returning `null` or `false` on unsupported browsers instead of throwing. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
 
 **Status:** Stable since v1.0 (2026-06). See [Releases](https://github.com/rtorcato/browser-common/releases) for release history.
 
@@ -128,7 +128,7 @@ Every module is a separate subpath export — import only what you need.
 
 ## Browser support
 
-Every module exposes an `is<Name>Available()` feature check. Most operations degrade gracefully on unsupported environments, returning `null` / `false` / empty. A few that must return a live object (`createBroadcastChannel`, `createCanvas`, `getDisplayMedia`, `createCredential`, `createURLPattern`, and the `observe*` helpers in `intersection`, `mutationobserver` and `resizeobserver`) or a dialog result (`showAlert` / `showConfirm` / `showPrompt`) instead throw a clear "requires a browser environment" error — guard those with the feature check first. Importing any module is always SSR / Node-safe; nothing touches `window` at module load.
+Most modules expose an `is<Name>Available()` feature check (a few like `alert`, `dom`, `forms` don't need one). Most operations degrade gracefully on unsupported environments, returning `null` / `false` / empty. A few that must return a live object (`createBroadcastChannel`, `createCanvas`, `getDisplayMedia`, `createCredential`, `createURLPattern`, and the `observe*` helpers in `intersection`, `mutationobserver` and `resizeobserver`) or a dialog result (`showAlert` / `showConfirm` / `showPrompt`) instead throw a clear "requires a browser environment" error — guard those with the feature check first. Importing any module is always SSR / Node-safe; nothing touches `window` at module load.
 
 The browsers below are the latest stable releases. For an authoritative source on each underlying Web API, see [MDN: Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 
@@ -163,7 +163,7 @@ These wrap APIs that ship in Chrome and Edge but not Firefox or Safari. Always c
 
 ## Contributing
 
-Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-common/issues) for known gaps and good first issues, and [Releases](https://github.com/rtorcato/browser-common/releases) for release notes. For "how do I use this?" questions, use [Discussions](https://github.com/rtorcato/browser-common/discussions). A `CONTRIBUTING.md` with full guidelines is on the roadmap.
+Issues and PRs welcome. See [open issues](https://github.com/rtorcato/browser-common/issues) for known gaps and good first issues, and [Releases](https://github.com/rtorcato/browser-common/releases) for release notes. For "how do I use this?" questions, use [Discussions](https://github.com/rtorcato/browser-common/discussions). See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on developing locally and submitting changes.
 
 `pnpm verify` runs typecheck, lint, tests, size budgets, and a tree-shaking assertion — see [`apps/treeshake-check`](apps/treeshake-check/README.md) for how the assertion works.
 

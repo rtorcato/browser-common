@@ -1,6 +1,6 @@
 ---
 title: browser-common
-description: Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs.
+description: Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs.
 sidebar_position: 0
 ---
 
@@ -12,13 +12,13 @@ sidebar_position: 0
 [![Bundle size](https://img.shields.io/bundlephobia/minzip/@rtorcato/browser-common)](https://bundlephobia.com/package/@rtorcato/browser-common)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs — each one a
+Small, tree-shakeable TypeScript wrappers around 50 browser Web APIs — each one a
 separate subpath export.
 
 - **Per-API subpath imports** — `import { copyToClipboard } from '@rtorcato/browser-common/clipboard'`. Bundlers tree-shake to just the bytes you use (under 1 kB brotlied per module, enforced by size-limit).
-- **Safe-by-default contract** — every module exports `is<Name>Available()`. Operations return `null`/`false`/empty on unsupported environments; they never throw. Safe to import in SSR / Node.
+- **Safe-by-default contract** — most modules export `is<Name>Available()` for feature detection. Operations return `null`/`false`/empty on unsupported environments; they don't throw for missing APIs. Safe to import in SSR / Node.
 - **No runtime dependencies** — ESM-only, `sideEffects: false`, fully typed. Nothing to install but the package itself.
-- **52 modules covered** — clipboard, geolocation, media devices, observers, storage, fullscreen, notifications, service workers, and 44 more.
+- **50 modules covered** — clipboard, geolocation, media devices, observers, storage, fullscreen, notifications, service workers, and 42 more.
 
 ## Browser floor
 
