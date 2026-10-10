@@ -65,6 +65,10 @@ describe('keyboard subscriptions', () => {
 
 	it('onShortcut fires only when every key is held down', () => {
 		vi.stubGlobal('KeyboardEvent', FakeKeyboardEvent)
+		vi.stubGlobal('window', {
+			addEventListener: vi.fn(),
+			removeEventListener: vi.fn(),
+		} as unknown as Window)
 		const { target, handlers } = fakeTarget()
 		const cb = vi.fn()
 		onShortcut(['Control', 's'], cb, target)
@@ -87,5 +91,69 @@ describe('keyboard subscriptions', () => {
 		const event = new FakeKeyboardEvent({ key: 'Enter' })
 		handlers.keydown(event)
 		expect(event.preventDefault).toHaveBeenCalled()
+	})
+
+	it('onShortcut clears pressed keys on window blur', () => {
+		vi.stubGlobal('KeyboardEvent', FakeKeyboardEvent)
+		const windowHandlers: Record<string, (e: unknown) => void> = {}
+		const windowStub = {
+			addEventListener: (t: string, h: (e: unknown) => void) => {
+				windowHandlers[t] = h
+			},
+			removeEventListener: vi.fn(),
+		} as unknown as Window
+		vi.stubGlobal('window', windowStub)
+		const targetHandlers: Record<string, (e: unknown) => void> = {}
+		const target = {
+			addEventListener: (t: string, h: (e: unknown) => void) => {
+				targetHandlers[t] = h
+			},
+			removeEventListener: vi.fn(),
+		} as unknown as HTMLElement
+		const cb = vi.fn()
+		onShortcut(['Control', 's'], cb, target)
+
+		targetHandlers.keydown(new FakeKeyboardEvent({ key: 'Control' }))
+		targetHandlers.keydown(new FakeKeyboardEvent({ key: 's' }))
+		expect(cb).toHaveBeenCalledTimes(1)
+
+		// blur event clears the pressed set
+		if (windowHandlers.blur) {
+			windowHandlers.blur({})
+		}
+		targetHandlers.keydown(new FakeKeyboardEvent({ key: 's' }))
+		expect(cb).toHaveBeenCalledTimes(1)
+	})
+
+	it('onShortcut clears pressed keys on Meta keyup (macOS fix)', () => {
+		vi.stubGlobal('KeyboardEvent', FakeKeyboardEvent)
+		const windowStub = {
+			addEventListener: vi.fn(),
+			removeEventListener: vi.fn(),
+		} as unknown as Window
+		vi.stubGlobal('window', windowStub)
+		const targetHandlers: Record<string, (e: unknown) => void> = {}
+		const target = {
+			addEventListener: (t: string, h: (e: unknown) => void) => {
+				targetHandlers[t] = h
+			},
+			removeEventListener: vi.fn(),
+		} as unknown as HTMLElement
+		const cb = vi.fn()
+		onShortcut(['Meta', 's'], cb, target)
+
+		// Press Meta and s; callback fires
+		targetHandlers.keydown(new FakeKeyboardEvent({ key: 'Meta' }))
+		targetHandlers.keydown(new FakeKeyboardEvent({ key: 's' }))
+		expect(cb).toHaveBeenCalledTimes(1)
+
+		// Release Meta (on macOS, s may not have fired keyup while Meta was held)
+		// This should clear the entire pressed set
+		targetHandlers.keyup(new FakeKeyboardEvent({ key: 'Meta' }))
+
+		// Now pressing Meta alone should not fire the callback
+		// (s should no longer be in the pressed set)
+		targetHandlers.keydown(new FakeKeyboardEvent({ key: 'Meta' }))
+		expect(cb).toHaveBeenCalledTimes(1)
 	})
 })

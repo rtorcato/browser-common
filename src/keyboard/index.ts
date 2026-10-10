@@ -74,13 +74,23 @@ export function onShortcut(
 	function up(e: Event) {
 		if (e instanceof KeyboardEvent) {
 			pressed.delete(e.key.toLowerCase())
+			// On macOS, no keyup fires for other keys while Meta is held, so clear all
+			// keys when Meta is released to prevent keys from staying stuck in the set.
+			if (e.key === 'Meta') {
+				pressed.clear()
+			}
 		}
+	}
+	function blur() {
+		pressed.clear()
 	}
 	target.addEventListener('keydown', down)
 	target.addEventListener('keyup', up)
+	window.addEventListener('blur', blur)
 	return () => {
 		target.removeEventListener('keydown', down)
 		target.removeEventListener('keyup', up)
+		window.removeEventListener('blur', blur)
 	}
 }
 
