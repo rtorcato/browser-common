@@ -245,6 +245,10 @@
       "import": "./dist/viewtransitions/index.js",
       "types": "./dist/viewtransitions/index.d.ts"
     },
+    "./visibility": {
+      "import": "./dist/visibility/index.js",
+      "types": "./dist/visibility/index.d.ts"
+    },
     "./visualviewport": {
       "import": "./dist/visualviewport/index.js",
       "types": "./dist/visualviewport/index.d.ts"
