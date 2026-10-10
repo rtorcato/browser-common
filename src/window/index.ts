@@ -122,15 +122,15 @@ export function reloadWindow(): void {
 
 /**
  * Gets the current window size.
- * @returns {{ width: number; height: number } | null} The window's width and height, or null outside a browser.
+ * @returns {{ width: number; height: number }} The window's width and height, or `{ width: 0, height: 0 }` outside a browser.
  * @example
  * ```ts
  * import { getWindowSize } from '@rtorcato/browser-common/window'
  * const size = getWindowSize()
  * ```
  */
-export function getWindowSize(): { width: number; height: number } | null {
-	if (typeof window === 'undefined') return null
+export function getWindowSize(): { width: number; height: number } {
+	if (typeof window === 'undefined') return { width: 0, height: 0 }
 	return { width: window.innerWidth, height: window.innerHeight }
 }
 

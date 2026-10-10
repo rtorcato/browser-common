@@ -37,7 +37,7 @@ describe('SSR calls without browser globals', () => {
 		expect(getAllCookies()).toEqual({})
 	})
 
-	it('window functions no-op, getWindowSize returns null', () => {
+	it('window functions no-op, getWindowSize returns zero size', () => {
 		expect(openWindow('https://example.com')).toBeNull()
 		for (const fn of [
 			closeWindow,
@@ -49,7 +49,7 @@ describe('SSR calls without browser globals', () => {
 		]) {
 			expect(() => fn()).not.toThrow()
 		}
-		expect(getWindowSize()).toBeNull()
+		expect(getWindowSize()).toEqual({ width: 0, height: 0 })
 		const off = onWindowResize(() => {})
 		expect(() => off()).not.toThrow()
 	})
