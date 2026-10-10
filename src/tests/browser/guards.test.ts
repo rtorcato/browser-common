@@ -26,6 +26,7 @@ import { isTouchEventsAvailable } from '../../touchevents/index'
 import { isURLPatternAvailable } from '../../urlpattern/index'
 import { isVibrationApiAvailable } from '../../vibrate/index'
 import { isViewTransitionsSupported } from '../../viewtransitions/index'
+import { isVisibilityAvailable } from '../../visibility/index'
 import { isVisualViewportAvailable } from '../../visualviewport/index'
 import { isWebAnimationsAvailable } from '../../webanimations/index'
 import { isWebAuthnAvailable } from '../../webauthn/index'
@@ -59,6 +60,7 @@ const supported = {
 	isTextEncoderAvailable,
 	isURLPatternAvailable,
 	isViewTransitionsSupported,
+	isVisibilityAvailable,
 	isVisualViewportAvailable,
 	isWebAnimationsAvailable,
 	isWebAuthnAvailable,

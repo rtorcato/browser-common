@@ -62,6 +62,7 @@ export const MODULE_APIS = {
 	urlpattern: ['api.URLPattern'],
 	vibrate: ['api.Navigator.vibrate'],
 	viewtransitions: ['api.Document.startViewTransition'],
+	visibility: ['api.Document.visibilityState', 'api.Document.visibilitychange_event'],
 	visualviewport: ['api.VisualViewport'],
 	webanimations: ['api.Element.animate'],
 	webauthn: ['api.PublicKeyCredential', 'api.CredentialsContainer.create'],

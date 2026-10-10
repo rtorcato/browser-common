@@ -74,6 +74,7 @@ Import from `@rtorcato/browser-common/<module>`.
 | sessionstorage | isSessionStorageAvailable, setSessionStorage, getSessionStorage, removeSessionStorage, clearSessionStorage |
 | touchevents | isTouchEventsAvailable, onTouch, getTouchPoints, getTouchCount |
 | vibrate | isVibrationApiAvailable, vibrate, stopVibration, vibratePulse, vibrateNotification |
+| visibility | isVisibilityAvailable, getVisibilityState, isPageVisible, onVisibilityChange |
 | visualviewport | isVisualViewportAvailable, getVisualViewportInfo, onVisualViewportChange |
 | weblocks | withLock, isWebLocksAvailable |
 | webshare | isWebShareAvailable, share, isFileShareAvailable |
