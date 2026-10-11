@@ -8,17 +8,24 @@ export const isBrowser = typeof window !== 'undefined' && typeof window.document
  * Checks if the code is running in a Node.js environment.
  * @returns {boolean} True if running in Node, false otherwise.
  */
-const isNode = typeof globalThis !== 'undefined' &&
-	typeof (globalThis as typeof globalThis & { process?: { versions?: { node?: string } } }).process !== 'undefined' &&
-	typeof (globalThis as typeof globalThis & { process?: { versions?: { node?: string } } }).process?.versions !== 'undefined' &&
-	typeof (globalThis as typeof globalThis & { process?: { versions?: { node?: string } } }).process?.versions?.node !== 'undefined'
+const checkIsNode = (): boolean => {
+	return (
+		typeof globalThis !== 'undefined' &&
+		typeof (globalThis as typeof globalThis & { process?: { versions?: { node?: string } } })
+			.process !== 'undefined' &&
+		typeof (globalThis as typeof globalThis & { process?: { versions?: { node?: string } } })
+			.process?.versions !== 'undefined' &&
+		typeof (globalThis as typeof globalThis & { process?: { versions?: { node?: string } } })
+			.process?.versions?.node !== 'undefined'
+	)
+}
 
 /**
  * Returns the browser's user agent string, if available.
  * @returns {string | null} The user agent string or null if not in a browser.
  */
 export const getUserAgent = (): string | null => {
-	return typeof navigator !== 'undefined' && !isNode ? navigator.userAgent : null
+	return typeof navigator !== 'undefined' && !checkIsNode() ? navigator.userAgent : null
 }
 
 /**
@@ -36,7 +43,7 @@ export const isMobile = (): boolean => {
  * @returns {string | null} The preferred language or null if not in a browser.
  */
 export const getBrowserLanguage = (): string | null => {
-	return typeof navigator !== 'undefined' && !isNode ? navigator.language : null
+	return typeof navigator !== 'undefined' && !checkIsNode() ? navigator.language : null
 }
 
 export type Platform = 'ios' | 'android' | 'macos' | 'windows' | 'linux' | 'unknown'

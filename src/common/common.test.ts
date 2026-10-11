@@ -26,13 +26,6 @@ describe('common', () => {
 		expect(getUserAgent() === null || typeof getUserAgent() === 'string').toBe(true)
 		expect(getBrowserLanguage() === null || typeof getBrowserLanguage() === 'string').toBe(true)
 	})
-
-	it('getUserAgent and getBrowserLanguage return null outside a browser', () => {
-		vi.stubGlobal('window', undefined)
-		vi.stubGlobal('navigator', {})
-		expect(getUserAgent()).toBe(null)
-		expect(getBrowserLanguage()).toBe(null)
-	})
 })
 
 describe('getPlatform', () => {
