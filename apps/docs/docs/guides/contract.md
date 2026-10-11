@@ -7,7 +7,7 @@ Every module in `@rtorcato/browser-common` follows the same three-part contract.
 
 ## 1. Support check returns boolean
 
-Most modules export an `is<Name>Available()` function that returns `boolean`. Call it before any operation. A few modules (cookies, dom, draganddrop, focus, forms, history, htmlmedia, iframe, keyboard, location, screen, window) have no availability check because they always work or degrade safely. Others without availability checks (alert, canvas, intersection, mutationobserver, resizeobserver) return live objects or require user interaction, so they may throw if the API is missing — guard those with a `try`/`catch` or an environment check if needed.
+Most modules export an `is<Name>Available()` function that returns `boolean`. Call it before any operation. A few modules (cookies, dom, draganddrop, focus, forms, fullscreen, history, htmlmedia, iframe, keyboard, location, screen, window) have no availability check because they always work or degrade safely. Others without availability checks (alert, canvas, intersection, mutationobserver, resizeobserver) return live objects or require user interaction, so they may throw if the API is missing — guard those with a `try`/`catch` or an environment check if needed.
 
 ```ts
 import { isClipboardApiAvailable } from '@rtorcato/browser-common/clipboard'
@@ -31,7 +31,7 @@ No function returns `undefined` to signal "unsupported" — check for `null`.
 v2 replaced every `undefined` "unsupported" return with `null` (values) or `false` (predicates such as `isLandscape`, `isPortrait`, `isFullscreen`). Replace `x === undefined` checks with `x === null`; `?.` and `??` keep working unchanged. The duplicate `enterFullscreen` / `exitFullscreen` / `isFullscreen` exports were also removed from `screen` — import them from `@rtorcato/browser-common/fullscreen`.
 :::
 
-No thrown exception from a missing API. Your `try`/`catch` is only needed for the API's *own* errors (network failures, permission denials, invalid arguments, browser restrictions), not for "this browser doesn't support it".
+Most functions don't throw for a missing API — your `try`/`catch` is only needed for the API's *own* errors (network failures, permission denials, invalid arguments, browser restrictions). However, modules that return live objects or require user interaction (alert, canvas, intersection, mutationobserver, resizeobserver) may throw if the API is missing — guard those with a `try`/`catch` or an environment check if needed.
 
 ```ts
 // In Node.js or an old browser:
