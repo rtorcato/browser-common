@@ -10,7 +10,7 @@
  */
 
 export function isIframe(el: unknown): el is HTMLIFrameElement {
-	return el instanceof HTMLIFrameElement
+	return typeof HTMLIFrameElement !== 'undefined' && el instanceof HTMLIFrameElement
 }
 
 /**
@@ -46,6 +46,8 @@ export function getIframeDocument(iframe: HTMLIFrameElement): Document | null {
  * @param iframe The iframe element.
  * @param message The message to send.
  * @param targetOrigin The target origin (default: '*').
+ * @remarks The `'*'` default delivers the message to whatever origin the iframe has navigated
+ * to, so never rely on it for sensitive data. Pass the iframe's exact origin instead.
  * @example
  * ```ts
  * import { postMessageToIframe } from '@rtorcato/browser-common/iframe'

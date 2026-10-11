@@ -10,6 +10,7 @@ import { isGeolocationAvailable } from '../../geolocation/index'
 import { isIdleDetectionApiAvailable } from '../../idle/index'
 import { isLocalStorageAvailable } from '../../localstorage/index'
 import { isMediaDevicesAvailable } from '../../mediadevices/index'
+import { isMediaQueryAvailable } from '../../mediaquery/index'
 import { isDeviceMotionAvailable, isGenericSensorApiAvailable } from '../../motion/index'
 import { isNotificationAvailable } from '../../notifications/index'
 import { isDeviceOrientationAvailable } from '../../orientation/index'
@@ -25,6 +26,7 @@ import { isTouchEventsAvailable } from '../../touchevents/index'
 import { isURLPatternAvailable } from '../../urlpattern/index'
 import { isVibrationApiAvailable } from '../../vibrate/index'
 import { isViewTransitionsSupported } from '../../viewtransitions/index'
+import { isVisibilityAvailable } from '../../visibility/index'
 import { isVisualViewportAvailable } from '../../visualviewport/index'
 import { isWebAnimationsAvailable } from '../../webanimations/index'
 import { isWebAuthnAvailable } from '../../webauthn/index'
@@ -44,6 +46,7 @@ const supported = {
 	isGeolocationAvailable,
 	isLocalStorageAvailable,
 	isMediaDevicesAvailable,
+	isMediaQueryAvailable,
 	isNotificationAvailable,
 	isPerformanceApiAvailable,
 	isPermissionsApiAvailable,
@@ -57,6 +60,7 @@ const supported = {
 	isTextEncoderAvailable,
 	isURLPatternAvailable,
 	isViewTransitionsSupported,
+	isVisibilityAvailable,
 	isVisualViewportAvailable,
 	isWebAnimationsAvailable,
 	isWebAuthnAvailable,

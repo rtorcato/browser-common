@@ -4,6 +4,7 @@
  * @param callback The callback to run when mutations occur.
  * @param options MutationObserver options.
  * @returns The created MutationObserver instance.
+ * @throws If MutationObserver is unavailable (SSR / Node).
  * @example
  * ```ts
  * import { observeMutations, disconnectMutationObserver } from '@rtorcato/browser-common/mutationobserver'
@@ -16,6 +17,9 @@ export function observeMutations(
 	callback: MutationCallback,
 	options: MutationObserverInit = { childList: true, subtree: true }
 ): MutationObserver {
+	if (typeof MutationObserver === 'undefined') {
+		throw new Error('observeMutations requires a browser environment with MutationObserver')
+	}
 	const observer = new MutationObserver(callback)
 	observer.observe(element, options)
 	return observer
@@ -40,6 +44,7 @@ export function disconnectMutationObserver(observer: MutationObserver): void {
  * @param callback The callback to run on first mutation.
  * @param options MutationObserver options.
  * @returns The created MutationObserver instance.
+ * @throws If MutationObserver is unavailable (SSR / Node).
  * @example
  * ```ts
  * import { observeMutationOnce } from '@rtorcato/browser-common/mutationobserver'
@@ -51,6 +56,9 @@ export function observeMutationOnce(
 	callback: MutationCallback,
 	options: MutationObserverInit = { childList: true, subtree: true }
 ): MutationObserver {
+	if (typeof MutationObserver === 'undefined') {
+		throw new Error('observeMutationOnce requires a browser environment with MutationObserver')
+	}
 	const observer = new MutationObserver((mutations, obs) => {
 		callback(mutations, obs)
 		obs.disconnect()

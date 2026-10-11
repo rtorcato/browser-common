@@ -34,10 +34,20 @@ if (isIframe(el)) {
 - `isIframe(el)` — type guard for `HTMLIFrameElement`
 - `getIframeWindow(iframe)` — returns `contentWindow` or `null`
 - `getIframeDocument(iframe)` — returns `contentDocument` or `null`
-- `postMessageToIframe(iframe, message, targetOrigin?)` — posts a message to the iframe's window
+- `postMessageToIframe(iframe, message, targetOrigin?)` — posts a message to the iframe's window; `targetOrigin` defaults to `'*'`
 - `setIframeSrc(iframe, url)` — sets the iframe's `src`
 - `reloadIframe(iframe)` — reloads the iframe's content
 - `isIframeLoaded(iframe)` — true once `contentDocument.readyState` is `'complete'`
 - `onIframeLoad(iframe, callback)` — adds a `load` event listener
+
+## Safe usage
+
+`postMessageToIframe` defaults `targetOrigin` to `'*'`, which delivers the message to whatever
+origin the iframe is showing at that moment, including one it was navigated to. Always pass the
+iframe's exact origin, as the example above does, and never rely on the default for sensitive data:
+
+```ts
+postMessageToIframe(iframe, { token }, 'https://embed.example.com')
+```
 
 See the [API reference](/docs/api/iframe) for full signatures.

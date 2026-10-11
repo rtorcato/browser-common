@@ -61,6 +61,7 @@ Import from `@rtorcato/browser-common/<module>`.
 | localstorage | isLocalStorageAvailable, setLocalStorage, getLocalStorage, removeLocalStorage, clearLocalStorage |
 | location | getCurrentLocation, redirectTo, reloadPage, getPathname, getSearch, getHash |
 | mediadevices | isMediaDevicesAvailable, getMediaDevices, getUserMedia, stopMediaStream, getMediaPermissionStatus |
+| mediaquery | isMediaQueryAvailable, matchesMedia, onMediaQueryChange, prefersDarkMode, prefersReducedMotion |
 | motion | isDeviceMotionAvailable, onDeviceMotion, isGenericSensorApiAvailable, requestMotionPermission |
 | mutationobserver | observeMutations, disconnectMutationObserver, observeMutationOnce |
 | notifications | isNotificationAvailable, requestNotificationPermission, showNotification, notifyIfPermitted |
@@ -76,6 +77,7 @@ Import from `@rtorcato/browser-common/<module>`.
 | sessionstorage | isSessionStorageAvailable, setSessionStorage, getSessionStorage, removeSessionStorage, clearSessionStorage |
 | touchevents | isTouchEventsAvailable, onTouch, getTouchPoints, getTouchCount |
 | vibrate | isVibrationApiAvailable, vibrate, stopVibration, vibratePulse, vibrateNotification |
+| visibility | isVisibilityAvailable, getVisibilityState, isPageVisible, onVisibilityChange |
 | visualviewport | isVisualViewportAvailable, getVisualViewportInfo, onVisualViewportChange |
 | weblocks | withLock, isWebLocksAvailable |
 | webshare | isWebShareAvailable, share, isFileShareAvailable |

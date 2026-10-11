@@ -8,6 +8,7 @@ import {
 	isIframeLoaded,
 	onIframeLoad,
 	postMessageToIframe,
+	reloadIframe,
 	setIframeSrc,
 } from '../iframe/index'
 
@@ -59,5 +60,48 @@ describe('iframe', () => {
 		const cb = () => {}
 		onIframeLoad({ addEventListener } as unknown as HTMLIFrameElement, cb)
 		expect(addEventListener).toHaveBeenCalledWith('load', cb)
+	})
+
+	it('postMessageToIframe defaults targetOrigin to * and no-ops without a content window', () => {
+		const postMessage = vi.fn()
+		postMessageToIframe({ contentWindow: { postMessage } } as unknown as HTMLIFrameElement, 'hi')
+		expect(postMessage).toHaveBeenCalledWith('hi', '*')
+
+		expect(() =>
+			postMessageToIframe({ contentWindow: null } as HTMLIFrameElement, 'hi')
+		).not.toThrow()
+	})
+
+	it('getIframeWindow / getIframeDocument tolerate a missing iframe', () => {
+		const missing = undefined as unknown as HTMLIFrameElement
+		expect(getIframeWindow(missing)).toBeNull()
+		expect(getIframeDocument(missing)).toBeNull()
+		expect(isIframeLoaded(missing)).toBe(false)
+	})
+
+	it('reloadIframe reloads via the content window when present', () => {
+		const reload = vi.fn()
+		const iframe = {
+			contentWindow: { location: { reload } },
+			src: '/embed.html',
+		} as unknown as HTMLIFrameElement
+		reloadIframe(iframe)
+		expect(reload).toHaveBeenCalledOnce()
+		expect(iframe.src).toBe('/embed.html')
+	})
+
+	it('reloadIframe falls back to resetting src without a content window', () => {
+		const assigned: string[] = []
+		const iframe = {
+			contentWindow: null,
+			get src() {
+				return assigned.at(-1) ?? '/embed.html'
+			},
+			set src(v: string) {
+				assigned.push(v)
+			},
+		} as unknown as HTMLIFrameElement
+		reloadIframe(iframe)
+		expect(assigned).toEqual(['', '/embed.html'])
 	})
 })

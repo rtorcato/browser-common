@@ -9,7 +9,11 @@
  * const btn = $('button.primary')
  * ```
  */
-export function $(selector: string, parent: Document | Element = document): Element | null {
+export function $(
+	selector: string,
+	parent: Document | Element = globalThis.document
+): Element | null {
+	if (!parent) return null
 	return parent.querySelector(selector)
 }
 
@@ -24,7 +28,8 @@ export function $(selector: string, parent: Document | Element = document): Elem
  * const items = $$('.item')
  * ```
  */
-export function $$(selector: string, parent: Document | Element = document): Element[] {
+export function $$(selector: string, parent: Document | Element = globalThis.document): Element[] {
+	if (!parent) return []
 	return Array.from(parent.querySelectorAll(selector))
 }
 

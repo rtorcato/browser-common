@@ -11,6 +11,7 @@
  * ```
  */
 export function setCookie(name: string, value: string, days?: number, path = '/'): void {
+	if (typeof document === 'undefined') return
 	let expires = ''
 	if (days !== undefined) {
 		const date = new Date()
@@ -32,6 +33,7 @@ export function setCookie(name: string, value: string, days?: number, path = '/'
  * ```
  */
 export function getCookie(name: string): string | null {
+	if (typeof document === 'undefined') return null
 	const nameEQ = `${encodeURIComponent(name)}=`
 	const ca = document.cookie.split(';')
 	for (let c of ca) {
@@ -79,6 +81,7 @@ export function hasCookie(name: string): boolean {
  * ```
  */
 export function getAllCookies(): Record<string, string> {
+	if (typeof document === 'undefined') return {}
 	return document.cookie.split(';').reduce(
 		(acc, c) => {
 			const [key, ...v] = c.trim().split('=')

@@ -13,7 +13,7 @@ export function isIdleDetectionApiAvailable(): boolean {
 
 /**
  * Registers a callback to be called when the browser is idle (using requestIdleCallback).
- * Falls back to setTimeout if not available.
+ * Falls back to setTimeout if not available. Outside a browser it does nothing and returns 0.
  * @param callback The function to call when idle.
  * @param options Optional options for requestIdleCallback.
  * @returns {number} The callback ID (for cancellation).
@@ -28,7 +28,8 @@ export function onIdle(
 	callback: (deadline?: IdleDeadline) => void,
 	options?: IdleRequestOptions
 ): number {
-	if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+	if (typeof window === 'undefined') return 0
+	if ('requestIdleCallback' in window) {
 		return (window as Window).requestIdleCallback(callback, options)
 	}
 	// Fallback: call after 200ms
@@ -45,7 +46,7 @@ export function onIdle(
  * ```
  */
 export function cancelIdle(id: number): void {
-	if ('cancelIdleCallback' in window) {
+	if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
 		window.cancelIdleCallback(id)
 	} else {
 		clearTimeout(id)

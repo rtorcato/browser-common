@@ -22,12 +22,10 @@ describe('urlpattern (unsupported runtime)', () => {
 		if (original) Object.defineProperty(globalThis, 'URLPattern', original)
 	})
 
-	it('reports unavailable and both helpers throw', () => {
+	it('reports unavailable; createURLPattern throws, matchURLPattern returns null', () => {
 		expect(isURLPatternAvailable()).toBe(false)
 		expect(() => createURLPattern({ pathname: '/x' })).toThrow('requires an environment')
-		expect(() => matchURLPattern({ pathname: '/x' }, 'https://e.com/x')).toThrow(
-			'requires an environment'
-		)
+		expect(matchURLPattern({ pathname: '/x' }, 'https://e.com/x')).toBeNull()
 	})
 })
 

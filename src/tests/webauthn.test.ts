@@ -37,9 +37,15 @@ describe('webauthn', () => {
 		expect(get).toHaveBeenCalledWith(publicKeyOptions)
 	})
 
-	it('both entry points throw synchronously when credentials are unsupported', () => {
+	it('both entry points reject (not throw synchronously) when credentials are unsupported', async () => {
 		vi.stubGlobal('navigator', {})
-		expect(() => createCredential(publicKeyOptions)).toThrow('Credential Management')
-		expect(() => getCredential(publicKeyOptions)).toThrow('Credential Management')
+		let created: Promise<Credential | null> | undefined
+		let got: Promise<Credential | null> | undefined
+		expect(() => {
+			created = createCredential(publicKeyOptions)
+			got = getCredential(publicKeyOptions)
+		}).not.toThrow()
+		await expect(created).rejects.toThrow('Credential Management')
+		await expect(got).rejects.toThrow('Credential Management')
 	})
 })
