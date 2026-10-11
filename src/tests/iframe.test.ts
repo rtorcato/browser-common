@@ -62,11 +62,32 @@ describe('iframe', () => {
 		expect(addEventListener).toHaveBeenCalledWith('load', cb)
 	})
 
-	it('postMessageToIframe defaults targetOrigin to * and no-ops without a content window', () => {
+	it('postMessageToIframe defaults targetOrigin to the iframe src origin', () => {
 		const postMessage = vi.fn()
-		postMessageToIframe({ contentWindow: { postMessage } } as unknown as HTMLIFrameElement, 'hi')
-		expect(postMessage).toHaveBeenCalledWith('hi', '*')
+		const iframe = (src: string) =>
+			({ src, contentWindow: { postMessage } }) as unknown as HTMLIFrameElement
+		postMessageToIframe(iframe('https://embed.example.com/widget?x=1'), 'hi')
+		expect(postMessage).toHaveBeenLastCalledWith('hi', 'https://embed.example.com')
 
+		vi.stubGlobal('location', { href: 'https://app.example.com/page' })
+		postMessageToIframe(iframe('/embed.html'), 'hi')
+		expect(postMessage).toHaveBeenLastCalledWith('hi', 'https://app.example.com')
+
+		postMessageToIframe(iframe('https://embed.example.com'), 'hi', '*')
+		expect(postMessage).toHaveBeenLastCalledWith('hi', '*')
+	})
+
+	it('postMessageToIframe throws on an opaque src origin without an explicit targetOrigin', () => {
+		const postMessage = vi.fn()
+		const iframe = {
+			src: 'data:text/html,hi',
+			contentWindow: { postMessage },
+		} as unknown as HTMLIFrameElement
+		expect(() => postMessageToIframe(iframe, 'hi')).toThrow(TypeError)
+		expect(postMessage).not.toHaveBeenCalled()
+	})
+
+	it('postMessageToIframe no-ops without a content window', () => {
 		expect(() =>
 			postMessageToIframe({ contentWindow: null } as HTMLIFrameElement, 'hi')
 		).not.toThrow()

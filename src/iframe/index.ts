@@ -45,24 +45,32 @@ export function getIframeDocument(iframe: HTMLIFrameElement): Document | null {
  * Posts a message to the iframe's contentWindow.
  * @param iframe The iframe element.
  * @param message The message to send.
- * @param targetOrigin The target origin (default: '*').
- * @remarks The `'*'` default delivers the message to whatever origin the iframe has navigated
- * to, so never rely on it for sensitive data. Pass the iframe's exact origin instead.
+ * @param targetOrigin The target origin. Defaults to the origin of the iframe's `src`, so the
+ * browser drops the message if the frame has navigated elsewhere. Pass `'*'` explicitly to send
+ * to any origin, and never do that for sensitive data.
+ * @throws {TypeError} When no `targetOrigin` is given and the `src` has an opaque origin
+ * (`data:`, `about:blank`, sandboxed), since there is no origin to default to.
  * @example
  * ```ts
  * import { postMessageToIframe } from '@rtorcato/browser-common/iframe'
+ * postMessageToIframe(iframe, { type: 'ping' }) // to the origin of iframe.src
  * postMessageToIframe(iframe, { type: 'ping' }, 'https://example.com')
  * ```
  */
 export function postMessageToIframe(
 	iframe: HTMLIFrameElement,
 	message: unknown,
-	targetOrigin: string = '*'
+	targetOrigin?: string
 ): void {
 	const win = getIframeWindow(iframe)
-	if (win) {
-		win.postMessage(message, targetOrigin)
+	if (!win) return
+	const origin = targetOrigin ?? new URL(iframe.src, globalThis.location?.href).origin
+	if (origin === 'null') {
+		throw new TypeError(
+			'postMessageToIframe: iframe src has an opaque origin; pass targetOrigin explicitly'
+		)
 	}
+	win.postMessage(message, origin)
 }
 
 /**
