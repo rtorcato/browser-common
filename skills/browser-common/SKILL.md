@@ -5,7 +5,7 @@ description: Use when writing TypeScript/JavaScript that calls a browser Web API
 
 # Using @rtorcato/browser-common
 
-`@rtorcato/browser-common` is a tree-shakeable, ESM-only, zero-runtime-dependency library of typed wrappers around 50 browser Web APIs. One subpath export per API.
+`@rtorcato/browser-common` is a tree-shakeable, ESM-only, zero-runtime-dependency library of typed wrappers around 52 browser Web APIs. One subpath export per API.
 
 ## Rules
 
