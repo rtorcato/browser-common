@@ -27,8 +27,12 @@ describe('screencapture', () => {
 		expect(spy).toHaveBeenCalledWith(options)
 	})
 
-	it('getDisplayMedia throws synchronously when unsupported', () => {
+	it('getDisplayMedia rejects (does not throw synchronously) when unsupported', async () => {
 		vi.stubGlobal('navigator', { mediaDevices: {} })
-		expect(() => getDisplayMedia({ video: true })).toThrow('Screen Capture')
+		let result: Promise<MediaStream> | undefined
+		expect(() => {
+			result = getDisplayMedia({ video: true })
+		}).not.toThrow()
+		await expect(result).rejects.toThrow('Screen Capture')
 	})
 })

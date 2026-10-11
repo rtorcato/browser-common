@@ -59,8 +59,9 @@ export function isPrintableKey(event: KeyboardEvent): boolean {
 export function onShortcut(
 	keys: string[],
 	callback: (event: KeyboardEvent) => void,
-	target: Window | HTMLElement = window
+	target: Window | HTMLElement = globalThis.window
 ): () => void {
+	if (!target) return () => {}
 	const pressed = new Set<string>()
 	function down(e: Event) {
 		if (e instanceof KeyboardEvent) {
@@ -73,13 +74,23 @@ export function onShortcut(
 	function up(e: Event) {
 		if (e instanceof KeyboardEvent) {
 			pressed.delete(e.key.toLowerCase())
+			// On macOS, no keyup fires for other keys while Meta is held, so clear all
+			// keys when Meta is released to prevent keys from staying stuck in the set.
+			if (e.key === 'Meta') {
+				pressed.clear()
+			}
 		}
+	}
+	function blur() {
+		pressed.clear()
 	}
 	target.addEventListener('keydown', down)
 	target.addEventListener('keyup', up)
+	window.addEventListener('blur', blur)
 	return () => {
 		target.removeEventListener('keydown', down)
 		target.removeEventListener('keyup', up)
+		window.removeEventListener('blur', blur)
 	}
 }
 
@@ -95,7 +106,11 @@ export function onShortcut(
  * off()
  * ```
  */
-export function preventKeyDefault(key: string, target: Window | HTMLElement = window): () => void {
+export function preventKeyDefault(
+	key: string,
+	target: Window | HTMLElement = globalThis.window
+): () => void {
+	if (!target) return () => {}
 	function handler(e: Event) {
 		if (e instanceof KeyboardEvent && isKey(e, key)) {
 			e.preventDefault()

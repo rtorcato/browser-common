@@ -20,15 +20,15 @@ function stubPerformance() {
 		mark: vi.fn(),
 		measure: vi.fn(),
 	}
-	vi.stubGlobal('window', { performance: perf })
+	vi.stubGlobal('performance', perf)
 	return perf
 }
 
 describe('performance', () => {
-	it('isPerformanceApiAvailable reflects window.performance presence', () => {
-		expect(isPerformanceApiAvailable()).toBe(false)
-		stubPerformance()
+	it('isPerformanceApiAvailable reflects globalThis.performance presence', () => {
 		expect(isPerformanceApiAvailable()).toBe(true)
+		vi.stubGlobal('performance', undefined)
+		expect(isPerformanceApiAvailable()).toBe(false)
 	})
 
 	it('now uses performance.now when available', () => {
@@ -36,11 +36,17 @@ describe('performance', () => {
 		expect(now()).toBe(123.4)
 	})
 
-	it('now falls back to a numeric timestamp without window', () => {
-		expect(typeof now()).toBe('number')
+	it('now uses page-relative time in Node, not epoch ms', () => {
+		expect(now()).toBeLessThan(Date.now() / 2)
+	})
+
+	it('now falls back to Date.now without performance', () => {
+		vi.stubGlobal('performance', undefined)
+		expect(now()).toBeGreaterThanOrEqual(Date.now() - 1000)
 	})
 
 	it('getPerformanceEntriesByType delegates, else returns an empty array', () => {
+		vi.stubGlobal('performance', undefined)
 		expect(getPerformanceEntriesByType('resource')).toEqual([])
 		const perf = stubPerformance()
 		expect(getPerformanceEntriesByType('resource')).toEqual([{ name: 'x' }])

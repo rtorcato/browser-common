@@ -97,8 +97,8 @@ const PILLARS: Pillar[] = [
 		icon: 'brackets',
 	},
 	{
-		title: '44 Web APIs covered',
-		desc: 'One subpath per spec — clipboard, geolocation, storage, observers, and 40 more.',
+		title: '52 Web APIs covered',
+		desc: 'One subpath per spec — clipboard, geolocation, storage, observers, and 48 more.',
 		icon: 'globe',
 	},
 ]
@@ -227,7 +227,7 @@ function Categories(): ReactElement {
 				<div>
 					<h2 className={styles.h2}>One subpath per Web API</h2>
 					<p className={styles.sub}>
-						Eight focused categories. 44 modules. Import exactly what you need.
+						Eight focused categories. 52 modules. Import exactly what you need.
 					</p>
 				</div>
 				<Link className={styles.viewAll} to="/docs/api">

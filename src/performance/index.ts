@@ -7,7 +7,7 @@
  * ```
  */
 export function isPerformanceApiAvailable(): boolean {
-	return typeof window !== 'undefined' && 'performance' in window
+	return typeof globalThis.performance !== 'undefined'
 }
 
 /**
@@ -22,7 +22,7 @@ export function isPerformanceApiAvailable(): boolean {
  */
 export function now(): number {
 	if (isPerformanceApiAvailable()) {
-		return window.performance.now()
+		return globalThis.performance.now()
 	}
 	return Date.now()
 }
@@ -38,8 +38,11 @@ export function now(): number {
  * ```
  */
 export function getPerformanceEntriesByType(type: string): PerformanceEntry[] {
-	if (isPerformanceApiAvailable() && typeof window.performance.getEntriesByType === 'function') {
-		return window.performance.getEntriesByType(type)
+	if (
+		isPerformanceApiAvailable() &&
+		typeof globalThis.performance.getEntriesByType === 'function'
+	) {
+		return globalThis.performance.getEntriesByType(type)
 	}
 	return []
 }
@@ -54,8 +57,8 @@ export function getPerformanceEntriesByType(type: string): PerformanceEntry[] {
  * ```
  */
 export function mark(name: string): void {
-	if (isPerformanceApiAvailable() && typeof window.performance.mark === 'function') {
-		window.performance.mark(name)
+	if (isPerformanceApiAvailable() && typeof globalThis.performance.mark === 'function') {
+		globalThis.performance.mark(name)
 	}
 }
 
@@ -72,7 +75,7 @@ export function mark(name: string): void {
  * ```
  */
 export function measure(name: string, startMark: string, endMark: string): void {
-	if (isPerformanceApiAvailable() && typeof window.performance.measure === 'function') {
-		window.performance.measure(name, startMark, endMark)
+	if (isPerformanceApiAvailable() && typeof globalThis.performance.measure === 'function') {
+		globalThis.performance.measure(name, startMark, endMark)
 	}
 }

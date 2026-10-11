@@ -35,8 +35,7 @@ export function createURLPattern(input: string | URLPatternInit, baseURL?: strin
  * Tests whether a URL matches a pattern, returning the match result or null.
  * @param pattern The pattern input (string or URLPatternInit).
  * @param input The URL to test.
- * @returns The URLPatternResult if it matches, otherwise null.
- * @throws If URLPattern is unsupported in the current environment.
+ * @returns The URLPatternResult if it matches, otherwise null (including when URLPattern is unsupported).
  * @example
  * ```ts
  * import { matchURLPattern } from '@rtorcato/browser-common/urlpattern'
@@ -48,5 +47,6 @@ export function matchURLPattern(
 	pattern: string | URLPatternInit,
 	input: string
 ): URLPatternResult | null {
+	if (!isURLPatternAvailable()) return null
 	return createURLPattern(pattern).exec(input)
 }

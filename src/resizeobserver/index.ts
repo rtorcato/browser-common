@@ -4,6 +4,7 @@
  * @param callback The callback to run when the element is resized.
  * @param options Optional ResizeObserver options.
  * @returns The created ResizeObserver instance.
+ * @throws If ResizeObserver is unavailable (SSR / Node).
  * @example
  * ```ts
  * import { observeResize, disconnectResizeObserver } from '@rtorcato/browser-common/resizeobserver'
@@ -16,6 +17,9 @@ export function observeResize(
 	callback: ResizeObserverCallback,
 	options?: ResizeObserverOptions
 ): ResizeObserver {
+	if (typeof ResizeObserver === 'undefined') {
+		throw new Error('observeResize requires a browser environment with ResizeObserver')
+	}
 	const observer = new ResizeObserver(callback)
 	observer.observe(element, options)
 	return observer
@@ -40,6 +44,7 @@ export function disconnectResizeObserver(observer: ResizeObserver): void {
  * @param callback The callback to run on first resize.
  * @param options Optional ResizeObserver options.
  * @returns The created ResizeObserver instance.
+ * @throws If ResizeObserver is unavailable (SSR / Node).
  * @example
  * ```ts
  * import { observeResizeOnce } from '@rtorcato/browser-common/resizeobserver'
@@ -51,6 +56,9 @@ export function observeResizeOnce(
 	callback: ResizeObserverCallback,
 	options?: ResizeObserverOptions
 ): ResizeObserver {
+	if (typeof ResizeObserver === 'undefined') {
+		throw new Error('observeResizeOnce requires a browser environment with ResizeObserver')
+	}
 	const observer = new ResizeObserver((entries, obs) => {
 		callback(entries, obs)
 		obs.disconnect()
