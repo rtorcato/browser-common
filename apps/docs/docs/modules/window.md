@@ -62,4 +62,15 @@ openWindow(userSuppliedUrl, '_blank', { noopener: true })
 This passes `noopener,noreferrer`. The browser then returns `null` even when the window
 opens, so don't use the return value to detect a blocked popup in this mode.
 
+⚠️ **`noopener` does not validate URL schemes.** A `javascript:` or `data:` URL will still
+be opened even with `noopener` set. For untrusted URLs, validate the scheme first:
+
+```ts
+const url = userSuppliedUrl
+const isHttpsUrl = /^https?:\/\//.test(url)
+if (isHttpsUrl) {
+  openWindow(url, '_blank', { noopener: true })
+}
+```
+
 See the [API reference](/docs/api/window) for full signatures.
