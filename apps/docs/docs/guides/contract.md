@@ -7,7 +7,7 @@ Every module in `@rtorcato/browser-common` follows the same three-part contract.
 
 ## 1. Support check returns boolean
 
-Most modules export an `is<Name>Available()` function that returns `boolean`. Call it before any operation. A few modules (alert, canvas, cookies, dom, draganddrop, focus, forms, history, htmlmedia, iframe, intersection, keyboard, location, mutationobserver, resizeobserver, screen, window) have no availability check because they always work or degrade safely.
+Most modules export an `is<Name>Available()` function that returns `boolean`. Call it before any operation. A few modules (cookies, dom, draganddrop, focus, forms, history, htmlmedia, iframe, keyboard, location, screen, window) have no availability check because they always work or degrade safely. Others without availability checks (alert, canvas, intersection, mutationobserver, resizeobserver) return live objects or require user interaction, so they may throw if the API is missing — guard those with a `try`/`catch` or an environment check if needed.
 
 ```ts
 import { isClipboardApiAvailable } from '@rtorcato/browser-common/clipboard'
