@@ -10,6 +10,10 @@ import {
 } from '.'
 
 describe('common', () => {
+	afterEach(() => {
+		vi.unstubAllGlobals()
+	})
+
 	it('isBrowser is a boolean', () => {
 		expect(typeof isBrowser).toBe('boolean')
 	})
@@ -21,6 +25,13 @@ describe('common', () => {
 	it('getUserAgent and getBrowserLanguage return strings or null', () => {
 		expect(getUserAgent() === null || typeof getUserAgent() === 'string').toBe(true)
 		expect(getBrowserLanguage() === null || typeof getBrowserLanguage() === 'string').toBe(true)
+	})
+
+	it('getUserAgent and getBrowserLanguage return null on Node 21+', () => {
+		vi.stubGlobal('navigator', { userAgent: 'Node.js/21', language: 'en-US' })
+		vi.stubGlobal('process', { versions: { node: '21.0.0' } })
+		expect(getUserAgent()).toBe(null)
+		expect(getBrowserLanguage()).toBe(null)
 	})
 })
 
