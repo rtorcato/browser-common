@@ -16,7 +16,7 @@ Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs — each on
 separate subpath export.
 
 - **Per-API subpath imports** — `import { copyToClipboard } from '@rtorcato/browser-common/clipboard'`. Bundlers tree-shake to just the bytes you use (under 1 kB brotlied per module, enforced by size-limit).
-- **Safe-by-default contract** — every module exports `is<Name>Available()`. Operations return `null`/`false`/empty on unsupported environments; they never throw. Safe to import in SSR / Node.
+- **Safe-by-default contract** — most modules export `is<Name>Available()` for feature detection. Operations return `null`/`false`/empty on unsupported environments; they don't throw for missing APIs (except alert, canvas, and observers, which may throw — wrap those in `try`/`catch`). Safe to import in SSR / Node.
 - **No runtime dependencies** — ESM-only, `sideEffects: false`, fully typed. Nothing to install but the package itself.
 - **52 modules covered** — clipboard, geolocation, media devices, observers, storage, fullscreen, notifications, service workers, and 44 more.
 
