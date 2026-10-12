@@ -46,8 +46,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0(@types/node@26.6.3)
       '@rtorcato/repo-tooling':
-        specifier: ^5.5.3
-        version: 5.5.3(@biomejs/biome@2.5.15)(@commitlint/cli@21.2.3(@types/node@26.6.3)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.3)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.23.1(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)
+        specifier: ^6.0.0
+        version: 6.0.0(@biomejs/biome@2.5.15)(@commitlint/cli@21.2.3(@types/node@26.6.3)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.3)(conventional-changelog-conventionalcommits@10.4.0)(esbuild-node-externals@1.23.1(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)
       '@size-limit/preset-small-lib':
         specifier: ^14.1.0
         version: 14.1.0(size-limit@14.1.0)
@@ -2833,8 +2833,8 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  '@rtorcato/repo-tooling@5.5.3':
-    resolution: {integrity: sha512-qgdFQgl/UgJHbv/TTkQM3bTODsRTYVPkEDQNSS3mbe0QywtcySuN328zE/FW6fAwAoNkqhYjciFUlF6TMa33vA==}
+  '@rtorcato/repo-tooling@6.0.0':
+    resolution: {integrity: sha512-zReKrcSvdVof8yMvLv6kZH2pwm07zeiTLLZxlOXC0DOhTaPuU5jthOMtb3k3YZtONrCN2w2Y8gt34qURl9x83Q==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
@@ -2857,7 +2857,7 @@ packages:
       '@total-typescript/ts-reset': ^0.6.0
       '@typescript-eslint/eslint-plugin': ^8.0.0
       '@typescript-eslint/parser': ^8.0.0
-      conventional-changelog-conventionalcommits: ^9.0.0
+      conventional-changelog-conventionalcommits: ^9.0.0 || ^10.0.0
       esbuild: ^0.25.0 || ^0.27.0 || ^0.28.0
       esbuild-node-externals: ^1.0.0 || ^2.0.0
       eslint: '>=9.0.0'
@@ -4131,10 +4131,6 @@ packages:
   conventional-changelog-conventionalcommits@10.4.0:
     resolution: {integrity: sha512-Rriac6ZrAlVm6cy9Bz4NSp+WMHpwNXoPIYex+HjCgduAVUSbnew29DQjQw0C4g9u3HtSYzGiGY+pdBXAZo+4aA==}
     engines: {node: '>=22'}
-
-  conventional-changelog-conventionalcommits@9.3.1:
-    resolution: {integrity: sha512-dTYtpIacRpcZgrvBYvBfArMmK2xvIpv2TaxM0/ZI5CBtNUzvF2x0t15HsbRABWprS6UPmvj+PzHVjSx4qAVKyw==}
-    engines: {node: '>=18'}
 
   conventional-changelog-writer@8.4.0:
     resolution: {integrity: sha512-HHBFkk1EECxxmCi4CTu091iuDpQv5/OavuCUAuZmrkWpmYfyD816nom1CvtfXJ/uYfAAjavgHvXHX291tSLK8g==}
@@ -11168,8 +11164,8 @@ snapshots:
 
   '@inquirer/checkbox@5.2.5(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/ansi': 2.0.8
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/ansi': 2.0.9
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/figures': 2.0.9
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
@@ -11186,7 +11182,7 @@ snapshots:
 
   '@inquirer/confirm@6.3.2(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
       '@types/node': 26.6.3
@@ -11200,7 +11196,7 @@ snapshots:
 
   '@inquirer/core@12.0.3(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/ansi': 2.0.8
+      '@inquirer/ansi': 2.0.9
       '@inquirer/figures': 2.0.9
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
       cli-width: 4.1.0
@@ -11224,7 +11220,7 @@ snapshots:
 
   '@inquirer/editor@5.3.3(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/external-editor': 3.0.5(@types/node@26.6.3)
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
@@ -11240,7 +11236,7 @@ snapshots:
 
   '@inquirer/expand@5.1.5(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
       '@types/node': 26.6.3
@@ -11270,7 +11266,7 @@ snapshots:
 
   '@inquirer/input@5.1.6(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
       '@types/node': 26.6.3
@@ -11284,7 +11280,7 @@ snapshots:
 
   '@inquirer/number@4.2.3(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
       '@types/node': 26.6.3
@@ -11298,8 +11294,8 @@ snapshots:
 
   '@inquirer/password@5.2.2(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/ansi': 2.0.8
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/ansi': 2.0.9
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
       '@types/node': 26.6.3
@@ -11344,7 +11340,7 @@ snapshots:
 
   '@inquirer/rawlist@5.3.5(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
       '@types/node': 26.6.3
@@ -11358,7 +11354,7 @@ snapshots:
 
   '@inquirer/search@4.3.3(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/figures': 2.0.9
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
@@ -11374,8 +11370,8 @@ snapshots:
 
   '@inquirer/select@5.2.5(@types/node@26.6.3)':
     dependencies:
-      '@inquirer/ansi': 2.0.8
-      '@inquirer/core': 12.0.3(@types/node@26.6.3)
+      '@inquirer/ansi': 2.0.9
+      '@inquirer/core': 12.0.4(@types/node@26.6.3)
       '@inquirer/figures': 2.0.9
       '@inquirer/type': 4.1.1(@types/node@26.6.3)
     optionalDependencies:
@@ -12117,7 +12113,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@rtorcato/repo-tooling@5.5.3(@biomejs/biome@2.5.15)(@commitlint/cli@21.2.3(@types/node@26.6.3)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.3)(conventional-changelog-conventionalcommits@9.3.1)(esbuild-node-externals@1.23.1(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)':
+  '@rtorcato/repo-tooling@6.0.0(@biomejs/biome@2.5.15)(@commitlint/cli@21.2.3(@types/node@26.6.3)(conventional-commits-parser@7.1.2)(typescript@7.0.2))(@commitlint/config-conventional@21.2.3)(@commitlint/types@21.2.3)(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/github@12.0.10(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(typescript@7.0.2)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@7.0.2)))(@size-limit/preset-small-lib@14.1.0(size-limit@14.1.0))(@types/node@26.6.3)(conventional-changelog-conventionalcommits@10.4.0)(esbuild-node-externals@1.23.1(esbuild@0.28.2))(esbuild@0.28.2)(semantic-release@25.0.9(typescript@7.0.2))(size-limit@14.1.0)(tslib@2.8.1)(typescript@7.0.2)(vitest@5.0.3)':
     dependencies:
       chalk: 6.0.1
       commander: 15.0.0
@@ -12136,7 +12132,7 @@ snapshots:
       '@semantic-release/npm': 13.2.0(semantic-release@25.0.9(typescript@7.0.2))
       '@semantic-release/release-notes-generator': 14.1.1(semantic-release@25.0.9(typescript@7.0.2))
       '@size-limit/preset-small-lib': 14.1.0(size-limit@14.1.0)
-      conventional-changelog-conventionalcommits: 9.3.1
+      conventional-changelog-conventionalcommits: 10.4.0
       esbuild: 0.28.2
       esbuild-node-externals: 1.23.1(esbuild@0.28.2)
       semantic-release: 25.0.9(typescript@7.0.2)
@@ -13439,11 +13435,6 @@ snapshots:
   conventional-changelog-conventionalcommits@10.4.0:
     dependencies:
       '@conventional-changelog/template': 1.4.0
-
-  conventional-changelog-conventionalcommits@9.3.1:
-    dependencies:
-      compare-func: 2.0.0
-    optional: true
 
   conventional-changelog-writer@8.4.0:
     dependencies:
