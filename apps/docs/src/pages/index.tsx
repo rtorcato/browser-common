@@ -1,5 +1,7 @@
 import Link from '@docusaurus/Link'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 import Layout from '@theme/Layout'
+import ThemedImage from '@theme/ThemedImage'
 import { siblings } from '@rtorcato/shared-docs'
 import UseWithAI from '@rtorcato/shared-docs/components/UseWithAI'
 import clsx from 'clsx'
@@ -166,10 +168,16 @@ const CATEGORIES: Category[] = [
 /* ------------------------------------------------------------------ */
 
 function Hero(): ReactElement {
+	const mark = {
+		light: useBaseUrl('/img/logo.svg'),
+		dark: useBaseUrl('/img/logo-dark.svg'),
+	}
 	return (
 		<header className={styles.hero}>
 			<div className={styles.heroGlow} aria-hidden />
 			<div className={styles.heroInner}>
+				{/* Decorative: the wordmark beside it carries the name. */}
+				<ThemedImage className={styles.heroMark} alt="" sources={mark} />
 				<div className={styles.wordmark}>
 					<span className={styles.wmBrowser}>browser</span>
 					<span className={styles.wmDash}>-</span>
