@@ -25,7 +25,7 @@
       "commitLint": true,
       "semanticRelease": true,
       "securityAutomation": true,
-      "bundler": "tsup",
+      "bundler": "esbuild",
       "docs": {
         "url": "https://docs.torcato.dev/browser-common/",
         "deploy": "cloudflare"
@@ -34,8 +34,8 @@
     "assets": {
       "claude-sync-agents": "68c8184cd66d11a2de7546eb36668f248ef4ef6ccaad28344bb106d03929f29a"
     },
-    "writtenBy": "@rtorcato/repo-tooling@5.1.4",
-    "writtenAt": "2026-09-30T17:39:53.365Z"
+    "writtenBy": "@rtorcato/repo-tooling@6.1.0",
+    "writtenAt": "2026-10-14T01:15:00.140Z"
   },
   "rules": {
     "mcp": {
