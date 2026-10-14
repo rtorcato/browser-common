@@ -128,15 +128,12 @@ const config: Config = {
 			respectPrefersColorScheme: true,
 		},
 		navbar: {
-			// The "browser-common" wordmark with blue "common" is baked into the
-			// SVG logo (light + dark variants), so the title stays empty to avoid
-			// rendering it twice.
-			title: '',
+			title: 'browser-common',
 			logo: {
 				alt: 'browser-common',
 				src: 'img/logo.svg',
 				srcDark: 'img/logo-dark.svg',
-				width: 178,
+				width: 26,
 				height: 26,
 			},
 			items: [

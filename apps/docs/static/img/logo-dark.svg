@@ -1,5 +1,12 @@
-<svg width="178" height="26" viewBox="0 0 178 26" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="browser-common">
-  <text x="0" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="21" font-weight="800" letter-spacing="-0.8">
-    <tspan fill="#FFFFFF">browser-</tspan><tspan fill="#58A6FF">common</tspan>
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="browser-common">
+  <!-- lucide app-window, ISC -->
+  <rect x=".5" y=".5" width="31" height="31" rx="8"
+        fill="#58a6ff" fill-opacity=".13" stroke="#58a6ff" stroke-opacity=".38"/>
+  <svg x="6.72" y="6.72" width="18.56" height="18.56" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+       stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="M10 4v4"/>
+    <path d="M2 8h20"/>
+    <path d="M6 4v4"/>
+  </svg>
 </svg>
