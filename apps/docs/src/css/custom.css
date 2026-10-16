@@ -108,11 +108,6 @@
 .navbar__link--active {
 	color: var(--bc-heading);
 }
-/* Family mark is drawn at 26px (DESIGN.md "Navbar standard"); Infima's 2rem would stretch the box. */
-.navbar__logo img {
-	width: 26px;
-	height: 26px;
-}
 
 /* ---------- Mobile drawer: collapse primary/secondary into one menu ----------
    The primary→secondary "Back to main menu" UX is confusing here. We swizzle
