@@ -1,6 +1,6 @@
 import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
-import { GITHUB_PROFILE, projectFamilyItems } from '@rtorcato/shared-docs'
+import { GITHUB_PROFILE, footerCopyright, projectFamilyItems } from '@rtorcato/shared-docs'
 import { themes as prismThemes } from 'prism-react-renderer'
 import remarkBrowserSupport from './plugins/remark-browser-support.mjs'
 
@@ -74,6 +74,7 @@ const config: Config = {
 	],
 
 	plugins: [
+		'@rtorcato/shared-docs/docusaurus',
 		[
 			'docusaurus-plugin-typedoc',
 			{
@@ -198,7 +199,7 @@ const config: Config = {
 					],
 				},
 			],
-			copyright: `Copyright © ${new Date().getFullYear()} Richard Torcato. Built with Docusaurus.`,
+			copyright: footerCopyright(),
 		},
 		prism: {
 			theme: prismThemes.github,
