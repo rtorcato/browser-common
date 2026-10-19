@@ -35,4 +35,5 @@ overrides:
   'compression@<1.8.2': '^1.8.2'
   'http-cache-semantics@<=4.2.0': '^4.3.0'
   'source-map-js@<1.2.2': '^1.2.2'
+  'postcss-selector-parser@>=7 <7.1.6': '^7.1.6'
   # braces: no fixed release on npm yet (3.0.3 is latest), so no override
