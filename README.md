@@ -1,9 +1,9 @@
-<!-- js-tooling:banner:start -->
+<!-- brand-kit:banner:start -->
 <picture>
   <source media="(max-width: 640px)" srcset="./brand/banner-mobile.png">
-  <img src="./brand/banner.png" alt="browser-common banner" width="1600">
+  <img src="./brand/banner.png" alt="Tree-shakeable TypeScript wrappers around 40+ browser Web APIs — one subpath per spec." width="1600">
 </picture>
-<!-- js-tooling:banner:end -->
+<!-- brand-kit:banner:end -->
 
 # Browser Common
 
