@@ -14,7 +14,8 @@ Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs.
 [![npm downloads](https://img.shields.io/npm/dm/@rtorcato%2Fbrowser-common)](https://www.npmjs.com/package/@rtorcato/browser-common)
 [![Bundle size](https://img.shields.io/bundlephobia/minzip/@rtorcato/browser-common)](https://bundlephobia.com/package/@rtorcato/browser-common)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/rtorcato)
+
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy me a coffee" height="40">](https://buymeacoffee.com/rtorcato)
 
 Typed, ESM-only wrappers for clipboard, geolocation, media devices, storage, observers, and 46 other Web APIs — each one a separate subpath export so consumers only ship what they use. Most wrappers guard their underlying API, returning `null` or `false` on unsupported browsers; alert, canvas, and observer modules may throw if the API is unavailable. No runtime dependencies, `sideEffects: false`, fully tree-shakeable.
 
