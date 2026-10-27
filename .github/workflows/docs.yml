@@ -9,10 +9,8 @@ on:
       - 'scripts/sync-changelog.mjs'
       - '.github/workflows/docs.yml'
       - 'pnpm-workspace.yaml'
-  # The changelog page is built from GitHub Releases, and no release commit
-  # lands on main any more — without this the page would never refresh.
-  release:
-    types: [published]
+  # release.yml dispatches this after a publish, so the changelog page (built
+  # from the GitHub releases) picks up the new ones.
   workflow_dispatch:
 
 permissions:

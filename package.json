@@ -1,6 +1,6 @@
 {
   "name": "@rtorcato/browser-common",
-  "version": "1.2.2",
+  "version": "3.0.0",
   "description": "Small, tree-shakeable TypeScript wrappers around 52 browser Web APIs — each one a separate subpath export.",
   "type": "module",
   "main": "dist/index.js",
@@ -49,6 +49,7 @@
     "check": "pnpm exec biome check .",
     "prepare": "husky",
     "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
     "sync:agents": "node scripts/sync-agents.mjs",
     "check:agents": "node scripts/sync-agents.mjs --check",
     "verify": "pnpm check:agents && pnpm typecheck && pnpm check && pnpm exec vitest run && pnpm treeshake && pnpm attw",
@@ -285,6 +286,7 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
     "@biomejs/biome": "^2.5.15",
+    "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
     "@rtorcato/brand-kit": "^1.1.0",
@@ -302,7 +304,6 @@
     "lint-staged": "^17.6.0",
     "playwright": "^1.63.0",
     "rimraf": "6.1.3",
-    "semantic-release": "^25.0.9",
     "size-limit": "^14.1.0",
     "typescript": "^7.0.2",
     "vitest": "5.0.3"
