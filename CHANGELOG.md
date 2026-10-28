@@ -1,3 +1,9 @@
+# @rtorcato/browser-common
+
+## 3.0.0
+
+Releases 1.2.3 to 3.0.0 were cut by semantic-release, which no longer wrote this file. Their notes are on [GitHub Releases](https://github.com/rtorcato/browser-common/releases). From the next release on, Changesets writes each entry here, above this one.
+
 ## [1.2.2](https://github.com/rtorcato/browser-common/compare/v1.2.1...v1.2.2) (2026-07-23)
 
 

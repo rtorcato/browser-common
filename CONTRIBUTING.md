@@ -41,7 +41,13 @@ Tabs for indentation, single quotes, no semicolons, 100-character lines. Enforce
 
 ## Releases
 
-Releases batch up commits after they merge. Semantic-release publishes a new version when a milestone is closed or when `.github/workflows/release.yml` is dispatched manually. Commit message types drive the version bump (`fix:` → patch, `feat:` → minor, `BREAKING CHANGE:` → major). Don't tag manually or dispatch the workflow yourself — only project maintainers publish.
+Releases use [Changesets](https://github.com/changesets/changesets). Don't edit `version` in `package.json` by hand.
+
+1. Add a changeset for any user-facing change: `pnpm changeset`. Pick the bump (patch/minor/major) and commit the file under `.changeset/` with your PR.
+2. Merging to `main` does not publish. Each push opens or updates a "Version Packages" PR that consumes the pending changesets and bumps the version.
+3. Merging the Version Packages PR is the release. Its `publish` job waits for one approval in the `release` environment, then publishes to npm, creates the GitHub Release and rebuilds the docs site.
+
+Don't tag manually or dispatch the workflow yourself — only project maintainers publish.
 
 ## License
 

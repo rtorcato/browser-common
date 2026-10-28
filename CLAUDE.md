@@ -14,7 +14,8 @@ Use **pnpm** — not npm or yarn. Non-obvious scripts:
 - `pnpm check:fix` — Biome auto-fix (use this after edits, not `lint`/`format` separately)
 - `pnpm typecheck` — `tsc --noEmit`
 - `pnpm build-prod` — `rimraf dist` + esbuild via `build.mjs` + `tsc --emitDeclarationOnly --project tsconfig.build.json`
-- `pnpm commit` — Commitizen prompt; commits must follow Conventional Commits (enforced by commitlint + semantic-release)
+- `pnpm commit` — Commitizen prompt; commits must follow Conventional Commits (enforced by commitlint)
+- `pnpm changeset` — add a changeset (bump type + summary) for any user-facing change
 
 ## Code style (Biome — `biome.jsonc`)
 
@@ -50,16 +51,14 @@ Three steps — all three are required, or the export won't resolve:
 
 ## Release process
 
-- Releases are **on demand**, never per merge: `.github/workflows/release.yml` runs semantic-release on a manual dispatch (`gh workflow run release.yml`) or when a milestone is closed. It runs in the `release` GitHub environment because npm's trusted publisher is pinned to `release.yml` + `release` — rename either and publishing fails with `404 package not found`.
-- Publishes to **npmjs.org** as `@rtorcato/browser-common` (public, with provenance).
-- Commit messages drive the version bump — use Conventional Commits (`feat:`, `fix:`, `chore:`, etc.).
-- **No release commit lands on `main`.** The preset drops `@semantic-release/git` because the `code-scanning-main` ruleset rejects a freshly-created commit with `GH013`. So `package.json`'s `version` and `CHANGELOG.md` stay frozen on `main` — the tag, the npm publish and the GitHub Release are the source of truth. The docs changelog page is built from the Releases API by `scripts/sync-changelog.mjs`.
+- Releases use **Changesets**, batched. A PR that changes the published package adds a changeset (`pnpm changeset`). Each push to `main` opens or updates the "Version Packages" PR, which bumps `package.json`'s `version` and writes `CHANGELOG.md`; merging it is the release. Its `publish` job in `.github/workflows/release.yml` waits for one approval in the `release` GitHub environment, because npm's trusted publisher is pinned to `release.yml` + `release`: rename either and publishing fails with `404 package not found`. A manual dispatch (`gh workflow run release.yml`) retries a failed publish.
+- Publishes to **npmjs.org** as `@rtorcato/browser-common` (public, with provenance), then tags it and creates the GitHub Release. The docs changelog page is built from the Releases API by `scripts/sync-changelog.mjs`; `release.yml` dispatches `docs.yml` after a publish to rebuild it.
+- `pnpm-workspace.yaml` lists `.` so Changesets sees the root package; drop it and every changeset fails with "not in the workspace".
 - `[ci skip]` / `[skip ci]` in a commit message suppresses CI.
 - Publishing uses npm OIDC trusted publishing — no `NPM_TOKEN` needed. `GITHUB_TOKEN` is provided automatically.
-- Release config (`release.config.mjs`) re-exports the shared preset from `@rtorcato/repo-tooling/semantic-release/github`.
 
 ## Repo etiquette
 
 - Husky + lint-staged runs `biome lint` + `biome format` on `*.{js,ts,json,md}` pre-commit. Don't bypass with `--no-verify`.
-- Branch flow: work lands directly on `main`. There is no PR review gate — run `pnpm check:fix && pnpm typecheck && pnpm test` (or `/verify`) before pushing. A push no longer releases; that waits for a dispatch or a closed milestone.
+- Branch flow: work lands directly on `main`. There is no PR review gate — run `pnpm check:fix && pnpm typecheck && pnpm test` (or `/verify`) before pushing. A push to `main` never publishes; merging the Version Packages PR does, after one approval.
 - Remote is GitHub (`rtorcato/browser-common`); use `gh` for issues, PRs, and CI status.
