@@ -21,7 +21,7 @@ jobs:
   cloudflare:
     permissions:
       contents: read
-    uses: rtorcato/repo-tooling/.github/workflows/docs-deploy-cloudflare.yml@75b34fe7d8898772cd748d1b48c698bd89cfd956 # main as of 2026-09-30
+    uses: rtorcato/repo-tooling/.github/workflows/docs-deploy-cloudflare.yml@863492b9f3b85c60085a8435b372990ffc755b68 # main as of 2026-09-30
     with:
       build-filter: '@rtorcato/browser-common-docs'
       worker-name: browser-common-docs
